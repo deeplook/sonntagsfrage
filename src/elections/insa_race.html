@@ -32,6 +32,10 @@
     .chart-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: 25px 26px 13px; }
     .date { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
     .meta { margin-top: 9px; color: #69758c; font-size: 13px; }
+    .government-context { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 9px; color: #5b56cc; font-size: 12px; font-weight: 700; }
+    .government-context a { color: inherit; text-decoration: none; }
+    .government-context a:hover { text-decoration: underline; }
+    .gov-key { width: 4px; height: 15px; border-radius: 2px; background: #5b56cc; flex: none; }
     .frame-count { color: #8190a6; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .chart { padding: 2px 26px 20px; }
     .axis { display: grid; grid-template-columns: 140px minmax(0, 1fr); padding-right: 54px; color: #8490a3; font-size: 11px; }
@@ -39,7 +43,8 @@
     .race { position: relative; height: 560px; min-width: 0; }
     .race::before { content: ""; position: absolute; top: 0; bottom: 0; left: 140px; right: 54px; background: repeating-linear-gradient(to right, #e6eaf2 0, #e6eaf2 1px, transparent 1px, transparent 20%); border-right: 1px solid #e6eaf2; pointer-events: none; }
     .row { display: grid; grid-template-columns: 140px minmax(0, 1fr); padding-right: 54px; height: 45px; align-items: center; position: absolute; left: 0; right: 0; top: 0; transition: transform var(--motion) cubic-bezier(.22,1,.36,1), opacity var(--motion) ease; min-width: 0; }
-    .name { display: flex; align-items: center; gap: 8px; padding-right: 10px; min-width: 0; font-size: 13px; font-weight: 750; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .name { display: flex; align-items: center; gap: 8px; padding: 0 10px 0 5px; border-left: 4px solid transparent; min-width: 0; font-size: 13px; font-weight: 750; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .name.is-government { border-left-color: #5b56cc; }
     .rank { width: 23px; height: 23px; border-radius: 6px; display: inline-grid; place-items: center; background: #eef0f6; color: #718099; font-size: 11px; flex: none; font-variant-numeric: tabular-nums; }
     .track { position: relative; height: 34px; min-width: 0; }
     .bar { height: 100%; width: 0; border-radius: 5px; transition: width var(--motion) cubic-bezier(.22,1,.36,1); min-width: 2px; }
@@ -78,10 +83,10 @@
         <div class="field"><span class="field-label">Animation</span><div class="actions"><button id="back" class="btn icon" type="button" aria-label="Eine Umfrage zurück">‹</button><button id="play" class="btn primary" type="button">▶ Abspielen</button><button id="next" class="btn icon" type="button" aria-label="Eine Umfrage weiter">›</button></div></div>
         <div class="field"><label for="speed">Tempo</label><div class="speed-wrap"><input id="speed" class="speed" type="range" min="100" max="1000" value="300" step="50"><span id="speed-value" class="speed-value">300 ms</span></div></div>
       </div>
-      <div class="chart-head"><div><div id="date" class="date"></div><div id="meta" class="meta"></div></div><div id="frame-count" class="frame-count"></div></div>
+      <div class="chart-head"><div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div id="frame-count" class="frame-count"></div></div>
       <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div></div>
       <div class="timeline"><span id="first-date"></span><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"><span id="last-date"></span></div>
-      <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats. Quelle dieser Grafik: <a id="source" href="https://www.wahlrecht.de/umfragen/insa.htm" target="_blank" rel="noopener noreferrer">wahlrecht.de / INSA</a>.<br>Weitere Datenbank im Projekt: © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">dawum.de</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a>.</p>
+      <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats. Quelle dieser Grafik: <a id="source" href="https://www.wahlrecht.de/umfragen/insa.htm" target="_blank" rel="noopener noreferrer">wahlrecht.de / INSA</a>.<br>Weitere Datenbank im Projekt: © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">dawum.de</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a>.</p>
     </section>
   </main>
   <script type="application/json" id="poll-data">__POLL_DATA__</script>
@@ -137,7 +142,7 @@
         track.append(bar, value);
         row.append(name, track);
         race.append(row);
-        const parts = {row, rank, bar, value};
+        const parts = {row, name, rank, bar, value};
         rows.set(party, parts);
         return parts;
       }
@@ -156,6 +161,9 @@
         }
         ranked.forEach(([party, score], rankIndex) => {
           const parts = ensureRow(party);
+          const governs = frame.government.parties.includes(party);
+          parts.name.classList.toggle("is-government", governs);
+          parts.name.title = governs ? "Regierungspartei am Ende der Erhebung" : "";
           const width = Math.max(0, Math.min(100, score / maxValue * 100));
           parts.rank.textContent = String(rankIndex + 1);
           parts.bar.style.width = `${width}%`;
@@ -167,6 +175,9 @@
         document.getElementById("date").textContent = formatDate(frame.date);
         const details = [frame.method, frame.sample ? `${Number(frame.sample).toLocaleString("de-DE")} Befragte` : "", frame.period ? `Erhebung: ${frame.period}` : ""].filter(Boolean);
         document.getElementById("meta").textContent = details.join(" · ");
+        const governmentLink = document.getElementById("government-link");
+        governmentLink.textContent = `Regierung: ${frame.government.cabinet} · ${frame.government.parties.join(" + ")}`;
+        governmentLink.href = frame.government.source_url;
         document.getElementById("frame-count").textContent = `${index + 1} / ${frames.length}`;
         document.getElementById("source").href = frame.url;
         scrubber.value = String(index);

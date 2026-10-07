@@ -48,6 +48,9 @@ def draw_frame(frame: dict, number: int, total: int, size: int) -> Image.Image:
     draw.rectangle((0, 0, size, px(126)), fill="#172039")
     draw.text((px(30), px(24)), "DEUTSCHLAND  ·  BUNDESTAG", font=face(14, True), fill="#b9c1ff")
     draw.text((px(30), px(51)), "INSA SONNTAGSFRAGE", font=face(31, True), fill="#ffffff")
+    government = frame["government"]
+    government_label = f"Regierung: {government['cabinet']} · {' + '.join(government['parties'])}"
+    draw.text((px(30), px(101)), government_label, font=face(14), fill="#d8dcff")
     published = date.fromisoformat(frame["date"])
     date_label = f"{published.day:02d}. {MONTHS[published.month - 1]} {published.year}"
     draw.text((px(30), px(139)), date_label, font=face(30, True), fill=ink)
@@ -63,6 +66,9 @@ def draw_frame(frame: dict, number: int, total: int, size: int) -> Image.Image:
     ranked = sorted(frame["values"].items(), key=lambda item: (-item[1], item[0]))
     for rank, (party, value) in enumerate(ranked):
         y = px(208 + rank * 39)
+        if party in government["parties"]:
+            draw.rounded_rectangle((px(20), y + px(5), px(24), y + px(23)),
+                                   radius=px(2), fill="#6c65df")
         draw.text((px(30), y + px(5)), party, font=face(18, True), fill=ink)
         bar_end = bar_left + round((bar_right - bar_left) * min(value, 50) / 50)
         draw.rounded_rectangle((bar_left, y, max(bar_left + 1, bar_end), y + px(27)),
@@ -76,6 +82,8 @@ def draw_frame(frame: dict, number: int, total: int, size: int) -> Image.Image:
     draw.rectangle((px(30), px(538), progress, px(544)), fill="#5b56cc")
     method = "Online-Panel" if frame["method"] == "Online-Panel" else "Telefon + Online"
     draw.text((px(30), px(555)), f"{method}  ·  n={frame['sample']}", font=face(13), fill=quiet)
+    draw.rectangle((px(435), px(558), px(439), px(572)), fill="#6c65df")
+    draw.text((px(447), px(555)), "Regierungspartei", font=face(12), fill=quiet)
     draw.line((px(30), px(585), px(610), px(585)), fill="#dfe3ec", width=max(1, px(1)))
     draw.text((px(30), px(594)), "Daten: © wahlrecht.de / INSA", font=face(12), fill="#45516a")
     draw.text((px(30), px(613)), "Weitere Datenbank: © dawum.de · ODbL", font=face(12), fill="#45516a")
@@ -115,6 +123,7 @@ def main() -> None:
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--polls", type=Path, default=Path("data/insa_polls.csv"))
     cli.add_argument("--results", type=Path, default=Path("data/insa_results.csv"))
+    cli.add_argument("--governments", type=Path, default=Path("data/governments.csv"))
     cli.add_argument("--output", type=Path, default=Path("charts/insa-race.gif"))
     cli.add_argument("--seconds", type=int, default=60)
     cli.add_argument("--size", type=int, default=640, help="square width and height in pixels")
@@ -126,7 +135,7 @@ def main() -> None:
     if shutil.which("ffmpeg") is None:
         cli.error("ffmpeg is required to encode GIF and MP4 files")
     try:
-        frames = load_frames(args.polls, args.results)
+        frames = load_frames(args.polls, args.results, args.governments)
         frame_rate = str(Fraction(len(frames), args.seconds))
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix="insa-race-") as directory:

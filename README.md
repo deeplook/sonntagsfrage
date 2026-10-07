@@ -54,6 +54,15 @@ published poll of each month; switch to **Jede Umfrage** to step through every
 poll. You can filter by survey method, scrub the timeline, and change playback
 speed. The values are individual poll snapshots, not a cumulative total.
 
+The violet stroke beside a party marks it as part of the **federal government
+at the end of that poll's fieldwork**. The chart also names the cabinet and its
+parties. The dated, source-linked intervals are in
+[`data/governments.csv`](data/governments.csv). They distinguish the SPD–Greens
+minority government after the FDP ministers left on 7 November 2024. When a
+fieldwork end date is missing, the publication date is used. The current table
+is verified through 7 October 2026; rendering a later poll requires updating
+it. Both renderers accept `--governments PATH`.
+
 Use `--polls`, `--results`, and `--output` to supply different CSV paths or an
 output filename. The chart follows the horizontal ranking and animation pattern
 of [davanstrien's benchmark-race](https://huggingface.co/spaces/davanstrien/benchmark-race/blob/main/index.html),
@@ -71,9 +80,9 @@ uv run elections-gif
 ```
 
 Default outputs are `charts/insa-race.gif` and `charts/insa-race.mp4` (640 × 640
-pixels). Both include the poll source and the dawum.de copyright and ODbL
-notice in every frame. On the current 1,036-poll archive, the GIF is about
-3.6 MB and the MP4 about 0.9 MB. The sequence spans all poll snapshots; each
+pixels). Both include the poll source, the dawum.de copyright and ODbL
+notice, and the government marker in every frame. On the current 1,036-poll
+archive, the GIF is about 3.6 MB and the MP4 about 1.0 MB. The sequence spans all poll snapshots; each
 frame is one poll, and the fixed 0–50% axis avoids a changing visual scale.
 
 Use `--output PATH`, `--seconds N`, `--size N`, or `--colors N` to control the
