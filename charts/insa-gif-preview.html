@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INSA race exports</title>
+  <style>
+    :root { font-family: Inter, system-ui, sans-serif; color: #172033; background: #f5f6fa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 30px 20px; }
+    main { max-width: 1150px; margin: auto; }
+    .eyebrow { color: #5b56cc; font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { margin: 8px 0 6px; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.04em; }
+    .intro { color: #596478; margin: 0 0 22px; line-height: 1.5; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { min-width: 0; background: white; border: 1px solid #e3e7f0; border-radius: 18px; padding: 16px; box-shadow: 0 12px 36px rgba(28,40,70,.06); }
+    .card.primary { border-color: #aaa7ee; }
+    .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 1px 0 12px; }
+    h2 { font-size: 19px; margin: 0; }
+    .size { color: #5b56cc; font-weight: 800; white-space: nowrap; }
+    img, video { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #f7f8fc; border-radius: 9px; }
+    p { overflow-wrap: anywhere; }
+    .card p { margin: 12px 0 5px; color: #65718a; font-size: 13px; line-height: 1.5; }
+    .facts { margin-top: 18px; color: #65718a; font-size: 13px; line-height: 1.6; }
+    .facts a { color: #514dc1; }
+    @media (max-width: 780px) { .grid { grid-template-columns: minmax(0, 1fr); } body { padding: 18px 10px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Deutschland · Bundestag</div>
+    <h1>INSA race · one minute</h1>
+    <p class="intro">Both exports show all 1,036 poll snapshots. Source and copyright credits remain visible throughout.</p>
+    <div class="grid">
+      <section class="card primary">
+        <div class="top"><h2>Animated GIF</h2><span class="size">3.6 MB</span></div>
+        <img src="insa-race.gif" alt="One-minute animated bar chart race of German INSA party polling from 2012 to 2026">
+        <p>Portable looping image for posts that accept GIF uploads.</p>
+      </section>
+      <section class="card">
+        <div class="top"><h2>MP4 companion</h2><span class="size">0.9 MB</span></div>
+        <video src="insa-race.mp4" controls autoplay muted loop playsinline aria-label="One-minute INSA polling bar chart race"></video>
+        <p>The same frames in a smaller video file for platforms that prefer video.</p>
+      </section>
+    </div>
+    <p class="facts">60 seconds · 640 × 640 · 1,036 frames · Data: © wahlrecht.de / INSA · Additional database: © <a href="https://dawum.de/">dawum.de</a> (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>)</p>
+  </main>
+</body>
+</html>
