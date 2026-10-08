@@ -15,7 +15,7 @@ dependencies = [
 [project.scripts]
 elections = "elections:main"
 elections-race = "elections.race:main"
-elections-gif = "elections.gif:main"
+elections-gif = "elections.animation:main"
 elections-reference-data = "elections.reference_data:main"
 
 [build-system]
