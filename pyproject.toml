@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "certifi>=2026.7.22",
     "pillow>=12.3.0",
 ]
 
@@ -15,6 +16,7 @@ dependencies = [
 elections = "elections:main"
 elections-race = "elections.race:main"
 elections-gif = "elections.gif:main"
+elections-reference-data = "elections.reference_data:main"
 
 [build-system]
 requires = ["uv_build>=0.12.4,<0.13.0"]

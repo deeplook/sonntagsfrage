@@ -1,8 +1,8 @@
 # German election poll fetcher
 
 Download the poll data discussed in [work/BRAINSTORM.md](work/BRAINSTORM.md). The
-project uses Python 3.12+ and [uv](https://docs.astral.sh/uv/). It needs no
-third-party Python packages.
+project uses Python 3.12+ and [uv](https://docs.astral.sh/uv/) to manage its
+dependencies.
 
 ```sh
 uv run elections
@@ -98,7 +98,8 @@ each frame, using the same fieldwork-end date as the `Regierung` header
 
 Election result percentages come from the Federal Returning Officer's
 [historical results CSV](https://www.bundeswahlleiterin.de/en/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv);
-dates come from its [official election date table](https://www.bundeswahlleiterin.de/dam/jcr/397735e3-0585-46f6-a0b5-2c60c5b83de6/btw_ab49_gesamt.pdf).
+dates come from its official HTML page for each election, such as the
+[2025 election page](https://www.bundeswahlleiterin.de/bundestagswahlen/2025.html).
 The source CSV is preserved at
 [`data/raw/bundeswahlleiter-bundestag-results.csv`](data/raw/bundeswahlleiter-bundestag-results.csv),
 and the chart-ready values are in
@@ -107,6 +108,27 @@ are distributed under the [Data Licence Germany – Attribution – Version
 2.0](https://www.govdata.de/dl-de/by-2-0); the video frames include the required
 attribution. The 1949 election used one vote rather than separate first and
 second votes; it falls outside this chart's 2012–present timeline.
+
+Refresh the chart's election results and source material with:
+
+```sh
+uv run elections-reference-data
+```
+
+This downloads the official results CSV and the per-election HTML pages for
+each election year in it, rebuilds `data/bundestag_elections.csv` (combining
+CDU and CSU), and saves the CSV at
+`data/raw/bundeswahlleiter-bundestag-results.csv`. The election pages are
+archived under `data/raw/bundeswahlleiter-election-pages/`, with dates, URLs,
+and hashes in `data/raw/bundeswahlleiter-election-pages.csv`. It also downloads
+snapshots of the official pages cited by `data/governments.csv` into
+`data/raw/government-sources/`, with a URL/hash manifest at
+`data/raw/government-sources.csv`.
+
+Government dates and party membership remain curated in
+`data/governments.csv`: the cited official pages are narrative documents, not a
+structured feed, so review them and edit the intervals when the cabinet changes.
+Pass `--data-dir PATH` to refresh a separate data directory.
 
 Use `--output PATH`, `--seconds N`, `--size N`, or `--colors N` to control the
 GIF. `--no-mp4` skips the video companion. Because GIF frame timing is limited

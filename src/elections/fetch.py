@@ -9,10 +9,13 @@ import io
 import json
 from pathlib import Path
 import re
+import ssl
 import sys
 from tempfile import NamedTemporaryFile
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+
+import certifi
 
 
 DAWUM_URL = "https://api.dawum.de/"
@@ -36,7 +39,7 @@ SINGLE_DATE_RE = re.compile(r"^(\d{1,2})\.(\d{1,2})\.$")
 def fetch(url: str) -> bytes:
     request = Request(url, headers={"User-Agent": "elections-poll-fetcher/0.1 (research; https://dawum.de/API/)"})
     try:
-        with urlopen(request, timeout=30) as response:
+        with urlopen(request, timeout=30, context=ssl.create_default_context(cafile=certifi.where())) as response:
             return response.read()
     except (HTTPError, URLError, TimeoutError) as exc:
         raise RuntimeError(f"Could not download {url}: {exc}") from exc
