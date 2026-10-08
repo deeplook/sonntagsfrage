@@ -82,8 +82,8 @@ uv run elections-gif
 ```
 
 Default outputs are `charts/insa-race.gif` and `charts/insa-race.mp4` (640 × 640
-pixels). Both include the poll source, the dawum.de copyright and ODbL
-notice, and the government marker in every frame. The fixed 0–50% axis avoids
+pixels). Both include a German flag, poll source attribution, and a government
+marker in every frame. The fixed 0–50% axis avoids
 a changing visual scale. Each frame also includes a compact history chart of
 online poll values from the first poll through that frame's date. Hollow colored
 circles show Bundestag election results; thin vertical guides mark election

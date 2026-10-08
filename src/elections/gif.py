@@ -149,6 +149,20 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
     draw.rectangle((0, 0, size, px(126)), fill="#172039")
     draw.text((px(30), px(24)), "DEUTSCHLAND  ·  BUNDESTAG", font=face(14, True), fill="#b9c1ff")
     draw.text((px(30), px(51)), "INSA SONNTAGSFRAGE", font=face(31, True), fill="#ffffff")
+    flag_left, flag_top = px(564), px(26)
+    flag_right, flag_bottom = px(610), px(53)
+    border = max(1, px(1))
+    inner_left, inner_right = flag_left + border, flag_right - border
+    inner_top, inner_bottom = flag_top + border, flag_bottom - border
+    stripe_height = (inner_bottom - inner_top + 1) / 3
+    draw.rectangle((flag_left, flag_top, flag_right, flag_bottom),
+                   fill="#d8dcff", outline="#d8dcff")
+    draw.rectangle((inner_left, inner_top, inner_right,
+                    round(inner_top + stripe_height - 1)), fill="#000000")
+    draw.rectangle((inner_left, round(inner_top + stripe_height), inner_right,
+                    round(inner_top + 2 * stripe_height - 1)), fill="#dd0000")
+    draw.rectangle((inner_left, round(inner_top + 2 * stripe_height), inner_right,
+                    inner_bottom), fill="#ffce00")
     government = frame["government"]
     government_label = f"Regierung: {government['cabinet']} · {' + '.join(government['parties'])}"
     draw.text((px(30), px(101)), government_label, font=face(14), fill="#d8dcff")
