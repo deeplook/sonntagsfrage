@@ -2,6 +2,7 @@
 
 import argparse
 import csv
+from dataclasses import dataclass
 from datetime import date, timedelta
 from fractions import Fraction
 from pathlib import Path
@@ -32,6 +33,56 @@ FONT_BOLD = (
 )
 
 
+@dataclass(frozen=True)
+class Layout:
+    """Frame geometry in a 640px reference coordinate system."""
+
+    canvas_size: int = 640
+    header_height: int = 112
+    header_kicker: tuple[int, int] = (30, 24)
+    header_title: tuple[int, int] = (30, 51)
+    flag: tuple[int, int, int, int] = (564, 26, 610, 53)
+    government_label: tuple[int, int] = (30, 87)
+    date_label: tuple[int, int] = (30, 125)
+    frame_counter: tuple[int, int] = (610, 132)
+    panel_label: tuple[int, int] = (355, 132)
+
+    bar_left: int = 164
+    bar_right: int = 556
+    bar_grid_top: int = 183
+    bar_grid_bottom: int = 507
+    bar_ticks_y: int = 170
+    bar_first_y: int = 182
+    bar_row_step: int = 39
+    bar_height: int = 27
+    party_marker: tuple[int, int, int, int] = (20, 5, 24, 23)
+    party_label_x: int = 30
+    value_label_max_x: int = 566
+    election_marker_overhang: int = 3
+
+    legend_party_marker: tuple[int, int, int, int] = (20, 498, 24, 510)
+    legend_party_label: tuple[int, int] = (30, 495)
+    polls_line: tuple[int, int, int, int] = (126, 501, 136, 501)
+    polls_label: tuple[int, int] = (140, 495)
+    election_circle: tuple[int, int, int, int] = (212, 497, 220, 505)
+    election_legend_label: tuple[int, int] = (226, 495)
+    bar_result_line: tuple[int, int, int, int] = (303, 495, 303, 505)
+    bar_result_label: tuple[int, int] = (311, 495)
+    government_swatches: tuple[tuple[int, int, int, int], tuple[int, int, int, int]] = (
+        (417, 497, 425, 505), (428, 497, 436, 505),
+    )
+    government_legend_label: tuple[int, int] = (442, 495)
+
+    trend_bounds: tuple[int, int, int, int] = (30, 532, 610, 592)
+    trend_year_label_y: int = 596
+    trend_year_tick_length: int = 3
+    footer_rule: tuple[int, int, int, int] = (30, 615, 610, 615)
+    copyright_label: tuple[int, int] = (30, 618)
+
+
+LAYOUT = Layout()
+
+
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     for path in FONT_BOLD if bold else FONT_REGULAR:
         if Path(path).exists():
@@ -60,9 +111,10 @@ def frame_date(frame: dict) -> date:
 
 def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
                timeline_start: date, timeline_end: date, elections: list[dict],
-               governments: list[dict], px, face) -> None:
-    left = px(30)
-    top, bottom = px(532), px(592)
+               governments: list[dict], layout: Layout, px, face) -> None:
+    left, top, chart_right, bottom = (
+        px(value) for value in layout.trend_bounds
+    )
     last_date = frame_date(frames[-1])
     span = max((timeline_end - timeline_start).days, 1)
 
@@ -71,8 +123,8 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
         end = min(government["end"] - timedelta(days=1), last_date)
         if start > end:
             continue
-        x_start = left + round((px(610) - left) * (start - timeline_start).days / span)
-        x_end = left + round((px(610) - left) * (end - timeline_start).days / span)
+        x_start = left + round((chart_right - left) * (start - timeline_start).days / span)
+        x_end = left + round((chart_right - left) * (end - timeline_start).days / span)
         draw.rectangle((x_start, top, min(x_end, right), bottom),
                        fill=GOVERNMENT_BAND_COLORS[index % len(GOVERNMENT_BAND_COLORS)])
 
@@ -84,7 +136,7 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
                          if timeline_start <= election["date"] <= last_date]
     election_positions = []
     for election in visible_elections:
-        x = left + round((px(610) - left) *
+        x = left + round((chart_right - left) *
                          (election["date"] - timeline_start).days / span)
         draw.line((x, top, x, bottom), fill="#c6ccd6", width=max(1, px(1)))
         election_positions.append((election, x))
@@ -98,7 +150,7 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
     for party, points in history.items():
         dated_coordinates = [
             (day,
-             (left + round((px(610) - left) * day / span),
+             (left + round((chart_right - left) * day / span),
               bottom - round((bottom - top) * min(value, 50) / 50)))
             for day, value in points
         ]
@@ -131,24 +183,27 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
             color = COLORS.get(party, "#8895a7")
             draw.ellipse((x - radius, y - radius, x + radius, y + radius),
                          fill="#f7f8fc", outline=color, width=max(1, px(2)))
-    draw.rectangle((left, top, px(610), bottom),
+    draw.rectangle((left, top, chart_right, bottom),
                    outline="#aeb6c2", width=max(1, px(1)))
     first_year, last_year = timeline_start.year, timeline_end.year
     for year in range(first_year, last_year + 1):
         year_start = timeline_start if year == first_year else date(year, 1, 1)
         if year_start > timeline_end:
             continue
-        x = left + round((px(610) - left) * (year_start - timeline_start).days / span)
-        draw.line((x, bottom, x, bottom + px(3)), fill="#65718a", width=max(1, px(1)))
+        x = left + round((chart_right - left) * (year_start - timeline_start).days / span)
+        draw.line((x, bottom, x, bottom + px(layout.trend_year_tick_length)),
+                  fill="#65718a", width=max(1, px(1)))
         if year % 2 == 0:
             anchor = "la" if year == first_year else "ma"
-            draw.text((x, px(596)), str(year), font=face(9), fill="#65718a", anchor=anchor)
+            draw.text((x, px(layout.trend_year_label_y)), str(year), font=face(9),
+                      fill="#65718a", anchor=anchor)
 
 
 def draw_frame(frame: dict, number: int, total: int, size: int,
                history: list[dict], timeline_start: date, timeline_end: date,
                elections: list[dict], governments: list[dict]) -> Image.Image:
-    scale = size / 640
+    layout = LAYOUT
+    scale = size / layout.canvas_size
     px = lambda value: round(value * scale)
     face = lambda value, bold=False: font(max(8, px(value)), bold)
     image = Image.new("RGB", (size, size), "#f7f8fc")
@@ -156,11 +211,12 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
     ink = "#172033"
     quiet = "#65718a"
 
-    draw.rectangle((0, 0, size, px(112)), fill="#172039")
-    draw.text((px(30), px(24)), "DEUTSCHLAND  ·  BUNDESTAG", font=face(14, True), fill="#b9c1ff")
-    draw.text((px(30), px(51)), "INSA SONNTAGSFRAGE", font=face(31, True), fill="#ffffff")
-    flag_left, flag_top = px(564), px(26)
-    flag_right, flag_bottom = px(610), px(53)
+    draw.rectangle((0, 0, size, px(layout.header_height)), fill="#172039")
+    draw.text(tuple(map(px, layout.header_kicker)), "DEUTSCHLAND  ·  BUNDESTAG",
+              font=face(14, True), fill="#b9c1ff")
+    draw.text(tuple(map(px, layout.header_title)), "INSA SONNTAGSFRAGE",
+              font=face(31, True), fill="#ffffff")
+    flag_left, flag_top, flag_right, flag_bottom = map(px, layout.flag)
     border = max(1, px(1))
     inner_left, inner_right = flag_left + border, flag_right - border
     inner_top, inner_bottom = flag_top + border, flag_bottom - border
@@ -175,21 +231,24 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
                     inner_bottom), fill="#ffce00")
     government = frame["government"]
     government_label = f"Regierung: {government['cabinet']} · {' + '.join(government['parties'])}"
-    draw.text((px(30), px(87)), government_label, font=face(14), fill="#d8dcff")
+    draw.text(tuple(map(px, layout.government_label)), government_label,
+              font=face(14), fill="#d8dcff")
     published = date.fromisoformat(frame["date"])
     date_label = f"{published.day:02d}. {MONTHS[published.month - 1]} {published.year}"
-    draw.text((px(30), px(125)), date_label, font=face(30, True), fill=ink)
-    draw.text((px(610), px(132)), f"{number + 1:,} / {total:,}".replace(",", "."),
+    draw.text(tuple(map(px, layout.date_label)), date_label, font=face(30, True), fill=ink)
+    draw.text(tuple(map(px, layout.frame_counter)), f"{number + 1:,} / {total:,}".replace(",", "."),
               font=face(12), fill=quiet, anchor="ra")
-    draw.text((px(355), px(132)), f"Online-Panel  ·  n={frame['sample']}",
+    draw.text(tuple(map(px, layout.panel_label)), f"Online-Panel  ·  n={frame['sample']}",
               font=face(12), fill=quiet)
     reference_date = frame_date(frame)
 
-    bar_left, bar_right = px(164), px(556)
+    bar_left, bar_right = px(layout.bar_left), px(layout.bar_right)
     for tick in range(0, 51, 10):
         x = bar_left + round((bar_right - bar_left) * tick / 50)
-        draw.line((x, px(183), x, px(507)), fill="#e2e6ee", width=max(1, px(1)))
-        draw.text((x, px(170)), str(tick), font=face(11), fill="#8a95aa", anchor="mb")
+        draw.line((x, px(layout.bar_grid_top), x, px(layout.bar_grid_bottom)),
+                  fill="#e2e6ee", width=max(1, px(1)))
+        draw.text((x, px(layout.bar_ticks_y)), str(tick), font=face(11),
+                  fill="#8a95aa", anchor="mb")
 
     ranked = sorted(frame["values"].items(), key=lambda item: (-item[1], item[0]))
     latest_election = next(
@@ -197,44 +256,56 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
         None,
     )
     for rank, (party, value) in enumerate(ranked):
-        y = px(182 + rank * 39)
+        y = px(layout.bar_first_y + rank * layout.bar_row_step)
         if party in government["parties"]:
-            draw.rounded_rectangle((px(20), y + px(5), px(24), y + px(23)),
+            marker_left, marker_top, marker_right, marker_bottom = layout.party_marker
+            draw.rounded_rectangle((px(marker_left), y + px(marker_top),
+                                    px(marker_right), y + px(marker_bottom)),
                                    radius=px(2), fill="#6c65df")
-        draw.text((px(30), y + px(5)), party, font=face(18, True), fill=ink)
+        draw.text((px(layout.party_label_x), y + px(5)), party,
+                  font=face(18, True), fill=ink)
         bar_end = bar_left + round((bar_right - bar_left) * min(value, 50) / 50)
-        draw.rounded_rectangle((bar_left, y, max(bar_left + 1, bar_end), y + px(27)),
+        draw.rounded_rectangle((bar_left, y, max(bar_left + 1, bar_end),
+                                y + px(layout.bar_height)),
                                radius=px(5), fill=COLORS.get(party, "#8895a7"))
         if latest_election and party in latest_election["values"]:
             result_x = bar_left + round(
                 (bar_right - bar_left) * min(latest_election["values"][party], 50) / 50
             )
-            marker_top, marker_bottom = y - px(3), y + px(30)
+            marker_top = y - px(layout.election_marker_overhang)
+            marker_bottom = y + px(layout.bar_height + layout.election_marker_overhang)
             draw.line((result_x, marker_top, result_x, marker_bottom),
                       fill="#8a95a2", width=max(2, px(2)))
         value_label = f"{value:g}".replace(".", ",") + " %"
-        draw.text((min(bar_end + px(8), px(566)), y + px(3)), value_label,
+        draw.text((min(bar_end + px(8), px(layout.value_label_max_x)), y + px(3)), value_label,
                   font=face(16, True), fill=ink)
 
     timeline_span = max((timeline_end - timeline_start).days, 1)
-    progress = px(30) + round(px(580) * (reference_date - timeline_start).days / timeline_span)
-    draw.rectangle((px(20), px(498), px(24), px(510)), fill="#6c65df")
-    draw.text((px(30), px(495)), "Regierungspartei", font=face(11), fill=quiet)
-    draw.line((px(126), px(501), px(136), px(501)), fill="#65718a", width=max(1, px(2)))
-    draw.text((px(140), px(495)), "Umfragen", font=face(10), fill=quiet)
-    draw.ellipse((px(212), px(497), px(220), px(505)),
+    trend_left, _, trend_right, _ = layout.trend_bounds
+    progress = px(trend_left) + round(px(trend_right - trend_left) *
+                                      (reference_date - timeline_start).days / timeline_span)
+    draw.rectangle(tuple(map(px, layout.legend_party_marker)), fill="#6c65df")
+    draw.text(tuple(map(px, layout.legend_party_label)), "Regierungspartei",
+              font=face(11), fill=quiet)
+    draw.line(tuple(map(px, layout.polls_line)), fill="#65718a", width=max(1, px(2)))
+    draw.text(tuple(map(px, layout.polls_label)), "Umfragen", font=face(10), fill=quiet)
+    draw.ellipse(tuple(map(px, layout.election_circle)),
                  fill="#f7f8fc", outline="#65718a", width=max(1, px(1)))
-    draw.text((px(226), px(495)), "Wahlergebnis", font=face(10), fill=quiet)
-    draw.line((px(303), px(495), px(303), px(505)), fill="#8a95a2", width=max(2, px(2)))
+    draw.text(tuple(map(px, layout.election_legend_label)), "Wahlergebnis",
+              font=face(10), fill=quiet)
+    draw.line(tuple(map(px, layout.bar_result_line)), fill="#8a95a2",
+              width=max(2, px(2)))
     election_label = f"Balken: Wahl {latest_election['date'].year}" if latest_election else "Balken"
-    draw.text((px(311), px(495)), election_label, font=face(10), fill=quiet)
-    draw.rectangle((px(417), px(497), px(425), px(505)), fill=GOVERNMENT_BAND_COLORS[0])
-    draw.rectangle((px(428), px(497), px(436), px(505)), fill=GOVERNMENT_BAND_COLORS[1])
-    draw.text((px(442), px(495)), "Regierung", font=face(10), fill=quiet)
+    draw.text(tuple(map(px, layout.bar_result_label)), election_label,
+              font=face(10), fill=quiet)
+    for swatch, color in zip(layout.government_swatches, GOVERNMENT_BAND_COLORS):
+        draw.rectangle(tuple(map(px, swatch)), fill=color)
+    draw.text(tuple(map(px, layout.government_legend_label)), "Regierung",
+              font=face(10), fill=quiet)
     draw_trend(draw, history, progress, timeline_start, timeline_end,
-               elections, governments, px, face)
-    draw.line((px(30), px(615), px(610), px(615)), fill="#dfe3ec", width=max(1, px(1)))
-    draw.text((px(30), px(618)),
+               elections, governments, layout, px, face)
+    draw.line(tuple(map(px, layout.footer_rule)), fill="#dfe3ec", width=max(1, px(1)))
+    draw.text(tuple(map(px, layout.copyright_label)),
               "Daten: © wahlrecht.de / INSA · dawum.de / ODbL · Bundeswahlleiterin (DL-DE/BY-2.0)",
               font=face(10), fill="#45516a")
     return image
