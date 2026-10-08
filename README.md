@@ -89,9 +89,12 @@ online poll values from the first poll through that frame's date. Hollow colored
 circles show Bundestag election results; thin vertical guides mark election
 dates. The election markers cover the four federal elections in the chart's
 date range (2013, 2017, 2021, and 2025), with CDU and CSU combined to match the
-poll series. Alternating pale background bands show the government period in
-effect for each frame, using the same fieldwork-end date as the `Regierung`
-header (publication date when the fieldwork end is unavailable).
+poll series. A vertical tick on each party's poll bar shows its result in the
+most recent Bundestag election as of that frame, with the election year in the
+legend. The 2009 results provide a baseline for the first polls in the timeline.
+Alternating pale background bands show the government period in effect for
+each frame, using the same fieldwork-end date as the `Regierung` header
+(publication date when the fieldwork end is unavailable).
 
 Election result percentages come from the Federal Returning Officer's
 [historical results CSV](https://www.bundeswahlleiterin.de/en/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv);
