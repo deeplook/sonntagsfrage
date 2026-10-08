@@ -70,8 +70,10 @@ with a fixed 0–50% scale for poll comparability.
 
 ## One-minute GIF for sharing
 
-The following command renders **every** fetched INSA poll into a square,
-60-second animation. It also writes a smaller MP4 companion next to the GIF.
+The following command renders every fetched INSA **Online-Panel** poll into a
+square, 60-second animation. It also writes a smaller MP4 companion next to the
+GIF. Phone and online-panel mixed polls are excluded, keeping the method label
+and sample series consistent throughout the animation.
 Install [FFmpeg](https://ffmpeg.org/) first; uv installs Pillow from the project
 dependencies.
 
@@ -81,9 +83,9 @@ uv run elections-gif
 
 Default outputs are `charts/insa-race.gif` and `charts/insa-race.mp4` (640 × 640
 pixels). Both include the poll source, the dawum.de copyright and ODbL
-notice, and the government marker in every frame. On the current 1,036-poll
-archive, the GIF is about 3.6 MB and the MP4 about 1.0 MB. The sequence spans all poll snapshots; each
-frame is one poll, and the fixed 0–50% axis avoids a changing visual scale.
+notice, and the government marker in every frame. The fixed 0–50% axis avoids
+a changing visual scale. Each frame also includes a compact history chart of
+online poll values from the first poll through that frame's date.
 
 Use `--output PATH`, `--seconds N`, `--size N`, or `--colors N` to control the
 GIF. `--no-mp4` skips the video companion. Because GIF frame timing is limited
