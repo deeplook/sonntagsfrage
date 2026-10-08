@@ -1,7 +1,8 @@
 """Export INSA online-panel polls as a one-minute square GIF and MP4."""
 
 import argparse
-from datetime import date
+import csv
+from datetime import date, timedelta
 from fractions import Fraction
 from pathlib import Path
 import shutil
@@ -10,7 +11,7 @@ import tempfile
 
 from PIL import Image, ImageDraw, ImageFont
 
-from .race import load_frames
+from .race import load_frames, load_governments
 
 
 COLORS = {
@@ -20,6 +21,7 @@ COLORS = {
 }
 MONTHS = ("Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez")
 MAX_CONNECTED_GAP_DAYS = 21
+GOVERNMENT_BAND_COLORS = ("#fff0c9", "#e1f4e8")
 FONT_REGULAR = (
     "/System/Library/Fonts/Supplemental/Arial.ttf",
     "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -37,21 +39,59 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.Im
     return ImageFont.load_default(size=size)
 
 
+def load_elections(path: Path) -> list[dict]:
+    with path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    by_date: dict[date, dict[str, float]] = {}
+    for row in rows:
+        election_date = date.fromisoformat(row["date"])
+        party = row["party"].strip()
+        percent = float(row["percent"])
+        if not party or not 0 <= percent <= 100:
+            raise ValueError(f"Invalid election result in {path}: {row}")
+        by_date.setdefault(election_date, {})[party] = percent
+    return [{"date": election_date, "values": values}
+            for election_date, values in sorted(by_date.items())]
+
+
+def frame_date(frame: dict) -> date:
+    return date.fromisoformat(frame.get("reference_date") or frame["date"])
+
+
 def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
-               timeline_start: date, timeline_end: date, px, face) -> None:
+               timeline_start: date, timeline_end: date, elections: list[dict],
+               governments: list[dict], px, face) -> None:
     left = px(30)
     top, bottom = px(542), px(600)
-    last_date = date.fromisoformat(frames[-1]["date"])
+    last_date = frame_date(frames[-1])
     span = max((timeline_end - timeline_start).days, 1)
+
+    for index, government in enumerate(governments):
+        start = max(government["start"], timeline_start)
+        end = min(government["end"] - timedelta(days=1), last_date)
+        if start > end:
+            continue
+        x_start = left + round((px(610) - left) * (start - timeline_start).days / span)
+        x_end = left + round((px(610) - left) * (end - timeline_start).days / span)
+        draw.rectangle((x_start, top, min(x_end, right), bottom),
+                       fill=GOVERNMENT_BAND_COLORS[index % len(GOVERNMENT_BAND_COLORS)])
 
     for tick in (0, 25, 50):
         y = bottom - round((bottom - top) * tick / 50)
         draw.line((left, y, right, y), fill="#e2e6ee", width=max(1, px(1)))
 
+    visible_elections = [election for election in elections
+                         if timeline_start <= election["date"] <= last_date]
+    election_positions = []
+    for election in visible_elections:
+        x = left + round((px(610) - left) *
+                         (election["date"] - timeline_start).days / span)
+        draw.line((x, top, x, bottom), fill="#c6ccd6", width=max(1, px(1)))
+        election_positions.append((election, x))
+
     history: dict[str, list[tuple[int, float]]] = {}
     for item in frames:
-        published = date.fromisoformat(item["date"])
-        day = (published - timeline_start).days
+        day = (frame_date(item) - timeline_start).days
         for party, value in item["values"].items():
             history.setdefault(party, []).append((day, value))
 
@@ -83,12 +123,21 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
                 x, y = segment[0]
                 radius = max(1, px(1))
                 draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=color)
+
+    for election, x in election_positions:
+        for party, percent in election["values"].items():
+            y = bottom - round((bottom - top) * min(percent, 50) / 50)
+            radius = max(2, px(3))
+            color = COLORS.get(party, "#8895a7")
+            draw.ellipse((x - radius, y - radius, x + radius, y + radius),
+                         fill="#f7f8fc", outline=color, width=max(1, px(2)))
     draw.text((left, px(602)), str(timeline_start.year), font=face(9), fill="#65718a")
     draw.text((right, px(602)), str(last_date.year), font=face(9), fill="#65718a", anchor="ra")
 
 
 def draw_frame(frame: dict, number: int, total: int, size: int,
-               history: list[dict], timeline_start: date, timeline_end: date) -> Image.Image:
+               history: list[dict], timeline_start: date, timeline_end: date,
+               elections: list[dict], governments: list[dict]) -> Image.Image:
     scale = size / 640
     px = lambda value: round(value * scale)
     face = lambda value, bold=False: font(max(8, px(value)), bold)
@@ -131,17 +180,26 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
         draw.text((min(bar_end + px(8), px(566)), y + px(3)), value_label,
                   font=face(16, True), fill=ink)
 
-    published = date.fromisoformat(frame["date"])
+    reference_date = frame_date(frame)
     timeline_span = max((timeline_end - timeline_start).days, 1)
-    progress = px(30) + round(px(580) * (published - timeline_start).days / timeline_span)
+    progress = px(30) + round(px(580) * (reference_date - timeline_start).days / timeline_span)
+    draw.line((px(30), px(507), px(40), px(507)), fill="#65718a", width=max(1, px(2)))
+    draw.text((px(44), px(501)), "Umfragen", font=face(10), fill=quiet)
+    draw.ellipse((px(116), px(503), px(124), px(511)),
+                 fill="#f7f8fc", outline="#65718a", width=max(1, px(1)))
+    draw.text((px(130), px(501)), "Wahlergebnis", font=face(10), fill=quiet)
+    draw.rectangle((px(234), px(503), px(242), px(511)), fill=GOVERNMENT_BAND_COLORS[0])
+    draw.rectangle((px(245), px(503), px(253), px(511)), fill=GOVERNMENT_BAND_COLORS[1])
+    draw.text((px(259), px(501)), "Regierungsphase", font=face(10), fill=quiet)
     draw.rectangle((px(435), px(504), px(439), px(516)), fill="#6c65df")
     draw.text((px(447), px(501)), "Regierungspartei", font=face(11), fill=quiet)
     draw.rectangle((px(30), px(520), px(610), px(526)), fill="#e2e6ee")
     draw.rectangle((px(30), px(520), progress, px(526)), fill="#5b56cc")
-    draw_trend(draw, history, progress, timeline_start, timeline_end, px, face)
+    draw_trend(draw, history, progress, timeline_start, timeline_end,
+               elections, governments, px, face)
     draw.line((px(30), px(622), px(610), px(622)), fill="#dfe3ec", width=max(1, px(1)))
     draw.text((px(30), px(626)),
-              "Daten: © wahlrecht.de / INSA  ·  Weitere Datenbank: © dawum.de · ODbL",
+              "Daten: © wahlrecht.de / INSA · dawum.de / ODbL · Bundeswahlleiterin (DL-DE/BY-2.0)",
               font=face(9), fill="#45516a")
     return image
 
@@ -153,7 +211,8 @@ def run_ffmpeg(*arguments: str) -> None:
         raise RuntimeError(result.stderr.strip() or f"ffmpeg exited with {result.returncode}")
 
 
-def render_video(frames: list[dict], path: Path, size: int, frame_rate: str) -> None:
+def render_video(frames: list[dict], elections: list[dict], governments: list[dict], path: Path,
+                 size: int, frame_rate: str) -> None:
     command = [
         "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
         "-f", "rawvideo", "-pixel_format", "rgb24", "-video_size", f"{size}x{size}",
@@ -165,12 +224,13 @@ def render_video(frames: list[dict], path: Path, size: int, frame_rate: str) -> 
     assert process.stdin is not None and process.stderr is not None
     try:
         history = []
-        timeline_start = date.fromisoformat(frames[0]["date"])
-        timeline_end = date.fromisoformat(frames[-1]["date"])
+        timeline_start = frame_date(frames[0])
+        timeline_end = frame_date(frames[-1])
         for index, frame in enumerate(frames):
             history.append(frame)
             process.stdin.write(draw_frame(frame, index, len(frames), size, history,
-                                           timeline_start, timeline_end).tobytes())
+                                           timeline_start, timeline_end, elections,
+                                           governments).tobytes())
     except BrokenPipeError as exc:
         raise RuntimeError(f"ffmpeg stopped while receiving frames: {process.stderr.read().decode()}") from exc
     finally:
@@ -185,6 +245,7 @@ def main() -> None:
     cli.add_argument("--polls", type=Path, default=Path("data/insa_polls.csv"))
     cli.add_argument("--results", type=Path, default=Path("data/insa_results.csv"))
     cli.add_argument("--governments", type=Path, default=Path("data/governments.csv"))
+    cli.add_argument("--elections", type=Path, default=Path("data/bundestag_elections.csv"))
     cli.add_argument("--output", type=Path, default=Path("charts/insa-race.gif"))
     cli.add_argument("--seconds", type=int, default=60)
     cli.add_argument("--size", type=int, default=640, help="square width and height in pixels")
@@ -200,6 +261,8 @@ def main() -> None:
         frames = [frame for frame in frames if frame["method"] == "Online-Panel"]
         if not frames:
             raise ValueError("No INSA Online-Panel polls with party results were found")
+        elections = load_elections(args.elections)
+        governments = load_governments(args.governments)
         frame_rate = str(Fraction(len(frames), args.seconds))
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix="insa-race-") as directory:
@@ -208,9 +271,9 @@ def main() -> None:
             palette = temporary / "palette.png"
             gif_output = temporary / "race.gif"
             mp4_output = temporary / "race.mp4"
-            render_video(frames, master, args.size, frame_rate)
+            render_video(frames, elections, governments, master, args.size, frame_rate)
             run_ffmpeg("-i", str(master), "-vf",
-                       f"palettegen=max_colors={args.colors}:stats_mode=diff",
+                       f"palettegen=max_colors={args.colors}:stats_mode=full",
                        "-frames:v", "1", str(palette))
             run_ffmpeg("-i", str(master), "-i", str(palette), "-lavfi",
                        "paletteuse=dither=none:diff_mode=rectangle", "-fps_mode", "passthrough",

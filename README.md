@@ -85,7 +85,25 @@ Default outputs are `charts/insa-race.gif` and `charts/insa-race.mp4` (640 × 64
 pixels). Both include the poll source, the dawum.de copyright and ODbL
 notice, and the government marker in every frame. The fixed 0–50% axis avoids
 a changing visual scale. Each frame also includes a compact history chart of
-online poll values from the first poll through that frame's date.
+online poll values from the first poll through that frame's date. Hollow colored
+circles show Bundestag election results; thin vertical guides mark election
+dates. The election markers cover the four federal elections in the chart's
+date range (2013, 2017, 2021, and 2025), with CDU and CSU combined to match the
+poll series. Alternating pale background bands show the government period in
+effect for each frame, using the same fieldwork-end date as the `Regierung`
+header (publication date when the fieldwork end is unavailable).
+
+Election result percentages come from the Federal Returning Officer's
+[historical results CSV](https://www.bundeswahlleiterin.de/en/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv);
+dates come from its [official election date table](https://www.bundeswahlleiterin.de/dam/jcr/397735e3-0585-46f6-a0b5-2c60c5b83de6/btw_ab49_gesamt.pdf).
+The source CSV is preserved at
+[`data/raw/bundeswahlleiter-bundestag-results.csv`](data/raw/bundeswahlleiter-bundestag-results.csv),
+and the chart-ready values are in
+[`data/bundestag_elections.csv`](data/bundestag_elections.csv). These results
+are distributed under the [Data Licence Germany – Attribution – Version
+2.0](https://www.govdata.de/dl-de/by-2-0); the video frames include the required
+attribution. The 1949 election used one vote rather than separate first and
+second votes; it falls outside this chart's 2012–present timeline.
 
 Use `--output PATH`, `--seconds N`, `--size N`, or `--colors N` to control the
 GIF. `--no-mp4` skips the video companion. Because GIF frame timing is limited

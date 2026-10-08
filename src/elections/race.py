@@ -62,6 +62,7 @@ def load_frames(polls_path: Path, results_path: Path,
             raise ValueError(f"No verified government for {reference_date}; update {governments_path}")
         frames.append({
             "date": row["publication_date"],
+            "reference_date": reference_date.isoformat(),
             "method": row["method"],
             "sample": row["surveyed_persons"],
             "period": row["period_text"],
