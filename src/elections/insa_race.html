@@ -29,6 +29,8 @@
     .speed { width: 130px; accent-color: #5b56cc; }
     .speed-value { font-size: 12px; color: #596478; white-space: nowrap; }
     .speed-wrap { display: flex; align-items: center; gap: 8px; min-height: 39px; }
+    .glide-control { display: flex; align-items: center; gap: 7px; min-height: 39px; color: #35415c; font-size: 13px; font-weight: 650; white-space: nowrap; }
+    .glide-control input { accent-color: #5b56cc; }
     .chart-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: 25px 26px 13px; }
     .date { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
     .meta { margin-top: 9px; color: #69758c; font-size: 13px; }
@@ -42,7 +44,7 @@
     .axis-values { display: flex; justify-content: space-between; padding: 0 0 7px; }
     .race { position: relative; height: 560px; min-width: 0; }
     .race::before { content: ""; position: absolute; top: 0; bottom: 0; left: 140px; right: 54px; background: repeating-linear-gradient(to right, #e6eaf2 0, #e6eaf2 1px, transparent 1px, transparent 20%); border-right: 1px solid #e6eaf2; pointer-events: none; }
-    .row { display: grid; grid-template-columns: 140px minmax(0, 1fr); padding-right: 54px; height: 45px; align-items: center; position: absolute; left: 0; right: 0; top: 0; transition: transform var(--motion) cubic-bezier(.22,1,.36,1), opacity var(--motion) ease; min-width: 0; }
+    .row { display: grid; grid-template-columns: 140px minmax(0, 1fr); padding-right: 54px; height: 45px; align-items: center; position: absolute; left: 0; right: 0; top: 0; transition: transform var(--row-motion) cubic-bezier(.22,1,.36,1), opacity var(--row-motion) ease; min-width: 0; }
     .name { display: flex; align-items: center; gap: 8px; padding: 0 10px 0 5px; border-left: 4px solid transparent; min-width: 0; font-size: 13px; font-weight: 750; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .name.is-government { border-left-color: #5b56cc; }
     .rank { width: 23px; height: 23px; border-radius: 6px; display: inline-grid; place-items: center; background: #eef0f6; color: #718099; font-size: 11px; flex: none; font-variant-numeric: tabular-nums; }
@@ -82,6 +84,7 @@
         <div class="field"><label for="method">Methode</label><select id="method"><option value="all">Alle Methoden</option><option value="online">Online-Panel</option><option value="mix">Telefon + Online</option></select></div>
         <div class="field"><span class="field-label">Animation</span><div class="actions"><button id="back" class="btn icon" type="button" aria-label="Eine Umfrage zurück">‹</button><button id="play" class="btn primary" type="button">▶ Abspielen</button><button id="next" class="btn icon" type="button" aria-label="Eine Umfrage weiter">›</button></div></div>
         <div class="field"><label for="speed">Tempo</label><div class="speed-wrap"><input id="speed" class="speed" type="range" min="100" max="1000" value="300" step="50"><span id="speed-value" class="speed-value">300 ms</span></div></div>
+        <div class="field"><span class="field-label">Balken</span><label class="glide-control" for="glide"><input id="glide" type="checkbox" checked> Rangwechsel gleiten</label></div>
       </div>
       <div class="chart-head"><div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div id="frame-count" class="frame-count"></div></div>
       <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div></div>
@@ -102,6 +105,7 @@
       const method = document.getElementById("method");
       const playButton = document.getElementById("play");
       const speed = document.getElementById("speed");
+      const glide = document.getElementById("glide");
       const scrubber = document.getElementById("scrubber");
       const dateFormat = new Intl.DateTimeFormat("de-DE", {day:"2-digit",month:"long",year:"numeric"});
       const shortDateFormat = new Intl.DateTimeFormat("de-DE", {month:"short",year:"numeric"});
@@ -150,7 +154,9 @@
       function render(animate = true) {
         const frame = frames[index];
         if (!frame) return;
-        race.style.setProperty("--motion", animate ? `${Math.min(Number(speed.value) * .8, 650)}ms` : "0ms");
+        const duration = animate ? `${Math.min(Number(speed.value) * .8, 650)}ms` : "0ms";
+        race.style.setProperty("--motion", duration);
+        race.style.setProperty("--row-motion", animate && glide.checked ? duration : "0ms");
         const ranked = Object.entries(frame.values).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "de")).slice(0, topN);
         const visible = new Set(ranked.map(([party]) => party));
         for (const [party, parts] of rows) {
@@ -218,8 +224,8 @@
       cadence.addEventListener("change", rebuild);
       method.addEventListener("change", rebuild);
       playButton.addEventListener("click", play);
-      document.getElementById("back").addEventListener("click", () => { pause(); index = Math.max(0, index - 1); render(false); });
-      document.getElementById("next").addEventListener("click", () => { pause(); index = Math.min(frames.length - 1, index + 1); render(false); });
+      document.getElementById("back").addEventListener("click", () => { pause(); index = Math.max(0, index - 1); render(); });
+      document.getElementById("next").addEventListener("click", () => { pause(); index = Math.min(frames.length - 1, index + 1); render(); });
       scrubber.addEventListener("input", () => { pause(); index = Number(scrubber.value); render(false); });
       speed.addEventListener("input", () => {
         document.getElementById("speed-value").textContent = `${speed.value} ms`;
@@ -228,8 +234,8 @@
       document.addEventListener("keydown", event => {
         if (event.target.matches("input, select, button")) return;
         if (event.code === "Space") { event.preventDefault(); play(); }
-        if (event.code === "ArrowRight") { pause(); index = Math.min(frames.length - 1, index + 1); render(false); }
-        if (event.code === "ArrowLeft") { pause(); index = Math.max(0, index - 1); render(false); }
+        if (event.code === "ArrowRight") { pause(); index = Math.min(frames.length - 1, index + 1); render(); }
+        if (event.code === "ArrowLeft") { pause(); index = Math.max(0, index - 1); render(); }
       });
       rebuild();
     })();

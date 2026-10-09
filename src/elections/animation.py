@@ -22,6 +22,7 @@ COLORS = {
 }
 MONTHS = ("Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez")
 MAX_CONNECTED_GAP_DAYS = 21
+GLIDE_TRANSITION_STEPS = 4
 GOVERNMENT_BAND_COLORS = ("#fff0c9", "#e1f4e8")
 FONT_REGULAR = (
     "/System/Library/Fonts/Supplemental/Arial.ttf",
@@ -107,6 +108,23 @@ def load_elections(path: Path) -> list[dict]:
 
 def frame_date(frame: dict) -> date:
     return date.fromisoformat(frame.get("reference_date") or frame["date"])
+
+
+def ranks(values: dict[str, float]) -> dict[str, int]:
+    ordered = sorted(values.items(), key=lambda item: (-item[1], item[0]))
+    return {party: rank for rank, (party, _) in enumerate(ordered)}
+
+
+def interpolated_ranks(previous: dict[str, float], current: dict[str, float],
+                       progress: float) -> dict[str, float]:
+    """Return shared party row positions between polls; new parties use their rank."""
+    old_ranks = ranks(previous)
+    new_ranks = ranks(current)
+    eased = progress * progress * (3 - 2 * progress)
+    return {
+        party: old_ranks.get(party, rank) * (1 - eased) + rank * eased
+        for party, rank in new_ranks.items()
+    }
 
 
 def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
@@ -200,7 +218,8 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
 
 def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int],
                history: list[dict], timeline_start: date, timeline_end: date,
-               elections: list[dict], governments: list[dict]) -> Image.Image:
+               elections: list[dict], governments: list[dict],
+               row_positions: dict[str, float] | None = None) -> Image.Image:
     layout = LAYOUT
     width, height = (size, size) if isinstance(size, int) else size
     # Layout coordinates use a 640px design grid. Typography and strokes follow
@@ -263,7 +282,8 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
         None,
     )
     for rank, (party, value) in enumerate(ranked):
-        y = px_y(layout.bar_first_y + rank * layout.bar_row_step)
+        row_rank = row_positions.get(party, rank) if row_positions is not None else rank
+        y = px_y(layout.bar_first_y + row_rank * layout.bar_row_step)
         if party in government["parties"]:
             marker_left, marker_top, marker_right, marker_bottom = layout.party_marker
             draw.rounded_rectangle((px_x(marker_left), y + px(marker_top),
@@ -326,8 +346,12 @@ def run_ffmpeg(*arguments: str) -> None:
 
 
 def render_video(frames: list[dict], elections: list[dict], governments: list[dict], path: Path,
-                 size: int | tuple[int, int], frame_rate: str) -> None:
+                 size: int | tuple[int, int], frame_rate: str,
+                 glide: bool = True,
+                 transition_steps: int = GLIDE_TRANSITION_STEPS) -> None:
     width, height = (size, size) if isinstance(size, int) else size
+    if transition_steps < 2:
+        raise ValueError("transition_steps must be at least 2")
     command = [
         "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
         "-f", "rawvideo", "-pixel_format", "rgb24", "-video_size", f"{width}x{height}",
@@ -343,9 +367,20 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
         timeline_end = frame_date(frames[-1])
         for index, frame in enumerate(frames):
             history.append(frame)
-            process.stdin.write(draw_frame(frame, index, len(frames), size, history,
-                                           timeline_start, timeline_end, elections,
-                                           governments).tobytes())
+            if not glide or index == 0:
+                process.stdin.write(draw_frame(frame, index, len(frames), size, history,
+                                               timeline_start, timeline_end, elections,
+                                               governments).tobytes())
+                continue
+            previous = frames[index - 1]
+            for step in range(1, transition_steps + 1):
+                row_positions = interpolated_ranks(
+                    previous["values"], frame["values"], step / transition_steps
+                )
+                process.stdin.write(draw_frame(
+                    frame, index, len(frames), size, history, timeline_start,
+                    timeline_end, elections, governments, row_positions,
+                ).tobytes())
     except BrokenPipeError as exc:
         raise RuntimeError(f"ffmpeg stopped while receiving frames: {process.stderr.read().decode()}") from exc
     finally:
@@ -369,6 +404,8 @@ def main() -> None:
     cli.add_argument("--height", type=int, help="output height; pair with --width to set aspect ratio")
     cli.add_argument("--colors", type=int, default=48, help="GIF palette colors (4–256)")
     cli.add_argument("--no-mp4", action="store_true", help="skip the smaller video companion")
+    cli.add_argument("--glide", action=argparse.BooleanOptionalAction, default=True,
+                     help="animate vertical bar movement between polls (default: enabled)")
     args = cli.parse_args()
     if args.seconds < 1 or not 4 <= args.colors <= 256:
         cli.error("seconds must be positive and colors between 4 and 256")
@@ -386,7 +423,9 @@ def main() -> None:
             raise ValueError("No INSA Online-Panel polls with party results were found")
         elections = load_elections(args.elections)
         governments = load_governments(args.governments)
-        frame_rate = str(Fraction(len(frames), args.seconds))
+        frame_count = (1 + (len(frames) - 1) * GLIDE_TRANSITION_STEPS
+                       if args.glide else len(frames))
+        frame_rate = str(Fraction(frame_count, args.seconds))
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix="insa-race-") as directory:
             temporary = Path(directory)
@@ -394,7 +433,8 @@ def main() -> None:
             palette = temporary / "palette.png"
             gif_output = temporary / "race.gif"
             mp4_output = temporary / "race.mp4"
-            render_video(frames, elections, governments, master, dimensions, frame_rate)
+            render_video(frames, elections, governments, master, dimensions, frame_rate,
+                         glide=args.glide)
             run_ffmpeg("-i", str(master), "-vf",
                        f"palettegen=max_colors={args.colors}:stats_mode=full",
                        "-frames:v", "1", str(palette))
