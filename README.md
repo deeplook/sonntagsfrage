@@ -131,6 +131,9 @@ structured feed, so review them and edit the intervals when the cabinet changes.
 Pass `--data-dir PATH` to refresh a separate data directory.
 
 Use `--output PATH`, `--seconds N`, `--size N`, or `--colors N` to control the
-GIF. `--no-mp4` skips the video companion. Because GIF frame timing is limited
+GIF. For a non-square output, pass `--width W --height H` instead of `--size`;
+for example, `--width 960 --height 640` renders a 3:2 landscape animation.
+Layout positions adapt to the canvas and fonts scale with its shorter side.
+`--no-mp4` skips the video companion. Because GIF frame timing is limited
 to centiseconds, the encoder alternates frame delays to make the full sequence
 exactly 60 seconds.

@@ -111,10 +111,9 @@ def frame_date(frame: dict) -> date:
 
 def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
                timeline_start: date, timeline_end: date, elections: list[dict],
-               governments: list[dict], layout: Layout, px, face) -> None:
-    left, top, chart_right, bottom = (
-        px(value) for value in layout.trend_bounds
-    )
+               governments: list[dict], layout: Layout, px, px_x, px_y, face) -> None:
+    left, top, chart_right, bottom = (px_x(layout.trend_bounds[0]), px_y(layout.trend_bounds[1]),
+                                      px_x(layout.trend_bounds[2]), px_y(layout.trend_bounds[3]))
     last_date = frame_date(frames[-1])
     span = max((timeline_end - timeline_start).days, 1)
 
@@ -195,28 +194,36 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
                   fill="#65718a", width=max(1, px(1)))
         if year % 2 == 0:
             anchor = "la" if year == first_year else "ma"
-            draw.text((x, px(layout.trend_year_label_y)), str(year), font=face(9),
+            draw.text((x, px_y(layout.trend_year_label_y)), str(year), font=face(9),
                       fill="#65718a", anchor=anchor)
 
 
-def draw_frame(frame: dict, number: int, total: int, size: int,
+def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int],
                history: list[dict], timeline_start: date, timeline_end: date,
                elections: list[dict], governments: list[dict]) -> Image.Image:
     layout = LAYOUT
-    scale = size / layout.canvas_size
+    width, height = (size, size) if isinstance(size, int) else size
+    # Layout coordinates use a 640px design grid. Typography and strokes follow
+    # the shorter canvas axis so wide outputs gain room without oversized text.
+    scale = min(width / layout.canvas_size, height / layout.canvas_size)
     px = lambda value: round(value * scale)
+    px_x = lambda value: round(value * width / layout.canvas_size)
+    px_y = lambda value: round(value * height / layout.canvas_size)
+    point = lambda xy: (px_x(xy[0]), px_y(xy[1]))
+    box = lambda xyxy: (px_x(xyxy[0]), px_y(xyxy[1]), px_x(xyxy[2]), px_y(xyxy[3]))
+    line = lambda xyxy: box(xyxy)
     face = lambda value, bold=False: font(max(8, px(value)), bold)
-    image = Image.new("RGB", (size, size), "#f7f8fc")
+    image = Image.new("RGB", (width, height), "#f7f8fc")
     draw = ImageDraw.Draw(image)
     ink = "#172033"
     quiet = "#65718a"
 
-    draw.rectangle((0, 0, size, px(layout.header_height)), fill="#172039")
-    draw.text(tuple(map(px, layout.header_kicker)), "DEUTSCHLAND  ·  BUNDESTAG",
+    draw.rectangle((0, 0, width, px_y(layout.header_height)), fill="#172039")
+    draw.text(point(layout.header_kicker), "DEUTSCHLAND  ·  BUNDESTAG",
               font=face(14, True), fill="#b9c1ff")
-    draw.text(tuple(map(px, layout.header_title)), "INSA SONNTAGSFRAGE",
+    draw.text(point(layout.header_title), "INSA SONNTAGSFRAGE",
               font=face(31, True), fill="#ffffff")
-    flag_left, flag_top, flag_right, flag_bottom = map(px, layout.flag)
+    flag_left, flag_top, flag_right, flag_bottom = box(layout.flag)
     border = max(1, px(1))
     inner_left, inner_right = flag_left + border, flag_right - border
     inner_top, inner_bottom = flag_top + border, flag_bottom - border
@@ -231,23 +238,23 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
                     inner_bottom), fill="#ffce00")
     government = frame["government"]
     government_label = f"Regierung: {government['cabinet']} · {' + '.join(government['parties'])}"
-    draw.text(tuple(map(px, layout.government_label)), government_label,
+    draw.text(point(layout.government_label), government_label,
               font=face(14), fill="#d8dcff")
     published = date.fromisoformat(frame["date"])
     date_label = f"{published.day:02d}. {MONTHS[published.month - 1]} {published.year}"
-    draw.text(tuple(map(px, layout.date_label)), date_label, font=face(30, True), fill=ink)
-    draw.text(tuple(map(px, layout.frame_counter)), f"{number + 1:,} / {total:,}".replace(",", "."),
+    draw.text(point(layout.date_label), date_label, font=face(30, True), fill=ink)
+    draw.text(point(layout.frame_counter), f"{number + 1:,} / {total:,}".replace(",", "."),
               font=face(12), fill=quiet, anchor="ra")
-    draw.text(tuple(map(px, layout.panel_label)), f"Online-Panel  ·  n={frame['sample']}",
+    draw.text(point(layout.panel_label), f"Online-Panel  ·  n={frame['sample']}",
               font=face(12), fill=quiet)
     reference_date = frame_date(frame)
 
-    bar_left, bar_right = px(layout.bar_left), px(layout.bar_right)
+    bar_left, bar_right = px_x(layout.bar_left), px_x(layout.bar_right)
     for tick in range(0, 51, 10):
         x = bar_left + round((bar_right - bar_left) * tick / 50)
-        draw.line((x, px(layout.bar_grid_top), x, px(layout.bar_grid_bottom)),
+        draw.line((x, px_y(layout.bar_grid_top), x, px_y(layout.bar_grid_bottom)),
                   fill="#e2e6ee", width=max(1, px(1)))
-        draw.text((x, px(layout.bar_ticks_y)), str(tick), font=face(11),
+        draw.text((x, px_y(layout.bar_ticks_y)), str(tick), font=face(11),
                   fill="#8a95aa", anchor="mb")
 
     ranked = sorted(frame["values"].items(), key=lambda item: (-item[1], item[0]))
@@ -256,13 +263,13 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
         None,
     )
     for rank, (party, value) in enumerate(ranked):
-        y = px(layout.bar_first_y + rank * layout.bar_row_step)
+        y = px_y(layout.bar_first_y + rank * layout.bar_row_step)
         if party in government["parties"]:
             marker_left, marker_top, marker_right, marker_bottom = layout.party_marker
-            draw.rounded_rectangle((px(marker_left), y + px(marker_top),
-                                    px(marker_right), y + px(marker_bottom)),
+            draw.rounded_rectangle((px_x(marker_left), y + px(marker_top),
+                                    px_x(marker_right), y + px(marker_bottom)),
                                    radius=px(2), fill="#6c65df")
-        draw.text((px(layout.party_label_x), y + px(5)), party,
+        draw.text((px_x(layout.party_label_x), y + px(5)), party,
                   font=face(18, True), fill=ink)
         bar_end = bar_left + round((bar_right - bar_left) * min(value, 50) / 50)
         draw.rounded_rectangle((bar_left, y, max(bar_left + 1, bar_end),
@@ -277,35 +284,35 @@ def draw_frame(frame: dict, number: int, total: int, size: int,
             draw.line((result_x, marker_top, result_x, marker_bottom),
                       fill="#8a95a2", width=max(2, px(2)))
         value_label = f"{value:g}".replace(".", ",") + " %"
-        draw.text((min(bar_end + px(8), px(layout.value_label_max_x)), y + px(3)), value_label,
+        draw.text((min(bar_end + px(8), px_x(layout.value_label_max_x)), y + px(3)), value_label,
                   font=face(16, True), fill=ink)
 
     timeline_span = max((timeline_end - timeline_start).days, 1)
     trend_left, _, trend_right, _ = layout.trend_bounds
-    progress = px(trend_left) + round(px(trend_right - trend_left) *
+    progress = px_x(trend_left) + round((px_x(trend_right) - px_x(trend_left)) *
                                       (reference_date - timeline_start).days / timeline_span)
-    draw.rectangle(tuple(map(px, layout.legend_party_marker)), fill="#6c65df")
-    draw.text(tuple(map(px, layout.legend_party_label)), "Regierungspartei",
+    draw.rectangle(box(layout.legend_party_marker), fill="#6c65df")
+    draw.text(point(layout.legend_party_label), "Regierungspartei",
               font=face(11), fill=quiet)
-    draw.line(tuple(map(px, layout.polls_line)), fill="#65718a", width=max(1, px(2)))
-    draw.text(tuple(map(px, layout.polls_label)), "Umfragen", font=face(10), fill=quiet)
-    draw.ellipse(tuple(map(px, layout.election_circle)),
+    draw.line(line(layout.polls_line), fill="#65718a", width=max(1, px(2)))
+    draw.text(point(layout.polls_label), "Umfragen", font=face(10), fill=quiet)
+    draw.ellipse(box(layout.election_circle),
                  fill="#f7f8fc", outline="#65718a", width=max(1, px(1)))
-    draw.text(tuple(map(px, layout.election_legend_label)), "Wahlergebnis",
+    draw.text(point(layout.election_legend_label), "Wahlergebnis",
               font=face(10), fill=quiet)
-    draw.line(tuple(map(px, layout.bar_result_line)), fill="#8a95a2",
+    draw.line(line(layout.bar_result_line), fill="#8a95a2",
               width=max(2, px(2)))
     election_label = f"Balken: Wahl {latest_election['date'].year}" if latest_election else "Balken"
-    draw.text(tuple(map(px, layout.bar_result_label)), election_label,
+    draw.text(point(layout.bar_result_label), election_label,
               font=face(10), fill=quiet)
     for swatch, color in zip(layout.government_swatches, GOVERNMENT_BAND_COLORS):
-        draw.rectangle(tuple(map(px, swatch)), fill=color)
-    draw.text(tuple(map(px, layout.government_legend_label)), "Regierung",
+        draw.rectangle(box(swatch), fill=color)
+    draw.text(point(layout.government_legend_label), "Regierung",
               font=face(10), fill=quiet)
     draw_trend(draw, history, progress, timeline_start, timeline_end,
-               elections, governments, layout, px, face)
-    draw.line(tuple(map(px, layout.footer_rule)), fill="#dfe3ec", width=max(1, px(1)))
-    draw.text(tuple(map(px, layout.copyright_label)),
+               elections, governments, layout, px, px_x, px_y, face)
+    draw.line(line(layout.footer_rule), fill="#dfe3ec", width=max(1, px(1)))
+    draw.text(point(layout.copyright_label),
               "Daten: © wahlrecht.de / INSA · dawum.de / ODbL · Bundeswahlleiterin (DL-DE/BY-2.0)",
               font=face(10), fill="#45516a")
     return image
@@ -319,10 +326,11 @@ def run_ffmpeg(*arguments: str) -> None:
 
 
 def render_video(frames: list[dict], elections: list[dict], governments: list[dict], path: Path,
-                 size: int, frame_rate: str) -> None:
+                 size: int | tuple[int, int], frame_rate: str) -> None:
+    width, height = (size, size) if isinstance(size, int) else size
     command = [
         "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
-        "-f", "rawvideo", "-pixel_format", "rgb24", "-video_size", f"{size}x{size}",
+        "-f", "rawvideo", "-pixel_format", "rgb24", "-video_size", f"{width}x{height}",
         "-framerate", frame_rate, "-i", "pipe:0", "-an", "-c:v", "ffv1",
         "-level", "3", "-pix_fmt", "bgr0", str(path),
     ]
@@ -355,12 +363,20 @@ def main() -> None:
     cli.add_argument("--elections", type=Path, default=Path("data/bundestag_elections.csv"))
     cli.add_argument("--output", type=Path, default=Path("charts/insa-race.gif"))
     cli.add_argument("--seconds", type=int, default=60)
-    cli.add_argument("--size", type=int, default=640, help="square width and height in pixels")
+    cli.add_argument("--size", type=int, default=640,
+                     help="square width and height in pixels (default: 640)")
+    cli.add_argument("--width", type=int, help="output width; pair with --height to set aspect ratio")
+    cli.add_argument("--height", type=int, help="output height; pair with --width to set aspect ratio")
     cli.add_argument("--colors", type=int, default=48, help="GIF palette colors (4–256)")
     cli.add_argument("--no-mp4", action="store_true", help="skip the smaller video companion")
     args = cli.parse_args()
-    if args.seconds < 1 or args.size < 320 or not 4 <= args.colors <= 256:
-        cli.error("seconds must be positive, size at least 320, and colors between 4 and 256")
+    if args.seconds < 1 or not 4 <= args.colors <= 256:
+        cli.error("seconds must be positive and colors between 4 and 256")
+    if (args.width is None) != (args.height is None):
+        cli.error("--width and --height must be provided together")
+    dimensions = (args.width, args.height) if args.width is not None else (args.size, args.size)
+    if min(dimensions) < 320:
+        cli.error("output width and height must each be at least 320")
     if shutil.which("ffmpeg") is None:
         cli.error("ffmpeg is required to encode GIF and MP4 files")
     try:
@@ -378,7 +394,7 @@ def main() -> None:
             palette = temporary / "palette.png"
             gif_output = temporary / "race.gif"
             mp4_output = temporary / "race.mp4"
-            render_video(frames, elections, governments, master, args.size, frame_rate)
+            render_video(frames, elections, governments, master, dimensions, frame_rate)
             run_ffmpeg("-i", str(master), "-vf",
                        f"palettegen=max_colors={args.colors}:stats_mode=full",
                        "-frames:v", "1", str(palette))
