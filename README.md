@@ -86,10 +86,9 @@ with a fixed 0–50% scale for poll comparability.
 
 ## One-minute GIF for sharing
 
-The following command renders every fetched INSA **Online-Panel** poll into a
-square, 60-second animation. It also writes a smaller MP4 companion next to the
-GIF. Phone and online-panel mixed polls are excluded, keeping the method label
-and sample series consistent throughout the animation.
+The following command renders every fetched INSA **Online-Panel** Bundestag
+poll into a square, 60-second animation. It also writes a smaller MP4 companion
+next to the GIF. Phone and online-panel mixed polls are excluded by default.
 Install [FFmpeg](https://ffmpeg.org/) first; uv installs Pillow from the project
 dependencies.
 
@@ -111,6 +110,21 @@ legend. The 2009 results provide a baseline for the first polls in the timeline.
 Alternating pale background bands show the government period in effect for
 each frame, using the same fieldwork-end date as the `Regierung` header
 (publication date when the fieldwork end is unavailable).
+
+Choose a parliament and filter its polls by source, institute, commissioner,
+or method. Landtag names use their data directory slug. For example:
+
+```sh
+uv run elections-gif --parliament brandenburg --source all
+uv run elections-gif --parliament bayern --source dawum --institute INSA
+uv run elections-gif --parliament bundestag --source all --institute INSA
+```
+
+Sources are `dawum`, `wahlrecht`, or `all`. The Bundestag defaults to
+Wahlrecht/INSA Online-Panel polls to preserve the original movie; Landtage
+default to all available poll sources and methods. A Landtag movie defaults to
+`charts/<state>-race.gif` (and an MP4 with the same name). Use `--output` to
+choose another path.
 
 Election result percentages come from the Federal Returning Officer's
 [historical results CSV](https://www.bundeswahlleiterin.de/en/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv);

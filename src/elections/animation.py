@@ -1,7 +1,6 @@
 """Export INSA online-panel polls as a one-minute square GIF and MP4."""
 
 import argparse
-import csv
 from dataclasses import dataclass
 from datetime import date, timedelta
 from fractions import Fraction
@@ -9,20 +8,32 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+import unicodedata
 
 from PIL import Image, ImageDraw, ImageFont
 
-from .race import load_frames, load_governments
+from .race import load_dawum_frames, load_elections, load_frames, load_governments
 
 
 COLORS = {
     "CDU/CSU": "#343b4a", "SPD": "#d6444e", "GRÜNE": "#43a56b",
     "FDP": "#e6b635", "LINKE": "#ad4b8e", "AfD": "#3985c6",
     "BSW": "#8c3656", "FW": "#e48a3f", "PIRATEN": "#e99340",
+    "PLUS BRANDENBURG": "#6851a3", "TIERSCHUTZPARTEI": "#36a6a0",
+}
+COLOR_ALIASES = {
+    "CDU": "CDU/CSU", "CSU": "CDU/CSU", "CDUCSU": "CDU/CSU",
+    "GRUNE": "GRÜNE", "B90GRUNE": "GRÜNE", "BUNDNIS90DIEGRUNEN": "GRÜNE",
+    "DIELINKE": "LINKE", "LINKE": "LINKE", "PDSDIELINKE": "LINKE",
+    "AFD": "AfD", "BVBFW": "FW", "BVBFREIEWAHLER": "FW",
+    "FREIEWAHLER": "FW", "PIRATEN": "PIRATEN",
+    "PLUSBRANDENBURG": "PLUS BRANDENBURG",
+    "TIERSCHUTZPARTEI": "TIERSCHUTZPARTEI",
 }
 MONTHS = ("Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez")
 MAX_CONNECTED_GAP_DAYS = 21
 GLIDE_TRANSITION_STEPS = 4
+OUTPUT_FRAME_RATE = 50
 GOVERNMENT_BAND_COLORS = ("#fff0c9", "#e1f4e8")
 FONT_REGULAR = (
     "/System/Library/Fonts/Supplemental/Arial.ttf",
@@ -91,23 +102,25 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.Im
     return ImageFont.load_default(size=size)
 
 
-def load_elections(path: Path) -> list[dict]:
-    with path.open(newline="", encoding="utf-8") as handle:
-        rows = list(csv.DictReader(handle))
-    by_date: dict[date, dict[str, float]] = {}
-    for row in rows:
-        election_date = date.fromisoformat(row["date"])
-        party = row["party"].strip()
-        percent = float(row["percent"])
-        if not party or not 0 <= percent <= 100:
-            raise ValueError(f"Invalid election result in {path}: {row}")
-        by_date.setdefault(election_date, {})[party] = percent
-    return [{"date": election_date, "values": values}
-            for election_date, values in sorted(by_date.items())]
-
-
 def frame_date(frame: dict) -> date:
     return date.fromisoformat(frame.get("reference_date") or frame["date"])
+
+
+def party_color(party: str) -> str:
+    """Return a stable party color, including common source label variants."""
+    key = "".join(character for character in unicodedata.normalize("NFKD", party)
+                  if not unicodedata.combining(character)).upper()
+    key = "".join(character for character in key if character.isalpha() or character.isdigit())
+    canonical = COLOR_ALIASES.get(key, key)
+    return COLORS.get(canonical, "#8895a7")
+
+
+def animation_timing(poll_count: int, seconds: int, glide: bool) -> tuple[int, str, int]:
+    """Keep poll transitions near a fixed duration, filling spare time with holds."""
+    steps = GLIDE_TRANSITION_STEPS if glide else 0
+    minimum_frames = ((poll_count - 1) * steps + 1 if glide else poll_count)
+    frame_count = max(OUTPUT_FRAME_RATE * seconds, minimum_frames)
+    return frame_count, str(Fraction(frame_count, seconds)), steps
 
 
 def ranks(values: dict[str, float]) -> dict[str, int]:
@@ -219,6 +232,9 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
 def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int],
                history: list[dict], timeline_start: date, timeline_end: date,
                elections: list[dict], governments: list[dict],
+               header_kicker: str = "DEUTSCHLAND  ·  BUNDESTAG",
+               header_title: str = "INSA SONNTAGSFRAGE",
+               attribution: str = "Daten: © wahlrecht.de / INSA · dawum.de / ODbL · Bundeswahlleiterin (DL-DE/BY-2.0)",
                row_positions: dict[str, float] | None = None) -> Image.Image:
     layout = LAYOUT
     width, height = (size, size) if isinstance(size, int) else size
@@ -238,9 +254,9 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
     quiet = "#65718a"
 
     draw.rectangle((0, 0, width, px_y(layout.header_height)), fill="#172039")
-    draw.text(point(layout.header_kicker), "DEUTSCHLAND  ·  BUNDESTAG",
+    draw.text(point(layout.header_kicker), header_kicker,
               font=face(14, True), fill="#b9c1ff")
-    draw.text(point(layout.header_title), "INSA SONNTAGSFRAGE",
+    draw.text(point(layout.header_title), header_title,
               font=face(31, True), fill="#ffffff")
     flag_left, flag_top, flag_right, flag_bottom = box(layout.flag)
     border = max(1, px(1))
@@ -293,8 +309,8 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
                   font=face(18, True), fill=ink)
         bar_end = bar_left + round((bar_right - bar_left) * min(value, 50) / 50)
         draw.rounded_rectangle((bar_left, y, max(bar_left + 1, bar_end),
-                                y + px(layout.bar_height)),
-                               radius=px(5), fill=COLORS.get(party, "#8895a7"))
+                               y + px(layout.bar_height)),
+                               radius=px(5), fill=party_color(party))
         if latest_election and party in latest_election["values"]:
             result_x = bar_left + round(
                 (bar_right - bar_left) * min(latest_election["values"][party], 50) / 50
@@ -332,8 +348,7 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
     draw_trend(draw, history, progress, timeline_start, timeline_end,
                elections, governments, layout, px, px_x, px_y, face)
     draw.line(line(layout.footer_rule), fill="#dfe3ec", width=max(1, px(1)))
-    draw.text(point(layout.copyright_label),
-              "Daten: © wahlrecht.de / INSA · dawum.de / ODbL · Bundeswahlleiterin (DL-DE/BY-2.0)",
+    draw.text(point(layout.copyright_label), attribution,
               font=face(10), fill="#45516a")
     return image
 
@@ -346,12 +361,18 @@ def run_ffmpeg(*arguments: str) -> None:
 
 
 def render_video(frames: list[dict], elections: list[dict], governments: list[dict], path: Path,
-                 size: int | tuple[int, int], frame_rate: str,
+                 size: int | tuple[int, int], frame_rate: str, target_frame_count: int,
+                 header_kicker: str, header_title: str, attribution: str,
                  glide: bool = True,
                  transition_steps: int = GLIDE_TRANSITION_STEPS) -> None:
     width, height = (size, size) if isinstance(size, int) else size
-    if transition_steps < 2:
+    if glide and transition_steps < 2:
         raise ValueError("transition_steps must be at least 2")
+    transition_count = (len(frames) - 1) * transition_steps if glide else 0
+    hold_frames = target_frame_count - transition_count
+    if hold_frames < len(frames):
+        raise ValueError("target frame count is too small for the selected polls and glide")
+    holds_per_poll, extra_holds = divmod(hold_frames, len(frames))
     command = [
         "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
         "-f", "rawvideo", "-pixel_format", "rgb24", "-video_size", f"{width}x{height}",
@@ -367,10 +388,14 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
         timeline_end = frame_date(frames[-1])
         for index, frame in enumerate(frames):
             history.append(frame)
+            image = draw_frame(frame, index, len(frames), size, history,
+                               timeline_start, timeline_end, elections,
+                               governments, header_kicker, header_title,
+                               attribution)
+            poll_holds = holds_per_poll + (1 if index < extra_holds else 0)
             if not glide or index == 0:
-                process.stdin.write(draw_frame(frame, index, len(frames), size, history,
-                                               timeline_start, timeline_end, elections,
-                                               governments).tobytes())
+                for _ in range(poll_holds):
+                    process.stdin.write(image.tobytes())
                 continue
             previous = frames[index - 1]
             for step in range(1, transition_steps + 1):
@@ -379,8 +404,11 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
                 )
                 process.stdin.write(draw_frame(
                     frame, index, len(frames), size, history, timeline_start,
-                    timeline_end, elections, governments, row_positions,
+                    timeline_end, elections, governments, header_kicker, header_title,
+                    attribution, row_positions,
                 ).tobytes())
+            for _ in range(poll_holds):
+                process.stdin.write(image.tobytes())
     except BrokenPipeError as exc:
         raise RuntimeError(f"ffmpeg stopped while receiving frames: {process.stderr.read().decode()}") from exc
     finally:
@@ -392,11 +420,21 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
 
 def main() -> None:
     cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--polls", type=Path, default=Path("data/insa_polls.csv"))
-    cli.add_argument("--results", type=Path, default=Path("data/insa_results.csv"))
-    cli.add_argument("--governments", type=Path, default=Path("data/governments.csv"))
-    cli.add_argument("--elections", type=Path, default=Path("data/bundestag_elections.csv"))
-    cli.add_argument("--output", type=Path, default=Path("charts/insa-race.gif"))
+    cli.add_argument("--parliament", default="bundestag",
+                     help="bundestag or a Landtag data directory name (default: bundestag)")
+    cli.add_argument("--landtag-data-dir", type=Path, default=Path("data/parliaments/landtag"),
+                     help="directory containing per-state data (default: data/parliaments/landtag)")
+    cli.add_argument("--source", choices=("all", "dawum", "wahlrecht"),
+                     help="poll source to include (default: Bundestag wahlrecht, Landtag all)")
+    cli.add_argument("--institute", help="include polls from this institute only")
+    cli.add_argument("--tasker", help="include polls for this commissioner only")
+    cli.add_argument("--method", help="include polls with this method only")
+    cli.add_argument("--polls", type=Path, help="override Bundestag poll CSV")
+    cli.add_argument("--results", type=Path, help="override Bundestag result CSV")
+    cli.add_argument("--governments", type=Path, help="override government interval CSV")
+    cli.add_argument("--elections", type=Path, help="override election result CSV")
+    cli.add_argument("--output", type=Path,
+                     help="GIF output path (default: charts/insa-race.gif for Bundestag, otherwise charts/<parliament>-race.gif)")
     cli.add_argument("--seconds", type=int, default=60)
     cli.add_argument("--size", type=int, default=640,
                      help="square width and height in pixels (default: 640)")
@@ -417,16 +455,85 @@ def main() -> None:
     if shutil.which("ffmpeg") is None:
         cli.error("ffmpeg is required to encode GIF and MP4 files")
     try:
-        frames = load_frames(args.polls, args.results, args.governments)
-        frames = [frame for frame in frames if frame["method"] == "Online-Panel"]
+        selected_source = args.source or ("wahlrecht" if args.parliament == "bundestag" else "all")
+        if args.parliament == "bundestag":
+            base = Path("data/parliaments/bundestag")
+            polls_path = args.polls or base / "polls" / "wahlrecht-insa.csv"
+            results_path = args.results or base / "results" / "wahlrecht-insa.csv"
+            governments_path = args.governments or base / "governments.csv"
+            elections_path = args.elections or base / "elections.csv"
+            frames = load_frames(polls_path, results_path, governments_path)
+            if selected_source in ("all", "dawum"):
+                dawum_path = base / "polls" / "dawum.csv"
+                if dawum_path.exists():
+                    frames.extend(load_dawum_frames(
+                        dawum_path, base / "results" / "dawum.csv", governments_path
+                    ))
+            elections = load_elections(elections_path)
+            selected_method = args.method or ("Online-Panel" if selected_source == "wahlrecht" else None)
+        else:
+            base = args.landtag_data_dir / args.parliament
+            if not base.is_dir():
+                raise ValueError(f"Unknown parliament or missing data directory: {args.parliament}")
+            governments_path = args.governments or base / "governments.csv"
+            elections_path = args.elections or base / "elections.csv"
+            frames = load_dawum_frames(
+                base / "polls" / "dawum.csv", base / "results" / "dawum.csv",
+                governments_path,
+                base / "polls" / "wahlrecht-landtag.csv",
+                base / "results" / "wahlrecht-landtag.csv",
+            )
+            elections = load_elections(elections_path)
+            selected_method = args.method
+        frames = [frame for frame in frames
+                  if (selected_source == "all"
+                      or (selected_source == "dawum" and frame["source_name"] == "DAWUM")
+                      or (selected_source == "wahlrecht" and frame["source_name"] == "Wahlrecht.de"))
+                  and (not args.institute or frame["institute"].casefold() == args.institute.casefold())
+                  and (not args.tasker or frame["tasker"].casefold() == args.tasker.casefold())
+                  and (not selected_method or selected_method.casefold() == "all"
+                       or frame["method"].casefold() == selected_method.casefold())]
         if not frames:
-            raise ValueError("No INSA Online-Panel polls with party results were found")
-        elections = load_elections(args.elections)
-        governments = load_governments(args.governments)
-        frame_count = (1 + (len(frames) - 1) * GLIDE_TRANSITION_STEPS
-                       if args.glide else len(frames))
-        frame_rate = str(Fraction(frame_count, args.seconds))
-        args.output.parent.mkdir(parents=True, exist_ok=True)
+            raise ValueError("No polls match the selected parliament and filters")
+        governments = load_governments(governments_path)
+        if args.parliament == "bundestag":
+            header_kicker = "DEUTSCHLAND  ·  BUNDESTAG"
+            header_title = "INSA SONNTAGSFRAGE" if selected_source == "wahlrecht" else "WAHLUMFRAGEN"
+            credits = []
+            if selected_source in ("all", "wahlrecht"):
+                credits.append("wahlrecht.de / INSA")
+            if selected_source in ("all", "dawum"):
+                credits.append("dawum.de / ODbL")
+            credits.append("Bundeswahlleiterin (DL-DE/BY-2.0)")
+            attribution = "Daten: © " + " · ".join(credits)
+        else:
+            state_label = {
+                "baden-wuerttemberg": "BADEN-WÜRTTEMBERG",
+                "bayern": "BAYERN", "berlin": "BERLIN", "brandenburg": "BRANDENBURG",
+                "bremen": "BREMEN", "hamburg": "HAMBURG", "hessen": "HESSEN",
+                "mecklenburg-vorpommern": "MECKLENBURG-VORPOMMERN",
+                "niedersachsen": "NIEDERSACHSEN", "nordrhein-westfalen": "NORDRHEIN-WESTFALEN",
+                "rheinland-pfalz": "RHEINLAND-PFALZ", "saarland": "SAARLAND",
+                "sachsen": "SACHSEN", "sachsen-anhalt": "SACHSEN-ANHALT",
+                "schleswig-holstein": "SCHLESWIG-HOLSTEIN", "thueringen": "THÜRINGEN",
+            }.get(args.parliament, args.parliament.upper())
+            header_kicker = f"{state_label}  ·  LANDTAG"
+            header_title = "LANDTAGSUMFRAGEN"
+            credits = []
+            if selected_source in ("all", "dawum"):
+                credits.append("dawum.de / ODbL")
+            if selected_source in ("all", "wahlrecht"):
+                credits.append("wahlrecht.de")
+            credits.append("Landeswahlleitung")
+            attribution = "Daten: © " + " · ".join(credits)
+        target_frame_count, frame_rate, transition_steps = animation_timing(
+            len(frames), args.seconds, args.glide
+        )
+        output = args.output or Path(
+            "charts/insa-race.gif" if args.parliament == "bundestag"
+            else f"charts/{args.parliament}-race.gif"
+        )
+        output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix="insa-race-") as directory:
             temporary = Path(directory)
             master = temporary / "master.mkv"
@@ -434,23 +541,25 @@ def main() -> None:
             gif_output = temporary / "race.gif"
             mp4_output = temporary / "race.mp4"
             render_video(frames, elections, governments, master, dimensions, frame_rate,
-                         glide=args.glide)
+                         target_frame_count,
+                         header_kicker, header_title, attribution,
+                         glide=args.glide, transition_steps=transition_steps)
             run_ffmpeg("-i", str(master), "-vf",
                        f"palettegen=max_colors={args.colors}:stats_mode=full",
                        "-frames:v", "1", str(palette))
             run_ffmpeg("-i", str(master), "-i", str(palette), "-lavfi",
                        "paletteuse=dither=none:diff_mode=rectangle", "-fps_mode", "passthrough",
                        "-gifflags", "+transdiff+offsetting", "-loop", "0", str(gif_output))
-            gif_output.replace(args.output)
+            gif_output.replace(output)
             if not args.no_mp4:
-                video_path = args.output.with_suffix(".mp4")
+                video_path = output.with_suffix(".mp4")
                 run_ffmpeg("-i", str(master), "-an", "-c:v", "libx264",
                            "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p",
                            "-movflags", "+faststart", str(mp4_output))
                 mp4_output.replace(video_path)
     except (OSError, KeyError, ValueError, RuntimeError) as exc:
         cli.exit(1, f"error: {exc}\n")
-    print(f"GIF: {args.output} ({args.output.stat().st_size / 1_000_000:.1f} MB, {len(frames)} polls in {args.seconds}s)")
+    print(f"GIF: {output} ({output.stat().st_size / 1_000_000:.1f} MB, {len(frames)} polls in {args.seconds}s)")
     if not args.no_mp4:
         print(f"MP4: {video_path} ({video_path.stat().st_size / 1_000_000:.1f} MB)")
 
