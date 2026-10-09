@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1990-11-08,1992-02-10,Duchač I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+1992-02-11,1994-11-29,Vogel I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-11-30,1999-09-30,Vogel II,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-10-01,2003-06-04,Vogel III,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2003-06-05,2004-07-07,Althaus I,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2004-07-08,2009-11-03,Althaus II,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2009-11-04,2014-12-04,Lieberknecht I,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2014-12-05,2020-02-04,Ramelow I,GRÜNE;LINKE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2020-02-05,2020-03-03,Kemmerich I,FDP,StatePol 1.0.4,https://statepol.github.io/Database/

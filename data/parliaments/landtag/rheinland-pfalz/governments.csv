@@ -1,0 +1,5 @@
+start_date,end_date_exclusive,cabinet,parties,source_url
+2016-05-18,2021-05-18,Kabinett Dreyer II,SPD|FDP|Grüne,https://de.wikipedia.org/wiki/Kabinett_Dreyer_II
+2021-05-18,2024-07-10,Kabinett Dreyer III,SPD|Grüne|FDP,https://de.wikipedia.org/wiki/Kabinett_Dreyer_III
+2024-07-10,2026-05-18,Kabinett Schweitzer,SPD|Grüne|FDP,https://de.wikipedia.org/wiki/Kabinett_Schweitzer
+2026-05-18,9999-12-31,Kabinett Schnieder,CDU|SPD,https://de.wikipedia.org/wiki/Kabinett_Schnieder

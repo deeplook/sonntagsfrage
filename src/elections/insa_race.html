@@ -50,7 +50,19 @@
     .rank { width: 23px; height: 23px; border-radius: 6px; display: inline-grid; place-items: center; background: #eef0f6; color: #718099; font-size: 11px; flex: none; font-variant-numeric: tabular-nums; }
     .track { position: relative; height: 34px; min-width: 0; }
     .bar { height: 100%; width: 0; border-radius: 5px; transition: width var(--motion) cubic-bezier(.22,1,.36,1); min-width: 2px; }
+    .election-result-marker { position: absolute; z-index: 2; top: -2px; bottom: -2px; width: 2px; transform: translateX(-1px); background: #737d8c; box-shadow: 0 0 0 1px rgba(255,255,255,.75); pointer-events: none; }
+    .election-result-marker[hidden] { display: none; }
     .value { position: absolute; top: 50%; transform: translateY(-50%); left: 0; padding-left: 7px; color: #263147; font-weight: 800; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; transition: left var(--motion) cubic-bezier(.22,1,.36,1); }
+    .trend { margin-top: 2px; }
+    .trend-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 7px; }
+    .trend-legend { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; color: #657087; font-size: 10px; }
+    .trend-key { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+    .trend-line-key { width: 14px; border-top: 2px solid #3985c6; }
+    .trend-election-key { width: 8px; height: 8px; border: 1.5px solid #3985c6; border-radius: 50%; background: white; }
+    .trend-bar-result-key { height: 12px; border-left: 2px solid #737d8c; }
+    .trend-guide-key { height: 12px; border-left: 1px solid #aeb6c2; }
+    .trend-gov-key { width: 14px; height: 8px; background: linear-gradient(90deg,#fff0c9 50%,#e1f4e8 50%); }
+    #trend-chart { display: block; width: 100%; height: 150px; border: 1px solid #aeb6c2; }
     .timeline { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 13px; border-top: 1px solid #e8ebf3; padding: 18px 23px; }
     .timeline input { width: 100%; accent-color: #5b56cc; cursor: pointer; }
     .timeline span { color: #69758c; font-size: 12px; font-variant-numeric: tabular-nums; }
@@ -78,31 +90,80 @@
     <div class="eyebrow">Deutschland · Bundestagswahl</div>
     <h1>INSA Sonntagsfrage im Zeitverlauf</h1>
     <p class="intro">Parteianteile in veröffentlichten INSA-Umfragen. Die Balken folgen dem Rang in jeder Erhebung.</p>
-    <section class="card" aria-label="Animiertes Balkendiagramm der INSA-Umfragen">
+    <section id="chart-card" class="card" aria-label="Animiertes Balkendiagramm der INSA-Umfragen">
       <div class="toolbar">
+        <div class="field"><label for="parliament">Parlament</label><select id="parliament" aria-label="Parlament oder Bundesland auswählen"></select></div>
+        <div class="field"><label for="poll-source-filter">Institut / Auftraggeber</label><select id="poll-source-filter"></select></div>
         <div class="field"><label for="cadence">Zeitabstand</label><select id="cadence"><option value="monthly">Letzte Umfrage je Monat</option><option value="all">Jede Umfrage</option></select></div>
-        <div class="field"><label for="method">Methode</label><select id="method"><option value="all">Alle Methoden</option><option value="online">Online-Panel</option><option value="mix">Telefon + Online</option></select></div>
+        <div class="field"><label for="method">Methode</label><select id="method"><option value="all">Alle Methoden</option></select></div>
         <div class="field"><span class="field-label">Animation</span><div class="actions"><button id="back" class="btn icon" type="button" aria-label="Eine Umfrage zurück">‹</button><button id="play" class="btn primary" type="button">▶ Abspielen</button><button id="next" class="btn icon" type="button" aria-label="Eine Umfrage weiter">›</button></div></div>
         <div class="field"><label for="speed">Tempo</label><div class="speed-wrap"><input id="speed" class="speed" type="range" min="100" max="1000" value="300" step="50"><span id="speed-value" class="speed-value">300 ms</span></div></div>
         <div class="field"><span class="field-label">Balken</span><label class="glide-control" for="glide"><input id="glide" type="checkbox" checked> Rangwechsel gleiten</label></div>
       </div>
       <div class="chart-head"><div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div id="frame-count" class="frame-count"></div></div>
-      <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div></div>
+      <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div>
+        <div class="trend"><div class="trend-head"><span id="trend-title" class="field-label">Umfragen und Wahlergebnisse</span><div class="trend-legend" aria-label="Legende"><span class="trend-key"><i class="trend-gov-key"></i>Regierung</span><span class="trend-key"><i class="trend-line-key"></i>Umfragen</span><span class="trend-key"><i class="trend-guide-key"></i>Wahltag</span><span class="trend-key"><i class="trend-election-key"></i>Wahlergebnis</span><span class="trend-key"><i class="trend-bar-result-key"></i><span id="bar-election-label">Balken: letzte Wahl</span></span></div></div><canvas id="trend-chart" role="img" aria-label="Umfragewerte, Regierungsperioden und Wahlergebnisse im Zeitverlauf"></canvas></div>
+      </div>
       <div class="timeline"><span id="first-date"></span><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"><span id="last-date"></span></div>
-      <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats. Quelle dieser Grafik: <a id="source" href="https://www.wahlrecht.de/umfragen/insa.htm" target="_blank" rel="noopener noreferrer">wahlrecht.de / INSA</a>.<br>Weitere Datenbank im Projekt: © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">dawum.de</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a>.</p>
+      <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats.<br>Umfragen: <a id="poll-source" target="_blank" rel="noopener noreferrer"></a> · Wahlergebnisse: <a id="election-source" target="_blank" rel="noopener noreferrer"></a> · Regierung: <a id="government-source" target="_blank" rel="noopener noreferrer"></a><span id="dawum-credit"> · © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">DAWUM</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a></span>.</p>
     </section>
   </main>
   <script type="application/json" id="poll-data">__POLL_DATA__</script>
+  <script type="application/json" id="election-data">__ELECTION_DATA__</script>
+  <script type="application/json" id="government-data">__GOVERNMENT_DATA__</script>
+  <script type="application/json" id="dataset-data">__DATASET_DATA__</script>
   <script>
     (() => {
-      const allFrames = JSON.parse(document.getElementById("poll-data").textContent);
+      const datasets = JSON.parse(document.getElementById("dataset-data").textContent);
+      const parliament = document.getElementById("parliament");
+      let dataset = datasets[0] || {
+        name: "bundestag", label: "Bundestag", eyebrow: "Deutschland · Bundestagswahl",
+        title: "INSA Sonntagsfrage im Zeitverlauf",
+        intro: "Parteianteile in veröffentlichten INSA-Umfragen. Die Balken folgen dem Rang in jeder Erhebung.",
+        frames: JSON.parse(document.getElementById("poll-data").textContent),
+        elections: JSON.parse(document.getElementById("election-data").textContent),
+        governments: JSON.parse(document.getElementById("government-data").textContent),
+        poll_source_name: "wahlrecht.de / INSA", poll_source_url: "https://www.wahlrecht.de/umfragen/insa.htm",
+        election_source_name: "Bundeswahlleiterin", election_source_url: "https://www.bundeswahlleiterin.de/"
+      };
+      let allFrames = dataset.frames;
+      let elections = dataset.elections;
+      let governments = dataset.governments;
       const colors = {"CDU/CSU":"#343b4a","SPD":"#d6444e","GRÜNE":"#43a56b","FDP":"#e6b635","LINKE":"#ad4b8e","AfD":"#3985c6","BSW":"#8c3656","FW":"#e48a3f","PIRATEN":"#e99340"};
+      const colorAliases = {
+        CDU: "CDU/CSU", CSU: "CDU/CSU", CDUCSU: "CDU/CSU",
+        SPD: "SPD",
+        GRUNE: "GRÜNE", BGRUNE: "GRÜNE", B90GRUNE: "GRÜNE", GRUNEGAL: "GRÜNE",
+        FDP: "FDP", FDPDVP: "FDP", DPSFDP: "FDP",
+        LINKE: "LINKE", DIELINKE: "LINKE", PDSDIELINKE: "LINKE",
+        AFD: "AfD", BSW: "BSW",
+        FW: "FW", FREIEWAHLER: "FW", FREIEWAHLERTHURINGEN: "FW", BVBFW: "FW", BVBFREIEWAHLER: "FW",
+        PIRATEN: "PIRATEN"
+      };
+      function partyColor(party) {
+        const canonical = canonicalParty(party);
+        return colors[canonical] || "#8895a7";
+      }
+      function canonicalParty(party) {
+        const key = party.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toUpperCase().replace(/[^A-Z]/g, "");
+        return colorAliases[key] || key;
+      }
+      function electionResult(values, party) {
+        if (Object.hasOwn(values, party)) return values[party];
+        const key = canonicalParty(party);
+        const match = Object.entries(values).find(([name]) => canonicalParty(name) === key);
+        return match?.[1];
+      }
       const topN = 10;
       const maxValue = 50;
       const rowHeight = 56;
+      const maxConnectedGapDays = 21;
+      const governmentBandColors = ["#fff0c9", "#e1f4e8"];
       const race = document.getElementById("race");
+      const trendCanvas = document.getElementById("trend-chart");
       const cadence = document.getElementById("cadence");
       const method = document.getElementById("method");
+      const pollSourceFilter = document.getElementById("poll-source-filter");
       const playButton = document.getElementById("play");
       const speed = document.getElementById("speed");
       const glide = document.getElementById("glide");
@@ -111,13 +172,16 @@
       const shortDateFormat = new Intl.DateTimeFormat("de-DE", {month:"short",year:"numeric"});
       const formatDate = date => dateFormat.format(new Date(date + "T12:00:00"));
       const shortDate = date => shortDateFormat.format(new Date(date + "T12:00:00"));
+      const toDay = date => Date.parse(`${date}T00:00:00Z`) / 86400000;
       const rows = new Map();
       let frames = [];
       let index = 0;
       let timer = null;
 
       function filteredFrames() {
-        const selected = allFrames.filter(frame => method.value === "all" || (method.value === "online" ? frame.method === "Online-Panel" : frame.method !== "Online-Panel"));
+        const selected = allFrames.filter(frame =>
+          (pollSourceFilter.value === "all" || frame.institute === pollSourceFilter.value || frame.tasker === pollSourceFilter.value) &&
+          (method.value === "all" || frame.method === method.value));
         if (cadence.value === "all") return selected;
         const months = new Map();
         for (const frame of selected) months.set(frame.date.slice(0, 7), frame);
@@ -140,15 +204,158 @@
         track.className = "track";
         const bar = document.createElement("div");
         bar.className = "bar";
-        bar.style.background = colors[party] || "#8895a7";
+        bar.style.background = partyColor(party);
+        const electionMarker = document.createElement("span");
+        electionMarker.className = "election-result-marker";
+        electionMarker.hidden = true;
         const value = document.createElement("span");
         value.className = "value";
-        track.append(bar, value);
+        track.append(bar, electionMarker, value);
         row.append(name, track);
         race.append(row);
-        const parts = {row, name, rank, bar, value};
+        const parts = {row, name, rank, bar, value, electionMarker};
         rows.set(party, parts);
         return parts;
+      }
+
+      function drawTrend() {
+        if (!frames.length) return;
+        const bounds = trendCanvas.getBoundingClientRect();
+        if (!bounds.width) return;
+        const ratio = window.devicePixelRatio || 1;
+        const width = bounds.width;
+        const height = 150;
+        trendCanvas.width = Math.round(width * ratio);
+        trendCanvas.height = Math.round(height * ratio);
+        const context = trendCanvas.getContext("2d");
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        context.clearRect(0, 0, width, height);
+
+        const firstDay = toDay(frames[0].reference_date || frames[0].date);
+        const lastDay = Math.max(firstDay + 1, toDay(frames[frames.length - 1].reference_date || frames[frames.length - 1].date));
+        const currentFrame = frames[index];
+        const currentDay = Math.max(firstDay, Math.min(lastDay, toDay(currentFrame.reference_date || currentFrame.date)));
+        const left = 1;
+        const right = width - 1;
+        const top = 10;
+        const bottom = height - 25;
+        const xAt = day => left + (right - left) * (day - firstDay) / (lastDay - firstDay);
+        const yAt = value => bottom - (bottom - top) * Math.min(value, 50) / 50;
+        const currentX = xAt(currentDay);
+
+        context.save();
+        context.beginPath();
+        context.rect(left, top, Math.max(1, currentX - left), bottom - top);
+        context.clip();
+        governments.forEach((government, periodIndex) => {
+          const start = Math.max(firstDay, toDay(government.start));
+          const end = Math.min(currentDay, toDay(government.end) - 1);
+          if (start <= end) {
+            context.fillStyle = governmentBandColors[periodIndex % governmentBandColors.length];
+            context.fillRect(xAt(start), top, Math.max(1, xAt(end) - xAt(start)), bottom - top);
+          }
+        });
+
+        [0, 25, 50].forEach(value => {
+          const y = yAt(value);
+          context.beginPath();
+          context.moveTo(left, y);
+          context.lineTo(currentX, y);
+          context.strokeStyle = "#e2e6ee";
+          context.lineWidth = 1;
+          context.stroke();
+        });
+
+        elections.forEach(election => {
+          const day = toDay(election.date);
+          if (day < firstDay || day > currentDay) return;
+          const x = xAt(day);
+          context.beginPath();
+          context.moveTo(x, top);
+          context.lineTo(x, bottom);
+          context.strokeStyle = "#c6ccd6";
+          context.lineWidth = 1;
+          context.stroke();
+        });
+
+        const history = new Map();
+        frames.slice(0, index + 1).forEach(frame => {
+          const day = toDay(frame.reference_date || frame.date);
+          Object.entries(frame.values).forEach(([party, value]) => {
+            if (!history.has(party)) history.set(party, []);
+            history.get(party).push({day, value});
+          });
+        });
+        history.forEach((points, party) => {
+          const color = partyColor(party);
+          let segment = [];
+          const strokeSegment = () => {
+            if (segment.length > 1) {
+              context.beginPath();
+              segment.forEach((point, pointIndex) => {
+                const x = xAt(point.day), y = yAt(point.value);
+                if (pointIndex === 0) context.moveTo(x, y);
+                else context.lineTo(x, y);
+              });
+              context.strokeStyle = color;
+              context.lineWidth = 1.7;
+              context.lineJoin = "round";
+              context.stroke();
+            } else if (segment.length === 1) {
+              const point = segment[0];
+              context.beginPath();
+              context.arc(xAt(point.day), yAt(point.value), 1.5, 0, Math.PI * 2);
+              context.fillStyle = color;
+              context.fill();
+            }
+          };
+          points.forEach(point => {
+            if (segment.length && point.day - segment[segment.length - 1].day > maxConnectedGapDays) {
+              strokeSegment();
+              segment = [];
+            }
+            segment.push(point);
+          });
+          strokeSegment();
+        });
+
+        elections.forEach(election => {
+          const day = toDay(election.date);
+          if (day < firstDay || day > currentDay) return;
+          const x = xAt(day);
+          Object.entries(election.values).forEach(([party, value]) => {
+            context.beginPath();
+            context.arc(x, yAt(value), 3, 0, Math.PI * 2);
+            context.fillStyle = "#fff";
+            context.fill();
+            context.strokeStyle = partyColor(party);
+            context.lineWidth = 1.5;
+            context.stroke();
+          });
+        });
+        context.restore();
+
+        context.strokeStyle = "#aeb6c2";
+        context.lineWidth = 1;
+        context.strokeRect(left + .5, top + .5, right - left - 1, bottom - top - 1);
+        const firstYear = Number((frames[0].reference_date || frames[0].date).slice(0, 4));
+        const lastYear = Number((frames[frames.length - 1].reference_date || frames[frames.length - 1].date).slice(0, 4));
+        for (let year = firstYear; year <= lastYear; year += 1) {
+          if (year % 2 !== 0) continue;
+          const date = `${year}-01-01`;
+          const day = Math.max(firstDay, toDay(date));
+          const x = xAt(day);
+          context.beginPath();
+          context.moveTo(x, bottom);
+          context.lineTo(x, bottom + 4);
+          context.strokeStyle = "#65718a";
+          context.stroke();
+          context.fillStyle = "#65718a";
+          context.font = "10px system-ui, sans-serif";
+          context.textAlign = year === firstYear ? "left" : "center";
+          context.textBaseline = "top";
+          context.fillText(String(year), x, bottom + 6);
+        }
       }
 
       function render(animate = true) {
@@ -158,6 +365,10 @@
         race.style.setProperty("--motion", duration);
         race.style.setProperty("--row-motion", animate && glide.checked ? duration : "0ms");
         const ranked = Object.entries(frame.values).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "de")).slice(0, topN);
+        const referenceDay = toDay(frame.reference_date || frame.date);
+        const latestElection = [...elections].reverse().find(election => toDay(election.date) <= referenceDay);
+        document.getElementById("bar-election-label").textContent = latestElection
+          ? `Balken: Wahl ${latestElection.date.slice(0, 4)}` : "Balken: letzte Wahl";
         const visible = new Set(ranked.map(([party]) => party));
         for (const [party, parts] of rows) {
           if (!visible.has(party)) {
@@ -171,22 +382,31 @@
           parts.name.classList.toggle("is-government", governs);
           parts.name.title = governs ? "Regierungspartei am Ende der Erhebung" : "";
           const width = Math.max(0, Math.min(100, score / maxValue * 100));
+          const result = latestElection ? electionResult(latestElection.values, party) : undefined;
           parts.rank.textContent = String(rankIndex + 1);
           parts.bar.style.width = `${width}%`;
+          parts.electionMarker.hidden = result === undefined;
+          if (result !== undefined) {
+            parts.electionMarker.style.left = `${Math.max(0, Math.min(100, result / maxValue * 100))}%`;
+            parts.electionMarker.title = `${latestElection.date.slice(0, 4)}-Wahlergebnis: ${Number(result).toLocaleString("de-DE", {maximumFractionDigits: 1})} %`;
+          }
           parts.value.style.left = `${width}%`;
           parts.value.textContent = `${Number(score).toLocaleString("de-DE", {maximumFractionDigits: 1})} %`;
           parts.row.style.transform = `translateY(${rankIndex * rowHeight}px)`;
           parts.row.style.opacity = "1";
         });
         document.getElementById("date").textContent = formatDate(frame.date);
-        const details = [frame.method, frame.sample ? `${Number(frame.sample).toLocaleString("de-DE")} Befragte` : "", frame.period ? `Erhebung: ${frame.period}` : ""].filter(Boolean);
+        const details = [frame.institute || "", frame.method, frame.tasker || "", frame.sample ? `${Number(frame.sample).toLocaleString("de-DE")} Befragte` : "", frame.period ? `Erhebung: ${frame.period}` : ""].filter(Boolean);
         document.getElementById("meta").textContent = details.join(" · ");
         const governmentLink = document.getElementById("government-link");
         governmentLink.textContent = `Regierung: ${frame.government.cabinet} · ${frame.government.parties.join(" + ")}`;
         governmentLink.href = frame.government.source_url;
         document.getElementById("frame-count").textContent = `${index + 1} / ${frames.length}`;
-        document.getElementById("source").href = frame.url;
+        const pollSource = document.getElementById("poll-source");
+        pollSource.textContent = frame.source_name || dataset.poll_source_name;
+        pollSource.href = frame.url || dataset.poll_source_url;
         scrubber.value = String(index);
+        drawTrend();
       }
 
       function pause() {
@@ -216,13 +436,51 @@
         frames = filteredFrames();
         index = 0;
         scrubber.max = String(Math.max(0, frames.length - 1));
+        if (!frames.length) return;
         document.getElementById("first-date").textContent = shortDate(frames[0].date);
         document.getElementById("last-date").textContent = shortDate(frames[frames.length - 1].date);
         render(false);
       }
 
+      function activateDataset() {
+        pause();
+        dataset = datasets.find(item => item.name === parliament.value) || dataset;
+        rows.clear();
+        race.replaceChildren();
+        allFrames = dataset.frames;
+        elections = dataset.elections;
+        governments = dataset.governments;
+        document.querySelector(".eyebrow").textContent = dataset.eyebrow;
+        document.querySelector("h1").textContent = dataset.title;
+        document.title = `${dataset.title} · Bar Chart Race`;
+        document.querySelector(".intro").textContent = dataset.intro;
+        document.getElementById("chart-card").setAttribute("aria-label", `Animiertes Balkendiagramm der Umfragen zum ${dataset.label}`);
+        document.getElementById("trend-title").textContent = `Umfragen und ${dataset.name === "bundestag" ? "Bundestags" : "Landtags"}wahlergebnisse`;
+        trendCanvas.setAttribute("aria-label", `Umfragewerte, Regierungsperioden und ${dataset.name === "bundestag" ? "Bundestags" : "Landtags"}wahlergebnisse im Zeitverlauf`);
+        const pollSource = document.getElementById("poll-source");
+        pollSource.textContent = dataset.poll_source_name;
+        pollSource.href = dataset.poll_source_url;
+        const electionSource = document.getElementById("election-source");
+        electionSource.textContent = dataset.election_source_name;
+        electionSource.href = dataset.election_source_url;
+        const governmentSource = document.getElementById("government-source");
+        governmentSource.textContent = dataset.governments[0]?.source_url.includes("wikipedia") ? "Wikipedia" : "amtliche Quellen";
+        governmentSource.href = dataset.governments[0]?.source_url || dataset.election_source_url;
+        document.getElementById("dawum-credit").hidden = dataset.name === "bundestag";
+        const methods = [...new Set(dataset.frames.map(frame => frame.method).filter(Boolean))].sort((a, b) => a.localeCompare(b, "de"));
+        method.replaceChildren(new Option("Alle Methoden", "all"), ...methods.map(value => new Option(value, value)));
+        const pollSources = [...new Set(dataset.frames.flatMap(frame => [frame.institute, frame.tasker]).filter(Boolean))].sort((a, b) => a.localeCompare(b, "de"));
+        const sourceOptions = pollSources.length > 1
+          ? [new Option("Alle Institute / Auftraggeber", "all"), ...pollSources.map(value => new Option(value, value))]
+          : pollSources.map(value => new Option(value, value));
+        pollSourceFilter.replaceChildren(...sourceOptions);
+        rebuild();
+      }
+
       cadence.addEventListener("change", rebuild);
       method.addEventListener("change", rebuild);
+      pollSourceFilter.addEventListener("change", rebuild);
+      parliament.addEventListener("change", activateDataset);
       playButton.addEventListener("click", play);
       document.getElementById("back").addEventListener("click", () => { pause(); index = Math.max(0, index - 1); render(); });
       document.getElementById("next").addEventListener("click", () => { pause(); index = Math.min(frames.length - 1, index + 1); render(); });
@@ -231,13 +489,16 @@
         document.getElementById("speed-value").textContent = `${speed.value} ms`;
         if (timer !== null) { clearTimeout(timer); timer = setTimeout(tick, Number(speed.value)); }
       });
+      window.addEventListener("resize", () => requestAnimationFrame(drawTrend));
       document.addEventListener("keydown", event => {
         if (event.target.matches("input, select, button")) return;
         if (event.code === "Space") { event.preventDefault(); play(); }
         if (event.code === "ArrowRight") { pause(); index = Math.min(frames.length - 1, index + 1); render(); }
         if (event.code === "ArrowLeft") { pause(); index = Math.max(0, index - 1); render(); }
       });
-      rebuild();
+      datasets.forEach(item => parliament.add(new Option(item.label, item.name)));
+      parliament.value = dataset.name;
+      activateDataset();
     })();
   </script>
 </body>

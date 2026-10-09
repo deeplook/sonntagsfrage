@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2016,2016-09-04,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-mecklenburg-vorpommern-2016.html,parliaments/landtag/mecklenburg-vorpommern/raw/wahlrecht/election-pages/2016.html,effe55ec64b9c7f0c36f9f581b2a8257b5521d12db709fd5dee9150da0c6244c
+2021,2021-09-26,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-mecklenburg-vorpommern-2021.html,parliaments/landtag/mecklenburg-vorpommern/raw/wahlrecht/election-pages/2021.html,702cc2c74be28eda4c959597354336a2c63dff7f8a48412559a705cd557af6f2
+2026,2026-09-20,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-mecklenburg-vorpommern-2026.html,parliaments/landtag/mecklenburg-vorpommern/raw/wahlrecht/election-pages/2026.html,dd40b9459a02bc1a244b572b236bb7782ddf5e4a9d9e8522356915ef94749a79

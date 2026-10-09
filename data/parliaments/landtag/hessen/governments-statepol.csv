@@ -1,0 +1,11 @@
+start_date,end_date,cabinet,parties,source,source_url
+1987-04-24,1991-04-04,Wallmann I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+1991-04-05,1995-04-04,Eichel I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1995-04-05,1999-04-06,Eichel II,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-04-07,2003-04-04,Koch I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2003-04-05,2008-04-04,Koch II,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2008-04-05,2009-02-04,Koch II (geschäftsführend),CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2009-02-05,2010-08-30,Koch III,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2010-08-31,2014-01-17,Bouffier I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2014-01-18,2019-01-17,Bouffier II,CDU;GRÜNE,StatePol 1.0.4,https://statepol.github.io/Database/
+2019-01-18,2022-05-30,Bouffier III,CDU;GRÜNE,StatePol 1.0.4,https://statepol.github.io/Database/

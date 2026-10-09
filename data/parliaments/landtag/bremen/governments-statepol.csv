@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1987-10-15,1991-12-10,Wedemeier II,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1991-12-11,1995-07-03,Wedemeier III,FDP;GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1995-07-04,1999-07-06,Scherf I,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-07-07,2003-07-03,Scherf II,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2003-07-04,2005-11-07,Scherf III,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2005-11-08,2007-06-28,Böhrnsen I,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2007-06-29,2011-06-29,Böhrnsen II,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-06-30,2015-07-14,Böhrnsen III,GRÜNE;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2015-07-15,2019-08-14,Sieling I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

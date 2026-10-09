@@ -1,0 +1,5 @@
+year,date,result_status,source_url,snapshot,sha256
+2016,2016-09-18,endgültig,https://www.wahlrecht.de/news/2016/abgeordnetenhauswahl-berlin-2016.html,parliaments/landtag/berlin/raw/wahlrecht/election-pages/2016.html,bc028b2390e8e6ffe3515f26e98cfc0070c9c5d1fca313fa2c55f14e55a4f2be
+2021,2021-09-26,endgültig,https://www.wahlrecht.de/news/2021/abgeordnetenhauswahl-berlin-2021.html,parliaments/landtag/berlin/raw/wahlrecht/election-pages/2021.html,50a3e20c15d36f95c3bbdfc14f8a2fe7056bbbebafc02f733169ce1b03c051b6
+2023,2023-02-12,endgültig,https://www.wahlrecht.de/news/2023/abgeordnetenhauswahl-berlin-2023.html,parliaments/landtag/berlin/raw/wahlrecht/election-pages/2023.html,ae94e1668850717f2bd04b72ac966a2e0749b181535f7229c43071543c05dc52
+2026,2026-09-20,vorläufig,https://www.wahlrecht.de/news/2026/abgeordnetenhauswahl-berlin-2026.html,parliaments/landtag/berlin/raw/wahlrecht/election-pages/2026.html,211aeacabced8269b3285d91fb1103e9481572e68de60d0e649f4775cc277bde

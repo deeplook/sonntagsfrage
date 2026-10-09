@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2013,2013-01-20,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut,parliaments/landtag/niedersachsen/raw/wahlrecht/election-pages/2013.html,a471adfddf9c7a79391203e9df409d66610fdd76e3f66140faa4ddfa07d3c698
+2017,2017-10-15,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut,parliaments/landtag/niedersachsen/raw/wahlrecht/election-pages/2017.html,9a10705172a9130d16b47c2eb20a9387e20bdaaab3725e7166c1c8ba4282b699
+2022,2022-10-09,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut,parliaments/landtag/niedersachsen/raw/wahlrecht/election-pages/2022.html,e8c987a9aee629c0fac08323944eb070e6b19f4269c2492e7618a103c9b496d6

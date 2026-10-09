@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1990-11-02,1991-07-03,Gies I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+1991-07-04,1993-12-01,Münch I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+1993-12-02,1994-07-20,Bergner I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-07-21,1998-05-24,Höppner I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1998-05-26,2002-05-15,Höppner II,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2002-05-16,2006-04-25,Böhmer I,CDU;FDP;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2006-04-26,2011-04-18,Böhmer II,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-04-19,2016-04-24,Haseloff I,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2016-04-25,2021-09-15,Haseloff II,CDU;GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

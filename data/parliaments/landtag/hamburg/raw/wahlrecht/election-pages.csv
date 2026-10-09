@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2015,2015-02-15,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-hamburg-2015.html,parliaments/landtag/hamburg/raw/wahlrecht/election-pages/2015.html,9808ffb14ba8c6df9d56b8613273abe10b52bb11d1330dad86a1e64668ce7294
+2020,2020-02-23,endgültig,https://www.wahlrecht.de/news/2020/buergerschaftswahl-hamburg-2020.html,parliaments/landtag/hamburg/raw/wahlrecht/election-pages/2020.html,ccf7e5ceb0511ed19b77e472b6eb329973c12d1091746c489609507384aa57ba
+2025,2025-03-02,endgültig,https://www.wahlrecht.de/news/2025/buergerschaftswahl-hamburg-2025.html,parliaments/landtag/hamburg/raw/wahlrecht/election-pages/2025.html,3974582ed61ddc788abb6867e1337858fccae9f525be86d06b79c1e9ef42e357

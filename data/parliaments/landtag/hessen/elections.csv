@@ -1,0 +1,29 @@
+date,party,percent,result_status,source_url
+2013-09-22,CDU,38.3,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,CDU,27.0,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,CDU,34.6,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,SPD,30.7,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,SPD,19.8,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,SPD,15.1,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,FDP,5.0,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,FDP,7.5,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,FDP,5.0,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,GRÜNE,11.1,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,GRÜNE,19.8,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,GRÜNE,14.8,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,DIE LINKE,5.2,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,DIE LINKE,6.3,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,DIE LINKE,3.1,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,PIRATEN,1.9,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,PIRATEN,0.4,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,PIRATEN,0.3,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,AfD,4.1,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,AfD,13.1,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,AfD,18.4,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,REP,0.3,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2023-10-08,KPD/DKP¹,0.1,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html
+2013-09-22,NPD,1.1,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,NPD,0.2,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2013-09-22,Sonstige,2.3,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html
+2018-10-28,Sonstige,5.9,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html
+2023-10-08,Sonstige,8.6,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html

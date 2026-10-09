@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2016,2016-03-13,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html,parliaments/landtag/rheinland-pfalz/raw/wahlrecht/election-pages/2016.html,f125cd1befb93ffe0a2c034e4edee1631fe910b9c3b397c8896a4bc0d9acd9b6
+2021,2021-03-14,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html,parliaments/landtag/rheinland-pfalz/raw/wahlrecht/election-pages/2021.html,2f266d30b8ed2cf839a619250d0a8d9959ab5a6b4d6057db055869f6691b386a
+2026,2026-03-22,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html,parliaments/landtag/rheinland-pfalz/raw/wahlrecht/election-pages/2026.html,ff0cbd8bc5d9aa7ccef91350bb4355cef47f797e616d7df7c72b420eab6bcaaa

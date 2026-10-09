@@ -1,0 +1,11 @@
+start_date,end_date,cabinet,parties,source,source_url
+1988-06-08,1991-01-21,Späth IV,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+1991-01-22,1992-06-10,Teufel I,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+1992-06-11,1996-06-10,Teufel II,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1996-06-11,2001-06-11,Teufel III,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2001-06-12,2005-04-28,Teufel IV,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2005-04-29,2006-06-25,Oettinger I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2006-06-26,2010-02-09,Oettinger II,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2010-02-10,2011-05-11,Kabinett Mappus I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-05-12,2016-05-11,Kabinett Kretschmann I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2016-05-12,2021-05-11,Kabinett Kretschmann II,CDU;GRÜNE,StatePol 1.0.4,https://statepol.github.io/Database/

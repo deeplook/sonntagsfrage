@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2012,2012-03-25,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm,parliaments/landtag/saarland/raw/wahlrecht/election-pages/2012.html,fc9a2649df8096cc3680baeb82e3e349ec9b48e86adc94324cd53a249612c284
+2017,2017-03-26,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html,parliaments/landtag/saarland/raw/wahlrecht/election-pages/2017.html,82b553efbfbc3dfcaf614ec3470f1ac47f27473f1728b27398a2f69aa61e5e08
+2022,2022-03-27,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html,parliaments/landtag/saarland/raw/wahlrecht/election-pages/2022.html,80f58115a0cc9c3a3198d3bbad978f6c7e816b2dfee163b5768dac879221ddd1

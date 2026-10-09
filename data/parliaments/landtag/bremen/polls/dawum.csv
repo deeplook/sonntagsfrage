@@ -1,0 +1,35 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4279,2026-08-19,2026-07-28,2026-08-04,,1000,Bremische Bürgerschaft,INSA,INSA,Online,https://api.dawum.de/
+dawum,4129,2026-03-19,2026-03-12,2026-03-17,,1147,Bremische Bürgerschaft,Infratest dimap,Weser-Kurier,Telefon & Online,https://api.dawum.de/
+dawum,3823,2025-04-28,2025-04-22,2025-04-24,,1128,Bremische Bürgerschaft,Infratest dimap,Radio Bremen,Telefon & Online,https://api.dawum.de/
+dawum,3008,2023-05-13,2023-05-08,2023-05-13,,700,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Telefon & Online,https://api.dawum.de/
+dawum,3005,2023-05-11,2023-05-10,2023-05-11,,1088,Bremische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,3001,2023-05-09,2023-05-02,2023-05-08,,1000,Bremische Bürgerschaft,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,2995,2023-05-05,2023-04-27,2023-05-04,,1024,Bremische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,2992,2023-05-04,2023-05-01,2023-05-03,,1450,Bremische Bürgerschaft,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,2991,2023-05-03,2023-04-29,2023-05-03,,727,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2986,2023-04-29,2023-04-21,2023-04-28,,500,Bremische Bürgerschaft,INSA,Bürger in Wut,Telefon & Online,https://api.dawum.de/
+dawum,2972,2023-04-20,2023-04-13,2023-04-17,,1155,Bremische Bürgerschaft,Infratest dimap,Radio Bremen / Nordsee-Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,2911,2023-03-01,2023-02-22,2023-02-27,,1179,Bremische Bürgerschaft,Infratest dimap,Weser-Kurier,Telefon & Online,https://api.dawum.de/
+dawum,2899,2023-02-19,2023-02-13,2023-02-17,,832,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2827,2022-12-23,2022-12-19,2022-12-23,,967,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2797,2022-12-01,2022-11-28,2022-12-01,,1200,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2743,2022-10-22,2022-10-13,2022-10-22,,989,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2700,2022-09-27,2022-09-18,2022-09-26,,1010,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2651,2022-08-29,2022-08-19,2022-08-29,,1014,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2616,2022-07-29,2022-07-19,2022-07-28,,1009,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2570,2022-06-22,2022-06-12,2022-06-22,,1423,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2532,2022-05-27,2022-05-21,2022-05-27,,1104,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2520,2022-05-19,2022-05-11,2022-05-16,,1145,Bremische Bürgerschaft,Infratest dimap,Weser-Kurier,Telefon & Online,https://api.dawum.de/
+dawum,2382,2022-03-06,2022-02-24,2022-03-05,,1200,Bremische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,1297,2019-05-23,2019-05-20,2019-05-23,,1664,Bremische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1291,2019-05-21,2019-05-15,2019-05-20,,1000,Bremische Bürgerschaft,INSA,BILD,Telefonisch,https://api.dawum.de/
+dawum,1285,2019-05-16,2019-05-13,2019-05-15,,1007,Bremische Bürgerschaft,Infratest dimap,ARD,Telefonisch,https://api.dawum.de/
+dawum,1283,2019-05-16,2019-05-13,2019-05-15,,1021,Bremische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1268,2019-05-07,2019-04-25,2019-05-02,,1000,Bremische Bürgerschaft,Infratest dimap,Radio Bremen,Telefonisch,https://api.dawum.de/
+dawum,1228,2019-04-02,2019-03-22,2019-04-01,,1000,Bremische Bürgerschaft,INSA,BILD,Telefonisch,https://api.dawum.de/
+dawum,1169,2019-02-07,2019-01-24,2019-01-30,,1000,Bremische Bürgerschaft,Infratest dimap,Weser-Kurier,Telefonisch,https://api.dawum.de/
+dawum,1012,2018-09-10,2018-08-20,2018-08-23,,1015,Bremische Bürgerschaft,Forschungsgruppe Wahlen,CDU Bremen,Unbekannt,https://api.dawum.de/
+dawum,972,2018-08-03,2018-06-22,2018-07-02,,1000,Bremische Bürgerschaft,pollytix,SPD Bremen,Unbekannt,https://api.dawum.de/
+dawum,906,2018-05-28,2018-05-14,2018-05-18,,1003,Bremische Bürgerschaft,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,879,2018-05-01,2018-04-13,2018-04-18,,1002,Bremische Bürgerschaft,Infratest dimap,Weser-Kurier,Unbekannt,https://api.dawum.de/

@@ -1,0 +1,49 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4301,2026-09-03,2026-08-20,2026-09-03,,1500,Landtag von Sachsen-Anhalt,Civey,WELT,Online,https://api.dawum.de/
+dawum,4300,2026-09-03,2026-09-01,2026-09-03,,1044,Landtag von Sachsen-Anhalt,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,4295,2026-09-02,2026-08-26,2026-09-01,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,4288,2026-08-28,2026-08-25,2026-08-27,,1053,Landtag von Sachsen-Anhalt,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,4287,2026-08-26,2026-08-24,2026-08-25,,1511,Landtag von Sachsen-Anhalt,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,4286,2026-08-25,2026-08-06,2026-08-20,,1500,Landtag von Sachsen-Anhalt,Civey,WELT,Online,https://api.dawum.de/
+dawum,4269,2026-08-12,2026-08-03,2026-08-08,,2604,Landtag von Sachsen-Anhalt,pollytix,Campact,Telefon & Online,https://api.dawum.de/
+dawum,4266,2026-08-10,2026-07-31,2026-08-06,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,4250,2026-07-30,2026-07-23,2026-07-28,,1149,Landtag von Sachsen-Anhalt,Infratest dimap,MDR / WDR / Mitteldeutsche Zeitung / Volksstimme,Telefon & Online,https://api.dawum.de/
+dawum,4245,2026-07-23,2026-07-14,2026-07-21,,1000,Landtag von Sachsen-Anhalt,INSA,FOCUS,Online,https://api.dawum.de/
+dawum,4226,2026-07-03,2026-06-23,2026-06-30,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,4181,2026-05-13,2026-05-05,2026-05-12,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,4171,2026-05-07,2026-04-29,2026-05-05,,1164,Landtag von Sachsen-Anhalt,Infratest dimap,MDR / Mitteldeutsche Zeitung / Volksstimme,Telefon & Online,https://api.dawum.de/
+dawum,4136,2026-03-25,2026-03-17,2026-03-24,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,4068,2026-01-27,2026-01-20,2026-01-27,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,3980,2025-10-15,2025-10-07,2025-10-14,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,3939,2025-09-04,2025-08-28,2025-09-02,,1167,Landtag von Sachsen-Anhalt,Infratest dimap,MDR / Mitteldeutsche Zeitung / Volksstimme,Telefon & Online,https://api.dawum.de/
+dawum,3871,2025-06-19,2025-06-10,2025-06-17,,1000,Landtag von Sachsen-Anhalt,INSA,NIUS,Online,https://api.dawum.de/
+dawum,3711,2025-01-16,2025-01-08,2025-01-13,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3635,2024-11-05,2024-10-21,2024-10-28,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3507,2024-07-05,2024-06-24,2024-07-02,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3486,2024-06-13,2024-06-03,2024-06-11,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3418,2024-04-18,2024-04-10,2024-04-17,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3338,2024-01-30,2024-01-21,2024-01-29,,1000,Landtag von Sachsen-Anhalt,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3233,2023-10-24,2023-10-16,2023-10-23,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3063,2023-06-27,2023-06-21,2023-06-26,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,3025,2023-05-28,2023-05-16,2023-05-28,,732,Landtag von Sachsen-Anhalt,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2935,2023-03-21,2023-03-06,2023-03-13,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Online,https://api.dawum.de/
+dawum,2849,2023-01-13,2023-01-06,2023-01-13,,982,Landtag von Sachsen-Anhalt,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2556,2022-06-15,2022-06-07,2022-06-15,,1000,Landtag von Sachsen-Anhalt,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2364,2022-02-24,2022-02-17,2022-02-22,,1161,Landtag von Sachsen-Anhalt,Infratest dimap,MDR,Telefon & Online,https://api.dawum.de/
+dawum,2361,2022-02-22,2022-02-13,2022-02-21,,1005,Landtag von Sachsen-Anhalt,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2011,2021-06-04,2021-06-01,2021-06-04,,1132,Landtag von Sachsen-Anhalt,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,2010,2021-06-03,2021-06-02,2021-06-03,,1184,Landtag von Sachsen-Anhalt,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,2009,2021-06-03,2021-05-27,2021-06-03,,1812,Landtag von Sachsen-Anhalt,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,2001,2021-05-28,2021-05-25,2021-05-27,,1008,Landtag von Sachsen-Anhalt,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,2000,2021-05-27,2021-05-25,2021-05-26,,1249,Landtag von Sachsen-Anhalt,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,1997,2021-05-26,2021-05-17,2021-05-23,,1000,Landtag von Sachsen-Anhalt,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1961,2021-04-29,2021-04-20,2021-04-27,,1042,Landtag von Sachsen-Anhalt,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1952,2021-04-23,2021-04-16,2021-04-21,,1202,Landtag von Sachsen-Anhalt,Infratest dimap,MDR,Telefon & Online,https://api.dawum.de/
+dawum,1857,2021-01-27,2021-01-19,2021-01-25,,1084,Landtag von Sachsen-Anhalt,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1811,2020-12-02,2020-11-23,2020-11-30,,1079,Landtag von Sachsen-Anhalt,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1704,2020-07-29,2020-07-15,2020-07-29,,1003,Landtag von Sachsen-Anhalt,GMS,GMS,Telefonisch,https://api.dawum.de/
+dawum,1655,2020-06-05,2020-05-28,2020-06-03,,1003,Landtag von Sachsen-Anhalt,Infratest dimap,MDR,Telefonisch,https://api.dawum.de/
+dawum,1590,2020-03-20,2020-03-02,2020-03-16,,1005,Landtag von Sachsen-Anhalt,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,994,2018-08-28,2018-08-21,2018-08-25,,1000,Landtag von Sachsen-Anhalt,Infratest dimap,MDR,Unbekannt,https://api.dawum.de/
+dawum,902,2018-05-22,2018-01-30,2018-03-08,,1100,Landtag von Sachsen-Anhalt,Conoscope,Landeszentrale für politische Bildung Sachsen-Anhalt,Unbekannt,https://api.dawum.de/
+dawum,552,2017-06-22,2017-06-12,2017-06-17,,1000,Landtag von Sachsen-Anhalt,Infratest dimap,MDR,Unbekannt,https://api.dawum.de/

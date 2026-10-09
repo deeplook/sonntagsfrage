@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2016,2016-03-13,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html,parliaments/landtag/baden-wuerttemberg/raw/wahlrecht/election-pages/2016.html,158cd4c02bc741af00768931ff8fe1bc7a0380e254d123b36a510036c5e7d106
+2021,2021-03-14,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html,parliaments/landtag/baden-wuerttemberg/raw/wahlrecht/election-pages/2021.html,3e9dbf3a93cf33f781fe3cabf5083e5f5055a48d69ac0fea5a489dc9bd416a74
+2026,2026-03-08,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html,parliaments/landtag/baden-wuerttemberg/raw/wahlrecht/election-pages/2026.html,8a5e5b729a8029297a050f70c495c2b01cf8fbe00bd83b5bc27096ef4ed6e8b7

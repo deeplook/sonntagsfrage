@@ -1,0 +1,35 @@
+date,party,percent,result_status,source_url
+2016-03-13,CDU,31.8,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,CDU,27.7,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,CDU,31.0,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,SPD,36.2,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,SPD,35.7,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,SPD,25.9,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,FDP¹,6.2,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,FDP¹,5.5,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,FDP¹,2.1,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,GRÜNE,5.3,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,GRÜNE,9.3,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,GRÜNE,7.9,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,AfD,12.6,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,AfD,8.3,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,AfD,19.5,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,FREIE WÄHLER,2.2,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,FREIE WÄHLER,5.4,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,FREIE WÄHLER,4.2,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,REP,0.2,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2016-03-13,DIE LINKE²,2.8,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,DIE LINKE²,2.5,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,DIE LINKE²,4.4,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,DRP/NPD³,0.5,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2016-03-13,PIRATEN,0.8,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,PIRATEN,0.5,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2021-03-14,Tierschutzpartei,1.7,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,Tierschutzpartei,1.6,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2021-03-14,DIE PARTEI,1.1,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2021-03-14,Volt,1.0,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,Volt,1.1,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2026-03-22,BSW,1.9,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html
+2016-03-13,Sonstige,1.3,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-rheinland-pfalz-2016.html
+2021-03-14,Sonstige,1.4,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-rheinland-pfalz-2021.html
+2026-03-22,Sonstige,0.5,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-rheinland-pfalz-2026.html

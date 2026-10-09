@@ -1,0 +1,5 @@
+start_date,end_date_exclusive,cabinet,parties,source_url
+2013-02-19,2017-11-22,Kabinett Weil I,SPD|GRÜNE,https://de.wikipedia.org/wiki/Kabinett_Weil_I
+2017-11-22,2022-11-08,Kabinett Weil II,SPD|CDU,https://de.wikipedia.org/wiki/Kabinett_Weil_II
+2022-11-08,2025-05-20,Kabinett Weil III,SPD|Grüne,https://de.wikipedia.org/wiki/Kabinett_Weil_III
+2025-05-20,9999-12-31,Kabinett Lies,SPD|Grüne,https://de.wikipedia.org/wiki/Kabinett_Lies

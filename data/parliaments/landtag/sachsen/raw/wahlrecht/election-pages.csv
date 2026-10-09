@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2014,2014-08-31,endgültig,https://www.wahlrecht.de/news/2014/landtagswahl-sachsen-2014.html,parliaments/landtag/sachsen/raw/wahlrecht/election-pages/2014.html,a2360cb96a6de05aaafc0240cb320ce645493a86020cf180b42db36d32811cf2
+2019,2019-09-01,endgültig,https://www.wahlrecht.de/news/2019/landtagswahl-sachsen-2019.html,parliaments/landtag/sachsen/raw/wahlrecht/election-pages/2019.html,6b3a0244c6a203b1a2ac8710a71e4ccbed7be2f448990afa487c5c545d7e7558
+2024,2024-09-01,vorläufig,https://www.wahlrecht.de/news/2024/landtagswahl-sachsen-2024.html,parliaments/landtag/sachsen/raw/wahlrecht/election-pages/2024.html,4cb2b31c7bcd04743c4513ce4ca496ba4b2d11b87fe309ad5c59dc7d438903ef

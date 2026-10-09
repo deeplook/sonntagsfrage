@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2014,2014-09-14,endgültig,https://www.wahlrecht.de/news/2014/landtagswahl-thueringen-2014.html,parliaments/landtag/thueringen/raw/wahlrecht/election-pages/2014.html,700818ae6bbde47106ad87f0406a759fb47f141701d402b6c98c4135bf5fb8a9
+2019,2019-10-27,endgültig,https://www.wahlrecht.de/news/2019/landtagswahl-thueringen-2019.html,parliaments/landtag/thueringen/raw/wahlrecht/election-pages/2019.html,86bacd5b1fee443b284dd65d0a2f81fdd47e46f4eeba6ad753031d1961a4b947
+2024,2024-09-01,endgültig,https://www.wahlrecht.de/news/2024/landtagswahl-thueringen-2024.html,parliaments/landtag/thueringen/raw/wahlrecht/election-pages/2024.html,c52967576c7cda3977a46649cc95edbfe1fabf89d204c060dd32b02a8a81066a

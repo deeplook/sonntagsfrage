@@ -1,0 +1,5 @@
+start_date,end_date_exclusive,cabinet,parties,source_url
+2013-10-10,2018-03-21,Kabinett Seehofer II,CSU,https://de.wikipedia.org/wiki/Kabinett_Seehofer_II
+2018-03-21,2018-11-06,Kabinett Söder I,CSU,https://de.wikipedia.org/wiki/Kabinett_S%C3%B6der_I
+2018-11-06,2023-10-31,Kabinett Söder II,CSU|FW,https://de.wikipedia.org/wiki/Kabinett_S%C3%B6der_II
+2023-10-31,9999-12-31,Kabinett Söder III,CSU|FW,https://de.wikipedia.org/wiki/Kabinett_S%C3%B6der_III

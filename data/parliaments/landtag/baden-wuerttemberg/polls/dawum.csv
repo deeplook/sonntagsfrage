@@ -1,0 +1,76 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4152,2026-04-10,2026-04-02,2026-04-09,,1017,Landtag von Baden-Württemberg,Allensbach,Allensbach,Online,https://api.dawum.de/
+dawum,4113,2026-03-05,2026-03-04,2026-03-05,,1069,Landtag von Baden-Württemberg,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,4108,2026-03-04,2026-02-24,2026-03-03,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,4102,2026-02-27,2026-02-23,2026-02-26,,1049,Landtag von Baden-Württemberg,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,4101,2026-02-26,2026-02-23,2026-02-25,,1530,Landtag von Baden-Württemberg,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,4095,2026-02-23,2026-02-17,2026-02-23,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,4073,2026-01-29,2026-01-20,2026-01-27,,1000,Landtag von Baden-Württemberg,INSA,NIUS,Online,https://api.dawum.de/
+dawum,4065,2026-01-22,2026-01-14,2026-01-20,,1168,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3983,2025-10-16,2025-10-07,2025-10-14,,1000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Online,https://api.dawum.de/
+dawum,3982,2025-10-16,2025-10-08,2025-10-14,,1158,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3840,2025-05-15,2025-05-07,2025-05-13,,1146,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3836,2025-05-12,2025-05-03,2025-05-10,,1100,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3833,2025-05-09,2025-04-29,2025-05-06,,1000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Online,https://api.dawum.de/
+dawum,3757,2025-02-15,2025-02-03,2025-02-10,,1000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Online,https://api.dawum.de/
+dawum,3678,2024-12-12,2024-12-05,2024-12-10,,1156,Landtag von Baden-Württemberg,Infratest dimap,SWR,Telefon & Online,https://api.dawum.de/
+dawum,3689,2024-12-07,2024-11-25,2024-12-02,,1000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Online,https://api.dawum.de/
+dawum,3624,2024-10-11,2024-09-26,2024-10-04,,2000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3612,2024-10-10,2024-10-01,2024-10-08,,1166,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3545,2024-08-15,2024-08-05,2024-08-12,,1000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Online,https://api.dawum.de/
+dawum,3485,2024-06-13,2024-06-04,2024-06-11,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,3451,2024-05-16,2024-05-07,2024-05-14,,1148,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3392,2024-03-21,2024-03-04,2024-03-11,,1000,Landtag von Baden-Württemberg,INSA,Schwäbische Zeitung,Online,https://api.dawum.de/
+dawum,3323,2024-01-18,2024-01-11,2024-01-16,,1152,Landtag von Baden-Württemberg,Infratest dimap,SWR,Telefon & Online,https://api.dawum.de/
+dawum,3235,2023-10-27,2023-10-23,2023-10-27,,1100,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3192,2023-09-27,2023-09-21,2023-09-25,,1162,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,3098,2023-07-24,2023-07-17,2023-07-24,,1000,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3092,2023-07-20,2023-07-13,2023-07-18,,1195,Landtag von Baden-Württemberg,Infratest dimap,SWR,Telefon & Online,https://api.dawum.de/
+dawum,2950,2023-04-03,2023-03-20,2023-03-27,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,2939,2023-03-23,2023-03-16,2023-03-21,,1178,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,2928,2023-03-13,2023-03-07,2023-03-13,,1005,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2826,2022-12-22,2022-12-18,2022-12-22,,1000,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2758,2022-11-02,2022-10-24,2022-10-31,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,2749,2022-10-27,2022-10-20,2022-10-25,,1175,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,2744,2022-10-23,2022-10-16,2022-10-22,,1014,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2639,2022-08-16,2022-08-08,2022-08-15,,1300,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2599,2022-07-13,2022-07-04,2022-07-11,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,2549,2022-06-10,2022-06-03,2022-06-10,,1000,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2499,2022-05-07,2022-05-05,2022-05-06,,1040,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2460,2022-04-21,2022-04-12,2022-04-19,,1170,Landtag von Baden-Württemberg,Infratest dimap,SWR,Telefon & Online,https://api.dawum.de/
+dawum,2437,2022-04-05,2022-03-28,2022-04-04,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,2402,2022-03-17,2022-03-08,2022-03-16,,1600,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2390,2022-03-10,2022-03-04,2022-03-08,,1152,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,2312,2022-01-20,2022-01-13,2022-01-18,,1166,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,2300,2021-12-30,2021-12-23,2021-12-30,,1002,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2200,2021-10-14,2021-10-07,2021-10-12,,1162,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefon & Online,https://api.dawum.de/
+dawum,2198,2021-10-12,2021-10-04,2021-10-11,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1907,2021-03-12,2021-03-11,2021-03-12,,1066,Landtag von Baden-Württemberg,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1905,2021-03-11,2021-03-08,2021-03-11,,1867,Landtag von Baden-Württemberg,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1902,2021-03-10,2021-03-02,2021-03-09,,2069,Landtag von Baden-Württemberg,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1901,2021-03-10,2021-03-01,2021-03-07,,1558,Landtag von Baden-Württemberg,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1894,2021-03-05,2021-03-01,2021-03-04,,1032,Landtag von Baden-Württemberg,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1896,2021-03-04,2021-02-27,2021-03-04,,1054,Landtag von Baden-Württemberg,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Telefon & Online,https://api.dawum.de/
+dawum,1891,2021-03-04,2021-03-01,2021-03-03,,1185,Landtag von Baden-Württemberg,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,1869,2021-02-13,2021-02-08,2021-02-11,,1009,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1864,2021-02-05,2021-02-01,2021-02-04,,1032,Landtag von Baden-Württemberg,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1861,2021-02-04,2021-01-29,2021-02-02,,1000,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefonisch,https://api.dawum.de/
+dawum,1840,2021-01-13,2021-01-05,2021-01-11,,1010,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1824,2020-12-17,2020-12-14,2020-12-16,,1001,Landtag von Baden-Württemberg,Infratest dimap,SWR,Telefonisch,https://api.dawum.de/
+dawum,1799,2020-11-19,2020-11-10,2020-11-16,,1001,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1765,2020-10-15,2020-10-08,2020-10-13,,1001,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefonisch,https://api.dawum.de/
+dawum,1736,2020-09-10,2020-09-02,2020-09-07,,1000,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1624,2020-04-30,2020-04-27,2020-04-28,,1003,Landtag von Baden-Württemberg,Infratest dimap,SWR,Telefonisch,https://api.dawum.de/
+dawum,1616,2020-04-22,2020-04-15,2020-04-20,,1523,Landtag von Baden-Württemberg,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1579,2020-03-12,2020-03-05,2020-03-10,,1001,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefonisch,https://api.dawum.de/
+dawum,1456,2019-10-30,2019-10-23,2019-10-28,,1036,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1415,2019-09-19,2019-09-16,2019-09-17,,1004,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefonisch,https://api.dawum.de/
+dawum,1275,2019-05-10,2019-05-06,2019-05-08,,1040,Landtag von Baden-Württemberg,INSA,BILD,Online,https://api.dawum.de/
+dawum,1223,2019-03-28,2019-03-20,2019-03-26,,1002,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Telefonisch,https://api.dawum.de/
+dawum,1180,2019-02-15,2019-02-07,2019-02-12,,1006,Landtag von Baden-Württemberg,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1165,2019-02-04,2019-01-29,2019-02-01,,1007,Landtag von Baden-Württemberg,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,1017,2018-09-12,2018-09-05,2018-09-10,,1003,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Unbekannt,https://api.dawum.de/
+dawum,1016,2018-09-12,2018-09-01,2018-09-06,,1046,Landtag von Baden-Württemberg,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,814,2018-02-25,2018-02-08,2018-02-22,,1000,Landtag von Baden-Württemberg,Forsa,RTL / n-tv,Unbekannt,https://api.dawum.de/
+dawum,789,2018-01-31,2018-01-26,2018-01-30,,1003,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Unbekannt,https://api.dawum.de/
+dawum,423,2017-03-09,2017-03-03,2017-03-07,,1004,Landtag von Baden-Württemberg,Infratest dimap,SWR / Stuttgarter Zeitung,Unbekannt,https://api.dawum.de/

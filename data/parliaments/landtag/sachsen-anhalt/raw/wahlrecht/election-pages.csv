@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2016,2016-03-13,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-sachsen-anhalt-2016.html,parliaments/landtag/sachsen-anhalt/raw/wahlrecht/election-pages/2016.html,0ec324094199b2d3f364f19143a057fff091ba677bbcdbf7d896f1e473d7c439
+2021,2021-06-06,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-sachsen-anhalt-2021.html,parliaments/landtag/sachsen-anhalt/raw/wahlrecht/election-pages/2021.html,7c7cf50a4379a9658d0e2dfeb233abb1fb3086fc19f55aa80cf3c2552d2c0131
+2026,2026-09-06,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-sachsen-anhalt-2026.html,parliaments/landtag/sachsen-anhalt/raw/wahlrecht/election-pages/2026.html,a6ef6fcdb392c10abdfdc5a17b789c62ef439263a35724ed89fe4fbe4941340c

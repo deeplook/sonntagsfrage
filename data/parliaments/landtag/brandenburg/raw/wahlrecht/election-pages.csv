@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2014,2014-09-14,endgültig,https://www.wahlrecht.de/news/2014/landtagswahl-brandenburg-2014.html,parliaments/landtag/brandenburg/raw/wahlrecht/election-pages/2014.html,6bc824c25e441a4098ed36f08d835008905745126c20f36db4090f6b76214eb2
+2019,2019-09-01,endgültig,https://www.wahlrecht.de/news/2019/landtagswahl-brandenburg-2019.html,parliaments/landtag/brandenburg/raw/wahlrecht/election-pages/2019.html,155d17a1041944a1b55b1fa7852f12ac67dccf709079fa1c7a40e342ba9fd210
+2024,2024-09-22,vorläufig,https://www.wahlrecht.de/news/2024/landtagswahl-brandenburg-2024.html,parliaments/landtag/brandenburg/raw/wahlrecht/election-pages/2024.html,8688a64b48b9f376730dae157180d4d1a68d143e6bf5694119f93f7bc6f4f157

@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2012,2012-05-13,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-nordrhein-westfalen-2012.htm#absolut,parliaments/landtag/nordrhein-westfalen/raw/wahlrecht/election-pages/2012.html,49b4dd2cedfc5775a23e9113c24bc9f154d2796541161308c6dd5e0d77a110ee
+2017,2017-05-14,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-nordrhein-westfalen-2017.html#absolut,parliaments/landtag/nordrhein-westfalen/raw/wahlrecht/election-pages/2017.html,572f8d9cbe0989357606a9bd69442bbfc4f780bbc546b34e635cebd196ab317f
+2022,2022-05-15,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-nordrhein-westfalen-2022.html#absolut,parliaments/landtag/nordrhein-westfalen/raw/wahlrecht/election-pages/2022.html,51c1c732c11531575f7237a96b4d3be04a73a4170ad7af709ebccdfc016a832e

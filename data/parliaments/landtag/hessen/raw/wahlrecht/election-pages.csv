@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2013,2013-09-22,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-hessen-2013.html,parliaments/landtag/hessen/raw/wahlrecht/election-pages/2013.html,b56d9c5c5b31e09476ab04245da4bf525da451c26314ab8117ba9282520987f7
+2018,2018-10-28,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-hessen-2018.html,parliaments/landtag/hessen/raw/wahlrecht/election-pages/2018.html,e8d13df2c4967044c0b3ac96176040c0bd4cb3eb72522819cf6236b596c77286
+2023,2023-10-08,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-hessen-2023.html,parliaments/landtag/hessen/raw/wahlrecht/election-pages/2023.html,f9d18927cf54ab14717368e9cd005839f5d49c6945d5caed5d3b9c1f54f62213

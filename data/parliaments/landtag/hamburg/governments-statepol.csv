@@ -1,0 +1,11 @@
+start_date,end_date,cabinet,parties,source,source_url
+1991-06-26,1993-12-14,Voscherau II,SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1993-12-15,1997-11-11,Voscherau III,SPD;Statt;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1997-11-12,2001-10-30,Runde I,GAL;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2001-10-31,2004-03-16,Von Beust I,CDU;FDP;Partei Rechtsstaatlicher Offensive;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2004-03-17,2008-05-06,Von Beust II,CDU;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2008-05-07,2010-08-24,Von Beust III,CDU;GAL;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2010-08-25,2011-03-06,Alhaus I,CDU;GAL;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-03-07,2015-04-14,Scholz I,SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2015-04-15,2018-03-27,Scholz II,GAL;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2018-03-28,2020-06-09,Tschentscher I,GAL;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/

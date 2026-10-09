@@ -1,0 +1,9 @@
+start_date,end_date,cabinet,parties,source,source_url
+1991-05-21,1994-10-25,Scharping I,FDP;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-10-26,1996-05-19,Beck I,FDP;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1996-05-20,2001-05-17,Beck II,FDP;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2001-05-18,2006-05-17,Beck III,FDP;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2006-05-18,2011-05-17,Beck IV,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-05-18,2013-01-15,Beck V,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2013-01-16,2016-05-17,Dreyer I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2016-05-18,2021-05-17,Dreyer II,FDP;GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

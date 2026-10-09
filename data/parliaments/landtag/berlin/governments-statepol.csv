@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1991-01-24,1996-01-24,Diepgen III,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1996-01-25,1999-12-08,Diepgen IV,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-12-09,2001-06-15,Diepgen V,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2001-06-16,2002-01-16,Wowereit I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2002-01-17,2006-11-22,Wowereit II,LINKE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2006-11-23,2011-11-23,Wowereit III,LINKE;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-11-24,2014-12-10,Wowereit IV,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2014-12-11,2016-12-07,Müller I,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2016-12-08,2021-12-20,Müller II,GRÜNE;LINKE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

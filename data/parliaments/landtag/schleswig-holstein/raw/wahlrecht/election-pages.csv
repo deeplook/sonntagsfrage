@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2012,2012-05-06,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm,parliaments/landtag/schleswig-holstein/raw/wahlrecht/election-pages/2012.html,a2b4d3772ef7d52bb3b1f167debd8d96901b5d04d28b0dd6bd43c561e8cf177c
+2017,2017-05-07,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html,parliaments/landtag/schleswig-holstein/raw/wahlrecht/election-pages/2017.html,b742776e8154abcbb46fad06220993d73553b043c15d8971f1b6abd7ae87c5ba
+2022,2022-05-08,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html,parliaments/landtag/schleswig-holstein/raw/wahlrecht/election-pages/2022.html,92a9f10ed907724a6c3a04cb2ac887b9eec9162d1eb7c76633703d7738f8926e

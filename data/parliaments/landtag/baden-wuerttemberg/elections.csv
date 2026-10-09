@@ -1,0 +1,31 @@
+date,party,percent,result_status,source_url
+2016-03-13,CDU,27.0,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,CDU,24.1,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,CDU,29.7,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,SPD,12.7,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,SPD,11.0,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,SPD,5.5,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,FDP/DVP,8.3,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,FDP/DVP,10.5,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,FDP/DVP,4.4,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,GRÜNE,30.3,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,GRÜNE,32.6,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,GRÜNE,30.2,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,AfD,15.1,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,AfD,9.7,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,AfD,18.8,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,Die Linke²,2.9,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,Die Linke²,3.6,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,Die Linke²,4.4,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,KPD/DKP4,0.0,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,KPD/DKP4,0.0,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2016-03-13,NPD,0.4,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2016-03-13,REP,0.3,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2016-03-13,PIRATEN,0.4,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,PIRATEN,0.1,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2016-03-13,FREIE WÄHLER,0.1,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,FREIE WÄHLER,3.0,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,FREIE WÄHLER,1.9,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html
+2016-03-13,Sonstige,2.5,endgültig,https://www.wahlrecht.de/news/2016/landtagswahl-baden-wuerttemberg-2016.html
+2021-03-14,Sonstige,5.4,endgültig,https://www.wahlrecht.de/news/2021/landtagswahl-baden-wuerttemberg-2021.html
+2026-03-08,Sonstige,5.1,vorläufig,https://www.wahlrecht.de/news/2026/landtagswahl-baden-wuerttemberg-2026.html

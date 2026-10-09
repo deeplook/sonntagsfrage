@@ -1,0 +1,5 @@
+start_date,end_date_exclusive,cabinet,parties,source_url
+2014-01-18,2019-01-18,Kabinett Bouffier II,CDU|GRÜNE,https://de.wikipedia.org/wiki/Kabinett_Bouffier_II
+2019-01-18,2022-05-31,Kabinett Bouffier III,CDU|GRÜNE,https://de.wikipedia.org/wiki/Kabinett_Bouffier_III
+2022-05-31,2024-01-18,Kabinett Rhein I,CDU|GRÜNE,https://de.wikipedia.org/wiki/Kabinett_Rhein_I
+2024-01-18,9999-12-31,Kabinett Rhein II,CDU|SPD,https://de.wikipedia.org/wiki/Kabinett_Rhein_II

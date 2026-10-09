@@ -1,0 +1,11 @@
+start_date,end_date,cabinet,parties,source,source_url
+1990-06-21,1994-06-19,Schröder I,GRÜNE;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-06-23,1998-03-29,Schröder II,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1998-03-30,1998-10-26,Schröder III,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1998-10-27,1999-12-13,Glogowski I,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-12-14,2003-03-03,Gabriel I,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2003-03-04,2008-02-25,Wulff I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2008-02-26,2010-06-30,Wulff II,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2010-07-01,2013-02-18,McAllister I,CDU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2013-02-19,2017-11-21,Weil I,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2017-11-22,2022-11-08,Weil II,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

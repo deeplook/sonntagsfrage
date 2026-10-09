@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1990-10-30,1993-06-16,Streibl II,CSU,StatePol 1.0.4,https://statepol.github.io/Database/
+1993-06-17,1994-10-26,Stoiber I,CSU,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-10-27,1998-10-05,Stoiber II,CSU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1998-10-06,2003-10-13,Stoiber III,CSU,StatePol 1.0.4,https://statepol.github.io/Database/
+2003-10-14,2007-10-15,Stoiber IV,CSU,StatePol 1.0.4,https://statepol.github.io/Database/
+2007-10-16,2008-10-29,Beckstein I,CSU,StatePol 1.0.4,https://statepol.github.io/Database/
+2008-10-30,2013-10-09,Seehofer I,CSU;FDP,StatePol 1.0.4,https://statepol.github.io/Database/
+2013-10-10,2018-03-20,Seehofer II,CSU,StatePol 1.0.4,https://statepol.github.io/Database/
+2018-03-21,2018-11-05,Söder I,CSU,StatePol 1.0.4,https://statepol.github.io/Database/

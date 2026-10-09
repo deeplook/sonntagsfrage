@@ -11,23 +11,30 @@ uv run elections
 The default command downloads two sources:
 
 - [dawum's complete JSON API](https://dawum.de/API/): all available federal and
-  state polls from 2017 onward, including INSA. The original database is saved
-  at `data/raw/dawum.json`; `data/dawum_polls.csv` has one row per poll and
-  `data/dawum_results.csv` has one row per party result.
+  state polls from 2017 onward, including INSA. The shared source snapshot is
+  saved at `data/sources/dawum/api.json`; parsed tables are partitioned by
+  parliament under `data/parliaments/`.
 - [wahlrecht's INSA Bundestag archive](https://www.wahlrecht.de/umfragen/insa.htm):
-  the current page and four historical pages back to 2012. The original HTML
-  pages are saved under `data/raw/`; `data/insa_polls.csv` and
-  `data/insa_results.csv` use the same two-table layout.
+  the current page and four historical pages back to 2012. Original HTML pages
+  and normalized poll/result tables are stored in the Bundestag directory.
+
+The data tree separates scope from source: `data/parliaments/bundestag/` holds
+federal polls, results, elections, governments, and source archives;
+`data/parliaments/landtag/<state>/` holds each state's data; and other
+parliaments, such as the European Parliament, have their own directory. Raw
+DAWUM JSON stays in `data/sources/dawum/` because one snapshot contains polls
+for several parliaments.
 
 Use `uv run elections --source dawum` or `uv run elections --source insa` to
 fetch one source. Use `--output-dir PATH` to change the destination. Running the
 command again refreshes those files. The fetched data is tracked in this repository.
 
-The `source` and `source_poll_id` columns connect each poll to its party results.
-The two providers overlap from 2017 onward, so their rows remain in separate
-files. The archive's `period_text` preserves the website's fieldwork notation;
-`period_start` and `period_end` are empty when that notation has no exact date.
-Election result rows in the archive are excluded because they are not polls.
+Each provider's `polls/*.csv` and `results/*.csv` files use matching
+`source_poll_id` values to connect polls to party results. The two providers
+overlap from 2017 onward, so their rows remain in separate files. The archive's
+`period_text` preserves the website's fieldwork notation; `period_start` and
+`period_end` are empty when that notation has no exact date. Election result
+rows in the archive are excluded because they are not polls.
 
 The [GESIS Politbarometer](https://www.gesis.org/wahlen/politbarometer) mentioned
 in the brainstorm is a different, respondent-level research dataset. GESIS
@@ -36,9 +43,9 @@ this public poll fetcher does not automate that authenticated download. GERDA
 contains election results rather than polls and is likewise outside this
 fetcher's scope.
 
-If you publish data derived from dawum, follow its [ODbL attribution and
-database-sharing terms](https://dawum.de/API/). Check wahlrecht's terms before
-redistributing its archive.
+See [`data/SOURCES.md`](data/SOURCES.md) for the project's source register,
+known licenses, attribution guidance, and sources whose reuse terms still need
+verification before redistribution.
 
 ## INSA bar chart race
 
@@ -49,15 +56,24 @@ uv run elections-race
 ```
 
 Open `charts/insa-race.html` in a browser. Its poll data, CSS, and JavaScript
-are embedded, so the file works offline. The default playback shows the last
-published poll of each month; switch to **Jede Umfrage** to step through every
-poll. You can filter by survey method, scrub the timeline, and change playback
-speed. The values are individual poll snapshots, not a cumulative total.
+and election reference data are embedded, so the file works offline. Its
+history chart grows with playback and includes election results and government
+periods. Use the **Parlament** selector to switch between the Bundestag and any
+of the 16 Landtage; poll series, government labels, election markers, titles,
+and source credits update together. Landtag polls newer than the latest DAWUM
+entry are supplemented from Wahlrecht.de's state poll tables. **Institut / Auftraggeber** filters a
+Landtag view by pollster or commissioning organization; the Bundestag view
+currently offers INSA only. The file embeds DAWUM, supplemental Wahlrecht poll
+data, and Landtag reference tables, so no separate data files are needed in the browser.
+The default playback shows the last published poll of each month;
+switch to **Jede Umfrage** to step through every poll. You can filter by survey
+method, scrub the timeline, and change playback speed. The values are
+individual poll snapshots, not a cumulative total.
 
 The violet stroke beside a party marks it as part of the **federal government
 at the end of that poll's fieldwork**. The chart also names the cabinet and its
 parties. The dated, source-linked intervals are in
-[`data/governments.csv`](data/governments.csv). They distinguish the SPD–Greens
+[`data/parliaments/bundestag/governments.csv`](data/parliaments/bundestag/governments.csv). They distinguish the SPD–Greens
 minority government after the FDP ministers left on 7 November 2024. When a
 fieldwork end date is missing, the publication date is used. The current table
 is verified through 7 October 2026; rendering a later poll requires updating
@@ -101,9 +117,9 @@ Election result percentages come from the Federal Returning Officer's
 dates come from its official HTML page for each election, such as the
 [2025 election page](https://www.bundeswahlleiterin.de/bundestagswahlen/2025.html).
 The source CSV is preserved at
-[`data/raw/bundeswahlleiter-bundestag-results.csv`](data/raw/bundeswahlleiter-bundestag-results.csv),
+[`data/parliaments/bundestag/raw/bundeswahlleiter/results.csv`](data/parliaments/bundestag/raw/bundeswahlleiter/results.csv),
 and the chart-ready values are in
-[`data/bundestag_elections.csv`](data/bundestag_elections.csv). These results
+[`data/parliaments/bundestag/elections.csv`](data/parliaments/bundestag/elections.csv). These results
 are distributed under the [Data Licence Germany – Attribution – Version
 2.0](https://www.govdata.de/dl-de/by-2-0); the video frames include the required
 attribution. The 1949 election used one vote rather than separate first and
@@ -112,21 +128,24 @@ second votes; it falls outside this chart's 2012–present timeline.
 Refresh the chart's election results and source material with:
 
 ```sh
-uv run elections-reference-data
+uv run elections-bundestag-reference-data
 ```
 
 This downloads the official results CSV and the per-election HTML pages for
-each election year in it, rebuilds `data/bundestag_elections.csv` (combining
-CDU and CSU), and saves the CSV at
-`data/raw/bundeswahlleiter-bundestag-results.csv`. The election pages are
-archived under `data/raw/bundeswahlleiter-election-pages/`, with dates, URLs,
-and hashes in `data/raw/bundeswahlleiter-election-pages.csv`. It also downloads
-snapshots of the official pages cited by `data/governments.csv` into
-`data/raw/government-sources/`, with a URL/hash manifest at
-`data/raw/government-sources.csv`.
+each election year in it, rebuilds `data/parliaments/bundestag/elections.csv`
+(combining CDU and CSU), and saves the CSV at
+`data/parliaments/bundestag/raw/bundeswahlleiter/results.csv`. The election
+pages are archived under
+`data/parliaments/bundestag/raw/bundeswahlleiter/election-pages/`, with dates,
+URLs, and hashes in
+`data/parliaments/bundestag/raw/bundeswahlleiter/election-pages.csv`. It also
+downloads snapshots of the official pages cited by
+`data/parliaments/bundestag/governments.csv` into
+`data/parliaments/bundestag/raw/government-sources/`, with a URL/hash manifest
+at `data/parliaments/bundestag/raw/government-sources.csv`.
 
 Government dates and party membership remain curated in
-`data/governments.csv`: the cited official pages are narrative documents, not a
+`data/parliaments/bundestag/governments.csv`: the cited official pages are narrative documents, not a
 structured feed, so review them and edit the intervals when the cabinet changes.
 Pass `--data-dir PATH` to refresh a separate data directory.
 

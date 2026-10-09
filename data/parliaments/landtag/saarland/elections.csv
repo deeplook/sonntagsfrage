@@ -1,0 +1,29 @@
+date,party,percent,result_status,source_url
+2012-03-25,CDU,35.2,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,CDU,40.7,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,CDU,28.5,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,SPD,30.6,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,SPD,29.6,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,SPD,43.5,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,DPS/FDP,1.2,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,DPS/FDP,3.3,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,DPS/FDP,4.8,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,GRÜNE,5.0,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,GRÜNE,4.0,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,GRÜNE,5.0,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,DIE LINKE¹,16.1,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,DIE LINKE¹,12.8,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,DIE LINKE¹,2.6,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,PIRATEN,7.4,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,PIRATEN,0.7,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,PIRATEN,0.3,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2017-03-26,AfD,6.2,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,AfD,5.7,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,NPD,1.2,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,NPD,0.7,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2012-03-25,FAMILIE,1.7,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,FAMILIE,0.8,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,FAMILIE,0.8,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html
+2012-03-25,Sonstige,1.5,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-saarland-2012.htm
+2017-03-26,Sonstige,1.1,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-saarland-2017.html
+2022-03-27,Sonstige,8.8,endgültig,https://www.wahlrecht.de/news/2022/landtagswahl-saarland-2022.html

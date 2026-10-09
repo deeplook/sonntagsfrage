@@ -1,0 +1,11 @@
+start_date,end_date,cabinet,parties,source,source_url
+1990-02-21,1994-11-22,Lafontaine II,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-11-23,1998-11-08,Lafontaine III,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1998-11-09,1999-09-28,Klimmt I,SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-09-29,2004-10-05,Müller I,CDU;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2004-10-06,2009-11-09,Müller II,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2009-11-10,2011-08-09,Müller III,CDU;FDP;GRÜNE,StatePol 1.0.4,https://statepol.github.io/Database/
+2011-08-10,2012-05-08,Kramp-Karrenbauer I,CDU;FDP;GRÜNE,StatePol 1.0.4,https://statepol.github.io/Database/
+2012-05-09,2017-05-16,Kramp-Karrenbauer II,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2017-05-17,2018-02-28,Kramp-Karrenbauer III,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2018-03-01,2022-04-24,Kabinett Hans I,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

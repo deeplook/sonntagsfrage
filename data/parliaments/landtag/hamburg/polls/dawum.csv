@@ -1,0 +1,47 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4338,2026-09-30,2026-09-22,2026-09-27,,975,Hamburgische Bürgerschaft,Trend Research Hamburg,Radio Hamburg,Online,https://api.dawum.de/
+dawum,4215,2026-06-20,2026-06-02,2026-06-09,,1000,Hamburgische Bürgerschaft,INSA,INSA,Online,https://api.dawum.de/
+dawum,4135,2026-03-25,2026-03-19,2026-03-23,,1152,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefon & Online,https://api.dawum.de/
+dawum,3777,2025-03-01,2025-02-26,2025-02-28,,800,Hamburgische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3776,2025-02-27,2025-02-26,2025-02-27,,1046,Hamburgische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3775,2025-02-27,2025-02-24,2025-02-26,,1000,Hamburgische Bürgerschaft,INSA,BILD,Online,https://api.dawum.de/
+dawum,3765,2025-02-20,2025-02-17,2025-02-19,,1308,Hamburgische Bürgerschaft,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,3754,2025-02-14,2025-02-10,2025-02-13,,1055,Hamburgische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3737,2025-02-05,2025-01-29,2025-02-03,,1164,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefon & Online,https://api.dawum.de/
+dawum,3724,2025-01-27,2025-01-16,2025-01-20,,890,Hamburgische Bürgerschaft,Trend Research Hamburg,Radio Hamburg / Die ZEIT,Online,https://api.dawum.de/
+dawum,3709,2025-01-15,2025-01-09,2025-01-13,,1159,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefon & Online,https://api.dawum.de/
+dawum,3681,2024-12-16,2024-12-05,2024-12-10,,886,Hamburgische Bürgerschaft,Trend Research Hamburg,Radio Hamburg / Die ZEIT,Online,https://api.dawum.de/
+dawum,3659,2024-11-27,2024-11-20,2024-11-25,,1177,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefon & Online,https://api.dawum.de/
+dawum,3628,2024-10-31,2024-10-24,2024-10-28,,1017,Hamburgische Bürgerschaft,Forsa,Hamburger Abendblatt,Online,https://api.dawum.de/
+dawum,3431,2024-04-29,2024-04-15,2024-04-25,,1304,Hamburgische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Telefon & Online,https://api.dawum.de/
+dawum,3348,2024-02-07,2024-02-01,2024-02-05,,1164,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefon & Online,https://api.dawum.de/
+dawum,3242,2023-11-01,2023-10-17,2023-10-24,,1068,Hamburgische Bürgerschaft,Trend Research Hamburg,Hamburger Abendblatt,Online,https://api.dawum.de/
+dawum,3205,2023-10-02,2023-09-24,2023-10-02,,1000,Hamburgische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2762,2022-10-26,2022-09-26,2022-10-24,,1705,Hamburgische Bürgerschaft,Civey,DIE ZEIT,Online,https://api.dawum.de/
+dawum,2681,2022-09-16,2022-09-09,2022-09-16,,950,Hamburgische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2334,2022-01-30,2022-01-24,2022-01-29,,1000,Hamburgische Bürgerschaft,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,1679,2020-06-25,2020-06-02,2020-06-11,,1020,Hamburgische Bürgerschaft,Policy Matters,Körber-Stiftung,Online,https://api.dawum.de/
+dawum,1561,2020-02-20,2020-02-19,2020-02-20,,1184,Hamburgische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1560,2020-02-20,2020-02-02,2020-02-14,,1004,Hamburgische Bürgerschaft,Universität Hamburg,Universität Hamburg,Telefonisch,https://api.dawum.de/
+dawum,1559,2020-02-19,2020-02-05,2020-02-19,,3468,Hamburgische Bürgerschaft,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1557,2020-02-19,2020-02-12,2020-02-17,,1006,Hamburgische Bürgerschaft,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1551,2020-02-14,2020-02-11,2020-02-13,,1128,Hamburgische Bürgerschaft,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1549,2020-02-13,2020-02-10,2020-02-12,,1003,Hamburgische Bürgerschaft,Infratest dimap,ARD,Telefonisch,https://api.dawum.de/
+dawum,1544,2020-02-10,2020-01-24,2020-01-29,,675,Hamburgische Bürgerschaft,Trend Research Hamburg,Radio Hamburg,Online,https://api.dawum.de/
+dawum,1538,2020-02-06,2020-01-30,2020-02-04,,1000,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefonisch,https://api.dawum.de/
+dawum,1527,2020-01-23,2020-01-16,2020-01-21,,1002,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefonisch,https://api.dawum.de/
+dawum,1526,2020-01-21,2019-12-23,2020-01-20,,2015,Hamburgische Bürgerschaft,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1515,2020-01-09,2020-01-02,2020-01-07,,1000,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefonisch,https://api.dawum.de/
+dawum,1514,2020-01-09,2019-12-27,2019-12-31,,678,Hamburgische Bürgerschaft,Trend Research Hamburg,Radio Hamburg,Online,https://api.dawum.de/
+dawum,1512,2020-01-06,2019-12-18,2020-01-02,,1009,Hamburgische Bürgerschaft,Forsa,Hamburger Abendblatt,Telefonisch,https://api.dawum.de/
+dawum,1503,2019-12-20,2019-11-22,2019-12-20,,2041,Hamburgische Bürgerschaft,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1500,2019-12-17,2019-12-11,2019-12-16,,1004,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefonisch,https://api.dawum.de/
+dawum,1474,2019-11-18,2019-11-05,2019-11-10,,652,Hamburgische Bürgerschaft,Trend Research Hamburg,Radio Hamburg,Online,https://api.dawum.de/
+dawum,1469,2019-11-12,2019-10-23,2019-11-04,,1020,Hamburgische Bürgerschaft,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1413,2019-09-17,2019-09-06,2019-09-11,,618,Hamburgische Bürgerschaft,Trend Research Hamburg,Hamburg Zwei,Online,https://api.dawum.de/
+dawum,1302,2019-05-28,2019-05-06,2019-05-16,,1002,Hamburgische Bürgerschaft,Policy Matters,DIE ZEIT / Körber-Stiftung,Online,https://api.dawum.de/
+dawum,1211,2019-03-20,2019-01-06,2019-03-02,,1069,Hamburgische Bürgerschaft,Universität Hamburg,Universität Hamburg,Telefonisch,https://api.dawum.de/
+dawum,1193,2019-02-25,2019-02-18,2019-02-21,,1005,Hamburgische Bürgerschaft,Infratest dimap,NDR,Telefonisch,https://api.dawum.de/
+dawum,1137,2019-01-07,2018-12-27,2019-01-03,,1004,Hamburgische Bürgerschaft,Forsa,Hamburger Abendblatt,Telefonisch,https://api.dawum.de/
+dawum,862,2018-04-16,2018-03-19,2018-04-04,,1001,Hamburgische Bürgerschaft,Forsa,BILD / WELT,Unbekannt,https://api.dawum.de/
+dawum,827,2018-03-07,2018-02-23,2018-03-02,,1025,Hamburgische Bürgerschaft,Policy Matters,DIE ZEIT,Unbekannt,https://api.dawum.de/

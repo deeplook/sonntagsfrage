@@ -1,0 +1,75 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4189,2026-05-21,2026-05-13,2026-05-20,,1000,Sächsischer Landtag,INSA,NIUS,Online,https://api.dawum.de/
+dawum,4048,2026-01-06,2025-12-21,2026-01-04,,2500,Sächsischer Landtag,Civey,Sächsische Zeitung / Leipziger Volkszeitung,Online,https://api.dawum.de/
+dawum,3916,2025-08-04,2025-07-20,2025-08-04,,2500,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3915,2025-07-08,2025-06-22,2025-07-06,,2502,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3861,2025-06-07,2025-05-28,2025-06-04,,1000,Sächsischer Landtag,INSA,NIUS,Online,https://api.dawum.de/
+dawum,3914,2025-04-07,2025-03-23,2025-04-07,,2501,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3706,2025-01-07,2024-12-23,2025-01-06,,2501,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3571,2024-08-31,2024-08-26,2024-08-31,,1000,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3569,2024-08-30,2024-08-27,2024-08-29,,1012,Sächsischer Landtag,Forsa,RTL / n-tv,Online,https://api.dawum.de/
+dawum,3566,2024-08-29,2024-08-26,2024-08-29,,1973,Sächsischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3562,2024-08-24,2024-08-19,2024-08-23,,1000,Sächsischer Landtag,INSA,BILD am Sonntag,Telefon & Online,https://api.dawum.de/
+dawum,3559,2024-08-23,2024-08-19,2024-08-22,,1028,Sächsischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3557,2024-08-22,2024-08-19,2024-08-21,,1566,Sächsischer Landtag,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,3553,2024-08-21,2024-08-10,2024-08-18,,1000,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3550,2024-08-20,2024-08-07,2024-08-14,,1041,Sächsischer Landtag,Forsa,Stern / RTL,Online,https://api.dawum.de/
+dawum,3547,2024-08-16,2024-08-05,2024-08-12,,1500,Sächsischer Landtag,INSA,Sächsische Zeitung / Freie Presse / Leipziger Volkszeitung,Online,https://api.dawum.de/
+dawum,3534,2024-08-09,2024-08-05,2024-08-08,,1003,Sächsischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3494,2024-06-20,2024-06-12,2024-06-18,,1157,Sächsischer Landtag,Infratest dimap,MDR,Telefon & Online,https://api.dawum.de/
+dawum,3493,2024-06-19,2024-06-10,2024-06-17,,1500,Sächsischer Landtag,INSA,Sächsische Zeitung / Freie Presse / Leipziger Volkszeitung,Telefon & Online,https://api.dawum.de/
+dawum,3402,2024-04-03,2024-03-19,2024-04-02,,3002,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3385,2024-03-19,2024-03-11,2024-03-18,,1000,Sächsischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,3382,2024-03-17,2024-03-06,2024-03-15,,1200,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3330,2024-01-25,2024-01-18,2024-01-23,,1177,Sächsischer Landtag,Infratest dimap,MDR,Telefon & Online,https://api.dawum.de/
+dawum,3315,2024-01-11,2024-01-07,2024-01-10,,1507,Sächsischer Landtag,Forsa,RTL / n-tv,Online,https://api.dawum.de/
+dawum,3312,2024-01-11,2024-01-02,2024-01-09,,970,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Telefon & Online,https://api.dawum.de/
+dawum,3301,2024-01-01,2023-12-18,2024-01-01,,3004,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3279,2023-12-04,2023-11-19,2023-12-03,,3002,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3256,2023-11-10,2023-10-31,2023-11-07,,1173,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3147,2023-08-31,2023-08-11,2023-08-22,,1500,Sächsischer Landtag,INSA,Sächsische Zeitung / Freie Presse / Leipziger Volkszeitung,Online,https://api.dawum.de/
+dawum,3124,2023-08-06,2023-07-23,2023-08-06,,2400,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,3045,2023-06-12,2023-06-08,2023-06-12,,1558,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3026,2023-05-28,2023-05-16,2023-05-28,,987,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3002,2023-05-02,2023-02-16,2023-05-01,,2402,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,2906,2023-02-06,2023-01-22,2023-02-05,,2400,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,2825,2022-12-21,2022-12-18,2022-12-20,,1020,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2687,2022-09-20,2022-09-17,2022-09-19,,1000,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2557,2022-06-15,2022-06-07,2022-06-15,,1204,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2518,2022-05-17,2022-05-09,2022-05-16,,1023,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2439,2022-04-07,2022-04-01,2022-04-06,,1000,Sächsischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,2428,2022-04-01,2022-03-26,2022-04-01,,1100,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2365,2022-02-24,2022-02-17,2022-02-22,,1178,Sächsischer Landtag,Infratest dimap,MDR,Telefon & Online,https://api.dawum.de/
+dawum,2206,2021-10-13,2021-10-05,2021-10-12,,1002,Sächsischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2107,2021-08-20,2021-08-13,2021-08-18,,1179,Sächsischer Landtag,Infratest dimap,MDR,Telefon & Online,https://api.dawum.de/
+dawum,2100,2021-08-16,2021-08-02,2021-08-09,,1001,Sächsischer Landtag,INSA,Leipziger Volkszeitung,Telefon & Online,https://api.dawum.de/
+dawum,1994,2021-05-25,2021-05-18,2021-05-25,,1000,Sächsischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1936,2021-04-08,2021-03-29,2021-04-05,,2510,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
+dawum,1832,2021-01-04,2020-12-01,2020-12-15,,1008,Sächsischer Landtag,INSA,Leipziger Volkszeitung,Telefon & Online,https://api.dawum.de/
+dawum,1684,2020-07-08,2020-06-29,2020-07-02,,1020,Sächsischer Landtag,INSA,Leipziger Volkszeitung,Telefon & Online,https://api.dawum.de/
+dawum,1396,2019-08-29,2019-08-26,2019-08-29,,1657,Sächsischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1394,2019-08-28,2019-08-04,2019-08-28,,5015,Sächsischer Landtag,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1391,2019-08-27,2019-08-19,2019-08-26,,1018,Sächsischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1387,2019-08-23,2019-08-19,2019-08-22,,1068,Sächsischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1383,2019-08-22,2019-08-19,2019-08-21,,1002,Sächsischer Landtag,Infratest dimap,ARD,Telefonisch,https://api.dawum.de/
+dawum,1380,2019-08-20,2019-07-23,2019-08-20,,5016,Sächsischer Landtag,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1379,2019-08-20,2019-08-08,2019-08-15,,700,Sächsischer Landtag,IM Field,Leipziger Volkszeitung,Telefonisch,https://api.dawum.de/
+dawum,1368,2019-08-06,2019-07-22,2019-07-31,,1011,Sächsischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1356,2019-07-25,2019-06-27,2019-07-25,,5019,Sächsischer Landtag,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1337,2019-07-02,2019-06-24,2019-06-29,,1000,Sächsischer Landtag,Infratest dimap,MDR,Telefonisch,https://api.dawum.de/
+dawum,1319,2019-06-15,2019-05-29,2019-06-04,,704,Sächsischer Landtag,IM Field,Leipziger Volkszeitung,Telefonisch,https://api.dawum.de/
+dawum,1316,2019-06-13,2019-05-15,2019-06-12,,5001,Sächsischer Landtag,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1315,2019-06-13,2019-06-04,2019-06-11,,1057,Sächsischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1256,2019-04-26,2019-04-17,2019-04-24,,1000,Sächsischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1245,2019-04-16,2019-03-19,2019-04-16,,3852,Sächsischer Landtag,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1233,2019-04-05,2019-03-07,2019-03-18,,1028,Sächsischer Landtag,INSA,CDU Sachsen,Telefon & Online,https://api.dawum.de/
+dawum,1214,2019-03-22,2019-03-04,2019-03-13,,703,Sächsischer Landtag,IM Field,Leipziger Volkszeitung,Telefonisch,https://api.dawum.de/
+dawum,1128,2018-12-20,2018-12-10,2018-12-17,,1000,Sächsischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1099,2018-11-23,2018-11-02,2018-11-14,,1002,Sächsischer Landtag,IM Field,Sächsische Zeitung,Telefonisch,https://api.dawum.de/
+dawum,1007,2018-09-07,2018-08-20,2018-08-28,,703,Sächsischer Landtag,uniQma,Leipziger Volkszeitung,Unbekannt,https://api.dawum.de/
+dawum,1001,2018-08-31,2018-08-27,2018-08-30,,1040,Sächsischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,992,2018-08-28,2018-08-20,2018-08-25,,1000,Sächsischer Landtag,Infratest dimap,MDR,Unbekannt,https://api.dawum.de/
+dawum,919,2018-06-12,2018-06-04,2018-06-11,,1009,Sächsischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,745,2017-12-07,2017-11-16,2017-12-02,,1000,Sächsischer Landtag,IM Field,Sächsische Zeitung,Unbekannt,https://api.dawum.de/
+dawum,701,2017-11-01,2017-10-23,2017-10-26,,1005,Sächsischer Landtag,IM Field,Sächsische Zeitung,Unbekannt,https://api.dawum.de/
+dawum,550,2017-06-22,2017-06-12,2017-06-17,,1000,Sächsischer Landtag,Infratest dimap,MDR,Unbekannt,https://api.dawum.de/

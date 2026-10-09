@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1990-10-27,1994-10-05,Biedenkopf I,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+1994-10-06,1999-10-26,Biedenkopf II,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+1999-10-27,2002-05-01,Biedenkopf III,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2002-05-02,2004-11-10,Milbradt I,CDU,StatePol 1.0.4,https://statepol.github.io/Database/
+2004-11-11,2008-06-17,Milbradt II,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2008-06-18,2009-09-29,Tillich I,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2009-09-30,2014-11-12,Tillich II,CDU;FDP;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2014-11-13,2017-12-12,Tillich III,CDU;SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2017-12-13,2019-12-19,Kretschmer I,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/

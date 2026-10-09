@@ -1,0 +1,25 @@
+date,party,percent,result_status,source_url
+2013-01-20,CDU¹,36.0,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,CDU¹,33.6,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,CDU¹,28.1,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2013-01-20,SPD,32.6,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,SPD,36.9,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,SPD,33.4,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2013-01-20,FDP,9.9,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,FDP,7.5,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,FDP,4.7,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2013-01-20,GRÜNE,13.7,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,GRÜNE,8.7,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,GRÜNE,14.5,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2013-01-20,DIE LINKE,3.1,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,DIE LINKE,4.6,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,DIE LINKE,2.7,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2017-10-15,AfD,6.2,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,AfD,10.9,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2013-01-20,DRP/NPD³,0.8,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2013-01-20,PIRATEN,2.1,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,PIRATEN,0.2,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,PIRATEN,0.4,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut
+2013-01-20,Sonstige,2.5,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-niedersachsen-2013.html#absolut
+2017-10-15,Sonstige,2.2,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-niedersachsen-2017.html#absolut
+2022-10-09,Sonstige,5.2,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-niedersachsen-2022.html#absolut

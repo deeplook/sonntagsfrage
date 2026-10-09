@@ -1,0 +1,28 @@
+date,party,percent,result_status,source_url
+2012-05-06,CDU,30.8,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,CDU,32.0,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,CDU,43.4,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,SPD,30.4,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,SPD,27.2,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,SPD,16.0,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,FDP,8.2,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,FDP,11.5,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,FDP,6.4,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,SSV/SSW4,4.6,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,SSV/SSW4,3.3,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,SSV/SSW4,5.7,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,GRÜNE,13.2,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,GRÜNE,12.9,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,GRÜNE,18.3,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,DIE LINKE5,2.3,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,DIE LINKE5,3.8,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,DIE LINKE5,1.7,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,DRP/NPD²,0.7,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2012-05-06,PIRATEN,8.2,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,PIRATEN,1.2,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,PIRATEN,0.3,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2017-05-07,AfD,5.9,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,AfD,4.4,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html
+2012-05-06,Sonstige,1.7,endgültig,https://www.wahlrecht.de/news/2012/landtagswahl-schleswig-holstein-2012.htm
+2017-05-07,Sonstige,2.3,endgültig,https://www.wahlrecht.de/news/2017/landtagswahl-schleswig-holstein-2017.html
+2022-05-08,Sonstige,3.8,vorläufig,https://www.wahlrecht.de/news/2022/landtagswahl-schleswig-holstein-2022.html

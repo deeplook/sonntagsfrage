@@ -1,0 +1,188 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4323,2026-09-12,2026-08-27,2026-09-10,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4273,2026-08-14,2026-07-30,2026-08-13,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4257,2026-07-18,2026-07-02,2026-07-17,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4256,2026-06-14,2026-05-28,2026-06-12,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4255,2026-05-16,2026-04-29,2026-05-13,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4254,2026-04-19,2026-04-03,2026-04-17,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4253,2026-03-14,2026-02-26,2026-03-12,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4109,2026-03-03,2026-02-25,2026-03-02,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
+dawum,4089,2026-02-14,2026-01-29,2026-02-12,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4064,2026-01-19,2026-01-01,2026-01-15,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4053,2026-01-14,2026-01-08,2026-01-12,,1177,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,4045,2026-01-05,2025-12-23,2026-01-05,,1006,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
+dawum,4039,2025-12-17,2025-11-27,2025-12-11,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,4038,2025-12-11,2025-12-05,2025-12-10,,1005,Bayerischer Landtag,GMS,CSU,Telefon & Online,https://api.dawum.de/
+dawum,4013,2025-11-15,2025-10-30,2025-11-13,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3994,2025-10-11,2025-09-24,2025-10-09,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3965,2025-09-30,2025-09-24,2025-09-29,,1017,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
+dawum,3953,2025-09-13,2025-08-29,2025-09-12,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3949,2025-09-12,2025-09-01,2025-09-10,,1012,Bayerischer Landtag,Forsa,Süddeutsche Zeitung,Telefonisch,https://api.dawum.de/
+dawum,3929,2025-08-18,2025-07-30,2025-08-14,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3913,2025-07-14,2025-06-25,2025-07-10,,5002,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3865,2025-06-14,2025-05-30,2025-06-13,,5001,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3912,2025-05-10,2025-04-25,2025-05-09,,5004,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3811,2025-04-12,2025-03-28,2025-04-11,,5006,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3911,2025-03-15,2025-02-28,2025-03-14,,5006,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3910,2025-02-17,2025-01-30,2025-02-13,,5007,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3909,2025-01-22,2025-01-03,2025-01-17,,5011,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3918,2025-01-09,2025-01-03,2025-01-06,,1000,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3908,2024-12-14,2024-11-28,2024-12-12,,5001,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3651,2024-11-16,2024-11-01,2024-11-15,,5008,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3621,2024-10-20,2024-10-07,2024-10-14,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,3590,2024-09-17,2024-09-11,2024-09-16,,1048,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
+dawum,3555,2024-08-08,2024-07-22,2024-08-02,,1036,Bayerischer Landtag,Forsa,Süddeutsche Zeitung,Telefonisch,https://api.dawum.de/
+dawum,3442,2024-05-07,2024-04-30,2024-05-06,,1023,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,3380,2024-03-16,2024-03-08,2024-03-15,,5001,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3345,2024-02-06,2024-01-31,2024-02-05,,1018,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
+dawum,3321,2024-01-17,2024-01-11,2024-01-15,,1161,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,3303,2024-01-03,2023-12-27,2024-01-02,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
+dawum,3263,2023-11-18,2023-11-10,2023-11-17,,5001,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3213,2023-10-06,2023-10-03,2023-10-06,,985,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3211,2023-10-05,2023-10-04,2023-10-05,,1209,Bayerischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3210,2023-10-04,2023-09-30,2023-10-03,,1002,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3208,2023-10-04,2023-09-25,2023-10-02,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,3206,2023-10-02,2023-09-24,2023-10-01,,5001,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3198,2023-09-29,2023-09-25,2023-09-28,,1222,Bayerischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3195,2023-09-28,2023-09-25,2023-09-27,,1512,Bayerischer Landtag,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,3184,2023-09-21,2023-09-13,2023-09-20,,5002,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3183,2023-09-20,2023-09-14,2023-09-20,,1021,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Telefon & Online,https://api.dawum.de/
+dawum,3179,2023-09-19,2023-09-13,2023-09-18,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,3168,2023-09-12,2023-09-05,2023-09-09,,1171,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,3160,2023-09-08,2023-09-04,2023-09-07,,1254,Bayerischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3159,2023-09-07,2023-09-04,2023-09-07,,1004,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3158,2023-09-07,2023-08-30,2023-09-06,,5003,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3157,2023-09-06,2023-09-04,2023-09-06,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,3156,2023-09-05,2023-09-01,2023-09-05,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,3153,2023-09-04,2023-08-31,2023-09-04,,1400,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3139,2023-08-24,2023-08-09,2023-08-23,,5502,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3135,2023-08-20,2023-08-14,2023-08-19,,1892,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3123,2023-08-10,2023-07-26,2023-08-09,,5502,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3122,2023-08-09,2023-08-02,2023-08-08,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern / Antenne Bayern,Telefonisch,https://api.dawum.de/
+dawum,3113,2023-08-02,2023-07-24,2023-07-28,,1012,Bayerischer Landtag,Forsa,Süddeutsche Zeitung,Telefonisch,https://api.dawum.de/
+dawum,3107,2023-07-31,2023-07-27,2023-07-31,,1042,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3101,2023-07-27,2023-07-17,2023-07-24,,810,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,3087,2023-07-15,2023-06-30,2023-07-14,,5503,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3072,2023-07-04,2023-06-29,2023-07-04,,1300,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3071,2023-07-04,2023-06-28,2023-07-03,,1006,Bayerischer Landtag,GMS,SAT.1 Bayern / Antenne Bayern,Telefonisch,https://api.dawum.de/
+dawum,3055,2023-06-17,2023-06-02,2023-06-16,,5501,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,3038,2023-06-06,2023-05-31,2023-06-05,,1001,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,3029,2023-05-30,2023-05-16,2023-05-22,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,3021,2023-05-24,2023-05-21,2023-05-24,,1100,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3013,2023-05-16,2023-05-09,2023-05-13,,1176,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,2989,2023-05-03,2023-04-26,2023-05-02,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,3003,2023-05-03,2023-04-20,2023-04-28,,1009,Bayerischer Landtag,Forsa,Süddeutsche Zeitung,Telefonisch,https://api.dawum.de/
+dawum,2958,2023-04-06,2023-03-31,2023-04-06,,1000,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2960,2023-04-05,2023-03-27,2023-04-03,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,2900,2023-02-19,2023-02-14,2023-02-19,,1008,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2902,2023-02-18,2023-02-02,2023-02-16,,5503,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,2903,2023-02-17,2023-02-08,2023-02-16,,1022,Bayerischer Landtag,Forsa,Forsa,Telefonisch,https://api.dawum.de/
+dawum,2854,2023-01-17,2023-01-13,2023-01-17,,1040,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2853,2023-01-14,2022-12-29,2023-01-12,,5499,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,2842,2023-01-12,2023-01-02,2023-01-09,,2000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,2841,2023-01-11,2023-01-04,2023-01-09,,1190,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,2835,2023-01-04,2022-12-28,2023-01-03,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2803,2022-12-05,2022-12-02,2022-12-05,,1944,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2783,2022-11-21,2022-11-06,2022-11-20,,5501,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,2761,2022-11-04,2022-10-29,2022-11-03,,1040,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2751,2022-10-28,2022-10-17,2022-10-25,,1083,Bayerischer Landtag,Forsa,CSU,Telefonisch,https://api.dawum.de/
+dawum,2748,2022-10-26,2022-10-19,2022-10-25,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2734,2022-10-18,2022-10-10,2022-10-17,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,2725,2022-10-13,2022-10-07,2022-10-11,,1157,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,2691,2022-09-21,2022-09-14,2022-09-20,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2676,2022-09-13,2022-09-06,2022-09-13,,1371,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2623,2022-08-04,2022-08-01,2022-08-03,,1100,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2603,2022-07-16,2022-07-01,2022-07-15,,5505,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,2578,2022-06-30,2022-06-22,2022-06-29,,1000,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2565,2022-06-20,2022-06-15,2022-06-20,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2548,2022-06-10,2022-05-23,2022-06-03,,1049,Bayerischer Landtag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,2530,2022-05-24,2022-04-27,2022-05-13,,1235,Bayerischer Landtag,Forsa,Verlag Nürnberger Presse,Unbekannt,https://api.dawum.de/
+dawum,2487,2022-05-03,2022-04-27,2022-05-03,,1053,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2470,2022-04-26,2022-04-20,2022-04-25,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2373,2022-03-01,2022-02-23,2022-02-28,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2366,2022-02-23,2022-02-18,2022-02-23,,1700,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2309,2022-01-19,2022-01-13,2022-01-17,,1174,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,2297,2022-01-05,2021-12-29,2022-01-03,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2281,2021-12-15,2021-12-08,2021-12-14,,1430,Bayerischer Landtag,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2199,2021-10-12,2021-10-04,2021-10-11,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,2075,2021-07-28,2021-07-21,2021-07-27,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,2066,2021-07-21,2021-07-12,2021-07-19,,1000,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,1986,2021-05-19,2021-05-10,2021-05-17,,1016,Bayerischer Landtag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,1959,2021-04-28,2021-04-22,2021-04-27,,1400,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,1925,2021-03-30,2021-03-24,2021-03-29,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1873,2021-02-16,2021-02-10,2021-02-15,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1854,2021-01-28,2021-01-21,2021-01-26,,1016,Bayerischer Landtag,INSA,FDP Bayern,Online,https://api.dawum.de/
+dawum,1839,2021-01-13,2021-01-07,2021-01-11,,1000,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Telefonisch,https://api.dawum.de/
+dawum,1834,2021-01-05,2020-12-29,2021-01-04,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1790,2020-11-10,2020-11-04,2020-11-09,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1763,2020-10-13,2020-10-07,2020-10-12,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1755,2020-10-07,2020-09-30,2020-10-05,,1001,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Telefonisch,https://api.dawum.de/
+dawum,1721,2020-08-21,2020-08-17,2020-08-20,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1713,2020-08-11,2020-08-05,2020-08-10,,1001,Bayerischer Landtag,INSA,BILD,Online,https://api.dawum.de/
+dawum,1700,2020-07-28,2020-07-22,2020-07-27,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1693,2020-07-22,2020-07-15,2020-07-20,,1003,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Telefonisch,https://api.dawum.de/
+dawum,1666,2020-06-16,2020-06-09,2020-06-15,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1651,2020-05-30,2020-05-19,2020-05-25,,1014,Bayerischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1646,2020-05-27,2020-05-20,2020-05-25,,1000,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Telefonisch,https://api.dawum.de/
+dawum,1630,2020-05-05,2020-04-28,2020-05-04,,1006,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1603,2020-04-08,2020-04-02,2020-04-06,,1003,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Telefonisch,https://api.dawum.de/
+dawum,1602,2020-04-06,2020-03-15,2020-04-05,,4535,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,1565,2020-02-25,2020-02-17,2020-02-24,,1006,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1520,2020-01-15,2020-01-08,2020-01-13,,1004,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Telefonisch,https://api.dawum.de/
+dawum,1511,2020-01-03,2019-12-27,2020-01-02,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1435,2019-10-08,2019-10-01,2019-10-07,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1423,2019-09-25,2019-09-16,2019-09-23,,1034,Bayerischer Landtag,INSA,BILD,Telefon & Online,https://api.dawum.de/
+dawum,1353,2019-07-23,2019-07-17,2019-07-22,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1329,2019-06-25,2019-06-18,2019-06-24,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1281,2019-04-27,2019-03-29,2019-04-26,,5016,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,1280,2019-03-30,2019-03-01,2019-03-29,,4515,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,1159,2019-01-28,2019-01-22,2019-01-25,,1003,Bayerischer Landtag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,1140,2019-01-09,2019-01-03,2019-01-07,,1003,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefonisch,https://api.dawum.de/
+dawum,1134,2019-01-03,2018-12-27,2019-01-02,,1003,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefonisch,https://api.dawum.de/
+dawum,1059,2018-10-11,2018-10-10,2018-10-11,,1075,Bayerischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Unbekannt,https://api.dawum.de/
+dawum,1056,2018-10-11,2018-10-06,2018-10-10,,5063,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,1055,2018-10-09,2018-10-02,2018-10-08,,1707,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,1050,2018-10-05,2018-10-01,2018-10-04,,1122,Bayerischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Unbekannt,https://api.dawum.de/
+dawum,1049,2018-10-04,2018-10-01,2018-10-02,,1002,Bayerischer Landtag,Infratest dimap,ARD-Tagesthemen,Unbekannt,https://api.dawum.de/
+dawum,1038,2018-09-27,2018-09-20,2018-09-26,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,1037,2018-09-26,2018-09-21,2018-09-25,,1064,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,1036,2018-09-24,2018-09-19,2018-09-23,,5061,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,1029,2018-09-21,2018-09-17,2018-09-19,,1114,Bayerischer Landtag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Unbekannt,https://api.dawum.de/
+dawum,1018,2018-09-12,2018-09-05,2018-09-10,,1000,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Unbekannt,https://api.dawum.de/
+dawum,1014,2018-09-11,2018-09-04,2018-09-10,,1006,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,1011,2018-09-10,2018-08-30,2018-09-09,,5046,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,996,2018-08-28,2018-08-23,2018-08-27,,1033,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,991,2018-08-27,2018-08-16,2018-08-26,,5049,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,982,2018-08-14,2018-07-31,2018-08-13,,5047,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,980,2018-08-13,2018-07-25,2018-08-09,,1105,Bayerischer Landtag,Forsa,RTL / n-tv,Unbekannt,https://api.dawum.de/
+dawum,970,2018-08-01,2018-07-25,2018-07-31,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,959,2018-07-18,2018-07-11,2018-07-16,,1003,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Unbekannt,https://api.dawum.de/
+dawum,951,2018-07-12,2018-07-05,2018-07-11,,1007,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,949,2018-07-09,2018-07-04,2018-07-06,,1003,Bayerischer Landtag,Forsa,RTL / n-tv,Unbekannt,https://api.dawum.de/
+dawum,946,2018-07-06,2018-06-24,2018-07-05,,5093,Bayerischer Landtag,Civey,Spiegel Online / Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,936,2018-06-27,2018-06-25,2018-06-27,,1231,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,932,2018-06-25,2018-06-21,2018-06-22,,1033,Bayerischer Landtag,Forsa,RTL / n-tv,Unbekannt,https://api.dawum.de/
+dawum,915,2018-06-08,2018-05-20,2018-06-07,,5066,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,895,2018-05-17,2018-05-11,2018-05-16,,1005,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,889,2018-05-13,2018-04-24,2018-05-12,,5082,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,881,2018-05-02,2018-04-22,2018-04-27,,1002,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Unbekannt,https://api.dawum.de/
+dawum,876,2018-04-27,2018-04-20,2018-04-26,,1002,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,868,2018-04-21,2018-04-17,2018-04-20,,1005,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,854,2018-04-06,2018-03-19,2018-04-05,,5048,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,839,2018-03-22,2018-03-16,2018-03-21,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,833,2018-03-16,2018-03-02,2018-03-15,,5004,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,818,2018-02-26,2018-02-12,2018-02-26,,5040,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,817,2018-02-25,2018-02-08,2018-02-22,,1027,Bayerischer Landtag,Forsa,RTL / n-tv,Unbekannt,https://api.dawum.de/
+dawum,799,2018-02-12,2018-02-01,2018-02-09,,1510,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,781,2018-01-16,2018-01-06,2018-01-16,,5040,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,768,2018-01-10,2018-01-03,2018-01-08,,1002,Bayerischer Landtag,Infratest dimap,BR-Politikmagazin Kontrovers,Unbekannt,https://api.dawum.de/
+dawum,759,2018-01-02,2017-12-27,2018-01-01,,1007,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,747,2017-12-13,2017-12-12,2017-12-13,,1003,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,746,2017-12-13,2017-11-24,2017-12-13,,5019,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,731,2017-11-30,2017-11-27,2017-11-29,,1006,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,743,2017-11-30,2017-11-20,2017-11-30,,5994,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,715,2017-11-16,2017-10-16,2017-11-16,,5034,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/
+dawum,709,2017-11-10,2017-11-06,2017-11-09,,1017,Bayerischer Landtag,Forsa,RTL / n-tv,Unbekannt,https://api.dawum.de/
+dawum,704,2017-11-05,2017-11-02,2017-11-03,,1033,Bayerischer Landtag,INSA,BILD,Unbekannt,https://api.dawum.de/
+dawum,690,2017-10-19,2017-10-13,2017-10-18,,1004,Bayerischer Landtag,GMS,SAT.1 Bayern,Unbekannt,https://api.dawum.de/
+dawum,685,2017-10-13,2017-09-25,2017-10-13,,5043,Bayerischer Landtag,Civey,Augsburger Allgemeine,Unbekannt,https://api.dawum.de/

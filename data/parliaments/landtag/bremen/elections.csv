@@ -1,0 +1,28 @@
+date,party,percent,result_status,source_url
+2015-05-10,SPD,32.8,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,SPD,24.9,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,SPD,29.8,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,CDU,22.4,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,CDU,26.7,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,CDU,26.2,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,FDP2,6.6,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,FDP2,5.9,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,FDP2,5.1,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,GRÜNE3,15.1,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,GRÜNE3,17.4,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,GRÜNE3,11.9,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,PDS/DIE LINKE4,9.5,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,PDS/DIE LINKE4,11.3,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,PDS/DIE LINKE4,10.9,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,AfD,5.5,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,AfD,6.1,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2015-05-10,SRP/NPD/DVU6,0.2,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2015-05-10,BIW,3.2,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,BIW,2.4,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,BIW,9.4,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,PIRATEN,1.5,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,PIRATEN,1.0,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,PIRATEN,0.2,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html
+2015-05-10,Sonstige,3.1,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html
+2019-05-26,Sonstige,4.2,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html
+2023-05-14,Sonstige,6.6,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html

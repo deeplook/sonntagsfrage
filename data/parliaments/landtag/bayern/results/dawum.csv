@@ -1,0 +1,1543 @@
+source,source_poll_id,party,percent,source_url
+dawum,4323,CSU,38,https://api.dawum.de/
+dawum,4323,AfD,20,https://api.dawum.de/
+dawum,4323,Grüne,13,https://api.dawum.de/
+dawum,4323,Freie Wähler,12,https://api.dawum.de/
+dawum,4323,SPD,6,https://api.dawum.de/
+dawum,4323,Sonstige,3,https://api.dawum.de/
+dawum,4323,Linke,3,https://api.dawum.de/
+dawum,4323,BSW,3,https://api.dawum.de/
+dawum,4323,FDP,2,https://api.dawum.de/
+dawum,4273,CSU,38,https://api.dawum.de/
+dawum,4273,AfD,20,https://api.dawum.de/
+dawum,4273,Grüne,13,https://api.dawum.de/
+dawum,4273,Freie Wähler,12,https://api.dawum.de/
+dawum,4273,SPD,6,https://api.dawum.de/
+dawum,4273,Sonstige,3,https://api.dawum.de/
+dawum,4273,Linke,3,https://api.dawum.de/
+dawum,4273,BSW,3,https://api.dawum.de/
+dawum,4273,FDP,2,https://api.dawum.de/
+dawum,4257,CSU,37,https://api.dawum.de/
+dawum,4257,AfD,19,https://api.dawum.de/
+dawum,4257,Grüne,14,https://api.dawum.de/
+dawum,4257,Freie Wähler,12,https://api.dawum.de/
+dawum,4257,SPD,6,https://api.dawum.de/
+dawum,4257,Sonstige,4,https://api.dawum.de/
+dawum,4257,Linke,3,https://api.dawum.de/
+dawum,4257,BSW,3,https://api.dawum.de/
+dawum,4257,FDP,2,https://api.dawum.de/
+dawum,4256,CSU,38,https://api.dawum.de/
+dawum,4256,AfD,19,https://api.dawum.de/
+dawum,4256,Grüne,14,https://api.dawum.de/
+dawum,4256,Freie Wähler,12,https://api.dawum.de/
+dawum,4256,SPD,6,https://api.dawum.de/
+dawum,4256,Sonstige,3,https://api.dawum.de/
+dawum,4256,Linke,3,https://api.dawum.de/
+dawum,4256,BSW,3,https://api.dawum.de/
+dawum,4256,FDP,2,https://api.dawum.de/
+dawum,4255,CSU,37,https://api.dawum.de/
+dawum,4255,AfD,19,https://api.dawum.de/
+dawum,4255,Grüne,14,https://api.dawum.de/
+dawum,4255,Freie Wähler,12,https://api.dawum.de/
+dawum,4255,SPD,7,https://api.dawum.de/
+dawum,4255,Sonstige,3,https://api.dawum.de/
+dawum,4255,Linke,3,https://api.dawum.de/
+dawum,4255,BSW,3,https://api.dawum.de/
+dawum,4255,FDP,2,https://api.dawum.de/
+dawum,4254,CSU,38,https://api.dawum.de/
+dawum,4254,AfD,19,https://api.dawum.de/
+dawum,4254,Grüne,13,https://api.dawum.de/
+dawum,4254,Freie Wähler,11,https://api.dawum.de/
+dawum,4254,SPD,7,https://api.dawum.de/
+dawum,4254,Sonstige,4,https://api.dawum.de/
+dawum,4254,Linke,3,https://api.dawum.de/
+dawum,4254,BSW,3,https://api.dawum.de/
+dawum,4254,FDP,2,https://api.dawum.de/
+dawum,4253,CSU,39,https://api.dawum.de/
+dawum,4253,AfD,17,https://api.dawum.de/
+dawum,4253,Grüne,12,https://api.dawum.de/
+dawum,4253,Freie Wähler,11,https://api.dawum.de/
+dawum,4253,SPD,8,https://api.dawum.de/
+dawum,4253,Sonstige,5,https://api.dawum.de/
+dawum,4253,Linke,3,https://api.dawum.de/
+dawum,4253,BSW,3,https://api.dawum.de/
+dawum,4253,FDP,2,https://api.dawum.de/
+dawum,4109,CSU,39,https://api.dawum.de/
+dawum,4109,AfD,18,https://api.dawum.de/
+dawum,4109,Grüne,13,https://api.dawum.de/
+dawum,4109,Freie Wähler,10,https://api.dawum.de/
+dawum,4109,SPD,7,https://api.dawum.de/
+dawum,4109,Sonstige,5,https://api.dawum.de/
+dawum,4109,Linke,3,https://api.dawum.de/
+dawum,4109,FDP,2,https://api.dawum.de/
+dawum,4109,BSW,2,https://api.dawum.de/
+dawum,4109,Bayernpartei,1,https://api.dawum.de/
+dawum,4089,CSU,40,https://api.dawum.de/
+dawum,4089,AfD,18,https://api.dawum.de/
+dawum,4089,Freie Wähler,12,https://api.dawum.de/
+dawum,4089,Grüne,11,https://api.dawum.de/
+dawum,4089,SPD,7,https://api.dawum.de/
+dawum,4089,Sonstige,6,https://api.dawum.de/
+dawum,4089,Linke,3,https://api.dawum.de/
+dawum,4089,FDP,2,https://api.dawum.de/
+dawum,4089,BSW,1,https://api.dawum.de/
+dawum,4064,CSU,40,https://api.dawum.de/
+dawum,4064,AfD,18,https://api.dawum.de/
+dawum,4064,Grüne,12,https://api.dawum.de/
+dawum,4064,Freie Wähler,11,https://api.dawum.de/
+dawum,4064,SPD,7,https://api.dawum.de/
+dawum,4064,Sonstige,6,https://api.dawum.de/
+dawum,4064,Linke,3,https://api.dawum.de/
+dawum,4064,FDP,2,https://api.dawum.de/
+dawum,4064,BSW,1,https://api.dawum.de/
+dawum,4053,CSU,39,https://api.dawum.de/
+dawum,4053,AfD,19,https://api.dawum.de/
+dawum,4053,Grüne,13,https://api.dawum.de/
+dawum,4053,Sonstige,9,https://api.dawum.de/
+dawum,4053,Freie Wähler,9,https://api.dawum.de/
+dawum,4053,SPD,8,https://api.dawum.de/
+dawum,4053,Linke,3,https://api.dawum.de/
+dawum,4045,CSU,39,https://api.dawum.de/
+dawum,4045,AfD,19,https://api.dawum.de/
+dawum,4045,Freie Wähler,12,https://api.dawum.de/
+dawum,4045,Grüne,11,https://api.dawum.de/
+dawum,4045,SPD,6,https://api.dawum.de/
+dawum,4045,Sonstige,5,https://api.dawum.de/
+dawum,4045,Linke,3,https://api.dawum.de/
+dawum,4045,FDP,2,https://api.dawum.de/
+dawum,4045,BSW,2,https://api.dawum.de/
+dawum,4045,Bayernpartei,1,https://api.dawum.de/
+dawum,4039,CSU,37,https://api.dawum.de/
+dawum,4039,AfD,21,https://api.dawum.de/
+dawum,4039,Grüne,12,https://api.dawum.de/
+dawum,4039,Freie Wähler,10,https://api.dawum.de/
+dawum,4039,SPD,8,https://api.dawum.de/
+dawum,4039,Sonstige,4,https://api.dawum.de/
+dawum,4039,Linke,4,https://api.dawum.de/
+dawum,4039,FDP,2,https://api.dawum.de/
+dawum,4039,BSW,2,https://api.dawum.de/
+dawum,4038,CSU,40,https://api.dawum.de/
+dawum,4038,AfD,19,https://api.dawum.de/
+dawum,4038,Grüne,12,https://api.dawum.de/
+dawum,4038,Freie Wähler,10,https://api.dawum.de/
+dawum,4038,Sonstige,6,https://api.dawum.de/
+dawum,4038,SPD,6,https://api.dawum.de/
+dawum,4038,Linke,3,https://api.dawum.de/
+dawum,4038,FDP,2,https://api.dawum.de/
+dawum,4038,BSW,2,https://api.dawum.de/
+dawum,4013,CSU,40,https://api.dawum.de/
+dawum,4013,AfD,20,https://api.dawum.de/
+dawum,4013,Grüne,12,https://api.dawum.de/
+dawum,4013,Freie Wähler,9,https://api.dawum.de/
+dawum,4013,SPD,8,https://api.dawum.de/
+dawum,4013,Linke,5,https://api.dawum.de/
+dawum,4013,Sonstige,3,https://api.dawum.de/
+dawum,4013,BSW,2,https://api.dawum.de/
+dawum,4013,FDP,1,https://api.dawum.de/
+dawum,3994,CSU,38,https://api.dawum.de/
+dawum,3994,AfD,20,https://api.dawum.de/
+dawum,3994,Grüne,11,https://api.dawum.de/
+dawum,3994,Freie Wähler,10,https://api.dawum.de/
+dawum,3994,SPD,8,https://api.dawum.de/
+dawum,3994,Sonstige,5,https://api.dawum.de/
+dawum,3994,Linke,4,https://api.dawum.de/
+dawum,3994,FDP,2,https://api.dawum.de/
+dawum,3994,BSW,2,https://api.dawum.de/
+dawum,3965,CSU,39,https://api.dawum.de/
+dawum,3965,AfD,19,https://api.dawum.de/
+dawum,3965,Grüne,11,https://api.dawum.de/
+dawum,3965,Freie Wähler,11,https://api.dawum.de/
+dawum,3965,SPD,7,https://api.dawum.de/
+dawum,3965,Sonstige,4,https://api.dawum.de/
+dawum,3965,Linke,4,https://api.dawum.de/
+dawum,3965,FDP,2,https://api.dawum.de/
+dawum,3965,BSW,2,https://api.dawum.de/
+dawum,3965,Bayernpartei,1,https://api.dawum.de/
+dawum,3953,CSU,40,https://api.dawum.de/
+dawum,3953,AfD,20,https://api.dawum.de/
+dawum,3953,Grüne,13,https://api.dawum.de/
+dawum,3953,Freie Wähler,10,https://api.dawum.de/
+dawum,3953,SPD,8,https://api.dawum.de/
+dawum,3953,Sonstige,5,https://api.dawum.de/
+dawum,3953,BSW,2,https://api.dawum.de/
+dawum,3953,FDP,1,https://api.dawum.de/
+dawum,3953,Linke,1,https://api.dawum.de/
+dawum,3949,CSU,37,https://api.dawum.de/
+dawum,3949,AfD,19,https://api.dawum.de/
+dawum,3949,Grüne,15,https://api.dawum.de/
+dawum,3949,Freie Wähler,10,https://api.dawum.de/
+dawum,3949,SPD,8,https://api.dawum.de/
+dawum,3949,Linke,5,https://api.dawum.de/
+dawum,3949,Sonstige,3,https://api.dawum.de/
+dawum,3949,FDP,2,https://api.dawum.de/
+dawum,3949,BSW,1,https://api.dawum.de/
+dawum,3929,CSU,41,https://api.dawum.de/
+dawum,3929,AfD,20,https://api.dawum.de/
+dawum,3929,Grüne,13,https://api.dawum.de/
+dawum,3929,Freie Wähler,9,https://api.dawum.de/
+dawum,3929,SPD,8,https://api.dawum.de/
+dawum,3929,Sonstige,5,https://api.dawum.de/
+dawum,3929,BSW,2,https://api.dawum.de/
+dawum,3929,FDP,1,https://api.dawum.de/
+dawum,3929,Linke,1,https://api.dawum.de/
+dawum,3913,CSU,37,https://api.dawum.de/
+dawum,3913,AfD,22,https://api.dawum.de/
+dawum,3913,Grüne,12,https://api.dawum.de/
+dawum,3913,Freie Wähler,10,https://api.dawum.de/
+dawum,3913,SPD,7,https://api.dawum.de/
+dawum,3913,Sonstige,6,https://api.dawum.de/
+dawum,3913,BSW,3,https://api.dawum.de/
+dawum,3913,FDP,2,https://api.dawum.de/
+dawum,3913,Linke,1,https://api.dawum.de/
+dawum,3865,CSU,39,https://api.dawum.de/
+dawum,3865,AfD,22,https://api.dawum.de/
+dawum,3865,Grüne,12,https://api.dawum.de/
+dawum,3865,Freie Wähler,9,https://api.dawum.de/
+dawum,3865,SPD,7,https://api.dawum.de/
+dawum,3865,Sonstige,5,https://api.dawum.de/
+dawum,3865,BSW,3,https://api.dawum.de/
+dawum,3865,FDP,2,https://api.dawum.de/
+dawum,3865,Linke,1,https://api.dawum.de/
+dawum,3912,CSU,39,https://api.dawum.de/
+dawum,3912,AfD,19,https://api.dawum.de/
+dawum,3912,Grüne,12,https://api.dawum.de/
+dawum,3912,Freie Wähler,10,https://api.dawum.de/
+dawum,3912,SPD,8,https://api.dawum.de/
+dawum,3912,Sonstige,4,https://api.dawum.de/
+dawum,3912,BSW,4,https://api.dawum.de/
+dawum,3912,FDP,2,https://api.dawum.de/
+dawum,3912,Linke,2,https://api.dawum.de/
+dawum,3811,CSU,39,https://api.dawum.de/
+dawum,3811,AfD,18,https://api.dawum.de/
+dawum,3811,Grüne,12,https://api.dawum.de/
+dawum,3811,Freie Wähler,10,https://api.dawum.de/
+dawum,3811,SPD,8,https://api.dawum.de/
+dawum,3811,Sonstige,5,https://api.dawum.de/
+dawum,3811,BSW,4,https://api.dawum.de/
+dawum,3811,FDP,2,https://api.dawum.de/
+dawum,3811,Linke,2,https://api.dawum.de/
+dawum,3911,CSU,41,https://api.dawum.de/
+dawum,3911,AfD,15,https://api.dawum.de/
+dawum,3911,Grüne,13,https://api.dawum.de/
+dawum,3911,Freie Wähler,11,https://api.dawum.de/
+dawum,3911,SPD,8,https://api.dawum.de/
+dawum,3911,Sonstige,4,https://api.dawum.de/
+dawum,3911,BSW,4,https://api.dawum.de/
+dawum,3911,FDP,2,https://api.dawum.de/
+dawum,3911,Linke,2,https://api.dawum.de/
+dawum,3910,CSU,41,https://api.dawum.de/
+dawum,3910,Grüne,14,https://api.dawum.de/
+dawum,3910,AfD,14,https://api.dawum.de/
+dawum,3910,Freie Wähler,12,https://api.dawum.de/
+dawum,3910,SPD,8,https://api.dawum.de/
+dawum,3910,Sonstige,5,https://api.dawum.de/
+dawum,3910,BSW,4,https://api.dawum.de/
+dawum,3910,FDP,1,https://api.dawum.de/
+dawum,3910,Linke,1,https://api.dawum.de/
+dawum,3909,CSU,43,https://api.dawum.de/
+dawum,3909,Grüne,14,https://api.dawum.de/
+dawum,3909,AfD,14,https://api.dawum.de/
+dawum,3909,Freie Wähler,12,https://api.dawum.de/
+dawum,3909,SPD,7,https://api.dawum.de/
+dawum,3909,Sonstige,5,https://api.dawum.de/
+dawum,3909,BSW,3,https://api.dawum.de/
+dawum,3909,FDP,1,https://api.dawum.de/
+dawum,3909,Linke,1,https://api.dawum.de/
+dawum,3918,CSU,42,https://api.dawum.de/
+dawum,3918,AfD,13,https://api.dawum.de/
+dawum,3918,Sonstige,12.5,https://api.dawum.de/
+dawum,3918,Grüne,12.5,https://api.dawum.de/
+dawum,3918,Freie Wähler,12,https://api.dawum.de/
+dawum,3918,SPD,8,https://api.dawum.de/
+dawum,3908,CSU,42,https://api.dawum.de/
+dawum,3908,AfD,14,https://api.dawum.de/
+dawum,3908,Grüne,12,https://api.dawum.de/
+dawum,3908,Freie Wähler,12,https://api.dawum.de/
+dawum,3908,SPD,7,https://api.dawum.de/
+dawum,3908,Sonstige,5,https://api.dawum.de/
+dawum,3908,BSW,4,https://api.dawum.de/
+dawum,3908,FDP,3,https://api.dawum.de/
+dawum,3908,Linke,1,https://api.dawum.de/
+dawum,3651,CSU,44,https://api.dawum.de/
+dawum,3651,AfD,12,https://api.dawum.de/
+dawum,3651,Grüne,11,https://api.dawum.de/
+dawum,3651,Freie Wähler,11,https://api.dawum.de/
+dawum,3651,SPD,8,https://api.dawum.de/
+dawum,3651,Sonstige,7,https://api.dawum.de/
+dawum,3651,BSW,4,https://api.dawum.de/
+dawum,3651,FDP,2,https://api.dawum.de/
+dawum,3651,Linke,1,https://api.dawum.de/
+dawum,3621,CSU,43,https://api.dawum.de/
+dawum,3621,AfD,18,https://api.dawum.de/
+dawum,3621,Freie Wähler,11,https://api.dawum.de/
+dawum,3621,Grüne,10,https://api.dawum.de/
+dawum,3621,SPD,8,https://api.dawum.de/
+dawum,3621,Sonstige,5,https://api.dawum.de/
+dawum,3621,BSW,5,https://api.dawum.de/
+dawum,3590,CSU,42,https://api.dawum.de/
+dawum,3590,AfD,12,https://api.dawum.de/
+dawum,3590,Freie Wähler,11,https://api.dawum.de/
+dawum,3590,Grüne,10,https://api.dawum.de/
+dawum,3590,Sonstige,7,https://api.dawum.de/
+dawum,3590,SPD,7,https://api.dawum.de/
+dawum,3590,BSW,6,https://api.dawum.de/
+dawum,3590,FDP,2,https://api.dawum.de/
+dawum,3590,Bayernpartei,2,https://api.dawum.de/
+dawum,3590,Linke,1,https://api.dawum.de/
+dawum,3555,CSU,43,https://api.dawum.de/
+dawum,3555,AfD,13,https://api.dawum.de/
+dawum,3555,Freie Wähler,12,https://api.dawum.de/
+dawum,3555,Grüne,11,https://api.dawum.de/
+dawum,3555,SPD,8,https://api.dawum.de/
+dawum,3555,Sonstige,7,https://api.dawum.de/
+dawum,3555,BSW,4,https://api.dawum.de/
+dawum,3555,FDP,2,https://api.dawum.de/
+dawum,3442,CSU,41,https://api.dawum.de/
+dawum,3442,Freie Wähler,15,https://api.dawum.de/
+dawum,3442,Grüne,13,https://api.dawum.de/
+dawum,3442,AfD,11,https://api.dawum.de/
+dawum,3442,SPD,7,https://api.dawum.de/
+dawum,3442,Sonstige,5,https://api.dawum.de/
+dawum,3442,BSW,3,https://api.dawum.de/
+dawum,3442,FDP,2,https://api.dawum.de/
+dawum,3442,Linke,2,https://api.dawum.de/
+dawum,3442,Bayernpartei,1,https://api.dawum.de/
+dawum,3380,CSU,42,https://api.dawum.de/
+dawum,3380,Grüne,14,https://api.dawum.de/
+dawum,3380,Freie Wähler,14,https://api.dawum.de/
+dawum,3380,AfD,13,https://api.dawum.de/
+dawum,3380,Sonstige,7,https://api.dawum.de/
+dawum,3380,SPD,7,https://api.dawum.de/
+dawum,3380,FDP,2,https://api.dawum.de/
+dawum,3380,Linke,1,https://api.dawum.de/
+dawum,3345,CSU,42,https://api.dawum.de/
+dawum,3345,Freie Wähler,15,https://api.dawum.de/
+dawum,3345,AfD,13,https://api.dawum.de/
+dawum,3345,Grüne,12,https://api.dawum.de/
+dawum,3345,SPD,6,https://api.dawum.de/
+dawum,3345,Sonstige,5,https://api.dawum.de/
+dawum,3345,BSW,3,https://api.dawum.de/
+dawum,3345,FDP,2,https://api.dawum.de/
+dawum,3345,Linke,1,https://api.dawum.de/
+dawum,3345,Bayernpartei,1,https://api.dawum.de/
+dawum,3321,CSU,40,https://api.dawum.de/
+dawum,3321,AfD,15,https://api.dawum.de/
+dawum,3321,Grüne,13,https://api.dawum.de/
+dawum,3321,Freie Wähler,13,https://api.dawum.de/
+dawum,3321,Sonstige,9,https://api.dawum.de/
+dawum,3321,SPD,7,https://api.dawum.de/
+dawum,3321,FDP,3,https://api.dawum.de/
+dawum,3303,CSU,41,https://api.dawum.de/
+dawum,3303,Freie Wähler,16,https://api.dawum.de/
+dawum,3303,AfD,14,https://api.dawum.de/
+dawum,3303,Grüne,13,https://api.dawum.de/
+dawum,3303,SPD,6,https://api.dawum.de/
+dawum,3303,Sonstige,5,https://api.dawum.de/
+dawum,3303,FDP,3,https://api.dawum.de/
+dawum,3303,Linke,1,https://api.dawum.de/
+dawum,3303,Bayernpartei,1,https://api.dawum.de/
+dawum,3263,CSU,40,https://api.dawum.de/
+dawum,3263,Grüne,14,https://api.dawum.de/
+dawum,3263,AfD,13,https://api.dawum.de/
+dawum,3263,Freie Wähler,13,https://api.dawum.de/
+dawum,3263,SPD,9,https://api.dawum.de/
+dawum,3263,Sonstige,6,https://api.dawum.de/
+dawum,3263,FDP,3,https://api.dawum.de/
+dawum,3263,Linke,2,https://api.dawum.de/
+dawum,3213,CSU,37.5,https://api.dawum.de/
+dawum,3213,Grüne,15.5,https://api.dawum.de/
+dawum,3213,Freie Wähler,15,https://api.dawum.de/
+dawum,3213,AfD,14,https://api.dawum.de/
+dawum,3213,SPD,8,https://api.dawum.de/
+dawum,3213,Sonstige,6,https://api.dawum.de/
+dawum,3213,FDP,3,https://api.dawum.de/
+dawum,3213,Linke,1,https://api.dawum.de/
+dawum,3211,CSU,37,https://api.dawum.de/
+dawum,3211,Grüne,16,https://api.dawum.de/
+dawum,3211,Freie Wähler,15,https://api.dawum.de/
+dawum,3211,AfD,14,https://api.dawum.de/
+dawum,3211,SPD,9,https://api.dawum.de/
+dawum,3211,Sonstige,6,https://api.dawum.de/
+dawum,3211,FDP,3,https://api.dawum.de/
+dawum,3210,CSU,37,https://api.dawum.de/
+dawum,3210,Grüne,15,https://api.dawum.de/
+dawum,3210,Freie Wähler,15,https://api.dawum.de/
+dawum,3210,AfD,14,https://api.dawum.de/
+dawum,3210,SPD,7.5,https://api.dawum.de/
+dawum,3210,Sonstige,6,https://api.dawum.de/
+dawum,3210,FDP,4,https://api.dawum.de/
+dawum,3210,Linke,1.5,https://api.dawum.de/
+dawum,3208,CSU,36,https://api.dawum.de/
+dawum,3208,Grüne,15,https://api.dawum.de/
+dawum,3208,Freie Wähler,15,https://api.dawum.de/
+dawum,3208,AfD,14,https://api.dawum.de/
+dawum,3208,SPD,9,https://api.dawum.de/
+dawum,3208,Sonstige,5,https://api.dawum.de/
+dawum,3208,FDP,4,https://api.dawum.de/
+dawum,3208,Linke,2,https://api.dawum.de/
+dawum,3206,CSU,37,https://api.dawum.de/
+dawum,3206,Grüne,15,https://api.dawum.de/
+dawum,3206,Freie Wähler,15,https://api.dawum.de/
+dawum,3206,AfD,14,https://api.dawum.de/
+dawum,3206,SPD,9,https://api.dawum.de/
+dawum,3206,Sonstige,5,https://api.dawum.de/
+dawum,3206,FDP,4,https://api.dawum.de/
+dawum,3206,Linke,1,https://api.dawum.de/
+dawum,3198,CSU,36,https://api.dawum.de/
+dawum,3198,Grüne,16,https://api.dawum.de/
+dawum,3198,Freie Wähler,15,https://api.dawum.de/
+dawum,3198,AfD,14,https://api.dawum.de/
+dawum,3198,SPD,9,https://api.dawum.de/
+dawum,3198,Sonstige,6,https://api.dawum.de/
+dawum,3198,FDP,4,https://api.dawum.de/
+dawum,3195,CSU,36,https://api.dawum.de/
+dawum,3195,Freie Wähler,16,https://api.dawum.de/
+dawum,3195,Grüne,15,https://api.dawum.de/
+dawum,3195,AfD,14,https://api.dawum.de/
+dawum,3195,SPD,9,https://api.dawum.de/
+dawum,3195,Sonstige,6,https://api.dawum.de/
+dawum,3195,FDP,4,https://api.dawum.de/
+dawum,3184,CSU,38,https://api.dawum.de/
+dawum,3184,Grüne,14,https://api.dawum.de/
+dawum,3184,Freie Wähler,14,https://api.dawum.de/
+dawum,3184,AfD,13,https://api.dawum.de/
+dawum,3184,SPD,9,https://api.dawum.de/
+dawum,3184,Sonstige,6,https://api.dawum.de/
+dawum,3184,FDP,4,https://api.dawum.de/
+dawum,3184,Linke,2,https://api.dawum.de/
+dawum,3183,CSU,37,https://api.dawum.de/
+dawum,3183,Freie Wähler,17.5,https://api.dawum.de/
+dawum,3183,Grüne,15,https://api.dawum.de/
+dawum,3183,AfD,13.5,https://api.dawum.de/
+dawum,3183,SPD,8.5,https://api.dawum.de/
+dawum,3183,Sonstige,4.5,https://api.dawum.de/
+dawum,3183,FDP,3,https://api.dawum.de/
+dawum,3183,Linke,1,https://api.dawum.de/
+dawum,3179,CSU,36,https://api.dawum.de/
+dawum,3179,Freie Wähler,17,https://api.dawum.de/
+dawum,3179,Grüne,14,https://api.dawum.de/
+dawum,3179,AfD,14,https://api.dawum.de/
+dawum,3179,SPD,9,https://api.dawum.de/
+dawum,3179,Sonstige,5,https://api.dawum.de/
+dawum,3179,FDP,3,https://api.dawum.de/
+dawum,3179,Linke,1,https://api.dawum.de/
+dawum,3179,Bayernpartei,1,https://api.dawum.de/
+dawum,3168,CSU,36,https://api.dawum.de/
+dawum,3168,Freie Wähler,17,https://api.dawum.de/
+dawum,3168,Grüne,15,https://api.dawum.de/
+dawum,3168,AfD,13,https://api.dawum.de/
+dawum,3168,SPD,9,https://api.dawum.de/
+dawum,3168,Sonstige,7,https://api.dawum.de/
+dawum,3168,FDP,3,https://api.dawum.de/
+dawum,3160,CSU,36,https://api.dawum.de/
+dawum,3160,Grüne,16,https://api.dawum.de/
+dawum,3160,Freie Wähler,16,https://api.dawum.de/
+dawum,3160,AfD,12,https://api.dawum.de/
+dawum,3160,SPD,9,https://api.dawum.de/
+dawum,3160,Sonstige,7,https://api.dawum.de/
+dawum,3160,FDP,4,https://api.dawum.de/
+dawum,3159,CSU,41,https://api.dawum.de/
+dawum,3159,Freie Wähler,15.5,https://api.dawum.de/
+dawum,3159,AfD,15,https://api.dawum.de/
+dawum,3159,Grüne,13.5,https://api.dawum.de/
+dawum,3159,SPD,6.5,https://api.dawum.de/
+dawum,3159,Sonstige,4,https://api.dawum.de/
+dawum,3159,FDP,3.5,https://api.dawum.de/
+dawum,3159,Linke,1,https://api.dawum.de/
+dawum,3158,CSU,36,https://api.dawum.de/
+dawum,3158,AfD,17,https://api.dawum.de/
+dawum,3158,Grüne,15,https://api.dawum.de/
+dawum,3158,Freie Wähler,12,https://api.dawum.de/
+dawum,3158,SPD,10,https://api.dawum.de/
+dawum,3158,Sonstige,5,https://api.dawum.de/
+dawum,3158,FDP,4,https://api.dawum.de/
+dawum,3158,Linke,1,https://api.dawum.de/
+dawum,3157,CSU,38,https://api.dawum.de/
+dawum,3157,Freie Wähler,16,https://api.dawum.de/
+dawum,3157,AfD,14,https://api.dawum.de/
+dawum,3157,Grüne,13,https://api.dawum.de/
+dawum,3157,SPD,8,https://api.dawum.de/
+dawum,3157,Sonstige,5,https://api.dawum.de/
+dawum,3157,FDP,4,https://api.dawum.de/
+dawum,3157,Linke,1,https://api.dawum.de/
+dawum,3157,Bayernpartei,1,https://api.dawum.de/
+dawum,3156,CSU,37,https://api.dawum.de/
+dawum,3156,Freie Wähler,15,https://api.dawum.de/
+dawum,3156,Grüne,14,https://api.dawum.de/
+dawum,3156,AfD,14,https://api.dawum.de/
+dawum,3156,SPD,9,https://api.dawum.de/
+dawum,3156,Sonstige,5,https://api.dawum.de/
+dawum,3156,FDP,4,https://api.dawum.de/
+dawum,3156,Linke,2,https://api.dawum.de/
+dawum,3153,CSU,42,https://api.dawum.de/
+dawum,3153,AfD,15,https://api.dawum.de/
+dawum,3153,Grüne,12.5,https://api.dawum.de/
+dawum,3153,Freie Wähler,11.5,https://api.dawum.de/
+dawum,3153,SPD,10,https://api.dawum.de/
+dawum,3153,Sonstige,4,https://api.dawum.de/
+dawum,3153,FDP,4,https://api.dawum.de/
+dawum,3153,Linke,1,https://api.dawum.de/
+dawum,3139,CSU,38,https://api.dawum.de/
+dawum,3139,Grüne,15,https://api.dawum.de/
+dawum,3139,AfD,13,https://api.dawum.de/
+dawum,3139,Freie Wähler,12,https://api.dawum.de/
+dawum,3139,SPD,10,https://api.dawum.de/
+dawum,3139,Sonstige,6,https://api.dawum.de/
+dawum,3139,FDP,4,https://api.dawum.de/
+dawum,3139,Linke,2,https://api.dawum.de/
+dawum,3135,CSU,37,https://api.dawum.de/
+dawum,3135,AfD,18,https://api.dawum.de/
+dawum,3135,Freie Wähler,13.5,https://api.dawum.de/
+dawum,3135,Grüne,12.5,https://api.dawum.de/
+dawum,3135,SPD,11,https://api.dawum.de/
+dawum,3135,Sonstige,4,https://api.dawum.de/
+dawum,3135,FDP,3,https://api.dawum.de/
+dawum,3135,Linke,1,https://api.dawum.de/
+dawum,3123,CSU,39,https://api.dawum.de/
+dawum,3123,Grüne,16,https://api.dawum.de/
+dawum,3123,AfD,12,https://api.dawum.de/
+dawum,3123,SPD,11,https://api.dawum.de/
+dawum,3123,Freie Wähler,11,https://api.dawum.de/
+dawum,3123,Sonstige,5,https://api.dawum.de/
+dawum,3123,FDP,4,https://api.dawum.de/
+dawum,3123,Linke,2,https://api.dawum.de/
+dawum,3122,CSU,39,https://api.dawum.de/
+dawum,3122,Grüne,14,https://api.dawum.de/
+dawum,3122,AfD,14,https://api.dawum.de/
+dawum,3122,Freie Wähler,12,https://api.dawum.de/
+dawum,3122,SPD,9,https://api.dawum.de/
+dawum,3122,Sonstige,4,https://api.dawum.de/
+dawum,3122,FDP,4,https://api.dawum.de/
+dawum,3122,Linke,3,https://api.dawum.de/
+dawum,3122,Bayernpartei,1,https://api.dawum.de/
+dawum,3113,CSU,39,https://api.dawum.de/
+dawum,3113,Grüne,14,https://api.dawum.de/
+dawum,3113,Freie Wähler,14,https://api.dawum.de/
+dawum,3113,AfD,13,https://api.dawum.de/
+dawum,3113,SPD,9,https://api.dawum.de/
+dawum,3113,Sonstige,5,https://api.dawum.de/
+dawum,3113,FDP,4,https://api.dawum.de/
+dawum,3113,Linke,2,https://api.dawum.de/
+dawum,3107,CSU,40,https://api.dawum.de/
+dawum,3107,AfD,16.5,https://api.dawum.de/
+dawum,3107,Grüne,13.5,https://api.dawum.de/
+dawum,3107,Freie Wähler,10.5,https://api.dawum.de/
+dawum,3107,SPD,10,https://api.dawum.de/
+dawum,3107,Sonstige,6.5,https://api.dawum.de/
+dawum,3107,FDP,3,https://api.dawum.de/
+dawum,3101,CSU,38,https://api.dawum.de/
+dawum,3101,Grüne,15,https://api.dawum.de/
+dawum,3101,AfD,14,https://api.dawum.de/
+dawum,3101,SPD,11,https://api.dawum.de/
+dawum,3101,Freie Wähler,11,https://api.dawum.de/
+dawum,3101,FDP,5,https://api.dawum.de/
+dawum,3101,Sonstige,4,https://api.dawum.de/
+dawum,3101,Linke,2,https://api.dawum.de/
+dawum,3087,CSU,38,https://api.dawum.de/
+dawum,3087,Grüne,17,https://api.dawum.de/
+dawum,3087,SPD,12,https://api.dawum.de/
+dawum,3087,Freie Wähler,12,https://api.dawum.de/
+dawum,3087,AfD,11,https://api.dawum.de/
+dawum,3087,Sonstige,5,https://api.dawum.de/
+dawum,3087,FDP,3,https://api.dawum.de/
+dawum,3087,Linke,2,https://api.dawum.de/
+dawum,3072,CSU,39,https://api.dawum.de/
+dawum,3072,AfD,16,https://api.dawum.de/
+dawum,3072,Grüne,14.5,https://api.dawum.de/
+dawum,3072,Freie Wähler,10.5,https://api.dawum.de/
+dawum,3072,SPD,9,https://api.dawum.de/
+dawum,3072,Sonstige,5.5,https://api.dawum.de/
+dawum,3072,FDP,4,https://api.dawum.de/
+dawum,3072,Linke,1.5,https://api.dawum.de/
+dawum,3071,CSU,40,https://api.dawum.de/
+dawum,3071,Grüne,15,https://api.dawum.de/
+dawum,3071,AfD,13,https://api.dawum.de/
+dawum,3071,Freie Wähler,12,https://api.dawum.de/
+dawum,3071,SPD,9,https://api.dawum.de/
+dawum,3071,Sonstige,4,https://api.dawum.de/
+dawum,3071,FDP,4,https://api.dawum.de/
+dawum,3071,Linke,2,https://api.dawum.de/
+dawum,3071,Bayernpartei,1,https://api.dawum.de/
+dawum,3055,CSU,40,https://api.dawum.de/
+dawum,3055,Grüne,16,https://api.dawum.de/
+dawum,3055,SPD,11,https://api.dawum.de/
+dawum,3055,Freie Wähler,11,https://api.dawum.de/
+dawum,3055,AfD,10,https://api.dawum.de/
+dawum,3055,Sonstige,6,https://api.dawum.de/
+dawum,3055,FDP,4,https://api.dawum.de/
+dawum,3055,Linke,2,https://api.dawum.de/
+dawum,3038,CSU,41,https://api.dawum.de/
+dawum,3038,Grüne,14,https://api.dawum.de/
+dawum,3038,AfD,12,https://api.dawum.de/
+dawum,3038,Freie Wähler,11,https://api.dawum.de/
+dawum,3038,SPD,10,https://api.dawum.de/
+dawum,3038,Sonstige,5,https://api.dawum.de/
+dawum,3038,FDP,4,https://api.dawum.de/
+dawum,3038,Linke,2,https://api.dawum.de/
+dawum,3038,Bayernpartei,1,https://api.dawum.de/
+dawum,3029,CSU,40,https://api.dawum.de/
+dawum,3029,Grüne,15,https://api.dawum.de/
+dawum,3029,AfD,12,https://api.dawum.de/
+dawum,3029,SPD,11,https://api.dawum.de/
+dawum,3029,Freie Wähler,11,https://api.dawum.de/
+dawum,3029,FDP,5,https://api.dawum.de/
+dawum,3029,Sonstige,4,https://api.dawum.de/
+dawum,3029,Linke,2,https://api.dawum.de/
+dawum,3021,CSU,41,https://api.dawum.de/
+dawum,3021,Grüne,12.5,https://api.dawum.de/
+dawum,3021,AfD,12,https://api.dawum.de/
+dawum,3021,Freie Wähler,12,https://api.dawum.de/
+dawum,3021,SPD,10,https://api.dawum.de/
+dawum,3021,FDP,6,https://api.dawum.de/
+dawum,3021,Sonstige,5,https://api.dawum.de/
+dawum,3021,Linke,1.5,https://api.dawum.de/
+dawum,3013,CSU,39,https://api.dawum.de/
+dawum,3013,Grüne,16,https://api.dawum.de/
+dawum,3013,AfD,12,https://api.dawum.de/
+dawum,3013,Freie Wähler,12,https://api.dawum.de/
+dawum,3013,SPD,11,https://api.dawum.de/
+dawum,3013,Sonstige,6,https://api.dawum.de/
+dawum,3013,FDP,4,https://api.dawum.de/
+dawum,2989,CSU,41,https://api.dawum.de/
+dawum,2989,Grüne,16,https://api.dawum.de/
+dawum,2989,SPD,11,https://api.dawum.de/
+dawum,2989,AfD,10,https://api.dawum.de/
+dawum,2989,Freie Wähler,9,https://api.dawum.de/
+dawum,2989,Sonstige,4,https://api.dawum.de/
+dawum,2989,FDP,4,https://api.dawum.de/
+dawum,2989,Linke,3,https://api.dawum.de/
+dawum,2989,Bayernpartei,2,https://api.dawum.de/
+dawum,3003,CSU,41,https://api.dawum.de/
+dawum,3003,Grüne,15,https://api.dawum.de/
+dawum,3003,SPD,10,https://api.dawum.de/
+dawum,3003,AfD,10,https://api.dawum.de/
+dawum,3003,Freie Wähler,10,https://api.dawum.de/
+dawum,3003,Sonstige,8,https://api.dawum.de/
+dawum,3003,FDP,4,https://api.dawum.de/
+dawum,3003,Linke,2,https://api.dawum.de/
+dawum,2958,CSU,44,https://api.dawum.de/
+dawum,2958,Grüne,14.5,https://api.dawum.de/
+dawum,2958,Freie Wähler,12,https://api.dawum.de/
+dawum,2958,AfD,9.5,https://api.dawum.de/
+dawum,2958,SPD,7.5,https://api.dawum.de/
+dawum,2958,Sonstige,6.5,https://api.dawum.de/
+dawum,2958,FDP,5,https://api.dawum.de/
+dawum,2958,Linke,1,https://api.dawum.de/
+dawum,2960,CSU,40,https://api.dawum.de/
+dawum,2960,Grüne,18,https://api.dawum.de/
+dawum,2960,AfD,11,https://api.dawum.de/
+dawum,2960,SPD,10,https://api.dawum.de/
+dawum,2960,Freie Wähler,9,https://api.dawum.de/
+dawum,2960,Sonstige,5,https://api.dawum.de/
+dawum,2960,FDP,5,https://api.dawum.de/
+dawum,2960,Linke,2,https://api.dawum.de/
+dawum,2900,CSU,43,https://api.dawum.de/
+dawum,2900,Grüne,17.5,https://api.dawum.de/
+dawum,2900,Freie Wähler,12,https://api.dawum.de/
+dawum,2900,AfD,10,https://api.dawum.de/
+dawum,2900,Sonstige,6.5,https://api.dawum.de/
+dawum,2900,SPD,6,https://api.dawum.de/
+dawum,2900,FDP,4,https://api.dawum.de/
+dawum,2900,Linke,1,https://api.dawum.de/
+dawum,2902,CSU,39,https://api.dawum.de/
+dawum,2902,Grüne,18,https://api.dawum.de/
+dawum,2902,Freie Wähler,12,https://api.dawum.de/
+dawum,2902,AfD,10,https://api.dawum.de/
+dawum,2902,SPD,9,https://api.dawum.de/
+dawum,2902,Sonstige,6,https://api.dawum.de/
+dawum,2902,FDP,4,https://api.dawum.de/
+dawum,2902,Linke,2,https://api.dawum.de/
+dawum,2903,CSU,42,https://api.dawum.de/
+dawum,2903,Grüne,16,https://api.dawum.de/
+dawum,2903,Sonstige,10,https://api.dawum.de/
+dawum,2903,SPD,10,https://api.dawum.de/
+dawum,2903,Freie Wähler,10,https://api.dawum.de/
+dawum,2903,AfD,9,https://api.dawum.de/
+dawum,2903,FDP,3,https://api.dawum.de/
+dawum,2854,CSU,43,https://api.dawum.de/
+dawum,2854,Grüne,17.5,https://api.dawum.de/
+dawum,2854,Freie Wähler,13,https://api.dawum.de/
+dawum,2854,SPD,8,https://api.dawum.de/
+dawum,2854,AfD,8,https://api.dawum.de/
+dawum,2854,Sonstige,5.5,https://api.dawum.de/
+dawum,2854,FDP,4,https://api.dawum.de/
+dawum,2854,Linke,1,https://api.dawum.de/
+dawum,2853,CSU,42,https://api.dawum.de/
+dawum,2853,Grüne,17,https://api.dawum.de/
+dawum,2853,Freie Wähler,10,https://api.dawum.de/
+dawum,2853,SPD,9,https://api.dawum.de/
+dawum,2853,AfD,9,https://api.dawum.de/
+dawum,2853,Sonstige,6,https://api.dawum.de/
+dawum,2853,FDP,4,https://api.dawum.de/
+dawum,2853,Linke,3,https://api.dawum.de/
+dawum,2842,CSU,40,https://api.dawum.de/
+dawum,2842,Grüne,19,https://api.dawum.de/
+dawum,2842,SPD,10,https://api.dawum.de/
+dawum,2842,AfD,10,https://api.dawum.de/
+dawum,2842,Freie Wähler,9,https://api.dawum.de/
+dawum,2842,Sonstige,5,https://api.dawum.de/
+dawum,2842,FDP,5,https://api.dawum.de/
+dawum,2842,Linke,2,https://api.dawum.de/
+dawum,2841,CSU,38,https://api.dawum.de/
+dawum,2841,Grüne,18,https://api.dawum.de/
+dawum,2841,AfD,13,https://api.dawum.de/
+dawum,2841,Freie Wähler,10,https://api.dawum.de/
+dawum,2841,SPD,9,https://api.dawum.de/
+dawum,2841,Sonstige,8,https://api.dawum.de/
+dawum,2841,FDP,4,https://api.dawum.de/
+dawum,2835,CSU,41,https://api.dawum.de/
+dawum,2835,Grüne,18,https://api.dawum.de/
+dawum,2835,AfD,10,https://api.dawum.de/
+dawum,2835,Freie Wähler,10,https://api.dawum.de/
+dawum,2835,SPD,9,https://api.dawum.de/
+dawum,2835,Sonstige,5,https://api.dawum.de/
+dawum,2835,FDP,4,https://api.dawum.de/
+dawum,2835,Linke,2,https://api.dawum.de/
+dawum,2835,Bayernpartei,1,https://api.dawum.de/
+dawum,2803,CSU,43,https://api.dawum.de/
+dawum,2803,Grüne,17.5,https://api.dawum.de/
+dawum,2803,AfD,12,https://api.dawum.de/
+dawum,2803,Freie Wähler,11.5,https://api.dawum.de/
+dawum,2803,SPD,7,https://api.dawum.de/
+dawum,2803,Sonstige,4,https://api.dawum.de/
+dawum,2803,FDP,4,https://api.dawum.de/
+dawum,2803,Linke,1,https://api.dawum.de/
+dawum,2783,CSU,41,https://api.dawum.de/
+dawum,2783,Grüne,17,https://api.dawum.de/
+dawum,2783,SPD,10,https://api.dawum.de/
+dawum,2783,AfD,10,https://api.dawum.de/
+dawum,2783,Freie Wähler,10,https://api.dawum.de/
+dawum,2783,Sonstige,7,https://api.dawum.de/
+dawum,2783,FDP,3,https://api.dawum.de/
+dawum,2783,Linke,2,https://api.dawum.de/
+dawum,2761,CSU,42,https://api.dawum.de/
+dawum,2761,Grüne,19,https://api.dawum.de/
+dawum,2761,Freie Wähler,11.5,https://api.dawum.de/
+dawum,2761,AfD,11,https://api.dawum.de/
+dawum,2761,SPD,6,https://api.dawum.de/
+dawum,2761,FDP,5.5,https://api.dawum.de/
+dawum,2761,Sonstige,4,https://api.dawum.de/
+dawum,2761,Linke,1,https://api.dawum.de/
+dawum,2751,CSU,41,https://api.dawum.de/
+dawum,2751,Grüne,18,https://api.dawum.de/
+dawum,2751,Freie Wähler,11,https://api.dawum.de/
+dawum,2751,SPD,10,https://api.dawum.de/
+dawum,2751,AfD,8,https://api.dawum.de/
+dawum,2751,Sonstige,7,https://api.dawum.de/
+dawum,2751,FDP,3,https://api.dawum.de/
+dawum,2751,Linke,2,https://api.dawum.de/
+dawum,2748,CSU,39,https://api.dawum.de/
+dawum,2748,Grüne,18,https://api.dawum.de/
+dawum,2748,AfD,13,https://api.dawum.de/
+dawum,2748,Freie Wähler,10,https://api.dawum.de/
+dawum,2748,SPD,9,https://api.dawum.de/
+dawum,2748,Sonstige,4,https://api.dawum.de/
+dawum,2748,FDP,4,https://api.dawum.de/
+dawum,2748,Linke,2,https://api.dawum.de/
+dawum,2748,Bayernpartei,1,https://api.dawum.de/
+dawum,2734,CSU,39,https://api.dawum.de/
+dawum,2734,Grüne,20,https://api.dawum.de/
+dawum,2734,SPD,10,https://api.dawum.de/
+dawum,2734,AfD,10,https://api.dawum.de/
+dawum,2734,Freie Wähler,9,https://api.dawum.de/
+dawum,2734,FDP,6,https://api.dawum.de/
+dawum,2734,Sonstige,4,https://api.dawum.de/
+dawum,2734,Linke,2,https://api.dawum.de/
+dawum,2725,CSU,37,https://api.dawum.de/
+dawum,2725,Grüne,18,https://api.dawum.de/
+dawum,2725,AfD,12,https://api.dawum.de/
+dawum,2725,Freie Wähler,11,https://api.dawum.de/
+dawum,2725,SPD,10,https://api.dawum.de/
+dawum,2725,Sonstige,9,https://api.dawum.de/
+dawum,2725,FDP,3,https://api.dawum.de/
+dawum,2691,CSU,40,https://api.dawum.de/
+dawum,2691,Grüne,18,https://api.dawum.de/
+dawum,2691,AfD,11,https://api.dawum.de/
+dawum,2691,Freie Wähler,10,https://api.dawum.de/
+dawum,2691,SPD,8,https://api.dawum.de/
+dawum,2691,FDP,6,https://api.dawum.de/
+dawum,2691,Sonstige,4,https://api.dawum.de/
+dawum,2691,Linke,2,https://api.dawum.de/
+dawum,2691,Bayernpartei,1,https://api.dawum.de/
+dawum,2676,CSU,42,https://api.dawum.de/
+dawum,2676,Grüne,21,https://api.dawum.de/
+dawum,2676,FDP,8,https://api.dawum.de/
+dawum,2676,AfD,8,https://api.dawum.de/
+dawum,2676,Freie Wähler,8,https://api.dawum.de/
+dawum,2676,SPD,6,https://api.dawum.de/
+dawum,2676,Sonstige,5,https://api.dawum.de/
+dawum,2676,Linke,2,https://api.dawum.de/
+dawum,2623,CSU,41,https://api.dawum.de/
+dawum,2623,Grüne,22,https://api.dawum.de/
+dawum,2623,SPD,11,https://api.dawum.de/
+dawum,2623,Freie Wähler,9.5,https://api.dawum.de/
+dawum,2623,AfD,6,https://api.dawum.de/
+dawum,2623,FDP,5,https://api.dawum.de/
+dawum,2623,Sonstige,4.5,https://api.dawum.de/
+dawum,2623,Linke,1,https://api.dawum.de/
+dawum,2603,CSU,38,https://api.dawum.de/
+dawum,2603,Grüne,22,https://api.dawum.de/
+dawum,2603,Freie Wähler,10,https://api.dawum.de/
+dawum,2603,SPD,9,https://api.dawum.de/
+dawum,2603,AfD,8,https://api.dawum.de/
+dawum,2603,Sonstige,6,https://api.dawum.de/
+dawum,2603,FDP,5,https://api.dawum.de/
+dawum,2603,Linke,2,https://api.dawum.de/
+dawum,2578,CSU,39.5,https://api.dawum.de/
+dawum,2578,Grüne,18.5,https://api.dawum.de/
+dawum,2578,SPD,12,https://api.dawum.de/
+dawum,2578,Freie Wähler,10,https://api.dawum.de/
+dawum,2578,AfD,7,https://api.dawum.de/
+dawum,2578,Sonstige,6,https://api.dawum.de/
+dawum,2578,FDP,6,https://api.dawum.de/
+dawum,2578,Linke,1,https://api.dawum.de/
+dawum,2565,CSU,40,https://api.dawum.de/
+dawum,2565,Grüne,20,https://api.dawum.de/
+dawum,2565,SPD,9,https://api.dawum.de/
+dawum,2565,Freie Wähler,9,https://api.dawum.de/
+dawum,2565,AfD,8,https://api.dawum.de/
+dawum,2565,Sonstige,6,https://api.dawum.de/
+dawum,2565,FDP,5,https://api.dawum.de/
+dawum,2565,Linke,2,https://api.dawum.de/
+dawum,2565,Bayernpartei,1,https://api.dawum.de/
+dawum,2548,CSU,40,https://api.dawum.de/
+dawum,2548,Grüne,20,https://api.dawum.de/
+dawum,2548,Freie Wähler,10,https://api.dawum.de/
+dawum,2548,SPD,9,https://api.dawum.de/
+dawum,2548,Sonstige,7,https://api.dawum.de/
+dawum,2548,AfD,7,https://api.dawum.de/
+dawum,2548,FDP,6,https://api.dawum.de/
+dawum,2548,Linke,1,https://api.dawum.de/
+dawum,2530,CSU,39,https://api.dawum.de/
+dawum,2530,Grüne,20,https://api.dawum.de/
+dawum,2530,Freie Wähler,11,https://api.dawum.de/
+dawum,2530,SPD,10,https://api.dawum.de/
+dawum,2530,Sonstige,7,https://api.dawum.de/
+dawum,2530,AfD,6,https://api.dawum.de/
+dawum,2530,FDP,5,https://api.dawum.de/
+dawum,2530,Linke,2,https://api.dawum.de/
+dawum,2487,CSU,40,https://api.dawum.de/
+dawum,2487,SPD,16,https://api.dawum.de/
+dawum,2487,Grüne,15,https://api.dawum.de/
+dawum,2487,FDP,7,https://api.dawum.de/
+dawum,2487,AfD,7,https://api.dawum.de/
+dawum,2487,Freie Wähler,7,https://api.dawum.de/
+dawum,2487,Sonstige,6,https://api.dawum.de/
+dawum,2487,Linke,2,https://api.dawum.de/
+dawum,2470,CSU,38,https://api.dawum.de/
+dawum,2470,Grüne,16,https://api.dawum.de/
+dawum,2470,SPD,13,https://api.dawum.de/
+dawum,2470,AfD,9,https://api.dawum.de/
+dawum,2470,Freie Wähler,8,https://api.dawum.de/
+dawum,2470,FDP,7,https://api.dawum.de/
+dawum,2470,Sonstige,5,https://api.dawum.de/
+dawum,2470,Linke,3,https://api.dawum.de/
+dawum,2470,Bayernpartei,1,https://api.dawum.de/
+dawum,2373,CSU,37,https://api.dawum.de/
+dawum,2373,Grüne,15,https://api.dawum.de/
+dawum,2373,SPD,13,https://api.dawum.de/
+dawum,2373,AfD,9,https://api.dawum.de/
+dawum,2373,FDP,8,https://api.dawum.de/
+dawum,2373,Freie Wähler,8,https://api.dawum.de/
+dawum,2373,Sonstige,4,https://api.dawum.de/
+dawum,2373,Linke,4,https://api.dawum.de/
+dawum,2373,Bayernpartei,2,https://api.dawum.de/
+dawum,2366,CSU,36.5,https://api.dawum.de/
+dawum,2366,SPD,16,https://api.dawum.de/
+dawum,2366,Grüne,15,https://api.dawum.de/
+dawum,2366,AfD,9,https://api.dawum.de/
+dawum,2366,Freie Wähler,8,https://api.dawum.de/
+dawum,2366,FDP,7,https://api.dawum.de/
+dawum,2366,Sonstige,6.5,https://api.dawum.de/
+dawum,2366,Linke,2,https://api.dawum.de/
+dawum,2309,CSU,36,https://api.dawum.de/
+dawum,2309,Grüne,16,https://api.dawum.de/
+dawum,2309,SPD,14,https://api.dawum.de/
+dawum,2309,AfD,10,https://api.dawum.de/
+dawum,2309,Sonstige,9,https://api.dawum.de/
+dawum,2309,Freie Wähler,8,https://api.dawum.de/
+dawum,2309,FDP,7,https://api.dawum.de/
+dawum,2297,CSU,35,https://api.dawum.de/
+dawum,2297,Grüne,15,https://api.dawum.de/
+dawum,2297,SPD,14,https://api.dawum.de/
+dawum,2297,AfD,10,https://api.dawum.de/
+dawum,2297,FDP,9,https://api.dawum.de/
+dawum,2297,Freie Wähler,8,https://api.dawum.de/
+dawum,2297,Sonstige,6,https://api.dawum.de/
+dawum,2297,Linke,2,https://api.dawum.de/
+dawum,2297,Bayernpartei,1,https://api.dawum.de/
+dawum,2281,CSU,33.5,https://api.dawum.de/
+dawum,2281,SPD,16.5,https://api.dawum.de/
+dawum,2281,Grüne,16.5,https://api.dawum.de/
+dawum,2281,Freie Wähler,11,https://api.dawum.de/
+dawum,2281,FDP,8,https://api.dawum.de/
+dawum,2281,AfD,8,https://api.dawum.de/
+dawum,2281,Sonstige,4.5,https://api.dawum.de/
+dawum,2281,Linke,2,https://api.dawum.de/
+dawum,2199,CSU,32,https://api.dawum.de/
+dawum,2199,SPD,20,https://api.dawum.de/
+dawum,2199,Grüne,15,https://api.dawum.de/
+dawum,2199,FDP,11,https://api.dawum.de/
+dawum,2199,AfD,8,https://api.dawum.de/
+dawum,2199,Freie Wähler,8,https://api.dawum.de/
+dawum,2199,Sonstige,4,https://api.dawum.de/
+dawum,2199,Linke,2,https://api.dawum.de/
+dawum,2075,CSU,39,https://api.dawum.de/
+dawum,2075,Grüne,20,https://api.dawum.de/
+dawum,2075,SPD,9,https://api.dawum.de/
+dawum,2075,Freie Wähler,9,https://api.dawum.de/
+dawum,2075,AfD,8,https://api.dawum.de/
+dawum,2075,FDP,7,https://api.dawum.de/
+dawum,2075,Sonstige,4,https://api.dawum.de/
+dawum,2075,Linke,3,https://api.dawum.de/
+dawum,2075,Bayernpartei,1,https://api.dawum.de/
+dawum,2066,CSU,37,https://api.dawum.de/
+dawum,2066,Grüne,21,https://api.dawum.de/
+dawum,2066,SPD,10,https://api.dawum.de/
+dawum,2066,Freie Wähler,10,https://api.dawum.de/
+dawum,2066,FDP,8,https://api.dawum.de/
+dawum,2066,AfD,8,https://api.dawum.de/
+dawum,2066,Sonstige,3,https://api.dawum.de/
+dawum,2066,Linke,3,https://api.dawum.de/
+dawum,1986,CSU,38,https://api.dawum.de/
+dawum,1986,Grüne,22,https://api.dawum.de/
+dawum,1986,AfD,9,https://api.dawum.de/
+dawum,1986,Freie Wähler,9,https://api.dawum.de/
+dawum,1986,SPD,7,https://api.dawum.de/
+dawum,1986,Sonstige,6,https://api.dawum.de/
+dawum,1986,FDP,6,https://api.dawum.de/
+dawum,1986,Linke,3,https://api.dawum.de/
+dawum,1959,CSU,36,https://api.dawum.de/
+dawum,1959,Grüne,24,https://api.dawum.de/
+dawum,1959,SPD,9,https://api.dawum.de/
+dawum,1959,AfD,9,https://api.dawum.de/
+dawum,1959,Freie Wähler,9,https://api.dawum.de/
+dawum,1959,FDP,7,https://api.dawum.de/
+dawum,1959,Sonstige,3,https://api.dawum.de/
+dawum,1959,Linke,3,https://api.dawum.de/
+dawum,1925,CSU,40,https://api.dawum.de/
+dawum,1925,Grüne,20,https://api.dawum.de/
+dawum,1925,AfD,9,https://api.dawum.de/
+dawum,1925,Freie Wähler,9,https://api.dawum.de/
+dawum,1925,SPD,8,https://api.dawum.de/
+dawum,1925,FDP,6,https://api.dawum.de/
+dawum,1925,Sonstige,4,https://api.dawum.de/
+dawum,1925,Linke,3,https://api.dawum.de/
+dawum,1925,Bayernpartei,1,https://api.dawum.de/
+dawum,1873,CSU,47,https://api.dawum.de/
+dawum,1873,Grüne,18,https://api.dawum.de/
+dawum,1873,SPD,8,https://api.dawum.de/
+dawum,1873,AfD,8,https://api.dawum.de/
+dawum,1873,Freie Wähler,8,https://api.dawum.de/
+dawum,1873,FDP,4,https://api.dawum.de/
+dawum,1873,Sonstige,3,https://api.dawum.de/
+dawum,1873,Linke,3,https://api.dawum.de/
+dawum,1873,Bayernpartei,1,https://api.dawum.de/
+dawum,1854,CSU,46,https://api.dawum.de/
+dawum,1854,Grüne,18,https://api.dawum.de/
+dawum,1854,SPD,9,https://api.dawum.de/
+dawum,1854,Freie Wähler,8,https://api.dawum.de/
+dawum,1854,AfD,7,https://api.dawum.de/
+dawum,1854,FDP,5,https://api.dawum.de/
+dawum,1854,Sonstige,4,https://api.dawum.de/
+dawum,1854,Linke,3,https://api.dawum.de/
+dawum,1839,CSU,48,https://api.dawum.de/
+dawum,1839,Grüne,19,https://api.dawum.de/
+dawum,1839,Freie Wähler,8,https://api.dawum.de/
+dawum,1839,SPD,7,https://api.dawum.de/
+dawum,1839,AfD,7,https://api.dawum.de/
+dawum,1839,Sonstige,5,https://api.dawum.de/
+dawum,1839,FDP,3,https://api.dawum.de/
+dawum,1839,Linke,3,https://api.dawum.de/
+dawum,1834,CSU,48,https://api.dawum.de/
+dawum,1834,Grüne,18,https://api.dawum.de/
+dawum,1834,SPD,8,https://api.dawum.de/
+dawum,1834,Freie Wähler,7,https://api.dawum.de/
+dawum,1834,AfD,6,https://api.dawum.de/
+dawum,1834,Sonstige,5,https://api.dawum.de/
+dawum,1834,FDP,4,https://api.dawum.de/
+dawum,1834,Linke,2,https://api.dawum.de/
+dawum,1834,Bayernpartei,2,https://api.dawum.de/
+dawum,1790,CSU,46,https://api.dawum.de/
+dawum,1790,Grüne,18,https://api.dawum.de/
+dawum,1790,SPD,8,https://api.dawum.de/
+dawum,1790,AfD,8,https://api.dawum.de/
+dawum,1790,Sonstige,6,https://api.dawum.de/
+dawum,1790,Freie Wähler,6,https://api.dawum.de/
+dawum,1790,FDP,4,https://api.dawum.de/
+dawum,1790,Linke,3,https://api.dawum.de/
+dawum,1790,Bayernpartei,1,https://api.dawum.de/
+dawum,1763,CSU,46,https://api.dawum.de/
+dawum,1763,Grüne,19,https://api.dawum.de/
+dawum,1763,SPD,8,https://api.dawum.de/
+dawum,1763,AfD,8,https://api.dawum.de/
+dawum,1763,Freie Wähler,7,https://api.dawum.de/
+dawum,1763,Sonstige,4,https://api.dawum.de/
+dawum,1763,FDP,4,https://api.dawum.de/
+dawum,1763,Linke,3,https://api.dawum.de/
+dawum,1763,Bayernpartei,1,https://api.dawum.de/
+dawum,1755,CSU,45,https://api.dawum.de/
+dawum,1755,Grüne,21,https://api.dawum.de/
+dawum,1755,SPD,8,https://api.dawum.de/
+dawum,1755,AfD,8,https://api.dawum.de/
+dawum,1755,Freie Wähler,7,https://api.dawum.de/
+dawum,1755,Sonstige,5,https://api.dawum.de/
+dawum,1755,FDP,3,https://api.dawum.de/
+dawum,1755,Linke,3,https://api.dawum.de/
+dawum,1721,CSU,47,https://api.dawum.de/
+dawum,1721,Grüne,18,https://api.dawum.de/
+dawum,1721,SPD,9,https://api.dawum.de/
+dawum,1721,AfD,7,https://api.dawum.de/
+dawum,1721,Freie Wähler,6,https://api.dawum.de/
+dawum,1721,Sonstige,5,https://api.dawum.de/
+dawum,1721,FDP,3,https://api.dawum.de/
+dawum,1721,Linke,3,https://api.dawum.de/
+dawum,1721,Bayernpartei,2,https://api.dawum.de/
+dawum,1713,CSU,47,https://api.dawum.de/
+dawum,1713,Grüne,18,https://api.dawum.de/
+dawum,1713,SPD,10,https://api.dawum.de/
+dawum,1713,AfD,7,https://api.dawum.de/
+dawum,1713,Freie Wähler,7,https://api.dawum.de/
+dawum,1713,Sonstige,5,https://api.dawum.de/
+dawum,1713,FDP,3,https://api.dawum.de/
+dawum,1713,Linke,3,https://api.dawum.de/
+dawum,1700,CSU,49,https://api.dawum.de/
+dawum,1700,Grüne,19,https://api.dawum.de/
+dawum,1700,SPD,7,https://api.dawum.de/
+dawum,1700,AfD,7,https://api.dawum.de/
+dawum,1700,Sonstige,6,https://api.dawum.de/
+dawum,1700,Freie Wähler,5,https://api.dawum.de/
+dawum,1700,FDP,3,https://api.dawum.de/
+dawum,1700,Linke,3,https://api.dawum.de/
+dawum,1700,Bayernpartei,1,https://api.dawum.de/
+dawum,1693,CSU,49,https://api.dawum.de/
+dawum,1693,Grüne,20,https://api.dawum.de/
+dawum,1693,SPD,7,https://api.dawum.de/
+dawum,1693,AfD,7,https://api.dawum.de/
+dawum,1693,Sonstige,6,https://api.dawum.de/
+dawum,1693,Freie Wähler,5,https://api.dawum.de/
+dawum,1693,FDP,3,https://api.dawum.de/
+dawum,1693,Linke,3,https://api.dawum.de/
+dawum,1666,CSU,48,https://api.dawum.de/
+dawum,1666,Grüne,16,https://api.dawum.de/
+dawum,1666,SPD,9,https://api.dawum.de/
+dawum,1666,Freie Wähler,8,https://api.dawum.de/
+dawum,1666,AfD,6,https://api.dawum.de/
+dawum,1666,Sonstige,5,https://api.dawum.de/
+dawum,1666,FDP,4,https://api.dawum.de/
+dawum,1666,Linke,3,https://api.dawum.de/
+dawum,1666,Bayernpartei,1,https://api.dawum.de/
+dawum,1651,CSU,46,https://api.dawum.de/
+dawum,1651,Grüne,17,https://api.dawum.de/
+dawum,1651,SPD,10,https://api.dawum.de/
+dawum,1651,Freie Wähler,8,https://api.dawum.de/
+dawum,1651,AfD,7,https://api.dawum.de/
+dawum,1651,Sonstige,5,https://api.dawum.de/
+dawum,1651,FDP,4,https://api.dawum.de/
+dawum,1651,Linke,3,https://api.dawum.de/
+dawum,1646,CSU,48,https://api.dawum.de/
+dawum,1646,Grüne,19,https://api.dawum.de/
+dawum,1646,SPD,9,https://api.dawum.de/
+dawum,1646,Freie Wähler,8,https://api.dawum.de/
+dawum,1646,Sonstige,5,https://api.dawum.de/
+dawum,1646,AfD,5,https://api.dawum.de/
+dawum,1646,FDP,3,https://api.dawum.de/
+dawum,1646,Linke,3,https://api.dawum.de/
+dawum,1630,CSU,47,https://api.dawum.de/
+dawum,1630,Grüne,15,https://api.dawum.de/
+dawum,1630,SPD,10,https://api.dawum.de/
+dawum,1630,Freie Wähler,9,https://api.dawum.de/
+dawum,1630,AfD,7,https://api.dawum.de/
+dawum,1630,Sonstige,5,https://api.dawum.de/
+dawum,1630,FDP,3,https://api.dawum.de/
+dawum,1630,Linke,3,https://api.dawum.de/
+dawum,1630,Bayernpartei,1,https://api.dawum.de/
+dawum,1603,CSU,49,https://api.dawum.de/
+dawum,1603,Grüne,17,https://api.dawum.de/
+dawum,1603,SPD,10,https://api.dawum.de/
+dawum,1603,Freie Wähler,8,https://api.dawum.de/
+dawum,1603,Sonstige,7,https://api.dawum.de/
+dawum,1603,AfD,6,https://api.dawum.de/
+dawum,1603,Linke,3,https://api.dawum.de/
+dawum,1602,CSU,44.1,https://api.dawum.de/
+dawum,1602,Grüne,19.6,https://api.dawum.de/
+dawum,1602,SPD,9.3,https://api.dawum.de/
+dawum,1602,AfD,8.6,https://api.dawum.de/
+dawum,1602,Freie Wähler,8.1,https://api.dawum.de/
+dawum,1602,Sonstige,4,https://api.dawum.de/
+dawum,1602,Linke,3.2,https://api.dawum.de/
+dawum,1602,FDP,3.1,https://api.dawum.de/
+dawum,1565,CSU,38,https://api.dawum.de/
+dawum,1565,Grüne,20,https://api.dawum.de/
+dawum,1565,AfD,11,https://api.dawum.de/
+dawum,1565,Freie Wähler,11,https://api.dawum.de/
+dawum,1565,SPD,9,https://api.dawum.de/
+dawum,1565,Linke,4,https://api.dawum.de/
+dawum,1565,Sonstige,3,https://api.dawum.de/
+dawum,1565,FDP,3,https://api.dawum.de/
+dawum,1565,Bayernpartei,1,https://api.dawum.de/
+dawum,1520,CSU,36,https://api.dawum.de/
+dawum,1520,Grüne,25,https://api.dawum.de/
+dawum,1520,AfD,10,https://api.dawum.de/
+dawum,1520,Freie Wähler,10,https://api.dawum.de/
+dawum,1520,SPD,7,https://api.dawum.de/
+dawum,1520,Sonstige,5,https://api.dawum.de/
+dawum,1520,FDP,4,https://api.dawum.de/
+dawum,1520,Linke,3,https://api.dawum.de/
+dawum,1511,CSU,38,https://api.dawum.de/
+dawum,1511,Grüne,20,https://api.dawum.de/
+dawum,1511,AfD,10,https://api.dawum.de/
+dawum,1511,Freie Wähler,10,https://api.dawum.de/
+dawum,1511,SPD,8,https://api.dawum.de/
+dawum,1511,FDP,6,https://api.dawum.de/
+dawum,1511,Linke,4,https://api.dawum.de/
+dawum,1511,Sonstige,3,https://api.dawum.de/
+dawum,1511,Bayernpartei,1,https://api.dawum.de/
+dawum,1435,CSU,37,https://api.dawum.de/
+dawum,1435,Grüne,22,https://api.dawum.de/
+dawum,1435,Freie Wähler,11,https://api.dawum.de/
+dawum,1435,AfD,10,https://api.dawum.de/
+dawum,1435,SPD,8,https://api.dawum.de/
+dawum,1435,FDP,5,https://api.dawum.de/
+dawum,1435,Sonstige,4,https://api.dawum.de/
+dawum,1435,Linke,3,https://api.dawum.de/
+dawum,1423,CSU,36,https://api.dawum.de/
+dawum,1423,Grüne,22,https://api.dawum.de/
+dawum,1423,AfD,11,https://api.dawum.de/
+dawum,1423,Freie Wähler,10,https://api.dawum.de/
+dawum,1423,SPD,9,https://api.dawum.de/
+dawum,1423,FDP,5,https://api.dawum.de/
+dawum,1423,Sonstige,4,https://api.dawum.de/
+dawum,1423,Linke,3,https://api.dawum.de/
+dawum,1353,CSU,37,https://api.dawum.de/
+dawum,1353,Grüne,22,https://api.dawum.de/
+dawum,1353,Freie Wähler,11,https://api.dawum.de/
+dawum,1353,AfD,9,https://api.dawum.de/
+dawum,1353,SPD,7,https://api.dawum.de/
+dawum,1353,Sonstige,6,https://api.dawum.de/
+dawum,1353,FDP,5,https://api.dawum.de/
+dawum,1353,Linke,3,https://api.dawum.de/
+dawum,1329,CSU,37,https://api.dawum.de/
+dawum,1329,Grüne,23,https://api.dawum.de/
+dawum,1329,AfD,9,https://api.dawum.de/
+dawum,1329,Freie Wähler,9,https://api.dawum.de/
+dawum,1329,SPD,8,https://api.dawum.de/
+dawum,1329,Sonstige,6,https://api.dawum.de/
+dawum,1329,FDP,5,https://api.dawum.de/
+dawum,1329,Linke,3,https://api.dawum.de/
+dawum,1281,CSU,36.4,https://api.dawum.de/
+dawum,1281,Grüne,20.8,https://api.dawum.de/
+dawum,1281,SPD,10.3,https://api.dawum.de/
+dawum,1281,Freie Wähler,9.7,https://api.dawum.de/
+dawum,1281,AfD,8.3,https://api.dawum.de/
+dawum,1281,FDP,5.8,https://api.dawum.de/
+dawum,1281,Sonstige,5.4,https://api.dawum.de/
+dawum,1281,Linke,3.3,https://api.dawum.de/
+dawum,1280,CSU,38.1,https://api.dawum.de/
+dawum,1280,Grüne,20.3,https://api.dawum.de/
+dawum,1280,Freie Wähler,10.1,https://api.dawum.de/
+dawum,1280,SPD,9.5,https://api.dawum.de/
+dawum,1280,AfD,8.3,https://api.dawum.de/
+dawum,1280,FDP,5.4,https://api.dawum.de/
+dawum,1280,Sonstige,5.1,https://api.dawum.de/
+dawum,1280,Linke,3.2,https://api.dawum.de/
+dawum,1159,CSU,38,https://api.dawum.de/
+dawum,1159,Grüne,23,https://api.dawum.de/
+dawum,1159,Freie Wähler,12,https://api.dawum.de/
+dawum,1159,AfD,8,https://api.dawum.de/
+dawum,1159,SPD,6,https://api.dawum.de/
+dawum,1159,Sonstige,5,https://api.dawum.de/
+dawum,1159,FDP,5,https://api.dawum.de/
+dawum,1159,Linke,3,https://api.dawum.de/
+dawum,1140,CSU,35,https://api.dawum.de/
+dawum,1140,Grüne,21,https://api.dawum.de/
+dawum,1140,Freie Wähler,13,https://api.dawum.de/
+dawum,1140,SPD,9,https://api.dawum.de/
+dawum,1140,AfD,8,https://api.dawum.de/
+dawum,1140,FDP,6,https://api.dawum.de/
+dawum,1140,Sonstige,5,https://api.dawum.de/
+dawum,1140,Linke,3,https://api.dawum.de/
+dawum,1134,CSU,38,https://api.dawum.de/
+dawum,1134,Grüne,18,https://api.dawum.de/
+dawum,1134,Freie Wähler,11,https://api.dawum.de/
+dawum,1134,AfD,10,https://api.dawum.de/
+dawum,1134,SPD,9,https://api.dawum.de/
+dawum,1134,Sonstige,5,https://api.dawum.de/
+dawum,1134,FDP,5,https://api.dawum.de/
+dawum,1134,Linke,4,https://api.dawum.de/
+dawum,1059,CSU,34,https://api.dawum.de/
+dawum,1059,Grüne,19,https://api.dawum.de/
+dawum,1059,SPD,12,https://api.dawum.de/
+dawum,1059,AfD,10,https://api.dawum.de/
+dawum,1059,Freie Wähler,10,https://api.dawum.de/
+dawum,1059,Sonstige,5.5,https://api.dawum.de/
+dawum,1059,FDP,5.5,https://api.dawum.de/
+dawum,1059,Linke,4,https://api.dawum.de/
+dawum,1056,CSU,32.9,https://api.dawum.de/
+dawum,1056,Grüne,18.5,https://api.dawum.de/
+dawum,1056,AfD,12.8,https://api.dawum.de/
+dawum,1056,SPD,11,https://api.dawum.de/
+dawum,1056,Freie Wähler,9.8,https://api.dawum.de/
+dawum,1056,FDP,5.9,https://api.dawum.de/
+dawum,1056,Sonstige,5.2,https://api.dawum.de/
+dawum,1056,Linke,3.9,https://api.dawum.de/
+dawum,1055,CSU,33,https://api.dawum.de/
+dawum,1055,Grüne,18,https://api.dawum.de/
+dawum,1055,AfD,14,https://api.dawum.de/
+dawum,1055,Freie Wähler,11,https://api.dawum.de/
+dawum,1055,SPD,10,https://api.dawum.de/
+dawum,1055,FDP,5.5,https://api.dawum.de/
+dawum,1055,Linke,4.5,https://api.dawum.de/
+dawum,1055,Sonstige,4,https://api.dawum.de/
+dawum,1050,CSU,35,https://api.dawum.de/
+dawum,1050,Grüne,18,https://api.dawum.de/
+dawum,1050,SPD,12,https://api.dawum.de/
+dawum,1050,AfD,10,https://api.dawum.de/
+dawum,1050,Freie Wähler,10,https://api.dawum.de/
+dawum,1050,FDP,5.5,https://api.dawum.de/
+dawum,1050,Sonstige,5,https://api.dawum.de/
+dawum,1050,Linke,4.5,https://api.dawum.de/
+dawum,1049,CSU,33,https://api.dawum.de/
+dawum,1049,Grüne,18,https://api.dawum.de/
+dawum,1049,SPD,11,https://api.dawum.de/
+dawum,1049,Freie Wähler,11,https://api.dawum.de/
+dawum,1049,AfD,10,https://api.dawum.de/
+dawum,1049,Sonstige,6.5,https://api.dawum.de/
+dawum,1049,FDP,6,https://api.dawum.de/
+dawum,1049,Linke,4.5,https://api.dawum.de/
+dawum,1038,CSU,35,https://api.dawum.de/
+dawum,1038,Grüne,16,https://api.dawum.de/
+dawum,1038,SPD,13,https://api.dawum.de/
+dawum,1038,AfD,12,https://api.dawum.de/
+dawum,1038,Freie Wähler,10,https://api.dawum.de/
+dawum,1038,Sonstige,5,https://api.dawum.de/
+dawum,1038,FDP,5,https://api.dawum.de/
+dawum,1038,Linke,4,https://api.dawum.de/
+dawum,1037,CSU,34,https://api.dawum.de/
+dawum,1037,Grüne,17,https://api.dawum.de/
+dawum,1037,AfD,14,https://api.dawum.de/
+dawum,1037,SPD,11,https://api.dawum.de/
+dawum,1037,Freie Wähler,10,https://api.dawum.de/
+dawum,1037,FDP,6,https://api.dawum.de/
+dawum,1037,Sonstige,4,https://api.dawum.de/
+dawum,1037,Linke,4,https://api.dawum.de/
+dawum,1036,CSU,36,https://api.dawum.de/
+dawum,1036,Grüne,17.9,https://api.dawum.de/
+dawum,1036,AfD,13.2,https://api.dawum.de/
+dawum,1036,SPD,12,https://api.dawum.de/
+dawum,1036,Freie Wähler,8.6,https://api.dawum.de/
+dawum,1036,FDP,5,https://api.dawum.de/
+dawum,1036,Sonstige,4,https://api.dawum.de/
+dawum,1036,Linke,3.3,https://api.dawum.de/
+dawum,1029,CSU,35,https://api.dawum.de/
+dawum,1029,Grüne,18,https://api.dawum.de/
+dawum,1029,SPD,13,https://api.dawum.de/
+dawum,1029,Freie Wähler,11,https://api.dawum.de/
+dawum,1029,AfD,10,https://api.dawum.de/
+dawum,1029,FDP,5,https://api.dawum.de/
+dawum,1029,Sonstige,4,https://api.dawum.de/
+dawum,1029,Linke,4,https://api.dawum.de/
+dawum,1018,CSU,35,https://api.dawum.de/
+dawum,1018,Grüne,17,https://api.dawum.de/
+dawum,1018,SPD,11,https://api.dawum.de/
+dawum,1018,AfD,11,https://api.dawum.de/
+dawum,1018,Freie Wähler,11,https://api.dawum.de/
+dawum,1018,Sonstige,5,https://api.dawum.de/
+dawum,1018,FDP,5,https://api.dawum.de/
+dawum,1018,Linke,5,https://api.dawum.de/
+dawum,1014,CSU,36,https://api.dawum.de/
+dawum,1014,Grüne,16,https://api.dawum.de/
+dawum,1014,AfD,14,https://api.dawum.de/
+dawum,1014,SPD,12,https://api.dawum.de/
+dawum,1014,Freie Wähler,7,https://api.dawum.de/
+dawum,1014,FDP,6,https://api.dawum.de/
+dawum,1014,Sonstige,5,https://api.dawum.de/
+dawum,1014,Linke,4,https://api.dawum.de/
+dawum,1011,CSU,35.8,https://api.dawum.de/
+dawum,1011,Grüne,16.5,https://api.dawum.de/
+dawum,1011,AfD,13.7,https://api.dawum.de/
+dawum,1011,SPD,12.1,https://api.dawum.de/
+dawum,1011,Freie Wähler,8.1,https://api.dawum.de/
+dawum,1011,FDP,5.8,https://api.dawum.de/
+dawum,1011,Sonstige,5.3,https://api.dawum.de/
+dawum,1011,Linke,2.7,https://api.dawum.de/
+dawum,996,CSU,36,https://api.dawum.de/
+dawum,996,Grüne,15,https://api.dawum.de/
+dawum,996,AfD,14,https://api.dawum.de/
+dawum,996,SPD,13,https://api.dawum.de/
+dawum,996,Freie Wähler,8,https://api.dawum.de/
+dawum,996,FDP,6,https://api.dawum.de/
+dawum,996,Sonstige,5,https://api.dawum.de/
+dawum,996,Linke,3,https://api.dawum.de/
+dawum,991,CSU,37.8,https://api.dawum.de/
+dawum,991,Grüne,15.1,https://api.dawum.de/
+dawum,991,AfD,13.5,https://api.dawum.de/
+dawum,991,SPD,11.8,https://api.dawum.de/
+dawum,991,Freie Wähler,8.1,https://api.dawum.de/
+dawum,991,FDP,6.1,https://api.dawum.de/
+dawum,991,Sonstige,5.1,https://api.dawum.de/
+dawum,991,Linke,2.5,https://api.dawum.de/
+dawum,982,CSU,38.1,https://api.dawum.de/
+dawum,982,AfD,15.2,https://api.dawum.de/
+dawum,982,Grüne,15,https://api.dawum.de/
+dawum,982,SPD,12.3,https://api.dawum.de/
+dawum,982,Freie Wähler,7.3,https://api.dawum.de/
+dawum,982,FDP,5.3,https://api.dawum.de/
+dawum,982,Sonstige,4.1,https://api.dawum.de/
+dawum,982,Linke,2.7,https://api.dawum.de/
+dawum,980,CSU,37,https://api.dawum.de/
+dawum,980,Grüne,17,https://api.dawum.de/
+dawum,980,AfD,13,https://api.dawum.de/
+dawum,980,SPD,12,https://api.dawum.de/
+dawum,980,Freie Wähler,8,https://api.dawum.de/
+dawum,980,FDP,5,https://api.dawum.de/
+dawum,980,Sonstige,4,https://api.dawum.de/
+dawum,980,Linke,4,https://api.dawum.de/
+dawum,970,CSU,39,https://api.dawum.de/
+dawum,970,Grüne,14,https://api.dawum.de/
+dawum,970,AfD,13,https://api.dawum.de/
+dawum,970,SPD,12,https://api.dawum.de/
+dawum,970,Freie Wähler,8,https://api.dawum.de/
+dawum,970,FDP,6,https://api.dawum.de/
+dawum,970,Sonstige,5,https://api.dawum.de/
+dawum,970,Linke,3,https://api.dawum.de/
+dawum,959,CSU,38,https://api.dawum.de/
+dawum,959,Grüne,16,https://api.dawum.de/
+dawum,959,SPD,13,https://api.dawum.de/
+dawum,959,AfD,12,https://api.dawum.de/
+dawum,959,Freie Wähler,9,https://api.dawum.de/
+dawum,959,FDP,5,https://api.dawum.de/
+dawum,959,Linke,4,https://api.dawum.de/
+dawum,959,Sonstige,3,https://api.dawum.de/
+dawum,951,CSU,39,https://api.dawum.de/
+dawum,951,Grüne,14,https://api.dawum.de/
+dawum,951,AfD,14,https://api.dawum.de/
+dawum,951,SPD,12,https://api.dawum.de/
+dawum,951,Freie Wähler,7,https://api.dawum.de/
+dawum,951,FDP,6,https://api.dawum.de/
+dawum,951,Sonstige,5,https://api.dawum.de/
+dawum,951,Linke,3,https://api.dawum.de/
+dawum,949,CSU,38,https://api.dawum.de/
+dawum,949,Grüne,15,https://api.dawum.de/
+dawum,949,AfD,14,https://api.dawum.de/
+dawum,949,SPD,12,https://api.dawum.de/
+dawum,949,Freie Wähler,8,https://api.dawum.de/
+dawum,949,FDP,6,https://api.dawum.de/
+dawum,949,Sonstige,4,https://api.dawum.de/
+dawum,949,Linke,3,https://api.dawum.de/
+dawum,946,CSU,42.5,https://api.dawum.de/
+dawum,946,SPD,13.7,https://api.dawum.de/
+dawum,946,Grüne,13.2,https://api.dawum.de/
+dawum,946,AfD,13.1,https://api.dawum.de/
+dawum,946,Freie Wähler,6,https://api.dawum.de/
+dawum,946,FDP,5.2,https://api.dawum.de/
+dawum,946,Sonstige,3.5,https://api.dawum.de/
+dawum,946,Linke,2.8,https://api.dawum.de/
+dawum,936,CSU,41,https://api.dawum.de/
+dawum,936,AfD,14,https://api.dawum.de/
+dawum,936,SPD,13,https://api.dawum.de/
+dawum,936,Grüne,13,https://api.dawum.de/
+dawum,936,Freie Wähler,6,https://api.dawum.de/
+dawum,936,Sonstige,5,https://api.dawum.de/
+dawum,936,FDP,5,https://api.dawum.de/
+dawum,936,Linke,3,https://api.dawum.de/
+dawum,932,CSU,40,https://api.dawum.de/
+dawum,932,Grüne,14,https://api.dawum.de/
+dawum,932,SPD,13,https://api.dawum.de/
+dawum,932,AfD,13,https://api.dawum.de/
+dawum,932,Freie Wähler,8,https://api.dawum.de/
+dawum,932,FDP,5,https://api.dawum.de/
+dawum,932,Sonstige,4,https://api.dawum.de/
+dawum,932,Linke,3,https://api.dawum.de/
+dawum,915,CSU,41.1,https://api.dawum.de/
+dawum,915,AfD,13.5,https://api.dawum.de/
+dawum,915,SPD,13.4,https://api.dawum.de/
+dawum,915,Grüne,12.6,https://api.dawum.de/
+dawum,915,Freie Wähler,7,https://api.dawum.de/
+dawum,915,FDP,4.8,https://api.dawum.de/
+dawum,915,Sonstige,4.1,https://api.dawum.de/
+dawum,915,Linke,3.5,https://api.dawum.de/
+dawum,895,CSU,42,https://api.dawum.de/
+dawum,895,SPD,13,https://api.dawum.de/
+dawum,895,AfD,13,https://api.dawum.de/
+dawum,895,Grüne,12,https://api.dawum.de/
+dawum,895,Freie Wähler,7,https://api.dawum.de/
+dawum,895,Sonstige,6,https://api.dawum.de/
+dawum,895,FDP,5,https://api.dawum.de/
+dawum,895,Linke,2,https://api.dawum.de/
+dawum,889,CSU,42.1,https://api.dawum.de/
+dawum,889,SPD,13.7,https://api.dawum.de/
+dawum,889,Grüne,13.5,https://api.dawum.de/
+dawum,889,AfD,12,https://api.dawum.de/
+dawum,889,Freie Wähler,6.6,https://api.dawum.de/
+dawum,889,FDP,5.1,https://api.dawum.de/
+dawum,889,Sonstige,4.1,https://api.dawum.de/
+dawum,889,Linke,2.9,https://api.dawum.de/
+dawum,881,CSU,41,https://api.dawum.de/
+dawum,881,Grüne,14,https://api.dawum.de/
+dawum,881,SPD,12,https://api.dawum.de/
+dawum,881,AfD,12,https://api.dawum.de/
+dawum,881,Freie Wähler,7,https://api.dawum.de/
+dawum,881,FDP,6,https://api.dawum.de/
+dawum,881,Sonstige,5,https://api.dawum.de/
+dawum,881,Linke,3,https://api.dawum.de/
+dawum,876,CSU,44,https://api.dawum.de/
+dawum,876,SPD,14,https://api.dawum.de/
+dawum,876,AfD,12,https://api.dawum.de/
+dawum,876,Grüne,11,https://api.dawum.de/
+dawum,876,Freie Wähler,6,https://api.dawum.de/
+dawum,876,Sonstige,5,https://api.dawum.de/
+dawum,876,FDP,5,https://api.dawum.de/
+dawum,876,Linke,3,https://api.dawum.de/
+dawum,868,CSU,42,https://api.dawum.de/
+dawum,868,SPD,13,https://api.dawum.de/
+dawum,868,Grüne,13,https://api.dawum.de/
+dawum,868,AfD,13,https://api.dawum.de/
+dawum,868,FDP,7,https://api.dawum.de/
+dawum,868,Freie Wähler,6,https://api.dawum.de/
+dawum,868,Sonstige,3,https://api.dawum.de/
+dawum,868,Linke,3,https://api.dawum.de/
+dawum,854,CSU,44.5,https://api.dawum.de/
+dawum,854,SPD,14.8,https://api.dawum.de/
+dawum,854,AfD,11.9,https://api.dawum.de/
+dawum,854,Grüne,11.3,https://api.dawum.de/
+dawum,854,Freie Wähler,6.5,https://api.dawum.de/
+dawum,854,FDP,4.2,https://api.dawum.de/
+dawum,854,Sonstige,4,https://api.dawum.de/
+dawum,854,Linke,2.8,https://api.dawum.de/
+dawum,839,CSU,43,https://api.dawum.de/
+dawum,839,SPD,15,https://api.dawum.de/
+dawum,839,AfD,12,https://api.dawum.de/
+dawum,839,Grüne,11,https://api.dawum.de/
+dawum,839,FDP,6,https://api.dawum.de/
+dawum,839,Freie Wähler,6,https://api.dawum.de/
+dawum,839,Sonstige,4,https://api.dawum.de/
+dawum,839,Linke,3,https://api.dawum.de/
+dawum,833,CSU,41.4,https://api.dawum.de/
+dawum,833,SPD,14.2,https://api.dawum.de/
+dawum,833,AfD,12.1,https://api.dawum.de/
+dawum,833,Grüne,12,https://api.dawum.de/
+dawum,833,Freie Wähler,8.4,https://api.dawum.de/
+dawum,833,FDP,4.6,https://api.dawum.de/
+dawum,833,Sonstige,4.3,https://api.dawum.de/
+dawum,833,Linke,3,https://api.dawum.de/
+dawum,818,CSU,39.4,https://api.dawum.de/
+dawum,818,SPD,13.4,https://api.dawum.de/
+dawum,818,AfD,12.3,https://api.dawum.de/
+dawum,818,Grüne,12.2,https://api.dawum.de/
+dawum,818,Freie Wähler,8.6,https://api.dawum.de/
+dawum,818,Sonstige,5.3,https://api.dawum.de/
+dawum,818,FDP,5.3,https://api.dawum.de/
+dawum,818,Linke,3.5,https://api.dawum.de/
+dawum,817,CSU,42,https://api.dawum.de/
+dawum,817,SPD,14,https://api.dawum.de/
+dawum,817,Grüne,14,https://api.dawum.de/
+dawum,817,AfD,10,https://api.dawum.de/
+dawum,817,Freie Wähler,7,https://api.dawum.de/
+dawum,817,FDP,6,https://api.dawum.de/
+dawum,817,Sonstige,4,https://api.dawum.de/
+dawum,817,Linke,3,https://api.dawum.de/
+dawum,799,CSU,40,https://api.dawum.de/
+dawum,799,SPD,15,https://api.dawum.de/
+dawum,799,AfD,12,https://api.dawum.de/
+dawum,799,Grüne,11,https://api.dawum.de/
+dawum,799,Sonstige,7,https://api.dawum.de/
+dawum,799,FDP,6,https://api.dawum.de/
+dawum,799,Freie Wähler,6,https://api.dawum.de/
+dawum,799,Linke,3,https://api.dawum.de/
+dawum,781,CSU,39.9,https://api.dawum.de/
+dawum,781,SPD,14.8,https://api.dawum.de/
+dawum,781,AfD,13.1,https://api.dawum.de/
+dawum,781,Grüne,11.4,https://api.dawum.de/
+dawum,781,Freie Wähler,7.6,https://api.dawum.de/
+dawum,781,FDP,5.8,https://api.dawum.de/
+dawum,781,Sonstige,4,https://api.dawum.de/
+dawum,781,Linke,3.4,https://api.dawum.de/
+dawum,768,CSU,40,https://api.dawum.de/
+dawum,768,SPD,16,https://api.dawum.de/
+dawum,768,Grüne,14,https://api.dawum.de/
+dawum,768,AfD,10,https://api.dawum.de/
+dawum,768,Freie Wähler,7,https://api.dawum.de/
+dawum,768,Sonstige,5,https://api.dawum.de/
+dawum,768,FDP,5,https://api.dawum.de/
+dawum,768,Linke,3,https://api.dawum.de/
+dawum,759,CSU,39,https://api.dawum.de/
+dawum,759,SPD,15,https://api.dawum.de/
+dawum,759,AfD,12,https://api.dawum.de/
+dawum,759,Grüne,10,https://api.dawum.de/
+dawum,759,Sonstige,7,https://api.dawum.de/
+dawum,759,FDP,7,https://api.dawum.de/
+dawum,759,Freie Wähler,7,https://api.dawum.de/
+dawum,759,Linke,3,https://api.dawum.de/
+dawum,747,CSU,40,https://api.dawum.de/
+dawum,747,SPD,15,https://api.dawum.de/
+dawum,747,Grüne,12,https://api.dawum.de/
+dawum,747,AfD,12,https://api.dawum.de/
+dawum,747,FDP,7,https://api.dawum.de/
+dawum,747,Freie Wähler,7,https://api.dawum.de/
+dawum,747,Linke,4,https://api.dawum.de/
+dawum,747,Sonstige,3,https://api.dawum.de/
+dawum,746,CSU,36.7,https://api.dawum.de/
+dawum,746,SPD,16,https://api.dawum.de/
+dawum,746,AfD,12.9,https://api.dawum.de/
+dawum,746,Grüne,12.1,https://api.dawum.de/
+dawum,746,Freie Wähler,8.3,https://api.dawum.de/
+dawum,746,FDP,7.1,https://api.dawum.de/
+dawum,746,Sonstige,4,https://api.dawum.de/
+dawum,746,Linke,2.9,https://api.dawum.de/
+dawum,731,CSU,37,https://api.dawum.de/
+dawum,731,SPD,15,https://api.dawum.de/
+dawum,731,AfD,14,https://api.dawum.de/
+dawum,731,Grüne,10,https://api.dawum.de/
+dawum,731,FDP,8,https://api.dawum.de/
+dawum,731,Freie Wähler,7,https://api.dawum.de/
+dawum,731,Sonstige,6,https://api.dawum.de/
+dawum,731,Linke,3,https://api.dawum.de/
+dawum,743,CSU,36.5,https://api.dawum.de/
+dawum,743,SPD,16,https://api.dawum.de/
+dawum,743,Grüne,12.1,https://api.dawum.de/
+dawum,743,AfD,11.8,https://api.dawum.de/
+dawum,743,Freie Wähler,9.5,https://api.dawum.de/
+dawum,743,FDP,7.1,https://api.dawum.de/
+dawum,743,Sonstige,3.5,https://api.dawum.de/
+dawum,743,Linke,3.5,https://api.dawum.de/
+dawum,715,CSU,38.8,https://api.dawum.de/
+dawum,715,SPD,14.9,https://api.dawum.de/
+dawum,715,AfD,13.5,https://api.dawum.de/
+dawum,715,Grüne,10.8,https://api.dawum.de/
+dawum,715,FDP,8,https://api.dawum.de/
+dawum,715,Freie Wähler,6.5,https://api.dawum.de/
+dawum,715,Sonstige,3.9,https://api.dawum.de/
+dawum,715,Linke,3.6,https://api.dawum.de/
+dawum,709,CSU,38,https://api.dawum.de/
+dawum,709,SPD,17,https://api.dawum.de/
+dawum,709,Grüne,11,https://api.dawum.de/
+dawum,709,AfD,11,https://api.dawum.de/
+dawum,709,FDP,9,https://api.dawum.de/
+dawum,709,Freie Wähler,7,https://api.dawum.de/
+dawum,709,Linke,4,https://api.dawum.de/
+dawum,709,Sonstige,3,https://api.dawum.de/
+dawum,704,CSU,37,https://api.dawum.de/
+dawum,704,SPD,17,https://api.dawum.de/
+dawum,704,AfD,13,https://api.dawum.de/
+dawum,704,Grüne,10,https://api.dawum.de/
+dawum,704,FDP,8,https://api.dawum.de/
+dawum,704,Freie Wähler,8,https://api.dawum.de/
+dawum,704,Linke,4,https://api.dawum.de/
+dawum,704,Sonstige,3,https://api.dawum.de/
+dawum,690,CSU,41,https://api.dawum.de/
+dawum,690,SPD,15,https://api.dawum.de/
+dawum,690,AfD,13,https://api.dawum.de/
+dawum,690,Grüne,11,https://api.dawum.de/
+dawum,690,FDP,7,https://api.dawum.de/
+dawum,690,Freie Wähler,6,https://api.dawum.de/
+dawum,690,Sonstige,4,https://api.dawum.de/
+dawum,690,Linke,3,https://api.dawum.de/
+dawum,685,CSU,40.7,https://api.dawum.de/
+dawum,685,SPD,14.1,https://api.dawum.de/
+dawum,685,Grüne,12.4,https://api.dawum.de/
+dawum,685,AfD,11.3,https://api.dawum.de/
+dawum,685,FDP,7.1,https://api.dawum.de/
+dawum,685,Freie Wähler,7,https://api.dawum.de/
+dawum,685,Sonstige,4,https://api.dawum.de/
+dawum,685,Linke,3.4,https://api.dawum.de/

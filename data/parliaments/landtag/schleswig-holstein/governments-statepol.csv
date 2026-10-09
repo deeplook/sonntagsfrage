@@ -1,0 +1,10 @@
+start_date,end_date,cabinet,parties,source,source_url
+1988-05-31,1992-05-04,Engholm I,SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1992-05-05,1993-05-18,Engholm II,SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1993-05-19,1996-05-21,Simonis I,SPD;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+1996-05-22,2000-03-27,Simonis II,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2000-03-28,2005-04-26,Simonis III,GRÜNE;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2005-04-27,2009-10-26,Carstensen I,CDU;SPD,StatePol 1.0.4,https://statepol.github.io/Database/
+2009-10-27,2012-06-11,Carstensen II,CDU;FDP;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2012-06-12,2017-06-27,Albig I,GRÜNE;SPD;SSW;parteilos,StatePol 1.0.4,https://statepol.github.io/Database/
+2017-06-28,2022-06-28,Günther I,CDU;FDP;GRÜNE,StatePol 1.0.4,https://statepol.github.io/Database/

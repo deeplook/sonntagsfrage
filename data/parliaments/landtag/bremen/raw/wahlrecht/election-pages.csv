@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2015,2015-05-10,endgültig,https://www.wahlrecht.de/news/2015/buergerschaftswahl-bremen-2015.html,parliaments/landtag/bremen/raw/wahlrecht/election-pages/2015.html,d1fe0008f1e6c040dc3c60cb80eae2ba985fca32a98b6522fa23af5538c25b2b
+2019,2019-05-26,endgültig,https://www.wahlrecht.de/news/2019/buergerschaftswahl-bremen-2019.html,parliaments/landtag/bremen/raw/wahlrecht/election-pages/2019.html,39683c584fba6a63a64774590670bd1319d4a113d11a76b9e3da3f52bd43e373
+2023,2023-05-14,endgültig,https://www.wahlrecht.de/news/2023/buergerschaftswahl-bremen-2023.html,parliaments/landtag/bremen/raw/wahlrecht/election-pages/2023.html,6b1cefac7b55cfbcd1a2c27fe09dce48130fce8d89c35a8b36910e588ecaab69

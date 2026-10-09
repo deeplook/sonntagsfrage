@@ -1,0 +1,4 @@
+year,date,result_status,source_url,snapshot,sha256
+2013,2013-09-15,endgültig,https://www.wahlrecht.de/news/2013/landtagswahl-bayern-2013.html,parliaments/landtag/bayern/raw/wahlrecht/election-pages/2013.html,f43fcb5a356bd5b98feb6930270cc9923f798c179580e18ca2962fc51ccefa6d
+2018,2018-10-14,endgültig,https://www.wahlrecht.de/news/2018/landtagswahl-bayern-2018.html,parliaments/landtag/bayern/raw/wahlrecht/election-pages/2018.html,5bd86d7b6c2a7128d99a4b8d7d8bcf84d51d17e69309e887b9debee3185a88f5
+2023,2023-10-08,vorläufig,https://www.wahlrecht.de/news/2023/landtagswahl-bayern-2023.html,parliaments/landtag/bayern/raw/wahlrecht/election-pages/2023.html,44e85e7166ddf6d532cd6194f14a45dc741209feeb41327298adc442b7f2a049
