@@ -320,7 +320,7 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
             marker_bottom = y + px(layout.bar_height + layout.election_marker_overhang)
             draw.line((result_x, marker_top, result_x, marker_bottom),
                       fill="#8a95a2", width=max(2, px(2)))
-        value_label = f"{value:g}".replace(".", ",") + " %"
+        value_label = f"{value:.1f}".replace(".", ",").removesuffix(",0") + " %"
         draw.text((min(bar_end + px(8), px_x(layout.value_label_max_x)), y + px(3)), value_label,
                   font=face(16, True), fill=ink)
 
