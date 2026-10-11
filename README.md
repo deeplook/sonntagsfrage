@@ -69,11 +69,11 @@ See [`data/SOURCES.md`](data/SOURCES.md) for the project's source register,
 known licenses, attribution guidance, and sources whose reuse terms still need
 verification before redistribution.
 
-## INSA bar chart race
+## Interactive polling chart
 
 The interactive chart is published with GitHub Pages. In the repository settings,
 set **Pages → Build and deployment → Source** to **GitHub Actions**. Commits to
-`main` deploy the landing page and `charts/insa-race.html`; run the **Deploy
+`main` deploy the landing page and `charts/election-polls.html`; run the **Deploy
 GitHub Pages** workflow manually from the Actions tab to publish on demand. The
 chart is published as committed, so regenerate it with `uv run sonntagsfrage-race`
 and commit the updated HTML when its data changes.
@@ -84,7 +84,7 @@ After fetching the archive, generate a standalone interactive page:
 uv run sonntagsfrage-race
 ```
 
-Open `charts/insa-race.html` in a browser. Its poll data, CSS, and JavaScript
+Open `charts/election-polls.html` in a browser. Its poll data, CSS, and JavaScript
 and election reference data are embedded, so the file works offline. Its
 history chart grows with playback and includes election results and government
 periods. Use the **Parlament** selector to switch between the Bundestag and any

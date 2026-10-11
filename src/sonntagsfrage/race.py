@@ -1,4 +1,4 @@
-"""Render INSA poll results as a standalone HTML bar chart race."""
+"""Render German election polls as a standalone interactive bar chart race."""
 
 import base64
 import csv
@@ -163,7 +163,7 @@ def load_dataset(name: str, label: str, eyebrow: str, title: str, intro: str,
 def render(frames: list[dict], elections: list[dict] | None = None,
            governments: list[dict] | None = None,
            datasets: list[dict] | None = None) -> str:
-    template = files("sonntagsfrage").joinpath("insa_race.html").read_text(encoding="utf-8")
+    template = files("sonntagsfrage").joinpath("poll_race.html").read_text(encoding="utf-8")
 
     asset_root = files("sonntagsfrage").joinpath("assets", "wappen")
     coat_manifest = json.loads(asset_root.joinpath("manifest.json").read_text(encoding="utf-8"))
@@ -203,7 +203,7 @@ def run(
         Path("data/parliaments/landtag"), "--landtag-data-dir",
         help="directory containing per-state polls, results, elections, and governments",
     ),
-    output: Path = typer.Option(Path("charts/insa-race.html"), "--output"),
+    output: Path = typer.Option(Path("charts/election-polls.html"), "--output"),
 ) -> None:
     try:
         frames = load_frames(polls, results, governments_path)
@@ -211,8 +211,8 @@ def run(
         governments = load_governments(governments_path)
         datasets = [load_dataset(
             "bundestag", "Bundestag", "Deutschland · Bundestagswahl",
-            "INSA Sonntagsfrage im Zeitverlauf",
-            "Parteianteile in veröffentlichten INSA-Umfragen. Die Balken folgen dem Rang in jeder Erhebung.",
+            "Bundestagsumfragen im Zeitverlauf",
+            "Parteianteile in veröffentlichten Bundestagsumfragen. Die Balken folgen dem Rang in jeder Erhebung.",
             frames, elections, governments, "wahlrecht.de / INSA",
             "https://www.wahlrecht.de/umfragen/insa.htm", "Bundeswahlleiterin",
             "https://www.bundeswahlleiterin.de/",

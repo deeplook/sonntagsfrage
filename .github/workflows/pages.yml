@@ -27,8 +27,8 @@ jobs:
         run: |
           mkdir -p _site/charts
           cp index.html _site/index.html
-          cp charts/insa-race.html _site/charts/insa-race.html
-          cp charts/insa-race-preview.png _site/charts/insa-race-preview.png
+          cp charts/election-polls.html _site/charts/election-polls.html
+          cp charts/election-polls-preview.png _site/charts/election-polls-preview.png
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:
