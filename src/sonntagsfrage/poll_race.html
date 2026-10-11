@@ -218,10 +218,12 @@
         CDU: "CDU/CSU", CSU: "CDU/CSU", CDUCSU: "CDU/CSU",
         SPD: "SPD",
         GRUNE: "GRÜNE", BGRUNE: "GRÜNE", B90GRUNE: "GRÜNE", GRUNEGAL: "GRÜNE",
+        BUNDNIS90GRUNE: "GRÜNE", BUNDNIS90DIEGRUNEN: "GRÜNE",
         FDP: "FDP", FDPDVP: "FDP", DPSFDP: "FDP",
         LINKE: "LINKE", DIELINKE: "LINKE", PDSDIELINKE: "LINKE",
-        AFD: "AfD", BSW: "BSW",
-        FW: "FW", FREIEWAHLER: "FW", FREIEWAHLERTHURINGEN: "FW", BVBFW: "FW", BVBFREIEWAHLER: "FW",
+        AFD: "AfD", BSW: "BSW", THURINGENGERECHTZUVORBSWMINDERHEITSREGIERUNG: "BSW",
+        FW: "FW", FREIEWAHLER: "FW", FREIEWAHLERTHURINGEN: "FW",
+        BVBFW: "BVB/FW", BVBFREIEWAHLER: "BVB/FW",
         PIRATEN: "PIRATEN"
       };
       function partyColor(party) {
@@ -304,8 +306,13 @@
         let result = selected;
         if (cadence.value !== "all") {
           const months = new Map();
-          for (const frame of selected) months.set(frame.date.slice(0, 7), frame);
-          result = [...months.values()];
+          for (const frame of selected) {
+            const month = frame.date.slice(0, 7);
+            const latest = months.get(month);
+            if (!latest || frame.date > latest.date) months.set(month, {date: frame.date, frames: [frame]});
+            else if (frame.date === latest.date) latest.frames.push(frame);
+          }
+          result = [...months.values()].flatMap(month => month.frames);
         }
         return result.sort((a, b) => frameDay(a) - frameDay(b) || a.date.localeCompare(b.date));
       }
@@ -518,7 +525,8 @@
         }
         ranked.forEach(([party, score], rankIndex) => {
           const parts = ensureRow(party);
-          const governs = frame.government.parties.includes(party);
+          const partyKey = canonicalParty(party);
+          const governs = frame.government.parties.some(governmentParty => canonicalParty(governmentParty) === partyKey);
           parts.name.classList.toggle("is-government", governs);
           parts.name.title = governs ? "Regierungspartei am Ende der Erhebung" : "";
           const width = Math.max(0, Math.min(100, score / maxValue * 100));
@@ -554,7 +562,7 @@
         if (!frames.length) return;
         pause();
         index = frames.reduce((closest, frame, candidate) =>
-          Math.abs(frameDay(frame) - targetDay) < Math.abs(frameDay(frames[closest]) - targetDay)
+          Math.abs(frameDay(frame) - targetDay) <= Math.abs(frameDay(frames[closest]) - targetDay)
             ? candidate : closest, 0);
         render(false);
       }

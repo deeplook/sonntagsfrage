@@ -3,6 +3,8 @@
 import base64
 import csv
 import json
+import re
+import unicodedata
 from datetime import date
 from importlib.resources import files
 from pathlib import Path
@@ -10,6 +12,43 @@ import typer
 
 from .cli import create_app, fail
 from .fetch import atomic_write
+
+
+PARTY_ALIASES = {
+    "CDU": "CDU", "CSU": "CSU", "SPD": "SPD",
+    "GRUNE": "Grüne", "BGRUNE": "Grüne", "B90GRUNE": "Grüne",
+    "GRUNEGAL": "Grüne", "BUNDNIS90GRUNE": "Grüne",
+    "BUNDNIS90DIEGRUNEN": "Grüne",
+    "LINKE": "Die Linke", "DIELINKE": "Die Linke",
+    "PDSDIELINKE": "Die Linke", "PDS1DIELINKE": "Die Linke",
+    "FDP": "FDP", "FDPDVP": "FDP", "DPSFDP": "FDP",
+    "AFD": "AfD", "BSW": "BSW",
+    "THURINGENGERECHTZUVORBSW": "BSW", "THURINGENGERECHT": "BSW",
+    "FW": "Freie Wähler", "FREIEWAHLER": "Freie Wähler",
+    "FREIEWAHLERTHURINGEN": "Freie Wähler",
+    "BVBFW": "BVB/FW", "BVBFREIEWAHLER": "BVB/FW",
+    "DIEPARTEI": "Die PARTEI", "PARTEI": "Die PARTEI",
+    "TIERSCHUTZPARTEI": "Tierschutzpartei",
+    "DIETIERSCHUTZPARTEI": "Tierschutzpartei",
+    "PIRATEN": "Piraten", "VOLT": "Volt", "SSW": "SSW",
+    "ODP": "ÖDP", "BAYERNPARTEI": "Bayernpartei", "NPD": "NPD",
+    "DSU": "DSU", "REP": "REP",
+    "SONSTIGE": "Sonstige",
+}
+
+
+def normalize_party_name(name: str) -> str:
+    """Use one display name for common party aliases across data sources."""
+    cleaned = name.strip()
+    # Government annotations and election footnote markers are metadata, not names.
+    cleaned = re.sub(r"\s*\([^)]*\).*?$", "", cleaned)
+    cleaned = re.sub(r"\s*\([^)]*$", "", cleaned).strip()
+    cleaned = re.sub(r"[¹²³⁴⁵⁶⁷⁸⁹⁰]+$", "", cleaned).strip()
+    normalized = unicodedata.normalize("NFKD", cleaned)
+    key = "".join(character for character in normalized.upper()
+                  if not unicodedata.combining(character) and character.isalnum())
+    key = re.sub(r"\d+$", "", key)
+    return PARTY_ALIASES.get(key, cleaned)
 
 
 def load_governments(path: Path) -> list[dict]:
@@ -22,7 +61,8 @@ def load_governments(path: Path) -> list[dict]:
     for row in rows:
         start = date.fromisoformat(row["start_date"])
         end = date.fromisoformat(row["end_date_exclusive"])
-        parties = row["parties"].split("|")
+        parties = [normalize_party_name(party) for party in row["parties"].split("|")
+                   if not party.strip().casefold().startswith("danach ohne ")]
         if start >= end or (previous_end is not None and start != previous_end) or not all(parties):
             raise ValueError(f"Government intervals must be contiguous and nonempty: {path}")
         governments.append({"start": start, "end": end, "cabinet": row["cabinet"],
@@ -37,7 +77,7 @@ def load_elections(path: Path) -> list[dict]:
     by_date: dict[date, dict[str, float]] = {}
     for row in rows:
         election_date = date.fromisoformat(row["date"])
-        party = row["party"].strip()
+        party = normalize_party_name(row["party"])
         percent = float(row["percent"])
         if not party or not 0 <= percent <= 100:
             raise ValueError(f"Invalid election result in {path}: {row}")
@@ -60,7 +100,7 @@ def load_frames(polls_path: Path, results_path: Path,
     for row in results:
         if row["source"] != "wahlrecht-INSA":
             continue
-        party = row["party"].strip()
+        party = normalize_party_name(row["party"])
         if not party or party.casefold() == "sonstige":
             continue  # 'Others' is an aggregate, not a party.
         by_poll.setdefault(row["source_poll_id"], {})[party] = float(row["percent"])
@@ -116,7 +156,7 @@ def load_dawum_frames(polls_path: Path, results_path: Path,
     governments = load_governments(governments_path)
     by_poll: dict[str, dict[str, float]] = {}
     for row in results:
-        party = row["party"].strip()
+        party = normalize_party_name(row["party"])
         if not party or party.casefold() == "sonstige":
             continue
         by_poll.setdefault(row["source_poll_id"], {})[party] = float(row["percent"])
