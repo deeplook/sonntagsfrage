@@ -182,8 +182,11 @@
       const glide = document.getElementById("glide");
       const scrubber = document.getElementById("scrubber");
       const electionTooltip = document.getElementById("election-tooltip");
-      const dateFormat = new Intl.DateTimeFormat("de-DE", {day:"2-digit",month:"long",year:"numeric"});
-      const formatDate = date => dateFormat.format(new Date(date + "T12:00:00"));
+      const germanMonths = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+      const formatDate = date => {
+        const [year, month, day] = date.split("-").map(Number);
+        return `${String(day).padStart(2, "0")}. ${germanMonths[month - 1]} ${year}`;
+      };
       const toDay = date => Date.parse(`${date}T00:00:00Z`) / 86400000;
       const frameDay = frame => toDay(frame.reference_date || frame.date);
       const maxTrendGapMonths = 3;
