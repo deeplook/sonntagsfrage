@@ -37,7 +37,6 @@ COLOR_ALIASES = {
     "TIERSCHUTZPARTEI": "TIERSCHUTZPARTEI",
 }
 MONTHS = ("Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez")
-MAX_CONNECTED_GAP_DAYS = 21
 GLIDE_TRANSITION_STEPS = 4
 OUTPUT_FRAME_RATE = 50
 GIF_OUTPUT_FRAME_RATE = 50
@@ -112,6 +111,13 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.Im
 
 def frame_date(frame: dict) -> date:
     return date.fromisoformat(frame.get("reference_date") or frame["date"])
+
+
+def month_index(value: date) -> int:
+    return value.year * 12 + value.month - 1
+
+
+MAX_TREND_GAP_MONTHS = 3
 
 
 def load_state_coat(state: str) -> tuple[Image.Image | None, str | None]:
@@ -195,29 +201,34 @@ def draw_trend(draw: ImageDraw.ImageDraw, frames: list[dict], right: int,
         draw.line((x, top, x, bottom), fill="#c6ccd6", width=max(1, px(1)))
         election_positions.append((election, x))
 
-    history: dict[str, list[tuple[int, float]]] = {}
+    history: dict[str, list[tuple[int, float, date]]] = {}
     for item in frames:
-        day = (frame_date(item) - timeline_start).days
+        observed_date = frame_date(item)
+        day = (observed_date - timeline_start).days
         for party, value in item["values"].items():
-            history.setdefault(party, []).append((day, value))
+            history.setdefault(party, []).append((day, value, observed_date))
 
     for party, points in history.items():
         dated_coordinates = [
             (day,
              (left + round((chart_right - left) * day / span),
-              bottom - round((bottom - top) * min(value, 50) / 50)))
-            for day, value in points
+              bottom - round((bottom - top) * min(value, 50) / 50)),
+             month_index(observed_date))
+            for day, value, observed_date in points
         ]
+        dated_coordinates.sort(key=lambda point: point[0])
         segments: list[list[tuple[int, int]]] = []
         segment = []
-        previous_day = None
-        for day, coordinate in dated_coordinates:
-            if previous_day is not None and day - previous_day > MAX_CONNECTED_GAP_DAYS:
+        previous_month = None
+        for _, coordinate, observed_month in dated_coordinates:
+            # Keep polls connected across normal pauses; break after more than three months.
+            if (previous_month is not None
+                    and observed_month - previous_month > MAX_TREND_GAP_MONTHS):
                 if segment:
                     segments.append(segment)
                 segment = []
             segment.append(coordinate)
-            previous_day = day
+            previous_month = observed_month
         if segment:
             segments.append(segment)
 

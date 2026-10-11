@@ -171,7 +171,6 @@
       const topN = 10;
       const maxValue = 50;
       const rowHeight = 56;
-      const maxConnectedGapDays = 21;
       const governmentBandColors = ["#fff0c9", "#e1f4e8"];
       const race = document.getElementById("race");
       const trendCanvas = document.getElementById("trend-chart");
@@ -187,6 +186,11 @@
       const formatDate = date => dateFormat.format(new Date(date + "T12:00:00"));
       const toDay = date => Date.parse(`${date}T00:00:00Z`) / 86400000;
       const frameDay = frame => toDay(frame.reference_date || frame.date);
+      const maxTrendGapMonths = 3;
+      const monthIndexForDay = day => {
+        const date = new Date(day * 86400000);
+        return date.getUTCFullYear() * 12 + date.getUTCMonth();
+      };
       const rows = new Map();
       let frames = [];
       let index = 0;
@@ -335,7 +339,7 @@
         });
         history.forEach((dailyValues, party) => {
           const points = [...dailyValues.entries()]
-            .map(([day, values]) => ({day, value: values.reduce((sum, value) => sum + value, 0) / values.length}))
+            .map(([day, values]) => ({day, month: monthIndexForDay(day), value: values.reduce((sum, value) => sum + value, 0) / values.length}))
             .sort((a, b) => a.day - b.day);
           const color = partyColor(party);
           let segment = [];
@@ -360,7 +364,8 @@
             }
           };
           points.forEach(point => {
-            if (segment.length && point.day - segment[segment.length - 1].day > maxConnectedGapDays) {
+            // Keep polls connected across normal pauses; break after more than three months.
+            if (segment.length && point.month - segment[segment.length - 1].month > maxTrendGapMonths) {
               strokeSegment();
               segment = [];
             }

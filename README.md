@@ -111,11 +111,13 @@ marker in every frame. The fixed 0–50% axis avoids
 a changing visual scale. Each frame also includes a compact history chart of
 online poll values from the first poll through that frame's date. Hollow colored
 circles show Bundestag election results; thin vertical guides mark election
-dates. The election markers cover the four federal elections in the chart's
-date range (2013, 2017, 2021, and 2025), with CDU and CSU combined to match the
-poll series. A vertical tick on each party's poll bar shows its result in the
-most recent Bundestag election as of that frame, with the election year in the
-legend. The 2009 results provide a baseline for the first polls in the timeline.
+dates. Poll lines connect observations up to three calendar months apart and
+leave a gap when the next poll is more than three months later. The election markers cover the four
+federal elections in the chart's date range (2013, 2017, 2021, and 2025),
+combining CDU and CSU to match the poll series. A vertical tick on each party's
+poll bar shows its result in the most recent Bundestag election as of that frame,
+with the election year in the legend. The 2009 results provide a baseline for
+the first polls in the timeline.
 Alternating pale background bands show the government period in effect for
 each frame, using the same fieldwork-end date as the `Regierung` header
 (publication date when the fieldwork end is unavailable).
