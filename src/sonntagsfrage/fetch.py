@@ -37,7 +37,7 @@ SINGLE_DATE_RE = re.compile(r"^(\d{1,2})\.(\d{1,2})\.$")
 
 
 def fetch(url: str) -> bytes:
-    request = Request(url, headers={"User-Agent": "elections-poll-fetcher/0.1 (research; https://dawum.de/API/)"})
+    request = Request(url, headers={"User-Agent": "sonntagsfrage-poll-fetcher/0.1 (research; https://dawum.de/API/)"})
     try:
         with urlopen(request, timeout=30, context=ssl.create_default_context(cafile=certifi.where())) as response:
             return response.read()

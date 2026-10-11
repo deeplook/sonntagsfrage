@@ -1,11 +1,11 @@
-# German election poll fetcher
+# Sonntagsfrage
 
 Download the poll data discussed in [work/BRAINSTORM.md](work/BRAINSTORM.md). The
 project uses Python 3.12+ and [uv](https://docs.astral.sh/uv/) to manage its
 dependencies.
 
 ```sh
-uv run elections
+uv run sonntagsfrage
 ```
 
 The default command downloads two sources:
@@ -25,7 +25,7 @@ parliaments, such as the European Parliament, have their own directory. Raw
 DAWUM JSON stays in `data/sources/dawum/` because one snapshot contains polls
 for several parliaments.
 
-Use `uv run elections --source dawum` or `uv run elections --source insa` to
+Use `uv run sonntagsfrage --source dawum` or `uv run sonntagsfrage --source insa` to
 fetch one source. Use `--output-dir PATH` to change the destination. Running the
 command again refreshes those files. The fetched data is tracked in this repository.
 
@@ -52,7 +52,7 @@ verification before redistribution.
 After fetching the archive, generate a standalone interactive page:
 
 ```sh
-uv run elections-race
+uv run sonntagsfrage-race
 ```
 
 Open `charts/insa-race.html` in a browser. Its poll data, CSS, and JavaScript
@@ -93,7 +93,7 @@ Install [FFmpeg](https://ffmpeg.org/) first; uv installs Pillow from the project
 dependencies.
 
 ```sh
-uv run elections-gif
+uv run sonntagsfrage-gif
 ```
 
 Default outputs are `charts/insa-race.gif` and `charts/insa-race.mp4` (640 × 640
@@ -115,9 +115,9 @@ Choose a parliament and filter its polls by source, institute, commissioner,
 or method. Landtag names use their data directory slug. For example:
 
 ```sh
-uv run elections-gif --parliament brandenburg --source all
-uv run elections-gif --parliament bayern --source dawum --institute INSA
-uv run elections-gif --parliament bundestag --source all --institute INSA
+uv run sonntagsfrage-gif --parliament brandenburg --source all
+uv run sonntagsfrage-gif --parliament bayern --source dawum --institute INSA
+uv run sonntagsfrage-gif --parliament bundestag --source all --institute INSA
 ```
 
 Sources are `dawum`, `wahlrecht`, or `all`. The Bundestag defaults to
@@ -142,7 +142,7 @@ second votes; it falls outside this chart's 2012–present timeline.
 Refresh the chart's election results and source material with:
 
 ```sh
-uv run elections-bundestag-reference-data
+uv run sonntagsfrage-bundestag-reference-data
 ```
 
 This downloads the official results CSV and the per-election HTML pages for

@@ -51,7 +51,7 @@ def load_frames(polls_path: Path, results_path: Path,
     with results_path.open(newline="", encoding="utf-8") as handle:
         results = list(csv.DictReader(handle))
     if not polls or not results:
-        raise ValueError("INSA poll files are empty; run `uv run elections --source insa` first")
+        raise ValueError("INSA poll files are empty; run `uv run sonntagsfrage --source insa` first")
     governments = load_governments(governments_path)
 
     by_poll: dict[str, dict[str, float]] = {}
@@ -161,7 +161,7 @@ def load_dataset(name: str, label: str, eyebrow: str, title: str, intro: str,
 def render(frames: list[dict], elections: list[dict] | None = None,
            governments: list[dict] | None = None,
            datasets: list[dict] | None = None) -> str:
-    template = files("elections").joinpath("insa_race.html").read_text(encoding="utf-8")
+    template = files("sonntagsfrage").joinpath("insa_race.html").read_text(encoding="utf-8")
     def payload(value: object) -> str:
         encoded = json.dumps(value, ensure_ascii=False, separators=(",", ":"),
                              default=lambda item: item.isoformat() if isinstance(item, date) else item)

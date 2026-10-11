@@ -1,5 +1,5 @@
 [project]
-name = "elections"
+name = "sonntagsfrage"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -13,10 +13,11 @@ dependencies = [
 ]
 
 [project.scripts]
-elections = "elections:main"
-elections-race = "elections.race:main"
-elections-gif = "elections.animation:main"
-elections-reference-data = "elections.reference_data:main"
+sonntagsfrage = "sonntagsfrage:main"
+sonntagsfrage-race = "sonntagsfrage.race:main"
+sonntagsfrage-gif = "sonntagsfrage.animation:main"
+sonntagsfrage-bundestag-reference-data = "sonntagsfrage.bundestag_reference_data:main"
+sonntagsfrage-landtag-reference-data = "sonntagsfrage.landtag_reference_data:main"
 
 [build-system]
 requires = ["uv_build>=0.12.4,<0.13.0"]

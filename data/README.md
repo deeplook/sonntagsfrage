@@ -19,14 +19,14 @@ Source snapshots that span several parliaments stay under `sources/<source>/`.
 For example, `sources/dawum/api.json` is the complete DAWUM snapshot; the
 fetcher partitions its parsed poll and result tables into the matching
 parliament directories. Parliament names from the source are mapped to stable
-directory names in `src/elections/fetch.py`.
+directory names in `src/sonntagsfrage/fetch.py`.
 
 The default fetch command treats `--output-dir` as this data root. Updating
 polls does not replace curated election or government reference tables.
 
 Landtag DAWUM polls and poll results come from the shared snapshot at
-`sources/dawum/api.json`. Refresh them with `uv run elections --source dawum`.
-The state reference downloader is `uv run elections-landtag-reference-data`.
+`sources/dawum/api.json`. Refresh them with `uv run sonntagsfrage --source dawum`.
+The state reference downloader is `uv run sonntagsfrage-landtag-reference-data`.
 It archives each state's Wahlrecht.de poll and election result pages. Polls
 published after the latest DAWUM poll for a state are written to separate
 `polls/wahlrecht-landtag.csv` and `results/wahlrecht-landtag.csv` tables, and

@@ -1,7 +1,7 @@
 import unittest
 from fractions import Fraction
 
-from elections.animation import animation_timing, party_color
+from sonntagsfrage.animation import animation_timing, party_color
 
 
 class PartyColorTests(unittest.TestCase):
