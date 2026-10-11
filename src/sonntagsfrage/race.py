@@ -151,9 +151,14 @@ def load_dataset(name: str, label: str, eyebrow: str, title: str, intro: str,
                  frames: list[dict], elections: list[dict], governments: list[dict],
                  poll_source_name: str, poll_source_url: str,
                  election_source_name: str, election_source_url: str) -> dict:
+    last_poll_date = max(date.fromisoformat(frame["reference_date"])
+                         for frame in frames)
+    last_election_date = max((election["date"] for election in elections),
+                             default=last_poll_date)
     return {
         "name": name, "label": label, "eyebrow": eyebrow, "title": title,
         "intro": intro, "frames": frames, "elections": elections,
+        "timeline_end_date": max(last_poll_date, last_election_date),
         "governments": governments, "poll_source_name": poll_source_name,
         "poll_source_url": poll_source_url, "election_source_name": election_source_name,
         "election_source_url": election_source_url,

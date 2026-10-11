@@ -96,7 +96,8 @@ uv run sonntagsfrage-race
 Open `charts/election-polls.html` in a browser. Its poll data, CSS, and JavaScript
 and election reference data are embedded, so the file works offline. Its
 history chart grows with playback and includes election results and government
-periods. Use the **Parlament** selector to switch between the Bundestag and any
+periods. If the latest election happened after the last published poll, the final
+view extends through election day and compares the last poll with that result. Use the **Parlament** selector to switch between the Bundestag and any
 of the 16 Landtage; poll series, government labels, election markers, titles,
 and source credits update together. Landtag polls newer than the latest DAWUM
 entry are supplemented from Wahlrecht.de's state poll tables. **Institut / Auftraggeber** filters a
