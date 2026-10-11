@@ -11,14 +11,19 @@
     button, select, input { font: inherit; }
     button, select { cursor: pointer; }
     .shell { max-width: 1150px; margin: 0 auto; padding: 32px 24px 48px; }
+    .page-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .eyebrow { color: #5b56cc; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .german-flag { display: grid; grid-template-rows: repeat(3, 1fr); flex: none; width: 46px; height: 27px; border: 1px solid #c6ccd6; box-shadow: 0 1px 2px rgba(28, 40, 70, .12); }
+    .german-flag span:nth-child(1) { background: #000; }
+    .german-flag span:nth-child(2) { background: #dd0000; }
+    .german-flag span:nth-child(3) { background: #ffce00; }
     h1 { font-size: clamp(28px, 4vw, 43px); line-height: 1.15; margin: 9px 0 7px; letter-spacing: -.04em; }
     .intro { color: #596478; font-size: 15px; margin: 0 0 24px; line-height: 1.5; }
     .card { background: #fff; border: 1px solid #e3e7f0; border-radius: 18px; box-shadow: 0 12px 36px rgba(28, 40, 70, .06); overflow: hidden; }
-    .toolbar { display: flex; align-items: end; gap: 14px; flex-wrap: wrap; padding: 20px 22px; border-bottom: 1px solid #e8ebf3; }
+    .toolbar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: end; gap: 14px; padding: 20px 22px; border-bottom: 1px solid #e8ebf3; }
     .field { display: grid; gap: 6px; min-width: 0; }
     .field label, .field-label { color: #657087; font-size: 11px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
-    select { min-height: 39px; border: 1px solid #d8ddea; border-radius: 8px; background: #fff; color: #24304a; padding: 0 11px; max-width: 100%; }
+    select { width: 100%; min-height: 39px; border: 1px solid #d8ddea; border-radius: 8px; background: #fff; color: #24304a; padding: 0 11px; max-width: 100%; }
     select:focus-visible, button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid #a7a3ff; outline-offset: 2px; }
     .actions { display: flex; gap: 7px; align-items: center; }
     .btn { min-height: 39px; border-radius: 8px; padding: 0 14px; border: 1px solid #d8ddea; background: #fff; color: #35415c; font-weight: 700; }
@@ -66,6 +71,9 @@
     .timeline input { display: block; width: 100%; margin: 0; accent-color: #5b56cc; cursor: pointer; }
     .note { margin: 0; padding: 0 25px 23px; color: #738096; font-size: 12px; line-height: 1.55; }
     .note a { color: #514dc1; }
+    @media (orientation: portrait), (max-width: 760px) {
+      .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 700px) {
       .shell { padding: 18px 10px 30px; }
       .toolbar { padding: 16px; gap: 11px; }
@@ -84,7 +92,7 @@
 </head>
 <body>
   <main class="shell">
-    <div class="eyebrow">Deutschland · Bundestagswahl</div>
+    <div class="page-heading"><div class="eyebrow">Deutschland · Bundestagswahl</div><span class="german-flag" role="img" aria-label="Flagge Deutschlands"><span></span><span></span><span></span></span></div>
     <h1>INSA Sonntagsfrage im Zeitverlauf</h1>
     <p class="intro">Parteianteile in veröffentlichten INSA-Umfragen. Die Balken folgen dem Rang in jeder Erhebung.</p>
     <section id="chart-card" class="card" aria-label="Animiertes Balkendiagramm der INSA-Umfragen">
