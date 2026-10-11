@@ -1,9 +1,10 @@
 """Render INSA poll results as a standalone HTML bar chart race."""
 
+import base64
 import csv
+import json
 from datetime import date
 from importlib.resources import files
-import json
 from pathlib import Path
 import typer
 
@@ -163,6 +164,20 @@ def render(frames: list[dict], elections: list[dict] | None = None,
            governments: list[dict] | None = None,
            datasets: list[dict] | None = None) -> str:
     template = files("sonntagsfrage").joinpath("insa_race.html").read_text(encoding="utf-8")
+
+    asset_root = files("sonntagsfrage").joinpath("assets", "wappen")
+    coat_manifest = json.loads(asset_root.joinpath("manifest.json").read_text(encoding="utf-8"))
+    coats = {}
+    for state, metadata in coat_manifest.items():
+        svg = asset_root.joinpath(metadata["path"]).read_bytes()
+        coats[state] = {
+            "data_uri": "data:image/svg+xml;base64," + base64.b64encode(svg).decode("ascii"),
+            "source_url": metadata["source_url"],
+            "artist": metadata.get("artist", ""),
+            "license": metadata.get("license") or "Lizenzangabe auf Wikimedia Commons",
+            "license_url": metadata.get("license_url", ""),
+        }
+
     def payload(value: object) -> str:
         encoded = json.dumps(value, ensure_ascii=False, separators=(",", ":"),
                              default=lambda item: item.isoformat() if isinstance(item, date) else item)
@@ -171,7 +186,8 @@ def render(frames: list[dict], elections: list[dict] | None = None,
     return (template.replace("__POLL_DATA__", payload(frames))
             .replace("__ELECTION_DATA__", payload(elections or []))
             .replace("__GOVERNMENT_DATA__", payload(governments or []))
-            .replace("__DATASET_DATA__", payload(datasets or [])))
+            .replace("__DATASET_DATA__", payload(datasets or []))
+            .replace("__COAT_OF_ARMS_DATA__", payload(coats)))
 
 
 app = create_app(__doc__)

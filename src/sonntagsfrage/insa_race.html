@@ -12,11 +12,14 @@
     button, select { cursor: pointer; }
     .shell { max-width: 1150px; margin: 0 auto; padding: 32px 24px 48px; }
     .page-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .state-symbols { display: flex; align-items: center; gap: 10px; flex: none; }
     .eyebrow { color: #5b56cc; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
     .german-flag { display: grid; grid-template-rows: repeat(3, 1fr); flex: none; width: 46px; height: 27px; border: 1px solid #c6ccd6; box-shadow: 0 1px 2px rgba(28, 40, 70, .12); }
     .german-flag span:nth-child(1) { background: #000; }
     .german-flag span:nth-child(2) { background: #dd0000; }
     .german-flag span:nth-child(3) { background: #ffce00; }
+    .state-coat { display: block; width: 34px; height: 38px; object-fit: contain; }
+    .state-coat[hidden] { display: none; }
     h1 { font-size: clamp(28px, 4vw, 43px); line-height: 1.15; margin: 9px 0 7px; letter-spacing: -.04em; }
     .intro { color: #596478; font-size: 15px; margin: 0 0 24px; line-height: 1.5; }
     .card { background: #fff; border: 1px solid #e3e7f0; border-radius: 18px; box-shadow: 0 12px 36px rgba(28, 40, 70, .06); overflow: hidden; }
@@ -95,7 +98,7 @@
 </head>
 <body>
   <main class="shell">
-    <div class="page-heading"><div class="eyebrow">Deutschland · Bundestagswahl</div><span class="german-flag" role="img" aria-label="Flagge Deutschlands"><span></span><span></span><span></span></span></div>
+    <div class="page-heading"><div class="eyebrow">Deutschland · Bundestagswahl</div><div class="state-symbols"><span class="german-flag" role="img" aria-label="Flagge Deutschlands"><span></span><span></span><span></span></span><img id="state-coat" class="state-coat" alt="" hidden></div></div>
     <h1>INSA Sonntagsfrage im Zeitverlauf</h1>
     <p class="intro">Parteianteile in veröffentlichten INSA-Umfragen. Die Balken folgen dem Rang in jeder Erhebung.</p>
     <section id="chart-card" class="card" aria-label="Animiertes Balkendiagramm der INSA-Umfragen">
@@ -113,7 +116,7 @@
         <div class="trend"><div class="trend-head"><span id="trend-title" class="field-label">Umfragen und Wahlergebnisse</span><div class="trend-legend" aria-label="Legende"><span class="trend-key"><i class="trend-gov-key"></i>Regierung</span><span class="trend-key"><i class="trend-line-key"></i>Umfragen</span><span class="trend-key"><i class="trend-guide-key"></i>Wahltag</span><span class="trend-key"><i class="trend-election-key"></i>Wahlergebnis</span><span class="trend-key"><i class="trend-bar-result-key"></i><span id="bar-election-label">Balken: letzte Wahl</span></span></div></div><canvas id="trend-chart" role="img" aria-label="Umfragewerte, Regierungsperioden und Wahlergebnisse im Zeitverlauf"></canvas></div>
       </div>
       <div class="timeline"><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"></div>
-      <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats.<br>Umfragen: <a id="poll-source" target="_blank" rel="noopener noreferrer"></a> · Wahlergebnisse: <a id="election-source" target="_blank" rel="noopener noreferrer"></a> · Regierung: <a id="government-source" target="_blank" rel="noopener noreferrer"></a><span id="dawum-credit"> · © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">DAWUM</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a></span>.</p>
+      <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats.<br>Umfragen: <a id="poll-source" target="_blank" rel="noopener noreferrer"></a> · Wahlergebnisse: <a id="election-source" target="_blank" rel="noopener noreferrer"></a> · Regierung: <a id="government-source" target="_blank" rel="noopener noreferrer"></a><span id="dawum-credit"> · © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">DAWUM</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a></span><span id="coat-credit" hidden> · Wappen: <a id="coat-source" target="_blank" rel="noopener noreferrer"></a><span id="coat-artist-credit"> · <span id="coat-artist"></span></span> · <a id="coat-license" target="_blank" rel="noopener noreferrer"></a></span>.</p>
     </section>
   </main>
   <div id="election-tooltip" class="election-tooltip" role="tooltip" hidden></div>
@@ -121,9 +124,11 @@
   <script type="application/json" id="election-data">__ELECTION_DATA__</script>
   <script type="application/json" id="government-data">__GOVERNMENT_DATA__</script>
   <script type="application/json" id="dataset-data">__DATASET_DATA__</script>
+  <script type="application/json" id="coat-of-arms-data">__COAT_OF_ARMS_DATA__</script>
   <script>
     (() => {
       const datasets = JSON.parse(document.getElementById("dataset-data").textContent);
+      const coats = JSON.parse(document.getElementById("coat-of-arms-data").textContent);
       const parliament = document.getElementById("parliament");
       let dataset = datasets[0] || {
         name: "bundestag", label: "Bundestag", eyebrow: "Deutschland · Bundestagswahl",
@@ -501,6 +506,34 @@
         document.querySelector("h1").textContent = dataset.title;
         document.title = `${dataset.title} · Bar Chart Race`;
         document.querySelector(".intro").textContent = dataset.intro;
+        const coat = coats[dataset.name];
+        const coatImage = document.getElementById("state-coat");
+        coatImage.hidden = !coat;
+        if (coat) {
+          coatImage.src = coat.data_uri;
+          coatImage.alt = `Wappen ${dataset.label.split(" · ")[0]}`;
+        } else {
+          coatImage.removeAttribute("src");
+          coatImage.alt = "";
+        }
+        const coatCredit = document.getElementById("coat-credit");
+        coatCredit.hidden = !coat;
+        if (coat) {
+          const source = document.getElementById("coat-source");
+          source.href = coat.source_url;
+          source.textContent = "Wikimedia Commons";
+          document.getElementById("coat-artist").textContent = coat.artist;
+          document.getElementById("coat-artist-credit").hidden = !coat.artist;
+          const license = document.getElementById("coat-license");
+          license.textContent = coat.license;
+          if (coat.license_url) {
+            license.href = coat.license_url;
+            license.removeAttribute("aria-label");
+          } else {
+            license.href = coat.source_url;
+            license.setAttribute("aria-label", `${coat.license}; siehe Dateibeschreibung`);
+          }
+        }
         document.getElementById("chart-card").setAttribute("aria-label", `Animiertes Balkendiagramm der Umfragen zum ${dataset.label}`);
         document.getElementById("trend-title").textContent = `Umfragen und ${dataset.name === "bundestag" ? "Bundestags" : "Landtags"}wahlergebnisse`;
         trendCanvas.setAttribute("aria-label", `Umfragewerte, Regierungsperioden und ${dataset.name === "bundestag" ? "Bundestags" : "Landtags"}wahlergebnisse im Zeitverlauf`);

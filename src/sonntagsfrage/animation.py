@@ -3,6 +3,9 @@
 from dataclasses import dataclass
 from datetime import date, timedelta
 from fractions import Fraction
+from importlib.resources import files
+from io import BytesIO
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -58,6 +61,7 @@ class Layout:
     header_kicker: tuple[int, int] = (30, 24)
     header_title: tuple[int, int] = (30, 51)
     flag: tuple[int, int, int, int] = (564, 26, 610, 53)
+    state_coat_credit: tuple[int, int] = (30, 630)
     government_label: tuple[int, int] = (30, 87)
     date_label: tuple[int, int] = (30, 125)
     frame_counter: tuple[int, int] = (610, 132)
@@ -108,6 +112,22 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.Im
 
 def frame_date(frame: dict) -> date:
     return date.fromisoformat(frame.get("reference_date") or frame["date"])
+
+
+def load_state_coat(state: str) -> tuple[Image.Image | None, str | None]:
+    """Load the bundled movie-sized coat of arms and its visible attribution."""
+    asset_root = files("sonntagsfrage").joinpath("assets", "wappen")
+    manifest = json.loads(asset_root.joinpath("manifest.json").read_text(encoding="utf-8"))
+    metadata = manifest.get(state)
+    if metadata is None:
+        return None, None
+    coat = Image.open(BytesIO(asset_root.joinpath(metadata["raster_path"]).read_bytes()))
+    license_name = metadata.get("license") or "Lizenzangabe auf Wikimedia Commons"
+    credits = [metadata["source_url"]]
+    if metadata.get("artist"):
+        credits.append(metadata["artist"])
+    credits.append(license_name)
+    return coat.convert("RGBA"), "Wappen: " + " · ".join(credits)
 
 
 def party_color(party: str) -> str:
@@ -239,7 +259,9 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
                header_kicker: str = "DEUTSCHLAND  ·  BUNDESTAG",
                header_title: str = "INSA SONNTAGSFRAGE",
                attribution: str = "Daten: © wahlrecht.de / INSA · dawum.de / ODbL · Bundeswahlleiterin (DL-DE/BY-2.0)",
-               row_positions: dict[str, float] | None = None) -> Image.Image:
+               row_positions: dict[str, float] | None = None,
+               state_coat: Image.Image | None = None,
+               state_coat_credit: str | None = None) -> Image.Image:
     layout = LAYOUT
     width, height = (size, size) if isinstance(size, int) else size
     # Layout coordinates use a 640px design grid. Typography and strokes follow
@@ -262,7 +284,11 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
               font=face(14, True), fill="#b9c1ff")
     draw.text(point(layout.header_title), header_title,
               font=face(31, True), fill="#ffffff")
-    flag_left, flag_top, flag_right, flag_bottom = box(layout.flag)
+    flag_shift = 42 if state_coat is not None else 0
+    flag_left, flag_top, flag_right, flag_bottom = box(
+        (layout.flag[0] - flag_shift, layout.flag[1],
+         layout.flag[2] - flag_shift, layout.flag[3])
+    )
     border = max(1, px(1))
     inner_left, inner_right = flag_left + border, flag_right - border
     inner_top, inner_bottom = flag_top + border, flag_bottom - border
@@ -275,6 +301,16 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
                     round(inner_top + 2 * stripe_height - 1)), fill="#dd0000")
     draw.rectangle((inner_left, round(inner_top + 2 * stripe_height), inner_right,
                     inner_bottom), fill="#ffce00")
+    if state_coat is not None:
+        coat_left, coat_top, coat_right, coat_bottom = box(
+            (layout.flag[2] - 34, layout.flag[1] - 5,
+             layout.flag[2], layout.flag[3] + 5)
+        )
+        coat = state_coat.copy()
+        coat.thumbnail((coat_right - coat_left, coat_bottom - coat_top), Image.Resampling.LANCZOS)
+        coat_position = (coat_left + (coat_right - coat_left - coat.width) // 2,
+                         coat_top + (coat_bottom - coat_top - coat.height) // 2)
+        image.paste(coat, coat_position, coat)
     government = frame["government"]
     government_label = f"Regierung: {government['cabinet']} · {' + '.join(government['parties'])}"
     draw.text(point(layout.government_label), government_label,
@@ -354,6 +390,16 @@ def draw_frame(frame: dict, number: int, total: int, size: int | tuple[int, int]
     draw.line(line(layout.footer_rule), fill="#dfe3ec", width=max(1, px(1)))
     draw.text(point(layout.copyright_label), attribution,
               font=face(10), fill="#45516a")
+    if state_coat_credit:
+        credit_x, credit_y = point(layout.state_coat_credit)
+        credit_font_size = max(6, px(8))
+        credit_font = font(credit_font_size)
+        available_width = width - credit_x - px(30)
+        while credit_font_size > 6 and draw.textlength(state_coat_credit, font=credit_font) > available_width:
+            credit_font_size -= 1
+            credit_font = font(credit_font_size)
+        draw.text((credit_x, credit_y), state_coat_credit,
+                  font=credit_font, fill="#45516a")
     return image
 
 
@@ -368,7 +414,9 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
                  size: int | tuple[int, int], frame_rate: str, target_frame_count: int,
                  header_kicker: str, header_title: str, attribution: str,
                  glide: bool = True,
-                 transition_steps: int = GLIDE_TRANSITION_STEPS) -> None:
+                 transition_steps: int = GLIDE_TRANSITION_STEPS,
+                 state_coat: Image.Image | None = None,
+                 state_coat_credit: str | None = None) -> None:
     width, height = (size, size) if isinstance(size, int) else size
     if glide and transition_steps < 2:
         raise ValueError("transition_steps must be at least 2")
@@ -395,7 +443,8 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
             image = draw_frame(frame, index, len(frames), size, history,
                                timeline_start, timeline_end, elections,
                                governments, header_kicker, header_title,
-                               attribution)
+                               attribution, state_coat=state_coat,
+                               state_coat_credit=state_coat_credit)
             poll_holds = holds_per_poll + (1 if index < extra_holds else 0)
             if not glide or index == 0:
                 for _ in range(poll_holds):
@@ -409,7 +458,7 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
                 process.stdin.write(draw_frame(
                     frame, index, len(frames), size, history, timeline_start,
                     timeline_end, elections, governments, header_kicker, header_title,
-                    attribution, row_positions,
+                    attribution, row_positions, state_coat, state_coat_credit,
                 ).tobytes())
             for _ in range(poll_holds):
                 process.stdin.write(image.tobytes())
@@ -531,6 +580,9 @@ def run(
         target_frame_count, frame_rate, transition_steps = animation_timing(
             len(frames), args.seconds, args.glide
         )
+        state_coat, state_coat_credit = (
+            load_state_coat(args.parliament) if args.parliament != "bundestag" else (None, None)
+        )
         output = args.output or Path(
             "charts/insa-race.gif" if args.parliament == "bundestag"
             else f"charts/{args.parliament}-race.gif"
@@ -545,7 +597,8 @@ def run(
             render_video(frames, elections, governments, master, dimensions, frame_rate,
                          target_frame_count,
                          header_kicker, header_title, attribution,
-                         glide=args.glide, transition_steps=transition_steps)
+                         glide=args.glide, transition_steps=transition_steps,
+                         state_coat=state_coat, state_coat_credit=state_coat_credit)
             run_ffmpeg("-i", str(master), "-vf",
                        f"fps={GIF_OUTPUT_FRAME_RATE},palettegen=max_colors={args.colors}:stats_mode=full",
                        "-frames:v", "1", str(palette))

@@ -1,0 +1,146 @@
+{
+  "baden-wuerttemberg": {
+    "file": "Lesser coat of arms of Baden-Württemberg.svg",
+    "path": "baden-wuerttemberg.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lesser_coat_of_arms_of_Baden-W%C3%BCrttemberg.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/baden-wuerttemberg.png",
+    "artist": "Bedřich Meinhard"
+  },
+  "bayern": {
+    "file": "Arms of the Free State of Bavaria.svg",
+    "path": "bayern.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arms_of_the_Free_State_of_Bavaria.svg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "raster_path": "raster/bayern.png",
+    "artist": "Ssolbergj"
+  },
+  "berlin": {
+    "file": "Coat of arms of Berlin (sample).svg",
+    "path": "berlin.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Berlin_(sample).svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/berlin.png",
+    "artist": "Ottfried Neubecker"
+  },
+  "brandenburg": {
+    "file": "CoA Brandenburg, Germany.svg",
+    "path": "brandenburg.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:CoA_Brandenburg,_Germany.svg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "raster_path": "raster/brandenburg.png",
+    "artist": "Nomadic1"
+  },
+  "bremen": {
+    "file": "Bremen Wappen.svg",
+    "path": "bremen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bremen_Wappen.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/bremen.png",
+    "artist": ""
+  },
+  "hamburg": {
+    "file": "DEU Hamburg COA.svg",
+    "path": "hamburg.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:DEU_Hamburg_COA.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/hamburg.png",
+    "artist": "Freie und Hansestadt Hamburg"
+  },
+  "hessen": {
+    "file": "Coat of arms of Hesse.svg",
+    "path": "hessen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Hesse.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/hessen.png",
+    "artist": ""
+  },
+  "mecklenburg-vorpommern": {
+    "file": "Coat of arms of Mecklenburg-Western Pomerania (small).svg",
+    "path": "mecklenburg-vorpommern.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Mecklenburg-Western_Pomerania_(small).svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/mecklenburg-vorpommern.png",
+    "artist": ""
+  },
+  "niedersachsen": {
+    "file": "Coat of arms of Lower Saxony.svg",
+    "path": "niedersachsen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Lower_Saxony.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/niedersachsen.png",
+    "artist": "Gustav Völker"
+  },
+  "nordrhein-westfalen": {
+    "file": "Coat of arms of North Rhine-Westphalia.svg",
+    "path": "nordrhein-westfalen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_North_Rhine-Westphalia.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/nordrhein-westfalen.png",
+    "artist": ""
+  },
+  "rheinland-pfalz": {
+    "file": "Coat of arms of Rhineland-Palatinate.svg",
+    "path": "rheinland-pfalz.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Rhineland-Palatinate.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/rheinland-pfalz.png",
+    "artist": ""
+  },
+  "saarland": {
+    "file": "Wappen des Saarlands.svg",
+    "path": "saarland.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wappen_des_Saarlands.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/saarland.png",
+    "artist": ""
+  },
+  "sachsen": {
+    "file": "Coat of arms of Saxony.svg",
+    "path": "sachsen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Saxony.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/sachsen.png",
+    "artist": ""
+  },
+  "sachsen-anhalt": {
+    "file": "Wappen Sachsen-Anhalt.svg",
+    "path": "sachsen-anhalt.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Wappen_Sachsen-Anhalt.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/sachsen-anhalt.png",
+    "artist": ""
+  },
+  "schleswig-holstein": {
+    "file": "Coat of arms of Schleswig-Holstein.svg",
+    "path": "schleswig-holstein.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Schleswig-Holstein.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/schleswig-holstein.png",
+    "artist": ""
+  },
+  "thueringen": {
+    "file": "Coat of arms of Thuringia.svg",
+    "path": "thueringen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Thuringia.svg",
+    "license": "Public domain",
+    "license_url": "",
+    "raster_path": "raster/thueringen.png",
+    "artist": ""
+  }
+}

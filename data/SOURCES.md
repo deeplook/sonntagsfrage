@@ -19,6 +19,7 @@ which source copy was used; they do not grant reuse rights.
 | [StatePol Database](https://github.com/StatePol/Database) | Historical Landtag cabinet membership | **Unclear:** the inspected download and citation pages provide no explicit data license. | Cite the database paper (Koch, Kuhlen, Müller & Stecker, “StatePol – A Database on the Members of German State Cabinets and Parliaments,” *Politische Vierteljahresschrift*, 2024, [DOI](https://doi.org/10.1007/s11615-024-00528-z)) and the downloaded version. Verify reuse terms with the maintainers before republishing the cabinet-member dataset. |
 | [German Wikipedia](https://de.wikipedia.org/wiki/Wikipedia:Weiternutzung) | Current government overview and cabinet predecessor pages used to build Landtag government intervals | Wikipedia text is available under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). | Provide attribution and a link to the source article and license; indicate changes. If redistributed material is an adaptation of Wikipedia text, comply with share-alike terms. The timeline uses structured cabinet facts; assess applicable obligations before external redistribution. |
 | Official Bundestag government pages | Dates and descriptions supporting Bundestag government intervals | The linked official pages do not carry a single project-wide license record in this repository. | Cite the specific official source page for each interval. Check the terms on the source page before republication. |
+| [Wikimedia Commons state coat-of-arms files](https://commons.wikimedia.org/wiki/Category:SVG_coats_of_arms_of_states_of_Germany) | Small SVG versions of the 16 Länder coats of arms embedded in the standalone HTML chart and raster companions used in movies | Licenses differ by file; the per-file source page, author, license, and license URL are recorded in `../src/sonntagsfrage/assets/wappen/manifest.json`. Most files are marked public domain on Commons; Bavaria and Brandenburg use CC BY-SA files. | The selected state's image is credited in the chart footer with a link to its Commons description page and, where available, the file license. Movie credits include the Commons file URL, author where listed, and license. The original SVG files are bundled unchanged; transparent PNGs in `raster/` are derived for Pillow movie rendering. A file license covers the submitted artwork; it does not necessarily settle every use of a protected state emblem. Review the relevant state's rules before uses beyond this informational chart. |
 
 ## Project attribution
 
@@ -40,6 +41,9 @@ that apply to a redistributed dataset.
   Bundestag election pages, dates, snapshots, and hashes.
 - `parliaments/bundestag/raw/government-sources.csv` records official pages
   used to verify federal government intervals.
+- `../src/sonntagsfrage/assets/wappen/manifest.json` records Wikimedia Commons
+  file pages and per-file author and license metadata for the bundled state
+  coat-of-arms SVGs.
 
 This register was reviewed on 2026-10-09. Recheck source terms when refreshing
 the data and update this file if a provider publishes or changes its license.
