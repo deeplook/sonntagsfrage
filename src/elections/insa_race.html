@@ -279,11 +279,17 @@
         frames.slice(0, index + 1).forEach(frame => {
           const day = frameDay(frame);
           Object.entries(frame.values).forEach(([party, value]) => {
-            if (!history.has(party)) history.set(party, []);
-            history.get(party).push({day, value});
+            const key = canonicalParty(party);
+            if (!history.has(key)) history.set(key, new Map());
+            const dailyValues = history.get(key);
+            if (!dailyValues.has(day)) dailyValues.set(day, []);
+            dailyValues.get(day).push(value);
           });
         });
-        history.forEach((points, party) => {
+        history.forEach((dailyValues, party) => {
+          const points = [...dailyValues.entries()]
+            .map(([day, values]) => ({day, value: values.reduce((sum, value) => sum + value, 0) / values.length}))
+            .sort((a, b) => a.day - b.day);
           const color = partyColor(party);
           let segment = [];
           const strokeSegment = () => {
