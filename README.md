@@ -4,6 +4,15 @@ Download the poll data discussed in [work/BRAINSTORM.md](work/BRAINSTORM.md). Th
 project uses Python 3.12+ and [uv](https://docs.astral.sh/uv/) to manage its
 dependencies.
 
+Install the project and its dependencies in a local virtual environment with:
+
+```sh
+uv sync
+```
+
+Then run project commands with `uv run` as shown below. To create distributable
+source and wheel packages, run `uv build`.
+
 ```sh
 uv run sonntagsfrage
 ```
