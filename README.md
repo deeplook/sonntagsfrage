@@ -76,8 +76,8 @@ parties. The dated, source-linked intervals are in
 [`data/parliaments/bundestag/governments.csv`](data/parliaments/bundestag/governments.csv). They distinguish the SPD–Greens
 minority government after the FDP ministers left on 7 November 2024. When a
 fieldwork end date is missing, the publication date is used. The current table
-is verified through 7 October 2026; rendering a later poll requires updating
-it. Both renderers accept `--governments PATH`.
+is verified through 11 October 2026 against the Federal Cabinet page; update
+it when the cabinet changes. Both renderers accept `--governments PATH`.
 
 Use `--polls`, `--results`, and `--output` to supply different CSV paths or an
 output filename. The chart follows the horizontal ranking and animation pattern

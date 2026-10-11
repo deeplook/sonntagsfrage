@@ -47,7 +47,6 @@
     .row { display: grid; grid-template-columns: 140px minmax(0, 1fr); padding-right: 54px; height: 45px; align-items: center; position: absolute; left: 0; right: 0; top: 0; transition: transform var(--row-motion) cubic-bezier(.22,1,.36,1), opacity var(--row-motion) ease; min-width: 0; }
     .name { display: flex; align-items: center; gap: 8px; padding: 0 10px 0 5px; border-left: 4px solid transparent; min-width: 0; font-size: 13px; font-weight: 750; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .name.is-government { border-left-color: #5b56cc; }
-    .rank { width: 23px; height: 23px; border-radius: 6px; display: inline-grid; place-items: center; background: #eef0f6; color: #718099; font-size: 11px; flex: none; font-variant-numeric: tabular-nums; }
     .track { position: relative; height: 34px; min-width: 0; }
     .bar { height: 100%; width: 0; border-radius: 5px; transition: width var(--motion) cubic-bezier(.22,1,.36,1); min-width: 2px; }
     .election-result-marker { position: absolute; z-index: 2; top: -2px; bottom: -2px; width: 2px; transform: translateX(-1px); background: #737d8c; box-shadow: 0 0 0 1px rgba(255,255,255,.75); pointer-events: none; }
@@ -63,9 +62,8 @@
     .trend-guide-key { height: 12px; border-left: 1px solid #aeb6c2; }
     .trend-gov-key { width: 14px; height: 8px; background: linear-gradient(90deg,#fff0c9 50%,#e1f4e8 50%); }
     #trend-chart { display: block; width: 100%; height: 150px; border: 1px solid #aeb6c2; }
-    .timeline { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 13px; border-top: 1px solid #e8ebf3; padding: 18px 23px; }
-    .timeline input { width: 100%; accent-color: #5b56cc; cursor: pointer; }
-    .timeline span { color: #69758c; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .timeline { border-top: 1px solid #e8ebf3; padding: 18px 26px; }
+    .timeline input { display: block; width: 100%; margin: 0; accent-color: #5b56cc; cursor: pointer; }
     .note { margin: 0; padding: 0 25px 23px; color: #738096; font-size: 12px; line-height: 1.55; }
     .note a { color: #514dc1; }
     @media (max-width: 700px) {
@@ -77,9 +75,8 @@
       .race::before { left: 92px; right: 41px; }
       .row { grid-template-columns: 92px minmax(0, 1fr); padding-right: 41px; }
       .name { font-size: 11px; gap: 4px; }
-      .rank { width: 19px; height: 19px; font-size: 10px; }
       .value { font-size: 11px; padding-left: 4px; }
-      .timeline { padding: 15px; }
+      .timeline { padding: 15px 12px; }
       .note { padding: 0 16px 20px; }
     }
     @media (prefers-reduced-motion: reduce) { .row, .bar, .value { transition-duration: 0ms !important; } }
@@ -104,7 +101,7 @@
       <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div>
         <div class="trend"><div class="trend-head"><span id="trend-title" class="field-label">Umfragen und Wahlergebnisse</span><div class="trend-legend" aria-label="Legende"><span class="trend-key"><i class="trend-gov-key"></i>Regierung</span><span class="trend-key"><i class="trend-line-key"></i>Umfragen</span><span class="trend-key"><i class="trend-guide-key"></i>Wahltag</span><span class="trend-key"><i class="trend-election-key"></i>Wahlergebnis</span><span class="trend-key"><i class="trend-bar-result-key"></i><span id="bar-election-label">Balken: letzte Wahl</span></span></div></div><canvas id="trend-chart" role="img" aria-label="Umfragewerte, Regierungsperioden und Wahlergebnisse im Zeitverlauf"></canvas></div>
       </div>
-      <div class="timeline"><span id="first-date"></span><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"><span id="last-date"></span></div>
+      <div class="timeline"><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"></div>
       <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats.<br>Umfragen: <a id="poll-source" target="_blank" rel="noopener noreferrer"></a> · Wahlergebnisse: <a id="election-source" target="_blank" rel="noopener noreferrer"></a> · Regierung: <a id="government-source" target="_blank" rel="noopener noreferrer"></a><span id="dawum-credit"> · © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">DAWUM</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a></span>.</p>
     </section>
   </main>
@@ -169,10 +166,9 @@
       const glide = document.getElementById("glide");
       const scrubber = document.getElementById("scrubber");
       const dateFormat = new Intl.DateTimeFormat("de-DE", {day:"2-digit",month:"long",year:"numeric"});
-      const shortDateFormat = new Intl.DateTimeFormat("de-DE", {month:"short",year:"numeric"});
       const formatDate = date => dateFormat.format(new Date(date + "T12:00:00"));
-      const shortDate = date => shortDateFormat.format(new Date(date + "T12:00:00"));
       const toDay = date => Date.parse(`${date}T00:00:00Z`) / 86400000;
+      const frameDay = frame => toDay(frame.reference_date || frame.date);
       const rows = new Map();
       let frames = [];
       let index = 0;
@@ -182,10 +178,13 @@
         const selected = allFrames.filter(frame =>
           (pollSourceFilter.value === "all" || frame.institute === pollSourceFilter.value || frame.tasker === pollSourceFilter.value) &&
           (method.value === "all" || frame.method === method.value));
-        if (cadence.value === "all") return selected;
-        const months = new Map();
-        for (const frame of selected) months.set(frame.date.slice(0, 7), frame);
-        return [...months.values()];
+        let result = selected;
+        if (cadence.value !== "all") {
+          const months = new Map();
+          for (const frame of selected) months.set(frame.date.slice(0, 7), frame);
+          result = [...months.values()];
+        }
+        return result.sort((a, b) => frameDay(a) - frameDay(b) || a.date.localeCompare(b.date));
       }
 
       function ensureRow(party) {
@@ -195,11 +194,9 @@
         row.style.opacity = "0";
         const name = document.createElement("div");
         name.className = "name";
-        const rank = document.createElement("span");
-        rank.className = "rank";
         const label = document.createElement("span");
         label.textContent = party;
-        name.append(rank, label);
+        name.append(label);
         const track = document.createElement("div");
         track.className = "track";
         const bar = document.createElement("div");
@@ -213,7 +210,7 @@
         track.append(bar, electionMarker, value);
         row.append(name, track);
         race.append(row);
-        const parts = {row, name, rank, bar, value, electionMarker};
+        const parts = {row, name, bar, value, electionMarker};
         rows.set(party, parts);
         return parts;
       }
@@ -231,8 +228,8 @@
         context.setTransform(ratio, 0, 0, ratio, 0, 0);
         context.clearRect(0, 0, width, height);
 
-        const firstDay = toDay(frames[0].reference_date || frames[0].date);
-        const lastDay = Math.max(firstDay + 1, toDay(frames[frames.length - 1].reference_date || frames[frames.length - 1].date));
+        const firstDay = frameDay(frames[0]);
+        const lastDay = Math.max(firstDay + 1, frameDay(frames[frames.length - 1]));
         const currentFrame = frames[index];
         const currentDay = Math.max(firstDay, Math.min(lastDay, toDay(currentFrame.reference_date || currentFrame.date)));
         const left = 1;
@@ -280,7 +277,7 @@
 
         const history = new Map();
         frames.slice(0, index + 1).forEach(frame => {
-          const day = toDay(frame.reference_date || frame.date);
+          const day = frameDay(frame);
           Object.entries(frame.values).forEach(([party, value]) => {
             if (!history.has(party)) history.set(party, []);
             history.get(party).push({day, value});
@@ -338,8 +335,8 @@
         context.strokeStyle = "#aeb6c2";
         context.lineWidth = 1;
         context.strokeRect(left + .5, top + .5, right - left - 1, bottom - top - 1);
-        const firstYear = Number((frames[0].reference_date || frames[0].date).slice(0, 4));
-        const lastYear = Number((frames[frames.length - 1].reference_date || frames[frames.length - 1].date).slice(0, 4));
+        const firstYear = Number(new Date(firstDay * 86400000).getUTCFullYear());
+        const lastYear = Number(new Date(lastDay * 86400000).getUTCFullYear());
         for (let year = firstYear; year <= lastYear; year += 1) {
           if (year % 2 !== 0) continue;
           const date = `${year}-01-01`;
@@ -383,7 +380,6 @@
           parts.name.title = governs ? "Regierungspartei am Ende der Erhebung" : "";
           const width = Math.max(0, Math.min(100, score / maxValue * 100));
           const result = latestElection ? electionResult(latestElection.values, party) : undefined;
-          parts.rank.textContent = String(rankIndex + 1);
           parts.bar.style.width = `${width}%`;
           parts.electionMarker.hidden = result === undefined;
           if (result !== undefined) {
@@ -405,7 +401,7 @@
         const pollSource = document.getElementById("poll-source");
         pollSource.textContent = frame.source_name || dataset.poll_source_name;
         pollSource.href = frame.url || dataset.poll_source_url;
-        scrubber.value = String(index);
+        scrubber.value = String(frameDay(frame) - frameDay(frames[0]));
         drawTrend();
       }
 
@@ -435,10 +431,11 @@
         pause();
         frames = filteredFrames();
         index = 0;
-        scrubber.max = String(Math.max(0, frames.length - 1));
+        scrubber.min = "0";
+        scrubber.max = String(frames.length
+          ? Math.max(1, frameDay(frames[frames.length - 1]) - frameDay(frames[0]))
+          : 1);
         if (!frames.length) return;
-        document.getElementById("first-date").textContent = shortDate(frames[0].date);
-        document.getElementById("last-date").textContent = shortDate(frames[frames.length - 1].date);
         render(false);
       }
 
@@ -484,7 +481,15 @@
       playButton.addEventListener("click", play);
       document.getElementById("back").addEventListener("click", () => { pause(); index = Math.max(0, index - 1); render(); });
       document.getElementById("next").addEventListener("click", () => { pause(); index = Math.min(frames.length - 1, index + 1); render(); });
-      scrubber.addEventListener("input", () => { pause(); index = Number(scrubber.value); render(false); });
+      scrubber.addEventListener("input", () => {
+        if (!frames.length) return;
+        pause();
+        const targetDay = frameDay(frames[0]) + Number(scrubber.value);
+        index = frames.reduce((closest, frame, candidate) =>
+          Math.abs(frameDay(frame) - targetDay) < Math.abs(frameDay(frames[closest]) - targetDay)
+            ? candidate : closest, 0);
+        render(false);
+      });
       speed.addEventListener("input", () => {
         document.getElementById("speed-value").textContent = `${speed.value} ms`;
         if (timer !== null) { clearTimeout(timer); timer = setTimeout(tick, Number(speed.value)); }

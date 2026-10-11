@@ -34,6 +34,7 @@ MONTHS = ("Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt",
 MAX_CONNECTED_GAP_DAYS = 21
 GLIDE_TRANSITION_STEPS = 4
 OUTPUT_FRAME_RATE = 50
+GIF_OUTPUT_FRAME_RATE = 50
 GOVERNMENT_BAND_COLORS = ("#fff0c9", "#e1f4e8")
 FONT_REGULAR = (
     "/System/Library/Fonts/Supplemental/Arial.ttf",
@@ -118,7 +119,7 @@ def party_color(party: str) -> str:
 def animation_timing(poll_count: int, seconds: int, glide: bool) -> tuple[int, str, int]:
     """Keep poll transitions near a fixed duration, filling spare time with holds."""
     steps = GLIDE_TRANSITION_STEPS if glide else 0
-    minimum_frames = ((poll_count - 1) * steps + 1 if glide else poll_count)
+    minimum_frames = ((poll_count - 1) * steps + poll_count if glide else poll_count)
     frame_count = max(OUTPUT_FRAME_RATE * seconds, minimum_frames)
     return frame_count, str(Fraction(frame_count, seconds)), steps
 
@@ -545,10 +546,12 @@ def main() -> None:
                          header_kicker, header_title, attribution,
                          glide=args.glide, transition_steps=transition_steps)
             run_ffmpeg("-i", str(master), "-vf",
-                       f"palettegen=max_colors={args.colors}:stats_mode=full",
+                       f"fps={GIF_OUTPUT_FRAME_RATE},palettegen=max_colors={args.colors}:stats_mode=full",
                        "-frames:v", "1", str(palette))
-            run_ffmpeg("-i", str(master), "-i", str(palette), "-lavfi",
-                       "paletteuse=dither=none:diff_mode=rectangle", "-fps_mode", "passthrough",
+            run_ffmpeg("-i", str(master), "-i", str(palette), "-filter_complex",
+                       f"[0:v]fps={GIF_OUTPUT_FRAME_RATE}[gif_frames];"
+                       "[gif_frames][1:v]paletteuse=dither=none:diff_mode=rectangle",
+                       "-fps_mode", "passthrough",
                        "-gifflags", "+transdiff+offsetting", "-loop", "0", str(gif_output))
             gif_output.replace(output)
             if not args.no_mp4:
