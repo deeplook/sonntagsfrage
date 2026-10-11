@@ -54,8 +54,11 @@
     .name.is-government { border-left-color: #5b56cc; }
     .track { position: relative; height: 34px; min-width: 0; }
     .bar { height: 100%; width: 0; border-radius: 5px; transition: width var(--motion) cubic-bezier(.22,1,.36,1); min-width: 2px; }
-    .election-result-marker { position: absolute; z-index: 2; top: -2px; bottom: -2px; width: 2px; transform: translateX(-1px); background: #737d8c; box-shadow: 0 0 0 1px rgba(255,255,255,.75); pointer-events: none; }
+    .election-result-marker { position: absolute; z-index: 3; top: -2px; bottom: -2px; width: 16px; transform: translateX(-50%); background: transparent; cursor: help; }
+    .election-result-marker::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; transform: translateX(-50%); background: #737d8c; box-shadow: 0 0 0 1px rgba(255,255,255,.75); }
     .election-result-marker[hidden] { display: none; }
+    .election-tooltip { position: fixed; z-index: 20; max-width: min(260px, calc(100vw - 24px)); padding: 8px 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 7px; background: #172039; color: #fff; box-shadow: 0 5px 18px rgba(23,32,57,.24); font-size: 12px; font-weight: 700; line-height: 1.35; pointer-events: none; white-space: nowrap; }
+    .election-tooltip[hidden] { display: none; }
     .value { position: absolute; top: 50%; transform: translateY(-50%); left: 0; padding-left: 7px; color: #263147; font-weight: 800; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; transition: left var(--motion) cubic-bezier(.22,1,.36,1); }
     .trend { margin-top: 2px; }
     .trend-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 7px; }
@@ -113,6 +116,7 @@
       <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats.<br>Umfragen: <a id="poll-source" target="_blank" rel="noopener noreferrer"></a> · Wahlergebnisse: <a id="election-source" target="_blank" rel="noopener noreferrer"></a> · Regierung: <a id="government-source" target="_blank" rel="noopener noreferrer"></a><span id="dawum-credit"> · © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">DAWUM</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a></span>.</p>
     </section>
   </main>
+  <div id="election-tooltip" class="election-tooltip" role="tooltip" hidden></div>
   <script type="application/json" id="poll-data">__POLL_DATA__</script>
   <script type="application/json" id="election-data">__ELECTION_DATA__</script>
   <script type="application/json" id="government-data">__GOVERNMENT_DATA__</script>
@@ -173,6 +177,7 @@
       const speed = document.getElementById("speed");
       const glide = document.getElementById("glide");
       const scrubber = document.getElementById("scrubber");
+      const electionTooltip = document.getElementById("election-tooltip");
       const dateFormat = new Intl.DateTimeFormat("de-DE", {day:"2-digit",month:"long",year:"numeric"});
       const formatDate = date => dateFormat.format(new Date(date + "T12:00:00"));
       const toDay = date => Date.parse(`${date}T00:00:00Z`) / 86400000;
@@ -181,6 +186,27 @@
       let frames = [];
       let index = 0;
       let timer = null;
+
+      function showElectionTooltip(event) {
+        const marker = event.currentTarget;
+        const label = marker.dataset.tooltip;
+        if (!label) return;
+        electionTooltip.textContent = label;
+        electionTooltip.hidden = false;
+        const markerBounds = marker.getBoundingClientRect();
+        const x = event.clientX || markerBounds.left + markerBounds.width / 2;
+        const y = event.clientY || markerBounds.top;
+        const bounds = electionTooltip.getBoundingClientRect();
+        const left = Math.max(8, Math.min(window.innerWidth - bounds.width - 8, x + 12));
+        const above = y - bounds.height - 10;
+        const top = above >= 8 ? above : Math.min(window.innerHeight - bounds.height - 8, y + 12);
+        electionTooltip.style.left = `${left}px`;
+        electionTooltip.style.top = `${top}px`;
+      }
+
+      function hideElectionTooltip(event) {
+        if (document.activeElement !== event.currentTarget) electionTooltip.hidden = true;
+      }
 
       function filteredFrames() {
         const selected = allFrames.filter(frame =>
@@ -213,6 +239,14 @@
         const electionMarker = document.createElement("span");
         electionMarker.className = "election-result-marker";
         electionMarker.hidden = true;
+        electionMarker.tabIndex = 0;
+        electionMarker.setAttribute("role", "img");
+        electionMarker.setAttribute("aria-describedby", "election-tooltip");
+        electionMarker.addEventListener("pointerenter", showElectionTooltip);
+        electionMarker.addEventListener("pointermove", showElectionTooltip);
+        electionMarker.addEventListener("pointerleave", hideElectionTooltip);
+        electionMarker.addEventListener("focus", showElectionTooltip);
+        electionMarker.addEventListener("blur", () => { electionTooltip.hidden = true; });
         const value = document.createElement("span");
         value.className = "value";
         track.append(bar, electionMarker, value);
@@ -398,7 +432,9 @@
           parts.electionMarker.hidden = result === undefined;
           if (result !== undefined) {
             parts.electionMarker.style.left = `${Math.max(0, Math.min(100, result / maxValue * 100))}%`;
-            parts.electionMarker.title = `${latestElection.date.slice(0, 4)}-Wahlergebnis: ${Number(result).toLocaleString("de-DE", {maximumFractionDigits: 1})} %`;
+            const label = `${party} · Wahl ${latestElection.date.slice(0, 4)}: ${Number(result).toLocaleString("de-DE", {maximumFractionDigits: 1})} %`;
+            parts.electionMarker.dataset.tooltip = label;
+            parts.electionMarker.setAttribute("aria-label", label);
           }
           parts.value.style.left = `${width}%`;
           parts.value.textContent = `${Number(score).toLocaleString("de-DE", {maximumFractionDigits: 1})} %`;
