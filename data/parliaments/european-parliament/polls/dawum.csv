@@ -1,0 +1,53 @@
+source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,3480,2024-06-08,2024-06-06,2024-06-07,,1000,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3478,2024-06-07,2024-05-29,2024-06-05,,2000,Europäisches Parlament,Ipsos,Ipsos,Telefon & Online,https://api.dawum.de/
+dawum,3475,2024-06-06,2024-06-05,2024-06-06,,1223,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3472,2024-06-03,2024-05-27,2024-06-01,,2000,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3471,2024-06-01,2024-05-30,2024-05-31,,1001,Europäisches Parlament,INSA,BILD am Sonntag,Online,https://api.dawum.de/
+dawum,3469,2024-05-30,2024-05-27,2024-05-29,,1197,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3467,2024-05-30,2024-05-27,2024-05-29,,1515,Europäisches Parlament,Infratest dimap,ARD,Telefon & Online,https://api.dawum.de/
+dawum,3464,2024-05-25,2024-05-23,2024-05-24,,1002,Europäisches Parlament,INSA,BILD am Sonntag,Online,https://api.dawum.de/
+dawum,3461,2024-05-24,2024-05-03,2024-05-08,,1720,Europäisches Parlament,YouGov,YouGov,Online,https://api.dawum.de/
+dawum,3459,2024-05-22,2024-05-13,2024-05-21,,2600,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3453,2024-05-17,2024-05-14,2024-05-16,,1247,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3450,2024-05-16,2024-05-10,2024-05-13,,2100,Europäisches Parlament,INSA,t-online,Telefon & Online,https://api.dawum.de/
+dawum,3435,2024-05-02,2024-04-29,2024-04-30,,1323,Europäisches Parlament,Infratest dimap,ARD-Tagesthemen,Telefon & Online,https://api.dawum.de/
+dawum,3429,2024-04-27,2024-04-25,2024-04-26,,1202,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,3425,2024-04-26,2024-04-23,2024-04-25,,1228,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3413,2024-04-12,2024-04-09,2024-04-11,,1254,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,3409,2024-04-10,2024-04-05,2024-04-08,,2100,Europäisches Parlament,INSA,t-online,Telefon & Online,https://api.dawum.de/
+dawum,3387,2024-03-20,2024-02-23,2024-03-05,,2613,Europäisches Parlament,Ipsos,Euronews,Telefon & Online,https://api.dawum.de/
+dawum,3379,2024-03-15,2024-03-12,2024-03-13,,1008,Europäisches Parlament,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,3378,2024-03-13,2024-03-08,2024-03-11,,2100,Europäisches Parlament,INSA,t-online,Online,https://api.dawum.de/
+dawum,3366,2024-02-29,2024-02-24,2024-02-29,,1900,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,3354,2024-02-13,2024-02-08,2024-02-12,,2101,Europäisches Parlament,INSA,t-online,Online,https://api.dawum.de/
+dawum,3329,2024-01-21,2024-01-11,2024-01-18,,1570,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Telefon & Online,https://api.dawum.de/
+dawum,3109,2023-07-31,2023-07-31,2023-07-31,,1001,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,2818,2022-12-17,2022-12-15,2022-12-16,,1100,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,2376,2022-02-26,2022-02-24,2022-02-26,,1722,Europäisches Parlament,Institut Wahlkreisprognose,Institut Wahlkreisprognose,Online,https://api.dawum.de/
+dawum,1298,2019-05-24,2019-05-17,2019-05-23,,2072,Europäisches Parlament,Ipsos,Ipsos,Telefon & Online,https://api.dawum.de/
+dawum,1296,2019-05-23,2019-05-20,2019-05-23,,1779,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1293,2019-05-23,2019-05-16,2019-05-20,,2875,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1292,2019-05-22,2019-05-15,2019-05-22,,5053,Europäisches Parlament,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1287,2019-05-17,2019-05-09,2019-05-16,,5056,Europäisches Parlament,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
+dawum,1286,2019-05-17,2019-05-14,2019-05-16,,1313,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1284,2019-05-16,2019-05-14,2019-05-15,,1001,Europäisches Parlament,Infratest dimap,ARD,Telefonisch,https://api.dawum.de/
+dawum,1282,2019-05-16,2019-05-10,2019-05-13,,2044,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1279,2019-05-14,2019-05-07,2019-05-14,,5043,Europäisches Parlament,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1273,2019-05-10,2019-05-07,2019-05-09,,1357,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1272,2019-05-09,2019-05-03,2019-05-06,,2089,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1263,2019-05-02,2019-04-29,2019-04-30,,1505,Europäisches Parlament,Infratest dimap,ARD-Tagesthemen,Telefonisch,https://api.dawum.de/
+dawum,1260,2019-04-29,2019-04-22,2019-04-29,,5013,Europäisches Parlament,Civey,DER SPIEGEL,Online,https://api.dawum.de/
+dawum,1240,2019-04-12,2019-04-09,2019-04-11,,1282,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1239,2019-04-10,2019-03-28,2019-04-01,,4000,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1232,2019-04-04,2019-04-01,2019-04-03,,1503,Europäisches Parlament,Infratest dimap,ARD-Tagesthemen,Telefonisch,https://api.dawum.de/
+dawum,1222,2019-03-28,2019-03-25,2019-03-27,,1325,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1207,2019-03-15,2019-03-12,2019-03-14,,1290,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1205,2019-03-14,2019-03-11,2019-03-13,,1508,Europäisches Parlament,Infratest dimap,ARD-Tagesthemen,Telefonisch,https://api.dawum.de/
+dawum,1200,2019-03-09,2019-02-27,2019-03-01,,4000,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1187,2019-02-22,2019-02-19,2019-02-21,,1226,Europäisches Parlament,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefonisch,https://api.dawum.de/
+dawum,1179,2019-02-14,2019-02-11,2019-02-13,,1503,Europäisches Parlament,Infratest dimap,ARD-Tagesthemen,Telefonisch,https://api.dawum.de/
+dawum,1162,2019-02-01,2019-01-25,2019-01-28,,2056,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1151,2019-01-14,2019-01-09,2019-01-11,,1505,Europäisches Parlament,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,1117,2018-12-12,2018-12-08,2018-12-10,,2047,Europäisches Parlament,INSA,BILD,Online,https://api.dawum.de/
+dawum,1078,2018-10-25,2018-10-19,2018-10-22,,1260,Europäisches Parlament,INSA,renewEU,Unbekannt,https://api.dawum.de/

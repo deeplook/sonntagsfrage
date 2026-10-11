@@ -34,6 +34,26 @@ POLL_FIELDS = (
     "surveyed_persons", "parliament", "institute", "tasker", "method", "source_url",
 )
 RESULT_FIELDS = ("source", "source_poll_id", "party", "percent", "source_url")
+PARLIAMENT_DIRS = {
+    "Bundestag": Path("parliaments/bundestag"),
+    "Bayerischer Landtag": Path("parliaments/landtag/bayern"),
+    "Berliner Abgeordnetenhaus": Path("parliaments/landtag/berlin"),
+    "Brandenburgischer Landtag": Path("parliaments/landtag/brandenburg"),
+    "Bremische Bürgerschaft": Path("parliaments/landtag/bremen"),
+    "Hamburgische Bürgerschaft": Path("parliaments/landtag/hamburg"),
+    "Hessischer Landtag": Path("parliaments/landtag/hessen"),
+    "Landtag von Baden-Württemberg": Path("parliaments/landtag/baden-wuerttemberg"),
+    "Landtag von Mecklenburg-Vorpommern": Path("parliaments/landtag/mecklenburg-vorpommern"),
+    "Landtag von Nordrhein-Westfalen": Path("parliaments/landtag/nordrhein-westfalen"),
+    "Landtag von Rheinland-Pfalz": Path("parliaments/landtag/rheinland-pfalz"),
+    "Landtag von Sachsen-Anhalt": Path("parliaments/landtag/sachsen-anhalt"),
+    "Landtag von Schleswig-Holstein": Path("parliaments/landtag/schleswig-holstein"),
+    "Saarländischer Landtag": Path("parliaments/landtag/saarland"),
+    "Sächsischer Landtag": Path("parliaments/landtag/sachsen"),
+    "Niedersächsischer Landtag": Path("parliaments/landtag/niedersachsen"),
+    "Thüringischer Landtag": Path("parliaments/landtag/thueringen"),
+    "Europäisches Parlament": Path("parliaments/european-parliament"),
+}
 DATE_RE = re.compile(r"^\d{2}\.\d{2}\.\d{4}$")
 PERIOD_RE = re.compile(r"(\d{1,2})\.(\d{1,2})\.\s*[–-]\s*(\d{1,2})\.(\d{1,2})\.")
 SINGLE_DATE_RE = re.compile(r"^(\d{1,2})\.(\d{1,2})\.$")
@@ -98,6 +118,23 @@ def parse_dawum(data: bytes) -> tuple[dict, list[dict], list[dict]]:
                 "percent": percent, "source_url": DAWUM_URL,
             })
     return database, polls, results
+
+
+def write_dawum(output_dir: Path, raw: bytes,
+                polls: list[dict], results: list[dict]) -> None:
+    """Write the shared DAWUM snapshot and parliament-scoped normalized tables."""
+    unknown = sorted({poll["parliament"] for poll in polls} - PARLIAMENT_DIRS.keys())
+    if unknown:
+        raise ValueError(f"Add parliament path mappings before writing DAWUM data: {', '.join(unknown)}")
+    atomic_write(output_dir / "sources" / "dawum" / "api.json", raw)
+    for parliament, base in PARLIAMENT_DIRS.items():
+        parliament_polls = [poll for poll in polls if poll["parliament"] == parliament]
+        if not parliament_polls:
+            continue
+        poll_ids = {poll["source_poll_id"] for poll in parliament_polls}
+        parliament_results = [row for row in results if row["source_poll_id"] in poll_ids]
+        write_csv(output_dir / base / "polls" / "dawum.csv", POLL_FIELDS, parliament_polls)
+        write_csv(output_dir / base / "results" / "dawum.csv", RESULT_FIELDS, parliament_results)
 
 
 class PollTableParser(HTMLParser):
@@ -236,11 +273,9 @@ def run(
         if source in ("all", "dawum"):
             raw = fetch(DAWUM_URL)
             database, polls, results = parse_dawum(raw)
-            atomic_write(output_dir / "raw" / "dawum.json", raw)
-            write_csv(output_dir / "dawum_polls.csv", POLL_FIELDS, polls)
-            write_csv(output_dir / "dawum_results.csv", RESULT_FIELDS, results)
+            write_dawum(output_dir, raw, polls, results)
             insa_count = sum(poll["institute"].upper() == "INSA" for poll in polls)
-            print(f"dawum: {len(polls)} polls ({insa_count} INSA), {len(results)} party results; updated {database['Database']['Last_Update']}")
+            print(f"dawum: {len(polls)} polls across {len({poll['parliament'] for poll in polls})} parliaments ({insa_count} INSA), {len(results)} party results; updated {database['Database']['Last_Update']}")
         if source in ("all", "insa"):
             polls, results = [], []
             for url in INSA_URLS:
@@ -248,9 +283,9 @@ def run(
                 page_polls, page_results = parse_insa(raw, url)
                 polls.extend(page_polls)
                 results.extend(page_results)
-                atomic_write(output_dir / "raw" / f"insa-{url.rsplit('/', 1)[-1]}", raw)
-            write_csv(output_dir / "insa_polls.csv", POLL_FIELDS, polls)
-            write_csv(output_dir / "insa_results.csv", RESULT_FIELDS, results)
+                atomic_write(output_dir / "parliaments" / "bundestag" / "raw" / "wahlrecht" / f"insa-{url.rsplit('/', 1)[-1]}", raw)
+            write_csv(output_dir / "parliaments" / "bundestag" / "polls" / "wahlrecht-insa.csv", POLL_FIELDS, polls)
+            write_csv(output_dir / "parliaments" / "bundestag" / "results" / "wahlrecht-insa.csv", RESULT_FIELDS, results)
             print(f"wahlrecht INSA: {len(polls)} polls, {len(results)} party results; {min(p['publication_date'] for p in polls)} to {max(p['publication_date'] for p in polls)}")
     except (RuntimeError, ValueError, KeyError) as exc:
         print(f"error: {exc}", file=sys.stderr)

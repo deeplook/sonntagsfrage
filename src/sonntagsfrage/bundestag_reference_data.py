@@ -169,7 +169,8 @@ app = create_app(__doc__)
 
 @app.command()
 def run(data_dir: Path = typer.Option(Path("data"), "--data-dir", help="data directory (default: data)")) -> None:
-    raw_dir = data_dir / "raw"
+    parliament_dir = data_dir / "parliaments" / "bundestag"
+    raw_dir = parliament_dir / "raw"
 
     try:
         results_data = fetch(BUNDESWAHLLEITER_RESULTS_URL)
@@ -183,7 +184,7 @@ def run(data_dir: Path = typer.Option(Path("data"), "--data-dir", help="data dir
             election_pages.append((year, url, page_data))
         election_rows = parse_results(results_data, dates)
 
-        governments_path = data_dir / "governments.csv"
+        governments_path = parliament_dir / "governments.csv"
         with governments_path.open(newline="", encoding="utf-8") as handle:
             governments = list(csv.DictReader(handle))
         snapshots = []
@@ -197,12 +198,13 @@ def run(data_dir: Path = typer.Option(Path("data"), "--data-dir", help="data dir
             filename = snapshot_name(government["start_date"], government["cabinet"])
             snapshots.append((filename, url, government, snapshot))
 
-        atomic_write(raw_dir / "bundeswahlleiter-bundestag-results.csv", results_data)
-        write_csv(data_dir / "bundestag_elections.csv", ELECTION_FIELDS, election_rows)
+        atomic_write(raw_dir / "bundeswahlleiter" / "results.csv", results_data)
+        write_csv(parliament_dir / "elections.csv", ELECTION_FIELDS, election_rows)
 
         election_page_manifest = []
         for year, url, page_data in election_pages:
-            relative_path = Path("raw") / "bundeswahlleiter-election-pages" / f"{year}.html"
+            relative_path = (Path("parliaments") / "bundestag" / "raw" /
+                             "bundeswahlleiter" / "election-pages" / f"{year}.html")
             atomic_write(data_dir / relative_path, page_data)
             election_page_manifest.append({
                 "year": year,
@@ -211,12 +213,12 @@ def run(data_dir: Path = typer.Option(Path("data"), "--data-dir", help="data dir
                 "snapshot": relative_path.as_posix(),
                 "sha256": hashlib.sha256(page_data).hexdigest(),
             })
-        write_csv(raw_dir / "bundeswahlleiter-election-pages.csv",
+        write_csv(raw_dir / "bundeswahlleiter" / "election-pages.csv",
                   ELECTION_PAGE_FIELDS, election_page_manifest)
 
         manifest = []
         for filename, url, government, snapshot in snapshots:
-            relative_path = Path("raw") / "government-sources" / filename
+            relative_path = Path("parliaments") / "bundestag" / "raw" / "government-sources" / filename
             atomic_write(data_dir / relative_path, snapshot)
             manifest.append({
                 "start_date": government["start_date"],
