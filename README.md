@@ -199,7 +199,7 @@ GIF. For a non-square output, pass `--width W --height H` instead of `--size`;
 for example, `--width 960 --height 640` renders a 3:2 landscape animation.
 Layout positions adapt to the canvas and fonts scale with its shorter side.
 Bars glide vertically between poll ranks by default; use `--no-glide` to turn
-this off. The HTML chart has a matching “Rangwechsel gleiten” checkbox.
+this off. The HTML chart animates rank changes by default.
 `--no-mp4` skips the video companion. Because GIF frame timing is limited
 to centiseconds, the encoder alternates frame delays to make the full sequence
 exactly 60 seconds.
