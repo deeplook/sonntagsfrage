@@ -122,11 +122,13 @@ output filename. The chart follows the horizontal ranking and animation pattern
 of [davanstrien's benchmark-race](https://huggingface.co/spaces/davanstrien/benchmark-race/blob/main/index.html),
 with a fixed 0–50% scale for poll comparability.
 
-## One-minute GIF for sharing
+## GIF and MP4 for sharing
 
-The following command renders every fetched INSA **Online-Panel** Bundestag
-poll into a square, 60-second animation. It also writes a smaller MP4 companion
-next to the GIF. Phone and online-panel mixed polls are excluded by default.
+The following command renders all fetched INSA Bundestag polls into a square
+GIF and a smaller MP4 companion. Each frame labels the survey method, including
+phone and online-panel mixed polls. Use `--method Online-Panel` to restrict the
+animation to online-panel polls. The default target is 60 seconds; long poll
+series run longer so each poll and its rank transitions remain visible.
 Install [FFmpeg](https://ffmpeg.org/) first; uv installs Pillow from the project
 dependencies.
 
@@ -138,7 +140,7 @@ Default outputs are `charts/insa-race.gif` and `charts/insa-race.mp4` (640 × 64
 pixels). Both include a German flag, poll source attribution, and a government
 marker in every frame. The fixed 0–50% axis avoids
 a changing visual scale. Each frame also includes a compact history chart of
-online poll values from the first poll through that frame's date. Hollow colored
+poll values from the first poll through that frame's date. Hollow colored
 circles show Bundestag election results; thin vertical guides mark election
 dates. Poll lines connect observations up to three calendar months apart and
 leave a gap when the next poll is more than three months later. The election markers cover the four
@@ -211,4 +213,4 @@ Bars glide vertically between poll ranks by default; use `--no-glide` to turn
 this off. The HTML chart animates rank changes by default.
 `--no-mp4` skips the video companion. Because GIF frame timing is limited
 to centiseconds, the encoder alternates frame delays to make the full sequence
-exactly 60 seconds.
+at least the requested duration; large poll series may run longer to preserve every poll transition.
