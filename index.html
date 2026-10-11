@@ -3,46 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Interactive charts of German election polls and results.">
-  <title>Sonntagsfrage · German Election Polls</title>
+  <meta name="description" content="An interactive atlas of German election polls, election results, and government periods.">
+  <title>Sonntagsfrage · An atlas of political sentiment</title>
   <style>
-    :root {
-      color-scheme: light;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #172033;
-      background: #f5f6fa;
-    }
+    :root { color-scheme: light; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #272923; background: #f3f1eb; }
     * { box-sizing: border-box; }
-    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; }
-    main { width: min(100%, 680px); padding: clamp(28px, 7vw, 56px); background: white;
-      border: 1px solid #e3e7f0; border-radius: 20px; box-shadow: 0 16px 48px #1c284610; }
-    .eyebrow { color: #5b56cc; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    h1 { margin: 12px 0; font-size: clamp(34px, 7vw, 54px); line-height: 1.05; letter-spacing: -.045em; }
-    p { max-width: 52ch; color: #596478; line-height: 1.65; }
-    figure { margin: 28px 0 0; }
-    figure a { display: block; margin: 0; padding: 0; background: transparent; }
-    figure a:hover { background: transparent; }
-    figure img { display: block; width: 100%; height: auto; border: 1px solid #e3e7f0; border-radius: 12px; }
-    figcaption { margin-top: 9px; color: #69758c; font-size: 13px; }
-    a { display: inline-flex; align-items: center; min-height: 46px; margin-top: 14px; padding: 0 18px;
-      border-radius: 9px; background: #5b56cc; color: white; font-weight: 750; text-decoration: none; }
-    a:hover { background: #4944b8; }
-    a:focus-visible { outline: 3px solid #a7a3ff; outline-offset: 3px; }
+    body { margin: 0; }
+    main { max-width: 1280px; margin: auto; padding: 28px 40px; }
+    nav, footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    nav { padding-bottom: 22px; border-bottom: 1px solid #d6d5cc; }
+    a { color: inherit; text-decoration: none; }
+    .brand { font-size: 18px; font-weight: 750; letter-spacing: -.04em; }
+    .brand::before { content: ""; display: inline-block; width: 13px; height: 13px; border: 1px solid currentColor; border-radius: 50%; margin-right: 10px; }
+    .nav-link { color: #55594f; font-size: 12px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 70px; align-items: center; padding: 76px 0 64px; }
+    .eyebrow { color: #686c62; font-size: 10px; font-weight: 650; letter-spacing: .17em; text-transform: uppercase; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(48px, 6.5vw, 86px); font-weight: 400; line-height: 1.02; letter-spacing: -.055em; margin: 22px 0 26px; }
+    h1 em { color: #67715c; font-weight: 400; }
+    .lede { color: #686c62; max-width: 43ch; font-size: 16px; line-height: 1.8; }
+    .cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 36px; padding: 17px 22px; margin-top: 18px; color: #fffefa; background: #30372e; border-radius: 3px; font-size: 13px; font-weight: 600; transition: background .2s, transform .2s; }
+    .cta:hover { background: #485341; transform: translateY(-2px); }
+    .language { color: #686c62; font-size: 11px; margin-top: 16px; }
+    .visual { min-width: 0; border: 1px solid #d6d5cc; background: #fffefa; padding: 28px; border-radius: 4px; box-shadow: 0 20px 60px #30372e09; }
+    .visual-top { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid #e7e6de; padding-bottom: 18px; font-size: 10px; color: #686c62; letter-spacing: .1em; text-transform: uppercase; }
+    .page-preview { display: block; width: 100%; height: auto; margin: 22px 0; border: 1px solid #e7e6de; border-radius: 2px; }
+    .visual-bottom { display: flex; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid #e7e6de; font-size: 11px; color: #686c62; }
+    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; padding: 32px 0 44px; border-top: 1px solid #d6d5cc; }
+    .number { font-size: 11px; color: #777a70; }
+    h3 { font-size: 16px; font-weight: 600; letter-spacing: -.02em; margin: 14px 0 10px; }
+    .features p { font-size: 13px; color: #686c62; line-height: 1.8; margin: 0; max-width: 33ch; }
+    footer { border-top: 1px solid #d6d5cc; padding: 22px 0; color: #686c62; font-size: 11px; }
+    a:focus-visible { outline: 3px solid #7d8970; outline-offset: 5px; }
+    @media(max-width: 800px) { main { padding: 24px; } .hero { grid-template-columns: minmax(0, 1fr); gap: 36px; padding: 48px 0 40px; } h1 { max-width: 11ch; } .features { gap: 24px; } }
+    @media(max-width: 500px) { main { padding: 20px; } .visual { padding: 22px; } .features { grid-template-columns: minmax(0, 1fr); } .features p { max-width: none; } footer { flex-wrap: wrap; } }
+    @media(prefers-reduced-motion: reduce) { .cta { transition: none; } }
   </style>
 </head>
 <body>
   <main>
-    <div class="eyebrow">Sonntagsfrage</div>
-    <h1>German election polls over time</h1>
-    <p>Explore polling trends, election results, and government periods in an interactive chart. Choose a parliament, filter the polls, or play through the timeline.</p>
-    <p>The chart interface and the rest of the site are in German.</p>
-    <figure>
-      <a href="charts/election-polls.html" aria-label="Open the interactive chart">
-        <img src="charts/election-polls-preview.png" alt="Preview of the interactive German election polling chart, showing the poll filters and party bars">
+    <nav aria-label="Main navigation"><a class="brand" href="index.html">Sonntagsfrage</a><a class="nav-link" href="charts/election-polls.html">Explore the atlas ↗</a></nav>
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Germany · An atlas of political sentiment</div>
+        <h1 id="hero-title">The shape of<br><em>public opinion.</em></h1>
+        <p class="lede">A clearer view of German politics over time. Explore election polls, trace shifting party support, and see the governments behind the numbers.</p>
+        <a class="cta" href="charts/election-polls.html">Explore the interactive atlas <span aria-hidden="true">↗</span></a>
+        <p class="language">Bundestag & all 16 states · Chart interface in German</p>
+      </div>
+      <a class="visual" href="charts/election-polls.html" aria-label="Explore polling trends in the interactive atlas">
+        <div class="visual-top"><span>The long view</span><span>Polls / elections / governments</span></div>
+        <img class="page-preview" src="charts/election-polls-preview.png" alt="The interactive German election polling page, showing parliament filters, party support bars, and the historical timeline" width="1316" loading="eager">
+        <div class="visual-bottom"><span>Preview of the interactive chart</span><span>Discover the data ↗</span></div>
       </a>
-      <figcaption>Preview of the interactive chart</figcaption>
-    </figure>
-    <a href="charts/election-polls.html">Open the interactive chart</a>
+    </section>
+    <section class="features" aria-label="Explore the atlas">
+      <div><span class="number">01 / Perspective</span><h3>One country. Seventeen views.</h3><p>Move between the Bundestag and all 16 state parliaments to explore national and regional sentiment.</p></div>
+      <div><span class="number">02 / Movement</span><h3>Politics, in motion.</h3><p>Play through the timeline, pause at a turning point, or filter by institute and survey method.</p></div>
+      <div><span class="number">03 / Context</span><h3>Beyond the polling number.</h3><p>Compare polls with election results and government periods. Every view keeps its sources close.</p></div>
+    </section>
+    <footer><span>Sonntagsfrage · German election polls over time</span><span>Polls are snapshots, not forecasts.</span></footer>
   </main>
 </body>
 </html>

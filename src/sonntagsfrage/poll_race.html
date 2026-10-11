@@ -74,7 +74,7 @@
     .trend-election-key { width: 8px; height: 8px; border: 1.5px solid #3985c6; border-radius: 50%; background: white; }
     .trend-bar-result-key { height: 12px; border-left: 2px solid #737d8c; }
     .trend-guide-key { height: 12px; border-left: 1px solid #aeb6c2; }
-    .trend-gov-key { width: 14px; height: 8px; background: linear-gradient(90deg,#fff0c9 50%,#e1f4e8 50%); }
+    .trend-gov-key { width: 14px; height: 8px; background: linear-gradient(90deg,#ede8da 50%,#e6ebe1 50%); }
     #trend-chart { display: block; width: 100%; height: 150px; border: 1px solid #aeb6c2; cursor: ew-resize; touch-action: pan-y; }
     .timeline { border-top: 1px solid #e8ebf3; padding: 18px 26px; }
     .timeline input { display: block; width: 100%; margin: 0; accent-color: #5b56cc; cursor: pointer; }
@@ -98,10 +98,73 @@
       .note { padding: 0 16px 20px; }
     }
     @media (prefers-reduced-motion: reduce) { .row, .bar, .value { transition-duration: 0ms !important; } }
+
+    /* Editorial palette: warm paper, ink, and a quiet violet government key. */
+    :root { background: #f3f1eb; color: #272923; }
+    .shell { max-width: 1280px; padding: 28px 40px 48px; }
+    .site-nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 22px; margin-bottom: 38px; border-bottom: 1px solid #d6d5cc; }
+    .brand { color: #272923; text-decoration: none; font-size: 18px; font-weight: 750; letter-spacing: -.04em; }
+    .brand::before { content: ""; display: inline-block; width: 13px; height: 13px; border: 1px solid currentColor; border-radius: 50%; margin-right: 10px; }
+    .nav-caption { color: #686c62; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow { color: #686c62; font-size: 11px; letter-spacing: .16em; }
+    h1 { max-width: 950px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.08; letter-spacing: -.045em; margin: 14px 0 16px; }
+    .intro { color: #686c62; max-width: 75ch; line-height: 1.7; margin-bottom: 32px; }
+    .card { border-color: #d6d5cc; border-radius: 4px; box-shadow: none; background: #fffefa; }
+    .settings { background: #eceae3; }
+    .settings summary { color: #55594f; padding: 15px 26px; }
+    .settings:not([open]) summary, .toolbar, .timeline { border-color: #d6d5cc; }
+    .toolbar { padding: 8px 26px 24px; gap: 18px; }
+    .field label, .field-label { color: #686c62; letter-spacing: .09em; }
+    select, .btn { min-height: 44px; border-color: #cfcec4; border-radius: 4px; background: #fffefa; color: #34382e; }
+    .btn:hover { background: #e6e5dc; }
+    .btn.primary { background: #30372e; border-color: #30372e; min-width: 116px; }
+    .btn.primary:hover { background: #485341; }
+    .btn.icon { width: 44px; }
+    .speed { width: 100%; min-width: 0; accent-color: #30372e; }
+    .speed-wrap { min-height: 44px; }
+    .speed-value { color: #686c62; }
+    .chart-head { padding: 30px 32px 24px; align-items: start; }
+    .chart-kicker { color: #686c62; font-size: 10px; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 12px; }
+    .date { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(32px, 4vw, 48px); }
+    .meta { color: #686c62; line-height: 1.5; }
+    .frame-count { color: #686c62; border: 1px solid #d6d5cc; border-radius: 3px; padding: 8px 10px; font-size: 11px; }
+    .chart { padding: 0 32px 24px; }
+    .axis { color: #777a70; }
+    .race::before { background: repeating-linear-gradient(to right, #e7e6de 0, #e7e6de 1px, transparent 1px, transparent 20%); border-color: #e7e6de; }
+    .bar { border-radius: 2px; }
+    .name { font-weight: 650; }
+    .value { color: #34382e; font-weight: 650; }
+    .trend { margin-top: 22px; padding-top: 22px; border-top: 1px solid #d6d5cc; }
+    .trend-head { margin-bottom: 14px; }
+    .trend-legend { color: #686c62; line-height: 1.7; }
+    #trend-chart { border-color: #d6d5cc; background: #fffefa; border-radius: 2px; }
+    .timeline { background: #f8f7f1; padding: 20px 32px; }
+    .timeline-label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 14px; color: #686c62; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+    .timeline input { accent-color: #30372e; }
+    .note { color: #686c62; padding: 20px 32px 24px; line-height: 1.8; max-width: 110ch; }
+    .note a { color: #4c5845; text-underline-offset: 3px; }
+    .site-footer { display: flex; justify-content: space-between; gap: 20px; margin-top: 24px; color: #686c62; font-size: 11px; }
+    .site-footer a { color: inherit; text-underline-offset: 3px; }
+    @media (max-width: 700px) {
+      .shell { padding: 20px 16px 30px; }
+      .site-nav { margin-bottom: 26px; }
+      .nav-caption { font-size: 9px; }
+      .intro { font-size: 14px; }
+      .chart-head { padding: 24px 16px 20px; flex-wrap: wrap; }
+      .chart { padding: 0 12px 18px; }
+      .toolbar { padding: 8px 16px 20px; gap: 16px 10px; }
+      .actions { gap: 4px; }
+      .btn.primary { min-width: 0; padding: 0 9px; font-size: 12px; }
+      .btn.icon { width: 30px; min-width: 30px; }
+      .timeline { padding: 18px 16px; }
+      .note { padding: 18px 16px; }
+      .site-footer { flex-wrap: wrap; }
+    }
   </style>
 </head>
 <body>
   <main class="shell">
+    <nav class="site-nav" aria-label="Hauptnavigation"><a class="brand" href="../index.html">Sonntagsfrage</a><span class="nav-caption">Atlas der politischen Stimmung</span></nav>
     <div class="page-heading"><div class="eyebrow">Deutschland · Bundestagswahl</div><div class="state-symbols"><span class="german-flag" role="img" aria-label="Flagge Deutschlands"><span></span><span></span><span></span></span><img id="state-coat" class="state-coat" alt="" hidden></div></div>
     <h1>Bundestagsumfragen im Zeitverlauf</h1>
     <p class="intro">Parteianteile in veröffentlichten Bundestagsumfragen. Die Balken folgen dem Rang in jeder Erhebung.</p>
@@ -117,13 +180,14 @@
         <div class="field"><label for="speed">Tempo</label><div class="speed-wrap"><input id="speed" class="speed" type="range" min="100" max="1000" value="300" step="50"><span id="speed-value" class="speed-value">300 ms</span></div></div>
         </div>
       </details>
-      <div class="chart-head"><div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div id="frame-count" class="frame-count"></div></div>
+      <div class="chart-head"><div><div class="chart-kicker">Momentaufnahme · Stimmenanteile</div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div id="frame-count" class="frame-count"></div></div>
       <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div>
         <div class="trend"><div class="trend-head"><span id="trend-title" class="field-label">Umfragen und Wahlergebnisse</span><div class="trend-legend" aria-label="Legende"><span class="trend-key"><i class="trend-gov-key"></i>Regierung</span><span class="trend-key"><i class="trend-line-key"></i>Umfragen</span><span class="trend-key"><i class="trend-guide-key"></i>Wahltag</span><span class="trend-key"><i class="trend-election-key"></i>Wahlergebnis</span><span class="trend-key"><i class="trend-bar-result-key"></i><span id="bar-election-label">Balken: letzte Wahl</span></span></div></div><canvas id="trend-chart" role="img" aria-label="Umfragewerte, Regierungsperioden und Wahlergebnisse im Zeitverlauf"></canvas></div>
       </div>
-      <div class="timeline"><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"></div>
+      <div class="timeline"><div class="timeline-label"><span>Zeitverlauf erkunden</span><span>Ziehen, um eine Umfrage zu wählen</span></div><input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Zeitachse durchsuchen"></div>
       <p class="note">Veröffentlichungsdatum; Werte sind Momentaufnahmen, keine Wahlprognosen. Ein violetter Strich kennzeichnet eine Regierungspartei am Ende des Befragungszeitraums (ersatzweise am Veröffentlichungstag). „Sonstige“ ist eine Sammelkategorie und nicht als Balken gezeigt. Monatliche Wiedergabe verwendet die letzte veröffentlichte Umfrage des Monats.<br>Umfragen: <a id="poll-source" target="_blank" rel="noopener noreferrer"></a> · Wahlergebnisse: <a id="election-source" target="_blank" rel="noopener noreferrer"></a> · Regierung: <a id="government-source" target="_blank" rel="noopener noreferrer"></a><span id="dawum-credit"> · © <a href="https://dawum.de/" target="_blank" rel="noopener noreferrer">DAWUM</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a></span><span id="coat-credit" hidden> · Wappen: <a id="coat-source" target="_blank" rel="noopener noreferrer"></a><span id="coat-artist-credit"> · <span id="coat-artist"></span></span> · <a id="coat-license" target="_blank" rel="noopener noreferrer"></a></span>.</p>
     </section>
+    <footer class="site-footer"><span>Sonntagsfrage · Politische Stimmung im Zeitverlauf</span><a href="../index.html">Zur Übersicht ↗</a></footer>
   </main>
   <div id="election-tooltip" class="election-tooltip" role="tooltip" hidden></div>
   <script type="application/json" id="poll-data">__POLL_DATA__</script>
@@ -177,7 +241,7 @@
       const topN = 10;
       const maxValue = 50;
       const rowHeight = 56;
-      const governmentBandColors = ["#fff0c9", "#e1f4e8"];
+      const governmentBandColors = ["#ede8da", "#e6ebe1"];
       const race = document.getElementById("race");
       const trendCanvas = document.getElementById("trend-chart");
       const cadence = document.getElementById("cadence");
