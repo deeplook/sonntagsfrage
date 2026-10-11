@@ -6,6 +6,12 @@ redistributing derived material. It is a provenance aid, not a legal opinion.
 Review source terms again before publishing or redistributing a dataset or
 chart, especially when a status below is marked **Unclear**.
 
+The repository's MIT license covers only original project code; it does not
+relicense the third-party data, archived source material, or artwork listed
+below. Each item's own terms apply. A public repository or chart does not by
+itself establish permission to redistribute source material whose reuse terms
+are unclear.
+
 The retrieval manifests beside the archived data record snapshot paths,
 source URLs, retrieval dates where available, and SHA-256 hashes. Normalized
 rows retain source URLs when the source is row-specific. The manifests establish

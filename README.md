@@ -69,6 +69,15 @@ See [`data/SOURCES.md`](data/SOURCES.md) for the project's source register,
 known licenses, attribution guidance, and sources whose reuse terms still need
 verification before redistribution.
 
+## License
+
+The original project code is licensed under the [MIT License](LICENSE).
+Third-party polling and election data, coat-of-arms artwork, and other
+third-party material are not relicensed by it; their own terms and attribution
+requirements continue to apply. See [`data/SOURCES.md`](data/SOURCES.md) and
+the asset manifest for details. The license does not grant permission to
+redistribute material whose source terms are unclear.
+
 ## Interactive polling chart
 
 The interactive chart is published with GitHub Pages. In the repository settings,
