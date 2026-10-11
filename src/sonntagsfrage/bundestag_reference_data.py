@@ -1,6 +1,5 @@
 """Download and refresh Bundestag election references used by the chart."""
 
-import argparse
 import csv
 from datetime import date
 import hashlib
@@ -8,8 +7,10 @@ from html.parser import HTMLParser
 import io
 from pathlib import Path
 import re
-import sys
 
+import typer
+
+from .cli import create_app, fail
 from .fetch import atomic_write, fetch, write_csv
 
 
@@ -163,11 +164,12 @@ def snapshot_name(start_date: str, cabinet: str) -> str:
     return f"{start_date}-{slug}.html"
 
 
-def main() -> None:
-    cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--data-dir", type=Path, default=Path("data"))
-    args = cli.parse_args()
-    raw_dir = args.data_dir / "raw"
+app = create_app(__doc__)
+
+
+@app.command()
+def run(data_dir: Path = typer.Option(Path("data"), "--data-dir", help="data directory (default: data)")) -> None:
+    raw_dir = data_dir / "raw"
 
     try:
         results_data = fetch(BUNDESWAHLLEITER_RESULTS_URL)
@@ -181,7 +183,7 @@ def main() -> None:
             election_pages.append((year, url, page_data))
         election_rows = parse_results(results_data, dates)
 
-        governments_path = args.data_dir / "governments.csv"
+        governments_path = data_dir / "governments.csv"
         with governments_path.open(newline="", encoding="utf-8") as handle:
             governments = list(csv.DictReader(handle))
         snapshots = []
@@ -196,12 +198,12 @@ def main() -> None:
             snapshots.append((filename, url, government, snapshot))
 
         atomic_write(raw_dir / "bundeswahlleiter-bundestag-results.csv", results_data)
-        write_csv(args.data_dir / "bundestag_elections.csv", ELECTION_FIELDS, election_rows)
+        write_csv(data_dir / "bundestag_elections.csv", ELECTION_FIELDS, election_rows)
 
         election_page_manifest = []
         for year, url, page_data in election_pages:
             relative_path = Path("raw") / "bundeswahlleiter-election-pages" / f"{year}.html"
-            atomic_write(args.data_dir / relative_path, page_data)
+            atomic_write(data_dir / relative_path, page_data)
             election_page_manifest.append({
                 "year": year,
                 "date": dates[year].isoformat(),
@@ -215,7 +217,7 @@ def main() -> None:
         manifest = []
         for filename, url, government, snapshot in snapshots:
             relative_path = Path("raw") / "government-sources" / filename
-            atomic_write(args.data_dir / relative_path, snapshot)
+            atomic_write(data_dir / relative_path, snapshot)
             manifest.append({
                 "start_date": government["start_date"],
                 "cabinet": government["cabinet"],
@@ -225,12 +227,15 @@ def main() -> None:
             })
         write_csv(raw_dir / "government-sources.csv", GOVERNMENT_SOURCE_FIELDS, manifest)
     except (OSError, RuntimeError, ValueError, KeyError) as exc:
-        print(f"error: {exc}", file=sys.stderr)
-        raise SystemExit(1) from exc
+        fail(str(exc))
 
     years = sorted({date.fromisoformat(row["date"]).year for row in election_rows})
     print(f"Bundestag elections: {len(election_rows)} party results across {len(years)} elections ({years[0]}–{years[-1]})")
     print(f"Government source snapshots: {len(snapshots)}; review interval edits in {governments_path}")
+
+
+def main() -> None:
+    app()
 
 
 if __name__ == "__main__":

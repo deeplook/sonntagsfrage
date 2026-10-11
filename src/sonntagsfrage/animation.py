@@ -1,6 +1,5 @@
 """Export INSA online-panel polls as a one-minute square GIF and MP4."""
 
-import argparse
 from dataclasses import dataclass
 from datetime import date, timedelta
 from fractions import Fraction
@@ -8,10 +7,14 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+from types import SimpleNamespace
+from typing import Literal
 import unicodedata
 
 from PIL import Image, ImageDraw, ImageFont
+import typer
 
+from .cli import create_app, fail
 from .race import load_dawum_frames, load_elections, load_frames, load_governments
 
 
@@ -419,42 +422,40 @@ def render_video(frames: list[dict], elections: list[dict], governments: list[di
         raise RuntimeError(error or "ffmpeg could not encode the animation")
 
 
-def main() -> None:
-    cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--parliament", default="bundestag",
-                     help="bundestag or a Landtag data directory name (default: bundestag)")
-    cli.add_argument("--landtag-data-dir", type=Path, default=Path("data/parliaments/landtag"),
-                     help="directory containing per-state data (default: data/parliaments/landtag)")
-    cli.add_argument("--source", choices=("all", "dawum", "wahlrecht"),
-                     help="poll source to include (default: Bundestag wahlrecht, Landtag all)")
-    cli.add_argument("--institute", help="include polls from this institute only")
-    cli.add_argument("--tasker", help="include polls for this commissioner only")
-    cli.add_argument("--method", help="include polls with this method only")
-    cli.add_argument("--polls", type=Path, help="override Bundestag poll CSV")
-    cli.add_argument("--results", type=Path, help="override Bundestag result CSV")
-    cli.add_argument("--governments", type=Path, help="override government interval CSV")
-    cli.add_argument("--elections", type=Path, help="override election result CSV")
-    cli.add_argument("--output", type=Path,
-                     help="GIF output path (default: charts/insa-race.gif for Bundestag, otherwise charts/<parliament>-race.gif)")
-    cli.add_argument("--seconds", type=int, default=60)
-    cli.add_argument("--size", type=int, default=640,
-                     help="square width and height in pixels (default: 640)")
-    cli.add_argument("--width", type=int, help="output width; pair with --height to set aspect ratio")
-    cli.add_argument("--height", type=int, help="output height; pair with --width to set aspect ratio")
-    cli.add_argument("--colors", type=int, default=48, help="GIF palette colors (4–256)")
-    cli.add_argument("--no-mp4", action="store_true", help="skip the smaller video companion")
-    cli.add_argument("--glide", action=argparse.BooleanOptionalAction, default=True,
-                     help="animate vertical bar movement between polls (default: enabled)")
-    args = cli.parse_args()
+app = create_app(__doc__)
+
+
+@app.command()
+def run(
+    parliament: str = typer.Option("bundestag", "--parliament", help="bundestag or a Landtag data directory name"),
+    landtag_data_dir: Path = typer.Option(Path("data/parliaments/landtag"), "--landtag-data-dir", help="directory containing per-state data"),
+    source: Literal["all", "dawum", "wahlrecht"] | None = typer.Option(None, "--source", help="poll source to include (default: Bundestag wahlrecht, Landtag all)"),
+    institute: str | None = typer.Option(None, "--institute", help="include polls from this institute only"),
+    tasker: str | None = typer.Option(None, "--tasker", help="include polls for this commissioner only"),
+    method: str | None = typer.Option(None, "--method", help="include polls with this method only"),
+    polls: Path | None = typer.Option(None, "--polls", help="override Bundestag poll CSV"),
+    results: Path | None = typer.Option(None, "--results", help="override Bundestag result CSV"),
+    governments: Path | None = typer.Option(None, "--governments", help="override government interval CSV"),
+    elections: Path | None = typer.Option(None, "--elections", help="override election result CSV"),
+    output: Path | None = typer.Option(None, "--output", help="GIF output path"),
+    seconds: int = typer.Option(60, "--seconds"),
+    size: int = typer.Option(640, "--size", help="square width and height in pixels"),
+    width: int | None = typer.Option(None, "--width", help="output width; pair with --height to set aspect ratio"),
+    height: int | None = typer.Option(None, "--height", help="output height; pair with --width to set aspect ratio"),
+    colors: int = typer.Option(48, "--colors", help="GIF palette colors (4–256)"),
+    no_mp4: bool = typer.Option(False, "--no-mp4", help="skip the smaller video companion"),
+    glide: bool = typer.Option(True, "--glide/--no-glide", help="animate vertical bar movement between polls"),
+) -> None:
+    args = SimpleNamespace(**locals())
     if args.seconds < 1 or not 4 <= args.colors <= 256:
-        cli.error("seconds must be positive and colors between 4 and 256")
+        fail("seconds must be positive and colors between 4 and 256", exit_code=2)
     if (args.width is None) != (args.height is None):
-        cli.error("--width and --height must be provided together")
+        fail("--width and --height must be provided together", exit_code=2)
     dimensions = (args.width, args.height) if args.width is not None else (args.size, args.size)
     if min(dimensions) < 320:
-        cli.error("output width and height must each be at least 320")
+        fail("output width and height must each be at least 320", exit_code=2)
     if shutil.which("ffmpeg") is None:
-        cli.error("ffmpeg is required to encode GIF and MP4 files")
+        fail("ffmpeg is required to encode GIF and MP4 files", exit_code=2)
     try:
         selected_source = args.source or ("wahlrecht" if args.parliament == "bundestag" else "all")
         if args.parliament == "bundestag":
@@ -561,10 +562,14 @@ def main() -> None:
                            "-movflags", "+faststart", str(mp4_output))
                 mp4_output.replace(video_path)
     except (OSError, KeyError, ValueError, RuntimeError) as exc:
-        cli.exit(1, f"error: {exc}\n")
+        fail(str(exc))
     print(f"GIF: {output} ({output.stat().st_size / 1_000_000:.1f} MB, {len(frames)} polls in {args.seconds}s)")
     if not args.no_mp4:
         print(f"MP4: {video_path} ({video_path.stat().st_size / 1_000_000:.1f} MB)")
+
+
+def main() -> None:
+    app()
 
 
 if __name__ == "__main__":

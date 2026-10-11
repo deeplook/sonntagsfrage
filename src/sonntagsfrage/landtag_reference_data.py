@@ -1,6 +1,5 @@
 """Download state election results and historical cabinet references."""
 
-import argparse
 import csv
 from datetime import date
 import hashlib
@@ -11,6 +10,9 @@ from pathlib import Path
 import re
 from urllib.parse import quote, unquote, urljoin
 
+import typer
+
+from .cli import create_app, fail
 from .fetch import atomic_write, fetch, write_csv
 
 
@@ -600,14 +602,19 @@ def download(data_dir: Path) -> None:
     print(f"StatePol {version}: cabinets available through {max_end}; added cabinet-history timelines from Wikipedia predecessor chains")
 
 
-def main() -> None:
-    cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--data-dir", type=Path, default=Path("data"))
-    args = cli.parse_args()
+app = create_app(__doc__)
+
+
+@app.command()
+def run(data_dir: Path = typer.Option(Path("data"), "--data-dir", help="data directory (default: data)")) -> None:
     try:
-        download(args.data_dir)
+        download(data_dir)
     except (OSError, KeyError, ValueError, RuntimeError) as exc:
-        cli.exit(1, f"error: {exc}\n")
+        fail(str(exc))
+
+
+def main() -> None:
+    app()
 
 
 if __name__ == "__main__":

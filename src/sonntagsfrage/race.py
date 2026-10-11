@@ -1,12 +1,13 @@
 """Render INSA poll results as a standalone HTML bar chart race."""
 
-import argparse
 import csv
 from datetime import date
 from importlib.resources import files
 import json
 from pathlib import Path
+import typer
 
+from .cli import create_app, fail
 from .fetch import atomic_write
 
 
@@ -173,20 +174,25 @@ def render(frames: list[dict], elections: list[dict] | None = None,
             .replace("__DATASET_DATA__", payload(datasets or [])))
 
 
-def main() -> None:
-    cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--polls", type=Path, default=Path("data/parliaments/bundestag/polls/wahlrecht-insa.csv"))
-    cli.add_argument("--results", type=Path, default=Path("data/parliaments/bundestag/results/wahlrecht-insa.csv"))
-    cli.add_argument("--governments", type=Path, default=Path("data/parliaments/bundestag/governments.csv"))
-    cli.add_argument("--elections", type=Path, default=Path("data/parliaments/bundestag/elections.csv"))
-    cli.add_argument("--landtag-data-dir", type=Path, default=Path("data/parliaments/landtag"),
-                     help="directory containing per-state polls, results, elections, and governments")
-    cli.add_argument("--output", type=Path, default=Path("charts/insa-race.html"))
-    args = cli.parse_args()
+app = create_app(__doc__)
+
+
+@app.command()
+def run(
+    polls: Path = typer.Option(Path("data/parliaments/bundestag/polls/wahlrecht-insa.csv"), "--polls"),
+    results: Path = typer.Option(Path("data/parliaments/bundestag/results/wahlrecht-insa.csv"), "--results"),
+    governments_path: Path = typer.Option(Path("data/parliaments/bundestag/governments.csv"), "--governments"),
+    elections_path: Path = typer.Option(Path("data/parliaments/bundestag/elections.csv"), "--elections"),
+    landtag_data_dir: Path = typer.Option(
+        Path("data/parliaments/landtag"), "--landtag-data-dir",
+        help="directory containing per-state polls, results, elections, and governments",
+    ),
+    output: Path = typer.Option(Path("charts/insa-race.html"), "--output"),
+) -> None:
     try:
-        frames = load_frames(args.polls, args.results, args.governments)
-        elections = load_elections(args.elections)
-        governments = load_governments(args.governments)
+        frames = load_frames(polls, results, governments_path)
+        elections = load_elections(elections_path)
+        governments = load_governments(governments_path)
         datasets = [load_dataset(
             "bundestag", "Bundestag", "Deutschland · Bundestagswahl",
             "INSA Sonntagsfrage im Zeitverlauf",
@@ -205,7 +211,7 @@ def main() -> None:
             "schleswig-holstein": "Schleswig-Holstein", "thueringen": "Thüringen",
         }
         for state, state_label in states.items():
-            base = args.landtag_data_dir / state
+            base = landtag_data_dir / state
             state_frames = load_dawum_frames(base / "polls" / "dawum.csv",
                                              base / "results" / "dawum.csv",
                                              base / "governments.csv",
@@ -223,10 +229,14 @@ def main() -> None:
                 "DAWUM", "https://dawum.de/", "Wahlrecht.de",
                 election_source_url,
             ))
-        atomic_write(args.output, render(frames, elections, governments, datasets).encode("utf-8"))
+        atomic_write(output, render(frames, elections, governments, datasets).encode("utf-8"))
     except (OSError, KeyError, ValueError) as exc:
-        cli.exit(1, f"error: {exc}\n")
-    print(f"Wrote {args.output} with {len(frames)} INSA polls ({frames[0]['date']} to {frames[-1]['date']})")
+        fail(str(exc))
+    print(f"Wrote {output} with {len(frames)} INSA polls ({frames[0]['date']} to {frames[-1]['date']})")
+
+
+def main() -> None:
+    app()
 
 
 if __name__ == "__main__":

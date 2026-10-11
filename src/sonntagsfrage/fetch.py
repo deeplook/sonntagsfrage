@@ -1,6 +1,5 @@
 """Fetch dawum polls and the full historical INSA Bundestag archive."""
 
-import argparse
 import csv
 from datetime import date, datetime
 from hashlib import sha256
@@ -12,10 +11,14 @@ import re
 import ssl
 import sys
 from tempfile import NamedTemporaryFile
+from typing import Literal
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 import certifi
+import typer
+
+from .cli import create_app
 
 
 DAWUM_URL = "https://api.dawum.de/"
@@ -219,31 +222,44 @@ def parse_insa(html: bytes, url: str) -> tuple[list[dict], list[dict]]:
     return polls, results
 
 
-def main() -> None:
-    cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("--output-dir", type=Path, default=Path("data"))
-    cli.add_argument("--source", choices=("all", "dawum", "insa"), default="all")
-    args = cli.parse_args()
+app = create_app(__doc__)
+
+
+@app.command()
+def run(
+    output_dir: Path = typer.Option(Path("data"), "--output-dir", help="data directory (default: data)"),
+    source: Literal["all", "dawum", "insa"] = typer.Option(
+        "all", "--source", help="poll source to fetch (default: all)"
+    ),
+) -> None:
     try:
-        if args.source in ("all", "dawum"):
+        if source in ("all", "dawum"):
             raw = fetch(DAWUM_URL)
             database, polls, results = parse_dawum(raw)
-            atomic_write(args.output_dir / "raw" / "dawum.json", raw)
-            write_csv(args.output_dir / "dawum_polls.csv", POLL_FIELDS, polls)
-            write_csv(args.output_dir / "dawum_results.csv", RESULT_FIELDS, results)
+            atomic_write(output_dir / "raw" / "dawum.json", raw)
+            write_csv(output_dir / "dawum_polls.csv", POLL_FIELDS, polls)
+            write_csv(output_dir / "dawum_results.csv", RESULT_FIELDS, results)
             insa_count = sum(poll["institute"].upper() == "INSA" for poll in polls)
             print(f"dawum: {len(polls)} polls ({insa_count} INSA), {len(results)} party results; updated {database['Database']['Last_Update']}")
-        if args.source in ("all", "insa"):
+        if source in ("all", "insa"):
             polls, results = [], []
             for url in INSA_URLS:
                 raw = fetch(url)
                 page_polls, page_results = parse_insa(raw, url)
                 polls.extend(page_polls)
                 results.extend(page_results)
-                atomic_write(args.output_dir / "raw" / f"insa-{url.rsplit('/', 1)[-1]}", raw)
-            write_csv(args.output_dir / "insa_polls.csv", POLL_FIELDS, polls)
-            write_csv(args.output_dir / "insa_results.csv", RESULT_FIELDS, results)
+                atomic_write(output_dir / "raw" / f"insa-{url.rsplit('/', 1)[-1]}", raw)
+            write_csv(output_dir / "insa_polls.csv", POLL_FIELDS, polls)
+            write_csv(output_dir / "insa_results.csv", RESULT_FIELDS, results)
             print(f"wahlrecht INSA: {len(polls)} polls, {len(results)} party results; {min(p['publication_date'] for p in polls)} to {max(p['publication_date'] for p in polls)}")
     except (RuntimeError, ValueError, KeyError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
+
+
+def main() -> None:
+    app()
+
+
+if __name__ == "__main__":
+    main()
