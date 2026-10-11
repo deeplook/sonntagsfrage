@@ -2,7 +2,6 @@
 
 from dataclasses import dataclass
 from datetime import date, timedelta
-from fractions import Fraction
 from importlib.resources import files
 from io import BytesIO
 import json
@@ -150,7 +149,7 @@ def animation_timing(poll_count: int, seconds: int, glide: bool) -> tuple[int, s
     steps = GLIDE_TRANSITION_STEPS if glide else 0
     minimum_frames = ((poll_count - 1) * steps + poll_count if glide else poll_count)
     frame_count = max(OUTPUT_FRAME_RATE * seconds, minimum_frames)
-    return frame_count, str(Fraction(frame_count, seconds)), steps
+    return frame_count, str(OUTPUT_FRAME_RATE), steps
 
 
 def ranks(values: dict[str, float]) -> dict[str, int]:

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive charts of German election polls and results.">
+  <title>Sonntagsfrage · German Election Polls</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #172033;
+      background: #f5f6fa;
+    }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; }
+    main { width: min(100%, 680px); padding: clamp(28px, 7vw, 56px); background: white;
+      border: 1px solid #e3e7f0; border-radius: 20px; box-shadow: 0 16px 48px #1c284610; }
+    .eyebrow { color: #5b56cc; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 12px 0; font-size: clamp(34px, 7vw, 54px); line-height: 1.05; letter-spacing: -.045em; }
+    p { max-width: 52ch; color: #596478; line-height: 1.65; }
+    figure { margin: 28px 0 0; }
+    figure a { display: block; margin: 0; padding: 0; background: transparent; }
+    figure a:hover { background: transparent; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid #e3e7f0; border-radius: 12px; }
+    figcaption { margin-top: 9px; color: #69758c; font-size: 13px; }
+    a { display: inline-flex; align-items: center; min-height: 46px; margin-top: 14px; padding: 0 18px;
+      border-radius: 9px; background: #5b56cc; color: white; font-weight: 750; text-decoration: none; }
+    a:hover { background: #4944b8; }
+    a:focus-visible { outline: 3px solid #a7a3ff; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Sonntagsfrage</div>
+    <h1>German election polls over time</h1>
+    <p>Explore polling trends, election results, and government periods in an interactive chart. Choose a parliament, filter the polls, or play through the timeline.</p>
+    <p>The chart interface and the rest of the site are in German.</p>
+    <figure>
+      <a href="charts/insa-race.html" aria-label="Open the interactive chart">
+        <img src="charts/insa-race-preview.png" alt="Preview of the interactive German election polling chart, showing the poll filters and party bars">
+      </a>
+      <figcaption>Preview of the interactive chart</figcaption>
+    </figure>
+    <a href="charts/insa-race.html">Open the interactive chart</a>
+  </main>
+</body>
+</html>

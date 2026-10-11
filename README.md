@@ -1,21 +1,34 @@
 # Sonntagsfrage
 
-Download the poll data discussed in [work/BRAINSTORM.md](work/BRAINSTORM.md). The
-project uses Python 3.12+ and [uv](https://docs.astral.sh/uv/) to manage its
-dependencies.
+Sonntagsfrage collects and organizes German election polls, election results,
+and government timelines, then uses them to build interactive polling charts
+and election animations. The project uses Python 3.12+ and
+[uv](https://docs.astral.sh/uv/) to manage its dependencies.
 
 Install the project and its dependencies in a local virtual environment with:
 
 ```sh
-uv sync
+make install
 ```
 
-Then run project commands with `uv run` as shown below. To create distributable
-source and wheel packages, run `uv build`.
+Then run project commands with `uv run` as shown below. Create distributable
+source and wheel packages with `make build`.
 
 ```sh
 uv run sonntagsfrage
 ```
+
+## Development
+
+Install development dependencies and run the test suite with:
+
+```sh
+make install
+make test
+```
+
+GitHub Actions runs `make test` on pushes to `main`, pull requests, and manual
+workflow runs. Run `make` to list available targets.
 
 The default command downloads two sources:
 
@@ -57,6 +70,13 @@ known licenses, attribution guidance, and sources whose reuse terms still need
 verification before redistribution.
 
 ## INSA bar chart race
+
+The interactive chart is published with GitHub Pages. In the repository settings,
+set **Pages → Build and deployment → Source** to **GitHub Actions**. Commits to
+`main` deploy the landing page and `charts/insa-race.html`; run the **Deploy
+GitHub Pages** workflow manually from the Actions tab to publish on demand. The
+chart is published as committed, so regenerate it with `uv run sonntagsfrage-race`
+and commit the updated HTML when its data changes.
 
 After fetching the archive, generate a standalone interactive page:
 
