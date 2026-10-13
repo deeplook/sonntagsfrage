@@ -23,6 +23,9 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Fetch latest poll data
         run: uv run sonntagsfrage --source all
 
