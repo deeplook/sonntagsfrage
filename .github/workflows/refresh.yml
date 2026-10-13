@@ -23,20 +23,40 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Fetch latest poll data
         run: uv run sonntagsfrage --source all
 
       - name: Regenerate interactive chart
         run: uv run sonntagsfrage-race
 
+      - name: Regenerate animation and front-page preview
+        run: |
+          uv run sonntagsfrage-gif --no-mp4
+          uv run python - <<'PY'
+          from PIL import Image
+          import imageio.v3 as iio
+
+          frames = iio.imiter("charts/insa-race.gif")
+          last = None
+          for frame in frames:
+              last = frame
+          if last is None:
+              raise SystemExit("GIF contained no frames")
+          Image.fromarray(last).save("charts/election-polls-preview.png")
+          print("Wrote charts/election-polls-preview.png")
+          PY
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data charts/election-polls.html
+          git add data charts/election-polls.html charts/election-polls-preview.png charts/insa-race.gif
           if git diff --staged --quiet; then
             echo "No changes — data is already up to date."
           else
-            git commit -m "chore: refresh poll data and chart"
+            git commit -m "chore: refresh poll data, chart, and preview"
             git push
           fi
