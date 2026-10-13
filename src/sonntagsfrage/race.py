@@ -3,6 +3,7 @@
 import base64
 import csv
 import json
+import unicodedata
 from datetime import date
 from importlib.resources import files
 from pathlib import Path
@@ -10,6 +11,22 @@ import typer
 
 from .cli import create_app, fail
 from .fetch import atomic_write
+
+
+PARTY_ALIASES = {
+    "CDUCSU": "CDU/CSU",
+    "GRUNE": "GRÜNE", "B90GRUNE": "GRÜNE", "BUNDNIS90DIEGRUNEN": "GRÜNE",
+    "DIELINKE": "LINKE", "LINKE": "LINKE", "PDSDIELINKE": "LINKE",
+    "AFD": "AfD", "FREIEWAHLER": "FW", "BVBFW": "FW", "BVBFREIEWAHLER": "FW", "PIRATEN": "PIRATEN",
+}
+
+
+def normalize_party_name(party: str) -> str:
+    """Map common source labels to one stable display name."""
+    key = "".join(character for character in unicodedata.normalize("NFKD", party)
+                  if not unicodedata.combining(character)).upper()
+    key = "".join(character for character in key if character.isalpha() or character.isdigit())
+    return PARTY_ALIASES.get(key, party.strip())
 
 
 def load_governments(path: Path) -> list[dict]:
@@ -37,7 +54,7 @@ def load_elections(path: Path) -> list[dict]:
     by_date: dict[date, dict[str, float]] = {}
     for row in rows:
         election_date = date.fromisoformat(row["date"])
-        party = row["party"].strip()
+        party = normalize_party_name(row["party"])
         percent = float(row["percent"])
         if not party or not 0 <= percent <= 100:
             raise ValueError(f"Invalid election result in {path}: {row}")
@@ -60,7 +77,7 @@ def load_frames(polls_path: Path, results_path: Path,
     for row in results:
         if row["source"] != "wahlrecht-INSA":
             continue
-        party = row["party"].strip()
+        party = normalize_party_name(row["party"])
         if not party or party.casefold() == "sonstige":
             continue  # 'Others' is an aggregate, not a party.
         by_poll.setdefault(row["source_poll_id"], {})[party] = float(row["percent"])
@@ -116,7 +133,7 @@ def load_dawum_frames(polls_path: Path, results_path: Path,
     governments = load_governments(governments_path)
     by_poll: dict[str, dict[str, float]] = {}
     for row in results:
-        party = row["party"].strip()
+        party = normalize_party_name(row["party"])
         if not party or party.casefold() == "sonstige":
             continue
         by_poll.setdefault(row["source_poll_id"], {})[party] = float(row["percent"])
@@ -206,15 +223,37 @@ def run(
     output: Path = typer.Option(Path("charts/election-polls.html"), "--output"),
 ) -> None:
     try:
-        frames = load_frames(polls, results, governments_path)
+        dawum_frames = load_dawum_frames(
+            Path("data/parliaments/bundestag/polls/dawum.csv"),
+            Path("data/parliaments/bundestag/results/dawum.csv"),
+            governments_path,
+        )
+        wahlrecht_frames = load_frames(polls, results, governments_path)
+        # The sources overlap on INSA. Keep Wahlrecht's original record where
+        # publication date and normalized party results identify the same poll.
+        wahlrecht_insa = {
+            (frame["date"], frame["institute"], tuple(sorted(frame["values"].items())))
+            for frame in wahlrecht_frames
+        }
+        dawum_frames = [
+            frame for frame in dawum_frames
+            if frame["institute"] != "INSA" or (
+                frame["date"], frame["institute"], tuple(sorted(frame["values"].items()))
+            ) not in wahlrecht_insa
+        ]
+        frames = dawum_frames + wahlrecht_frames
+        frames.sort(key=lambda frame: (
+            frame["date"], frame["reference_date"], frame["institute"],
+            frame["method"], frame["source_name"], frame["sample"] or "",
+        ))
         elections = load_elections(elections_path)
         governments = load_governments(governments_path)
         datasets = [load_dataset(
             "bundestag", "Bundestag", "Deutschland · Bundestagswahl",
             "Bundestagsumfragen im Zeitverlauf",
             "Parteianteile in veröffentlichten Bundestagsumfragen. Die Balken folgen dem Rang in jeder Erhebung.",
-            frames, elections, governments, "wahlrecht.de / INSA",
-            "https://www.wahlrecht.de/umfragen/insa.htm", "Bundeswahlleiterin",
+            frames, elections, governments, "DAWUM / Wahlrecht.de",
+            "https://dawum.de/", "Bundeswahlleiterin",
             "https://www.bundeswahlleiterin.de/",
         )]
         states = {
@@ -248,7 +287,7 @@ def run(
         atomic_write(output, render(frames, elections, governments, datasets).encode("utf-8"))
     except (OSError, KeyError, ValueError) as exc:
         fail(str(exc))
-    print(f"Wrote {output} with {len(frames)} INSA polls ({frames[0]['date']} to {frames[-1]['date']})")
+    print(f"Wrote {output} with {len(frames)} Bundestag polls ({frames[0]['date']} to {frames[-1]['date']})")
 
 
 def main() -> None:

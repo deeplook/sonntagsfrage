@@ -98,10 +98,11 @@ and election reference data are embedded, so the file works offline. Its
 history chart grows with playback and includes election results and government
 periods. Use the **Parlament** selector to switch between the Bundestag and any
 of the 16 Landtage; poll series, government labels, election markers, titles,
-and source credits update together. Landtag polls newer than the latest DAWUM
-entry are supplemented from Wahlrecht.de's state poll tables. **Institut / Auftraggeber** filters a
-Landtag view by pollster or commissioning organization; the Bundestag view
-currently offers INSA only. The file embeds DAWUM, supplemental Wahlrecht poll
+and source credits update together. The Bundestag view combines DAWUM polls from
+2017 onward with Wahlrecht.de's historical INSA series; **Institut / Auftraggeber**
+filters each view by pollster or commissioning organization. Landtag polls newer
+than the latest DAWUM entry are supplemented from Wahlrecht.de's state poll tables.
+The file embeds DAWUM, supplemental Wahlrecht poll
 data, and Landtag reference tables, so no separate data files are needed in the browser.
 The default playback shows the last published poll of each month;
 switch to **Jede Umfrage** to step through every poll. You can filter by survey
