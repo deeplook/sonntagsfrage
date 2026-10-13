@@ -23,9 +23,6 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - name: Install FFmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
       - name: Fetch latest poll data
         run: uv run sonntagsfrage --source all
 
@@ -35,7 +32,7 @@ jobs:
       - name: Regenerate animation and front-page preview
         run: |
           uv run sonntagsfrage-gif --no-mp4
-          uv run python - <<'PY'
+          uv run --with imageio --with imageio-ffmpeg python - <<'PY'
           from PIL import Image
           import imageio.v3 as iio
 
