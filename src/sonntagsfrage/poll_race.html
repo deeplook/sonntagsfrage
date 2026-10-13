@@ -80,7 +80,7 @@
     .timeline input { display: block; width: 100%; margin: 0; accent-color: #5b56cc; cursor: pointer; }
     .note { margin: 0; padding: 0 25px 23px; color: #738096; font-size: 12px; line-height: 1.55; }
     .note a { color: #514dc1; }
-    @media (max-width: 760px) {
+    @media (max-width: 1060px) {
       .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
@@ -649,6 +649,8 @@
           ? [new Option("Alle Institute / Auftraggeber", "all"), ...pollSources.map(value => new Option(value, value))]
           : pollSources.map(value => new Option(value, value));
         pollSourceFilter.replaceChildren(...sourceOptions);
+        pollSourceFilter.value = dataset.name === "bundestag" && pollSources.includes("INSA")
+          ? "INSA" : pollSources.length > 1 ? "all" : (pollSources[0] || "");
         rebuild();
       }
 

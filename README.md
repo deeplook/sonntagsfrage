@@ -104,6 +104,8 @@ filters each view by pollster or commissioning organization. Landtag polls newer
 than the latest DAWUM entry are supplemented from Wahlrecht.de's state poll tables.
 The file embeds DAWUM, supplemental Wahlrecht poll
 data, and Landtag reference tables, so no separate data files are needed in the browser.
+The page opens on the Bundestag filtered to INSA; choose **Alle Institute / Auftraggeber**
+to include the other providers.
 The default playback shows the last published poll of each month;
 switch to **Jede Umfrage** to step through every poll. You can filter by survey
 method, scrub the timeline, and change playback speed. The values are
