@@ -1,4 +1,5 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4346,2026-10-09,2026-09-29,2026-10-06,,1000,Brandenburgischer Landtag,INSA,Märkische Allgemeine Zeitung (MAZ) / Märkische Oderzeitung (MOZ) / Lausitzer Rundschau (LR),Online,https://api.dawum.de/
 dawum,4216,2026-06-24,2026-06-18,2026-06-22,,1159,Brandenburgischer Landtag,Infratest dimap,RBB Brandenburg aktuell / Antenne Brandenburg,Telefon & Online,https://api.dawum.de/
 dawum,4130,2026-03-20,2026-03-11,2026-03-18,,1000,Brandenburgischer Landtag,INSA,Märkische Allgemeine Zeitung (MAZ) / Märkische Oderzeitung (MOZ) / Lausitzer Rundschau (LR),Online,https://api.dawum.de/
 dawum,4055,2026-01-15,2026-01-09,2026-01-14,,1000,Brandenburgischer Landtag,INSA,Nordkurier,Online,https://api.dawum.de/
