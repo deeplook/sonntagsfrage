@@ -1,4 +1,6 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4358,2026-10-20,2026-10-12,2026-10-17,,1207,Bayerischer Landtag,Infratest dimap,Bayerischer Rundfunk,Telefon & Online,https://api.dawum.de/
+dawum,4353,2026-10-19,2026-10-14,2026-10-19,,1011,Bayerischer Landtag,GMS,SAT.1 Bayern,Telefon & Online,https://api.dawum.de/
 dawum,4323,2026-09-12,2026-08-27,2026-09-10,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
 dawum,4273,2026-08-14,2026-07-30,2026-08-13,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/
 dawum,4257,2026-07-18,2026-07-02,2026-07-17,,5000,Bayerischer Landtag,Civey,Augsburger Allgemeine,Online,https://api.dawum.de/

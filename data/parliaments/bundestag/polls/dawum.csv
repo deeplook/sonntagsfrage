@@ -1,4 +1,9 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4359,2026-10-20,2026-10-16,2026-10-19,,1300,Bundestag,pollytix,pollytix,Online,https://api.dawum.de/
+dawum,4357,2026-10-20,2026-10-13,2026-10-19,,2502,Bundestag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
+dawum,4356,2026-10-20,2026-10-16,2026-10-19,,2002,Bundestag,INSA,BILD,Online,https://api.dawum.de/
+dawum,4355,2026-10-20,2026-10-16,2026-10-19,,1773,Bundestag,YouGov,YouGov,Online,https://api.dawum.de/
+dawum,4354,2026-10-19,2026-10-14,2026-10-19,,1012,Bundestag,GMS,GMS,Telefon & Online,https://api.dawum.de/
 dawum,4352,2026-10-17,2026-10-12,2026-10-16,,1206,Bundestag,INSA,BILD am Sonntag,Telefon & Online,https://api.dawum.de/
 dawum,4349,2026-10-13,2026-10-09,2026-10-12,,2006,Bundestag,INSA,BILD,Online,https://api.dawum.de/
 dawum,4348,2026-10-13,2026-10-06,2026-10-12,,1502,Bundestag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
