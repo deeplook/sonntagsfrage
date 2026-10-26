@@ -1,4 +1,8 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4363,2026-10-24,2026-10-19,2026-10-23,,1209,Bundestag,INSA,BILD am Sonntag,Telefon & Online,https://api.dawum.de/
+dawum,4362,2026-10-23,2026-10-14,2026-10-20,,1470,Bundestag,Verian (Emnid),FOCUS,Telefonisch,https://api.dawum.de/
+dawum,4361,2026-10-23,2026-10-20,2026-10-22,,1225,Bundestag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
+dawum,4360,2026-10-22,2026-10-02,2026-10-16,,1048,Bundestag,Allensbach,Frankfurter Allgemeine Zeitung,Persönlich,https://api.dawum.de/
 dawum,4359,2026-10-20,2026-10-16,2026-10-19,,1300,Bundestag,pollytix,pollytix,Online,https://api.dawum.de/
 dawum,4357,2026-10-20,2026-10-13,2026-10-19,,2502,Bundestag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
 dawum,4356,2026-10-20,2026-10-16,2026-10-19,,2002,Bundestag,INSA,BILD,Online,https://api.dawum.de/
