@@ -1,4 +1,6 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4375,2026-11-07,2026-11-02,2026-11-06,,1204,Bundestag,INSA,BILD am Sonntag,Telefon & Online,https://api.dawum.de/
+dawum,4372,2026-11-05,2026-11-02,2026-11-04,,1297,Bundestag,Infratest dimap,ARD-Tagesthemen,Telefon & Online,https://api.dawum.de/
 dawum,4370,2026-11-03,2026-10-30,2026-11-02,,2004,Bundestag,INSA,BILD,Online,https://api.dawum.de/
 dawum,4369,2026-11-03,2026-10-27,2026-11-02,,2500,Bundestag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
 dawum,4368,2026-10-31,2026-10-26,2026-10-30,,1202,Bundestag,INSA,BILD am Sonntag,Telefon & Online,https://api.dawum.de/

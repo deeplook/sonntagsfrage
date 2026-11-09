@@ -1,4 +1,12 @@
 source,source_poll_id,party,percent,source_url
+dawum,4373,AfD,40,https://api.dawum.de/
+dawum,4373,CDU,18,https://api.dawum.de/
+dawum,4373,Linke,17,https://api.dawum.de/
+dawum,4373,SPD,8,https://api.dawum.de/
+dawum,4373,Sonstige,6,https://api.dawum.de/
+dawum,4373,BSW,5,https://api.dawum.de/
+dawum,4373,Grüne,4,https://api.dawum.de/
+dawum,4373,Thüringen.Gerecht,2,https://api.dawum.de/
 dawum,4225,AfD,40,https://api.dawum.de/
 dawum,4225,CDU,22,https://api.dawum.de/
 dawum,4225,Linke,16,https://api.dawum.de/
