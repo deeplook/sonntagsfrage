@@ -1,4 +1,5 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4379,2026-11-11,2026-11-03,2026-11-10,,1000,Sächsischer Landtag,INSA,BILD,Online,https://api.dawum.de/
 dawum,4189,2026-05-21,2026-05-13,2026-05-20,,1000,Sächsischer Landtag,INSA,NIUS,Online,https://api.dawum.de/
 dawum,4048,2026-01-06,2025-12-21,2026-01-04,,2500,Sächsischer Landtag,Civey,Sächsische Zeitung / Leipziger Volkszeitung,Online,https://api.dawum.de/
 dawum,3916,2025-08-04,2025-07-20,2025-08-04,,2500,Sächsischer Landtag,Civey,Sächsische Zeitung,Online,https://api.dawum.de/
