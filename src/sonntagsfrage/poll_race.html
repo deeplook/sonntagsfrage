@@ -50,6 +50,8 @@
     .government-context a:hover { text-decoration: underline; }
     .gov-key { width: 4px; height: 15px; border-radius: 2px; background: #5b56cc; flex: none; }
     .frame-count { color: #8190a6; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .chart-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
+    .share-link { color: #4c5845; font-size: 12px; white-space: nowrap; text-underline-offset: 3px; }
     .chart { padding: 2px 26px 20px; }
     .axis { display: grid; grid-template-columns: 140px minmax(0, 1fr); padding-right: 54px; color: #8490a3; font-size: 11px; }
     .axis-values { display: flex; justify-content: space-between; padding: 0 0 7px; }
@@ -180,7 +182,7 @@
         <div class="field"><label for="speed">Tempo</label><div class="speed-wrap"><input id="speed" class="speed" type="range" min="100" max="1000" value="300" step="50"><span id="speed-value" class="speed-value">300 ms</span></div></div>
         </div>
       </details>
-      <div class="chart-head"><div><div class="chart-kicker">Momentaufnahme · Stimmenanteile</div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div id="frame-count" class="frame-count"></div></div>
+      <div class="chart-head"><div><div class="chart-kicker">Momentaufnahme · Stimmenanteile</div><div id="date" class="date"></div><div id="meta" class="meta"></div><div class="government-context"><span class="gov-key" aria-hidden="true"></span><a id="government-link" target="_blank" rel="noopener noreferrer"></a></div></div><div class="chart-actions"><div id="frame-count" class="frame-count"></div><a id="share-link" class="share-link" target="_blank" rel="noopener noreferrer" title="Link zur aktuellen Ansicht öffnen oder kopieren">Ansicht teilen ↗</a></div></div>
       <div class="chart"><div class="axis"><span></span><div class="axis-values"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div></div><div id="race" class="race" aria-live="off"></div>
         <div class="trend"><div class="trend-head"><span id="trend-title" class="field-label">Umfragen und Wahlergebnisse</span><div class="trend-legend" aria-label="Legende"><span class="trend-key"><i class="trend-gov-key"></i>Regierung</span><span class="trend-key"><i class="trend-line-key"></i>Umfragen</span><span class="trend-key"><i class="trend-guide-key"></i>Wahltag</span><span class="trend-key"><i class="trend-election-key"></i>Wahlergebnis</span><span class="trend-key"><i class="trend-bar-result-key"></i><span id="bar-election-label">Balken: letzte Wahl</span></span></div></div><canvas id="trend-chart" role="img" aria-label="Umfragewerte, Regierungsperioden und Wahlergebnisse im Zeitverlauf"></canvas></div>
       </div>
@@ -266,7 +268,74 @@
       const rows = new Map();
       let frames = [];
       let index = 0;
+      let latestIndex = 0;
       let timer = null;
+
+      // Identify a poll by its contents rather than its position: new data may
+      // insert earlier polls, and several institutes can publish on one date.
+      const pollKey = frame => JSON.stringify([
+        frame.date, frame.reference_date, frame.institute, frame.method,
+        frame.tasker, frame.sample, frame.source_name, frame.url,
+      ]);
+
+      function updateShareLink() {
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        params.delete("last");
+        params.delete("date");
+        params.delete("poll");
+        params.set("parliament", dataset.name);
+        params.set("source", pollSourceFilter.value);
+        params.set("cadence", cadence.value);
+        params.set("method", method.value);
+        params.set("speed", speed.value);
+        if (frames[index] && index === latestIndex) {
+          params.set("last", "1");
+        } else if (frames[index]) {
+          params.set("date", frames[index].date);
+          params.set("poll", pollKey(frames[index]));
+        }
+        const link = document.getElementById("share-link");
+        link.href = url.href;
+        link.title = params.has("last")
+          ? "Link zur jeweils neuesten passenden Umfrage öffnen oder kopieren"
+          : "Link zur aktuellen Ansicht öffnen oder kopieren";
+      }
+
+      function restoreSharedView() {
+        const params = new URL(window.location.href).searchParams;
+        const selectValue = (control, value) => {
+          if ([...control.options].some(option => option.value === value)) control.value = value;
+        };
+        selectValue(parliament, params.get("parliament"));
+        activateDataset();
+        selectValue(pollSourceFilter, params.get("source"));
+        selectValue(cadence, params.get("cadence"));
+        selectValue(method, params.get("method"));
+        const interval = Number(params.get("speed"));
+        if (interval >= Number(speed.min) && interval <= Number(speed.max) &&
+            (interval - Number(speed.min)) % Number(speed.step) === 0) {
+          speed.value = String(interval);
+        }
+        document.getElementById("speed-value").textContent = `${speed.value} ms`;
+        rebuild();
+        // A bare ?last (or &last=1) deliberately overrides a saved date/poll.
+        if (params.has("last")) return;
+        const sharedIndex = frames.findIndex(frame => pollKey(frame) === params.get("poll"));
+        if (sharedIndex >= 0) {
+          index = sharedIndex;
+          render(false);
+        } else if (/^\d{4}-\d{2}-\d{2}$/.test(params.get("date") || "")) {
+          const targetDay = toDay(params.get("date"));
+          if (Number.isFinite(targetDay)) {
+            // Publication dates provide a useful fallback if a source revised a poll.
+            index = frames.reduce((closest, frame, candidate) =>
+              Math.abs(toDay(frame.date) - targetDay) < Math.abs(toDay(frames[closest].date) - targetDay)
+                ? candidate : closest, 0);
+            render(false);
+          }
+        }
+      }
 
       function showElectionTooltip(event) {
         const marker = event.currentTarget;
@@ -486,8 +555,18 @@
       }
 
       function render(animate = true) {
+        updateShareLink();
         const frame = frames[index];
-        if (!frame) return;
+        if (!frame) {
+          for (const parts of rows.values()) parts.row.style.opacity = "0";
+          document.getElementById("date").textContent = "Keine Umfragen";
+          document.getElementById("meta").textContent = "Für diese Filter liegen keine Umfragen vor.";
+          document.getElementById("government-link").textContent = "";
+          document.getElementById("frame-count").textContent = "0 / 0";
+          scrubber.value = "0";
+          trendCanvas.getContext("2d").clearRect(0, 0, trendCanvas.width, trendCanvas.height);
+          return;
+        }
         const duration = animate ? `${Math.min(Number(speed.value) * .8, 650)}ms` : "0ms";
         race.style.setProperty("--motion", duration);
         race.style.setProperty("--row-motion", animate ? duration : "0ms");
@@ -570,6 +649,7 @@
       }
 
       function play() {
+        if (!frames.length) return;
         if (timer !== null) { pause(); return; }
         if (index >= frames.length - 1) { index = 0; render(false); }
         playButton.textContent = "Ⅱ Pause";
@@ -580,12 +660,15 @@
       function rebuild() {
         pause();
         frames = filteredFrames();
-        index = 0;
+        // Publication and fieldwork dates can have different orders. Open on
+        // the newest publication, using timeline order to break same-day ties.
+        latestIndex = frames.reduce((latest, frame, candidate) =>
+          frame.date >= frames[latest].date ? candidate : latest, 0);
+        index = latestIndex;
         scrubber.min = "0";
         scrubber.max = String(frames.length
           ? Math.max(1, frameDay(frames[frames.length - 1]) - frameDay(frames[0]))
           : 1);
-        if (!frames.length) return;
         render(false);
       }
 
@@ -684,6 +767,7 @@
       trendCanvas.addEventListener("lostpointercapture", stopTrendScrub);
       speed.addEventListener("input", () => {
         document.getElementById("speed-value").textContent = `${speed.value} ms`;
+        updateShareLink();
         if (timer !== null) { clearTimeout(timer); timer = setTimeout(tick, Number(speed.value)); }
       });
       window.addEventListener("resize", () => requestAnimationFrame(drawTrend));
@@ -695,7 +779,7 @@
       });
       datasets.forEach(item => parliament.add(new Option(item.label, item.name)));
       parliament.value = dataset.name;
-      activateDataset();
+      restoreSharedView();
     })();
   </script>
 </body>

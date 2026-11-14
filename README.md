@@ -111,6 +111,28 @@ switch to **Jede Umfrage** to step through every poll. You can filter by survey
 method, scrub the timeline, and change playback speed. The values are
 individual poll snapshots, not a cumulative total.
 
+Use **Ansicht teilen ↗** beside the chart's poll counter to open the current
+view in a new tab, or copy its link from the browser's link menu. The link
+preserves the parliament, institute/commissioner, cadence, method, playback
+speed, and either the latest matching poll or a selected historical poll.
+Shared views open paused. Links from the published
+page can be sent to others; links from a local HTML file refer to that local file.
+The URL parameters are `parliament`, `source`, `cadence` (`monthly` or `all`),
+`method`, `speed` (100–1000 ms in steps of 50), `date` (publication date), and
+`poll` (the exact poll identity). Unknown filter values keep their defaults;
+if a poll has been revised or removed, the nearest available publication date
+is shown instead. No link-shortening service is required.
+
+Without a saved poll or date, the chart opens on the most recently published
+poll matching the filters. Changing filters or parliament also selects the
+newest matching poll. Add `last` (or `last=1`) to a URL to always open on the
+newest matching poll, overriding any saved `date` or `poll`. For example,
+`charts/election-polls.html?parliament=berlin&source=all&last` follows the
+latest Berlin poll as the data is refreshed. **Ansicht teilen ↗** uses `last=1`
+when the newest matching poll is visible, so the shared link stays current.
+When an older poll is selected, it uses `date` and `poll` instead to preserve
+that specific snapshot.
+
 The violet stroke beside a party marks it as part of the **federal government
 at the end of that poll's fieldwork**. The chart also names the cabinet and its
 parties. The dated, source-linked intervals are in
