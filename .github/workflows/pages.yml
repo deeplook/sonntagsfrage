@@ -3,6 +3,10 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: [Refresh Data]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -16,12 +20,16 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Refresh Data pushes a new commit after its own run starts.
+          ref: ${{ github.event_name == 'workflow_run' && 'refs/heads/main' || github.ref }}
       - uses: actions/configure-pages@v5
       - name: Prepare site
         run: |
