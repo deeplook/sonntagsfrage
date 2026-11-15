@@ -2,10 +2,8 @@ name: Refresh Data
 
 on:
   schedule:
-    # Monday 06:00 UTC — new German federal polls typically appear Sunday evening
-    - cron: "0 6 * * 1"
-    # Thursday 06:00 UTC — mid-week catch for late or revised polls
-    - cron: "0 6 * * 4"
+    # Daily 06:00 UTC — check for new German federal polls every day
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
