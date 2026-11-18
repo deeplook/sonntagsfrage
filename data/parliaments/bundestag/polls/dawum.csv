@@ -1,4 +1,6 @@
 source,source_poll_id,publication_date,period_start,period_end,period_text,surveyed_persons,parliament,institute,tasker,method,source_url
+dawum,4385,2026-11-17,2026-11-13,2026-11-16,,2006,Bundestag,INSA,BILD,Online,https://api.dawum.de/
+dawum,4384,2026-11-17,2026-11-10,2026-11-16,,2501,Bundestag,Forsa,RTL / n-tv,Telefonisch,https://api.dawum.de/
 dawum,4383,2026-11-17,2026-11-13,2026-11-16,,1790,Bundestag,YouGov,YouGov,Online,https://api.dawum.de/
 dawum,4381,2026-11-14,2026-11-09,2026-11-13,,1204,Bundestag,INSA,BILD am Sonntag,Telefon & Online,https://api.dawum.de/
 dawum,4380,2026-11-13,2026-11-10,2026-11-12,,1297,Bundestag,Forschungsgruppe Wahlen,ZDF-Politbarometer,Telefon & Online,https://api.dawum.de/
