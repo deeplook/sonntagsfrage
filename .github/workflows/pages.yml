@@ -30,13 +30,17 @@ jobs:
         with:
           # Refresh Data pushes a new commit after its own run starts.
           ref: ${{ github.event_name == 'workflow_run' && 'refs/heads/main' || github.ref }}
+      - uses: astral-sh/setup-uv@v5
+      - name: Generate share pages and preview images
+        run: uv run sonntagsfrage-share-pages --output-dir share
       - uses: actions/configure-pages@v5
       - name: Prepare site
         run: |
-          mkdir -p _site/charts
+          mkdir -p _site/charts _site/share
           cp index.html _site/index.html
           cp charts/election-polls.html _site/charts/election-polls.html
           cp charts/election-polls-preview.png _site/charts/election-polls-preview.png
+          cp share/*.html share/*.png _site/share/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:
