@@ -266,7 +266,7 @@ def generate_share_page(parliament: str, output_dir: Path) -> None:
   <meta property="og:title" content="{info["og_title"]}">
   <meta property="og:description" content="{info["description"]}">
   <meta property="og:image" content="{image_url}">
-  <meta property="og:image:alt" content="Bar Chart Race: Parteienunterstützung in {info["label"]}umfragen">
+  <meta property="og:image:alt" content="Bar Chart Race: Parteienunterstützung in {info["title"]}">
   <meta property="og:url" content="{page_url}">
   <meta name="twitter:card" content="summary_large_image">
   <meta http-equiv="refresh" content="0; url={redirect_url}">
