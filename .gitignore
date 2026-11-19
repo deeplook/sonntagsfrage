@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+# Generated share pages (created during CI build)
+share/
+
 # macOS metadata
 .DS_Store

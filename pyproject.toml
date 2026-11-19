@@ -20,6 +20,7 @@ dev = ["pytest>=8.0"]
 sonntagsfrage = "sonntagsfrage:main"
 sonntagsfrage-race = "sonntagsfrage.race:main"
 sonntagsfrage-gif = "sonntagsfrage.animation:main"
+sonntagsfrage-share-pages = "sonntagsfrage.share_pages:main"
 sonntagsfrage-bundestag-reference-data = "sonntagsfrage.bundestag_reference_data:main"
 sonntagsfrage-landtag-reference-data = "sonntagsfrage.landtag_reference_data:main"
 
