@@ -320,8 +320,8 @@ def generate_preview_image(parliament: str, output_dir: Path, landtag_data_dir: 
         ))
         elections = load_elections(base / "elections.csv")
         governments = load_governments(base / "governments.csv")
-        header_kicker = "DEUTSCHLAND  ·  BUNDESTAG"
-        header_title = "WAHLUMFRAGEN"
+        header_kicker = "IM ZEITVERLAUF"
+        header_title = "Bundestag"
         state_coat = None
     else:
         base = landtag_data_dir / parliament
@@ -334,18 +334,8 @@ def generate_preview_image(parliament: str, output_dir: Path, landtag_data_dir: 
         )
         elections = load_elections(base / "elections.csv")
         governments = load_governments(base / "governments.csv")
-        state_labels = {
-            "baden-wuerttemberg": "BADEN-WÜRTTEMBERG", "bayern": "BAYERN",
-            "berlin": "BERLIN", "brandenburg": "BRANDENBURG", "bremen": "BREMEN",
-            "hamburg": "HAMBURG", "hessen": "HESSEN",
-            "mecklenburg-vorpommern": "MECKLENBURG-VORPOMMERN",
-            "niedersachsen": "NIEDERSACHSEN", "nordrhein-westfalen": "NORDRHEIN-WESTFALEN",
-            "rheinland-pfalz": "RHEINLAND-PFALZ", "saarland": "SAARLAND",
-            "sachsen": "SACHSEN", "sachsen-anhalt": "SACHSEN-ANHALT",
-            "schleswig-holstein": "SCHLESWIG-HOLSTEIN", "thueringen": "THÜRINGEN",
-        }
-        header_kicker = f"{state_labels.get(parliament, parliament.upper())}  ·  LANDTAG"
-        header_title = "LANDTAGSUMFRAGEN"
+        header_kicker = "IM ZEITVERLAUF"
+        header_title = f"Landtag {info['label']}"
         state_coat, _ = load_state_coat(parliament)
 
     if not frames:
