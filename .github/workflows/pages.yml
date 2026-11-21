@@ -8,11 +8,16 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+    inputs:
+      attempt:
+        description: Retry attempt number (set automatically)
+        default: "1"
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: github-pages
@@ -48,3 +53,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # deploy-pages sometimes fails because GitHub's artifact API lags behind the
+  # upload. Re-running the failed job cannot fix that (it uploads a duplicate
+  # artifact), so dispatch a fresh run instead, at most 3 attempts in total.
+  retry:
+    needs: deploy
+    if: ${{ failure() && fromJSON(github.event.inputs.attempt || '1') < 3 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch a fresh run after a delay
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEXT: ${{ fromJSON(github.event.inputs.attempt || '1') + 1 }}
+        run: |
+          sleep 60
+          gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main -f attempt="$NEXT"
